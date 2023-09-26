@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "path": "./bo"
+    },
+	{
+      "path": "./fo"
+    },
+    {
+      "path": "./common"
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.configPath": ".prettierrc",
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "D2Coding, Consolas, 'Courier New', monospace",
+    "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
+    "powermode.enabled": true,
+    "powermode.shake.enabled": false,
+    "powermode.presets": "particles",
+    "powermode.combo.location": "off",
+	"volar.completion.preferredAttrNameCase": "auto-camel"
+  }
+}

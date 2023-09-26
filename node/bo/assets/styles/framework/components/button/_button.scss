@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+.ipt {
+  &.ipt_btn {
+    .u-text-box-button {
+      position: absolute;
+      &.right {
+        right: 0;
+      }
+      &.left {
+        left: 0;
+      }
+      .btn_mdi {
+        position: relative;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+/**
+  텍스트 박스 아이콘 여백 계산 처리
+*/
+$base-text-button-padding: 30px;
+.ipt {
+  &.ipt_btn {
+    @for $i from 1 through 7 {
+      &.u-text-box-button-padding-left-#{$i} {
+        .wj-form-control {
+          padding-left: calc($base-text-button-padding * $i);
+        }
+      }
+      &.u-text-box-button-padding-right-#{$i} {
+        .wj-form-control {
+          padding-right: calc($base-text-button-padding * $i);
+        }
+      }
+    }
+  }
+}
+
+//u-button-box
+// 버튼박스
+.u-field {
+  .u-button-box {
+    .u-button {
+      height: 30px;
+      padding: 4px 11px;
+    }
+  }
+}
+.u-button-box {
+  width: fit-content;
+  padding: 6px 11px;
+  display: flex;
+  gap: 4px;
+}

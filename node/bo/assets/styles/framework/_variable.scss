@@ -1,0 +1,47 @@
+@charset "utf-8";
+/*
+$tabWidth : 142px;
+*/
+/*
+
+2022.09.29 color 파악 후 메모
+
+$vPrimary3 -> primary color
+$vPrimary1 -> primary border color
+$vPrimary4 -> paging active color
+
+$pointColorRed -> error, point color
+$pointColorSkyblue -> link text type2 color
+*/
+$vPrimary1: #151515; // checkbox, radio Border / tab, table, grid Border
+$vPrimary2: #f6f6f6; // 사용 안함
+$vPrimary3: #002f67; // menu, tab, listbox, button
+$vPrimary4: #0061d4; // paging active
+
+$pointColorRed: #bd0000;
+$pointColorGrey: #5e748b; // 사용안함
+$pointColorSkyblue: #359dff;
+$pointColorMint: #00d5a2; // 사용안함
+$pointColorYellow: #f9b037; // 사용안함
+
+$vDarken1: #000;
+$vDarken2: #333;
+$vDarken3: #535353;
+$vDarken4: #666;
+$vDarken5: #8e8e8e;
+$vDarken6: #909090;
+$vDarken7: #9f9f9f;
+$vDarken8: #bcbcbc;
+$vDarken9: #c4c4c4;
+$vDarken10: #cccccc;
+
+$vLighten1: #d0d0d0;
+$vLighten2: #dbdbdb;
+$vLighten3: #dadada;
+$vLighten4: #e3e3e3;
+$vLighten5: #e9e9e9;
+$vLighten6: #f1f1f1;
+$vLighten7: #f2f2f2;
+$vLighten8: #f4f4f4;
+$vLighten9: #f6f6f6;
+$vLighten10: #fff;

@@ -1,0 +1,17 @@
+.u-field-set-slot {
+  .u-field {
+    .u-field-label {
+      &.col {
+        background-color: var(--u-field-set-background-color);
+      }
+      &.row {
+        background-color: var(--u-field-set-background-color);
+      }
+    }
+    .u-field-slot {
+      &.col {
+        background-color: var(--u-field-set-background-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+node_modules
+*.log*
+*-audit.json
+.nuxt
+.nitro
+.cache
+.output
+dist
+dist-cjs
+logs/
+.ustra
+
+package-lock.json

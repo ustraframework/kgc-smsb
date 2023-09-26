@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+@function pxToRem($size) {
+  $remSize: calc($size / 16);
+  @return $remSize + rem;
+}
+
+//다중 말줄임적용
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin ellipsisMuti($line-clamp) {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-clamp;
+}
