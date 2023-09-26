@@ -1,0 +1,61 @@
+debug: true
+
+server:
+  port: 11051
+
+spring:  profiles:    active: local
+
+mybatis:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    jdbc-type-for-null: "NULL"
+
+ustra:  core:    process-info:      default-system-code: BO
+    properties:      encryption:
+        enabled: true        key: 1kgn4879910xx6p8pobsr60eix5penwe
+  data:
+    datasource:
+      default-datasource-name: rds1      datasources:        rds1:
+          url: jdbc:log4jdbc:oracle:thin:@framework-oracle.c0uiyan5ae24.ap-northeast-2.rds.amazonaws.com:1521/GSITMSI
+          driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+          username: ENC(PYI1xRxj0lDoZs2VI7z8ew==)
+          password: ENC(4YlOpi2kJc9fbyYLg+o9uhBi6gcoi1UG)
+          properties:            max-lifetime: 300
+  mvc:
+    res:      add-res-cookie: false
+    view:
+      api-prefix: api
+      client-crypto-key: NXAxZXQ2ZmtnOGNsMWgxOQ==
+      type: FRONT_SSR
+    rest:
+      exclude-wrapping-url-patterns: /v2/api-docs,/swagger-resources/**,/swagger-ui.html,/webjars/**
+      default-error-status-code: 500
+    wrapper:
+      exclude-request-url-patterns: /v2/api-docs
+      exclude-response-url-patterns: /v2/api-docs
+      
+  management:
+    bo:
+      app:
+        use-auth-approval: false
+        use-user-approval: false
+      
+      authentication:        use-default-api: true
+        allow-anoymous-authentication: true
+        system-name: BO
+        system-key: BO
+        token-key: X-SMSB-BO-AUTH
+        refresh-token-key: X-SMSB-BO-RAUTH
+        enable-refresh-token: true
+        use-eviction-expired-token-schedule: true
+        
+---
+spring.config.activate.on-profile: dev
+
+
+---
+spring.config.activate.on-profile: stg
+      
+      
+---
+spring.config.activate.on-profile: prd
