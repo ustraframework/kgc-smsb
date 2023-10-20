@@ -48,7 +48,20 @@ ustra:  core:    process-info:      default-system-code: BO
         refresh-token-key: X-SMSB-BO-RAUTH
         enable-refresh-token: true
         use-eviction-expired-token-schedule: true
-        
+
+      batch:
+        manager-endpoint: http://localhost:11051/api/batch
+
+  batch:
+    manager:
+      enabled: true
+      id: M01
+      endpoint: http://localhost:11051/api/batch
+    worker:
+      enabled: true
+      id: W01
+      endpoint: http://localhost:11051/api/batch
+
 ---
 spring.config.activate.on-profile: dev
 

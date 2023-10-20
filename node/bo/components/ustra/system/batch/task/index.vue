@@ -258,6 +258,7 @@ const formAction = (function () {
     dlyS: 0,
     batInstCd: [],
     immediateStartYn: 'N',
+    parameterList: [],
   })
 
   async function init() {
@@ -274,6 +275,7 @@ const formAction = (function () {
       dlyS: 0,
       batInstCd: [],
       immediateStartYn: 'N',
+      parameterList: [],
     })
 
     validationGroup.value && (await validationGroup.value.init())

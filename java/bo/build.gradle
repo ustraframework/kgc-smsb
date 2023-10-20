@@ -93,7 +93,9 @@ dependencies {
     // U.STRA Java
     compile "com.gsitm.ustra.java.starter:ustra-starter-vue-bo:${ustraVersion}"
     compile "com.gsitm.ustra.java:ustra-net:${ustraVersion}"
-
+	// U.STRA Batch
+    implementation "com.gsitm.ustra.java.starter:ustra-starter-batch-manager:${ustraVersion}"
+    implementation "com.gsitm.ustra.java.starter:ustra-starter-batch-worker:${ustraVersion}"
 
 }
 
