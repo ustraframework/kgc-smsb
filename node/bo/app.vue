@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>{{ stringState.stringValue.value }}</div>
     <NuxtLayout :name="layout">
       <NuxtLoadingIndicator />
       <NuxtPage />
@@ -10,6 +11,7 @@
 </template>
 
 <script lang="ts" setup>
+const stringState = useStringState()
 const UDialog = defineAsyncComponent(() => import('#ustra/nuxt-vuetify/components').then(c => c.UDialog))
 const ULoadingBar = defineAsyncComponent(() => import('#ustra/nuxt-vuetify/components').then(c => c.ULoadingBar))
 const layout = computed(() => {
