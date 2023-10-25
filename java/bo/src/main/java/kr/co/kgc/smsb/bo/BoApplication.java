@@ -30,6 +30,6 @@ public class BoApplication extends ServletApplicationRunner {
 	}
 
 	private static void addProperties(SpringApplicationBuilder builder) {
-		builder.properties("spring.config.location=classpath:/common-config.yml");
+		builder.properties("spring.config.location=classpath:/common-config.yml,classpath:/bo-biz-config.yml");
 	}
 }

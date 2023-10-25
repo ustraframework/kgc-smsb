@@ -2039,14 +2039,14 @@
     hookable "^5.5.3"
     unhead "1.7.4"
 
-"@ustra/core@3.0.0-pr.172":
-  version "3.0.0-pr.172"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/core/-/core-3.0.0-pr.172.tgz#e541a44979c3eb18d7ee5fc77be47523f79f27ba"
-  integrity sha512-rmXxQMvpiD+zEDvm06idMWusPnDHQzYJhL9UOrA47fPEJDpsfOCYGL9gZnbEqfhuj1WhEBLjQ6kZo/UNAmqvPg==
+"@ustra/core@3.0.0-rc.4":
+  version "3.0.0-rc.4"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/core/-/core-3.0.0-rc.4.tgz#7bd46fcb799af9eff127a4c2d56c7a8ad7567732"
+  integrity sha512-z2R5IopV1N5YIQLuscfSWOKT9dg0mQG8reNsrXyMRCQqnQsgpgsu8tm+N/RfL8dljKq9CTrTp5nWAwQHRvt9VQ==
   dependencies:
     "@refactorjs/http-proxy" "^0.1.0"
     "@types/inquirer" "^8.0.0"
-    "@ustra/types" "3.0.0-pr.172"
+    "@ustra/types" "3.0.0-rc.4"
     ant-path-matcher "^0.0.5"
     axios "^0.27.2"
     axios-jsonp-pro "^1.1.8"
@@ -2094,19 +2094,19 @@
     winston "^3.8.1"
     winston-daily-rotate-file "^4.7.1"
 
-"@ustra/nuxt-vuetify@3.0.0-pr.172":
-  version "3.0.0-pr.172"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-vuetify/-/nuxt-vuetify-3.0.0-pr.172.tgz#8aec0029c4aab00b77bc690f96c983e0c010661c"
-  integrity sha512-2Wma1KH69wg8QE2+Y5svufYaJBBBFDJ05V34yQAdjiVYfDMEyZturWBBWlVz9eWOtukuBtgiIzsjmYxvGukb0g==
+"@ustra/nuxt-vuetify@3.0.0-rc.4":
+  version "3.0.0-rc.4"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-vuetify/-/nuxt-vuetify-3.0.0-rc.4.tgz#e95efae2b7f7526a87b7c9f90be2c4ed6f571d2c"
+  integrity sha512-aGJPfU5wV6GEZg5F3pdsuaKNRO1xsYkVercLBq7p0KngzLkB5Rv3xDakIVg0RB9GrcoapKlePoWIw1dLf+TIoA==
   dependencies:
-    "@ustra/nuxt" "3.0.0-pr.172"
+    "@ustra/nuxt" "3.0.0-rc.4"
     "@vuepic/vue-datepicker" "^3.6.3"
     vuetify "^3.3.2"
 
-"@ustra/nuxt@3.0.0-pr.172":
-  version "3.0.0-pr.172"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt/-/nuxt-3.0.0-pr.172.tgz#3b2731ea39804c124dcf6624040f6694b4281b8f"
-  integrity sha512-1Ng+t6PDocvTBPerKEH402oyNhiJ5BFOwuhPTCJbvF8rvUjS0cShHlM6e/NF0KzkQmGubqd7FJSXC39UeRn/bw==
+"@ustra/nuxt@3.0.0-rc.4":
+  version "3.0.0-rc.4"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt/-/nuxt-3.0.0-rc.4.tgz#fc0ed0d53d92c823ede176fedc671ce738068c93"
+  integrity sha512-SvcaKC4yGZprnjHrOYslQuwZevn7cee4rtUaEuXdn/GuuRI3sP0ANhL9bcBsaC3o65y5zB79DwsAmhHf0vcKWA==
   dependencies:
     "@fontsource/fira-code" "^4.5.12"
     "@nuxt/kit" "3.4.3"
@@ -2115,7 +2115,7 @@
     "@nuxt/vite-builder" "3.4.3"
     "@nuxtjs/i18n" "=8.0.0-beta.10"
     "@pinia/nuxt" "0.4.9"
-    "@ustra/core" "3.0.0-pr.172"
+    "@ustra/core" "3.0.0-rc.4"
     "@vue-macros/nuxt" "1.2.8"
     "@vueuse/core" "^9.5.0"
     "@vueuse/nuxt" "^9.5.0"
@@ -2135,10 +2135,10 @@
     vue-class-component "^8.0.0-rc.1"
     vue-property-decorator "^10.0.0-rc.3"
 
-"@ustra/types@3.0.0-pr.172":
-  version "3.0.0-pr.172"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/types/-/types-3.0.0-pr.172.tgz#1bbf0bb5ba52a9a328b7d4a54935d87e18431809"
-  integrity sha512-UUIPtUUA0eFx/c4VLgXCVSi6lSjPWvhOKe79M2yQ3Kg3tYgivEpuUj3GbiSCop7P73LDCQqYUU0NKLcwMIhPDA==
+"@ustra/types@3.0.0-rc.4":
+  version "3.0.0-rc.4"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/types/-/types-3.0.0-rc.4.tgz#115cd1a3fff51ba2d6fd4d009fb6dbd66a80187a"
+  integrity sha512-/raQhrlMpovJflO16lLzonHHEaw1UfGHilwSU3Ysi43PvvUr8XsGSdET84mZ+B8Fub32FvstvcAlbiUlVtKeJA==
 
 "@vercel/nft@^0.22.6":
   version "0.22.6"
