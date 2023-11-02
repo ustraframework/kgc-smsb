@@ -1,0 +1,51 @@
+{
+  "TypeScript 모듈": {
+    "scope": "typescript",
+    "prefix": "@USTRA",
+    "description": "TypeScript 모듈 snippet",
+    "body": [
+      "/**",
+      " * TODO: Module Description",
+      " * @exports {@link modules}",
+      " * @packageDocumentation",
+      " */",
+      "",
+      "export { {} as modules  }"
+    ],
+  },
+  "TypeScript Jest Test 모듈": {
+    "scope": "typescript",
+    "prefix": "@USTRA",
+    "description": "TypeScript Jest Test 모듈 snippet",
+    "body": [
+      "/**",
+      " * jest test : ",
+      " * @packageDocumentation",
+      " */",
+      "",
+      "import { logger } from '#ustra/core'",
+      "",
+      "describe('input here description', () => {",
+      "  test('input here test title', () => {",
+      "  })",
+      "})"
+    ],
+  },
+  "TypeScript Model": {
+    "scope": "typescript",
+    "prefix": "@USTRA",
+    "description": "TypeScript Model snippet",
+    "body": [
+      "/**",
+      " * TODO: Module Description",
+      " * @exports {@link modules}",
+      " * @packageDocumentation",
+      " */",
+      "",
+      "import { baseModels, apiModels, interfaceModels, paginationModels } from '#ustra/core/data'",
+      "",
+      "export interface SampleModel extends baseModels.BaseModel {",
+      "}"
+    ],
+  },
+}
