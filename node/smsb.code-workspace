@@ -3,7 +3,7 @@
     {
       "path": "./bo"
     },
-	{
+    {
       "path": "./fo"
     },
     {
@@ -20,6 +20,7 @@
     "powermode.shake.enabled": false,
     "powermode.presets": "particles",
     "powermode.combo.location": "off",
-	"volar.completion.preferredAttrNameCase": "auto-camel"
+    "volar.completion.preferredAttrNameCase": "auto-camel",
+    "typescript.tsdk": "node_modules/typescript/lib"
   }
 }

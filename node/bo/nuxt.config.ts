@@ -50,7 +50,8 @@ export default defineNuxtConfig({
         enabled: true,
         ui: {
           tabMenu: {
-            enabled: false,
+            enabled: true,
+            maximumTabNumbers: 10,
           },
           defaultPage: {
             system: {
@@ -60,10 +61,10 @@ export default defineNuxtConfig({
               },
             },
             login: {
-              include: true,
+              include: false,
             },
             main: {
-              include: true,
+              include: false,
             },
           },
         },
