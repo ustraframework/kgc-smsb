@@ -14,11 +14,11 @@
               :class="{ on: index === selectedTabIndex }"
               @click.stop="selectedTabIndex = index"
             >
-              <!-- <div class="box">
+              <div class="box">
                 <div class="txt">{{ item.text }}</div>
                 <i class="close_btn" v-if="item.id !== 'home'" @click.stop="closeTab(index)"></i>
                 <i class="blank_btn" v-if="item.id !== 'home'" @click.stop="openNewWindow(item)"></i>
-              </div> -->
+              </div>
             </li>
           </ul>
         </div>

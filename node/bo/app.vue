@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>{{ stringState.stringValue.value }}</div>
     <NuxtLayout :name="layout">
       <NuxtLoadingIndicator />
       <NuxtPage />
@@ -41,5 +40,6 @@ const layout = computed(() => {
 
 $ustra.hooks.hook('management:initial-data:loaded', info => {
   // console.log(info.sourceType, info.data)
+  // console.log('app.vue : stringState : ' + stringState.stringValue.value)
 })
 </script>
