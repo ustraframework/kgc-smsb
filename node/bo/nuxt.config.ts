@@ -66,6 +66,9 @@ export default defineNuxtConfig({
             main: {
               include: false,
             },
+            layout: {
+              include: false,
+            },
           },
         },
       },
