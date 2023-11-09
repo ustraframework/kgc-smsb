@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import com.gsitm.ustra.java.data.utils.procedure.UstraOracleProcedureManager;
 
 @Configuration
-public class BoProcedureManagerConfiguration {
+public class SmsbBoProcedureManagerConfiguration {
 	@Bean
 	UstraOracleProcedureManager oracleProcedureManager(DataSource dataSource) {
 		return new UstraOracleProcedureManager(dataSource);

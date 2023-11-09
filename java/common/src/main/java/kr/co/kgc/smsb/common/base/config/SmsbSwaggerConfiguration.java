@@ -1,4 +1,4 @@
-package kr.co.kgc.smsb.common.config;
+package kr.co.kgc.smsb.common.base.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfiguration {
+public class SmsbSwaggerConfiguration {
 
     @Bean
     UstraSecurityConfigure commonSwaggerSecurityConfigure() {

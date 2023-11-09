@@ -10,6 +10,6 @@ import lombok.Data;
 @ConfigurationProperties( value = BoConfigProperties.PREFIX, ignoreUnknownFields = true )
 public class BoConfigProperties {
 	public static final String PREFIX = "smsb.bo";
-	
+
 	private String sampleProp;
 }

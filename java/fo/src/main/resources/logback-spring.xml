@@ -2,7 +2,7 @@
 <configuration>
 	<springProfile name="local">
 		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-			<filter class="kr.co.kgc.smsb.bo.config.SmsbBoLogbackFilter"/>
+			<filter class="kr.co.kgc.smsb.fo.config.SmsbFoLogbackFilter"/>
 			<layout class="ch.qos.logback.classic.PatternLayout">
 				<Pattern>
 					%d{HH:mm:ss.SSS} - %X{dd.trace_id} %X{dd.span_id} - [%t] %-5level %logger{36}:%L - %msg%n
