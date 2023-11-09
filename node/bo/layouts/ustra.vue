@@ -33,7 +33,8 @@
           <b>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }} {{ currentMenu?.mnuDesc }}</b>
           <span class="favoriteWrap">
             <UstraLayoutFavoritesButton />
-            <img src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_info.png" class="info" alt="도움말" />
+            <LayoutInfoButton />
+            <!-- <img src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_info.png" class="info" alt="도움말" /> -->
           </span>
         </h2>
 
@@ -76,6 +77,8 @@ import { useUstraManagementLayoutUtils } from '#ustra/nuxt/management/composable
 import UstraLayoutHeader from '#ustra/nuxt-wijmo/management/layouts/header.vue'
 import UstraLayoutSideMenu from '~/layouts/side-menu.vue'
 import UstraLayoutFavoritesButton from '#ustra/nuxt-wijmo/management/layouts/favorites-button.vue'
+
+import LayoutInfoButton from '~/components/layouts/info-button.vue'
 
 const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils()
 
