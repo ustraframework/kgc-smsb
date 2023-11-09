@@ -30,10 +30,11 @@
     <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
       <div class="content">
         <h2 id="page_title">
-          <b>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }} - {{ currentMenu.mnuDesc }}</b>
+          <b>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }} {{ currentMenu?.mnuDesc }}</b>
           <span class="favoriteWrap">
             <UstraLayoutFavoritesButton />
-            <img src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_info.png" class="info" alt="도움말" />
+            <LayoutInfoButton />
+            <!-- <img src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_info.png" class="info" alt="도움말" /> -->
           </span>
         </h2>
 
@@ -76,6 +77,8 @@ import { useUstraManagementLayoutUtils } from '#ustra/nuxt/management/composable
 import UstraLayoutHeader from '#ustra/nuxt-wijmo/management/layouts/header.vue'
 import UstraLayoutSideMenu from '~/layouts/side-menu.vue'
 import UstraLayoutFavoritesButton from '#ustra/nuxt-wijmo/management/layouts/favorites-button.vue'
+
+import LayoutInfoButton from '~/components/layouts/info-button.vue'
 
 const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils()
 
