@@ -82,7 +82,8 @@ ul,
 var,
 video {
   border: 0;
-  font-family: 'Pretendard';
+  //font-family: 'Pretendard';
+  font-family: $body-font-family;
   margin: 0;
   padding: 0;
   vertical-align: baseline;
