@@ -1069,3 +1069,104 @@
     scrollbar-color: gray transparent !important;
   }
 }
+
+
+// 2023.11.14
+// ---- UI개발팀 추가 -----
+html {
+  overflow: hidden !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  display: block;
+  overflow-y: hidden;
+}
+
+#default__main {
+  overflow-x: hidden;
+  min-width: 1920px;
+  height: 100%;
+
+  #header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    height: 55px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+    .layout__logo {
+      margin-left: 86px;
+      color: #808080;
+      font-weight: 700 !important;
+    }
+  }
+
+  .container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    min-width: 1920px;
+    height: 100vh;
+    background-color: #f2f5f6;
+  }
+
+  .left-navbar {
+    padding-top: 40px;
+    padding-left: 40px;
+  }
+
+  .page-body {
+    width: calc(100% - 300px);
+    padding: 40px 40px 0;
+    min-height: calc(100vh - 101px);
+    transition: 0.1s;
+  }
+}
+
+.v-avatar {
+  border: 1px solid #dbdbdb;
+  background-color: #f1f1f1 !important;
+}
+
+.v-avatar:after {
+  color: #808080;
+  font-size: 8px;
+  content: 'No Img';
+}
+
+.columns {
+  display: flex;
+
+  .column {
+    width: 100%;
+    margin: 10px;
+
+    &.is-half {
+      width: calc(50% - (10px * 2));
+    }
+  }
+
+  &.has-gap {
+    margin: -10px;
+  }
+
+  *.is-wrapped {
+    flex-wrap: wrap;
+  }
+}
+
+.card {
+  width: 100%;
+  border-radius: 13px;
+  background-color: #fff;
+  box-shadow: 0 0 8rem rgba(0, 0, 0, 0.08);
+}
+
+.is-half {
+  width: calc(50% - (10px * 2));
+}

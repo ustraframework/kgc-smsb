@@ -3,13 +3,13 @@
 $tabWidth : 142px;
 */
 /*
-
+ 
 2022.09.29 color 파악 후 메모
-
+ 
 $vPrimary3 -> primary color
 $vPrimary1 -> primary border color
 $vPrimary4 -> paging active color
-
+ 
 $pointColorRed -> error, point color
 $pointColorSkyblue -> link text type2 color
 */
@@ -45,3 +45,660 @@ $vLighten7: #f2f2f2;
 $vLighten8: #f4f4f4;
 $vLighten9: #f6f6f6;
 $vLighten10: #fff;
+
+// 2023.11.07 Design Center 추가
+// Primary & Gray Scale
+// Colors
+$white: hsl(0, 0%, 100%) !default;
+$white-bis: hsl(0, 0%, 98%) !default;
+$white-ter: hsl(0, 0%, 96%) !default;
+
+$grey-lightest: hsl(0, 0%, 93%) !default;
+$grey-lighter: hsl(0, 0%, 86%) !default;
+$grey-light: hsl(0, 0%, 71%) !default;
+$grey: hsl(0, 0%, 48%) !default;
+$grey-dark: hsl(0, 0%, 29%) !default;
+$grey-darker: hsl(0, 0%, 21%) !default;
+
+$gray_10: #f5f5f5 !default;
+$gray_20: #e5e5e5 !default;
+$gray_30: #cacaca !default;
+$gray_40: #aeaeae !default;
+$gray_50: #8e8e8e !default;
+$gray_60: #6f6f6f !default;
+$gray_80: #333 !default;
+$gray_100: #151515 !default;
+
+$black-ter: hsl(0, 0%, 14%) !default;
+$black-bis: hsl(0, 0%, 7%) !default;
+$black: hsl(0, 0%, 4%) !default;
+
+$shades: (
+  'white-bis': $white-bis,
+  'white-ter': $white-ter,
+  'grey-lighter': $grey-lighter,
+  'grey-light': $grey-light,
+  'grey': $grey,
+  'grey-dark': $grey-dark,
+  'grey-darker': $grey-darker,
+  'black-ter': $black-ter,
+  'black-bis': $black-bis,
+) !default;
+
+$yellow: #f1c21b !default;
+
+$orange: hsl(14, 100%, 53%) !default;
+
+$red: hsl(348, 86%, 61%) !default;
+$red_50: #fa4d56 !default;
+$red_60: #da1e28 !default;
+$red_80: #750e13 !default;
+
+$purple: #8a3ffc !default;
+
+$blue: hsl(217, 71%, 53%) !default;
+$blue_20: #d0e2ff !default;
+$blue_40: #78a9ff !default;
+$blue_50: #0043ce !default;
+$blue_60: #0354ff !default;
+$blue_70: #0032fa !default;
+$blue_80: #002d98 !default;
+
+$cyan: hsl(204, 71%, 53%) !default;
+
+$green: hsl(141, 53%, 53%) !default;
+$green_40: #42be65 !default;
+$green_50: #24a148 !default;
+
+$turquoise: hsl(171, 100%, 41%) !default;
+
+$primary: $blue_60 !default;
+$primary-invert: $white !default;
+
+$light: $white-ter !default;
+$light-invert: findColorInvert($light) !default;
+
+$dark: $grey-darker !default;
+$dark-invert: findColorInvert($dark) !default;
+
+// default-primary
+$default-primary: #26313b !default;
+$default-primary-invert: white !default;
+$default-primary-border: $default-primary !default;
+
+$default-primary-hover: #333 !default;
+$default-primary-invert-hover: white !default;
+$default-primary-border-hover: $default-primary-hover !default;
+
+$default-primary-focus: #333 !default;
+$default-primary-invert-focus: white !default;
+$default-primary-border-focus: $default-primary-focus !default;
+
+$default-primary-active: #333 !default;
+$default-primary-invert-active: white !default;
+$default-primary-border-active: $default-primary-active !default;
+
+$default-primary-disabled: #e9e9e9 !default;
+$default-primary-invert-disabled: white !default;
+$default-primary-border-disabled: $default-primary-disabled !default;
+
+// default-secondary
+$default-secondary: #bcbcbc !default;
+$default-secondary-invert: white !default;
+$default-secondary-border: $default-secondary !default;
+
+$default-secondary-hover: #d4d4d4 !default;
+$default-secondary-invert-hover: white !default;
+$default-secondary-border-hover: $default-secondary-hover !default;
+
+$default-secondary-focus: #686868 !default;
+$default-secondary-invert-focus: white !default;
+$default-secondary-border-focus: $default-secondary-focus !default;
+
+$default-secondary-active: #686868 !default;
+$default-secondary-invert-active: white !default;
+$default-secondary-border-active: $default-secondary-active !default;
+
+$default-secondary-disabled: #e5e5e5 !default;
+$default-secondary-invert-disabled: #8e8e8e !default;
+$default-secondary-border-disabled: #ddd !default;
+
+// outline-primary
+$outline-primary: white !default;
+$outline-primary-invert: black !default;
+$outline-primary-border: #6e6e6e !default;
+
+$outline-primary-hover: #f6f6f6 !default;
+$outline-primary-invert-hover: black !default;
+$outline-primary-border-hover: $outline-primary-invert-hover !default;
+
+$outline-primary-focus: #f6f6f6 !default;
+$outline-primary-invert-focus: black !default;
+$outline-primary-border-focus: $outline-primary-invert-focus !default;
+
+$outline-primary-active: #f6f6f6 !default;
+$outline-primary-invert-active: black !default;
+$outline-primary-border-active: $outline-primary-invert-active !default;
+
+$outline-primary-disabled: white !default;
+$outline-primary-invert-disabled: #dbdbdb !default;
+$outline-primary-border-disabled: #e9e9e9 !default;
+
+// outline-secondary
+$outline-secondary: white !default;
+$outline-secondary-invert: black !default;
+$outline-secondary-border: #e1e1e1 !default;
+
+$outline-secondary-hover: white !default;
+$outline-secondary-invert-hover: black !default;
+$outline-secondary-border-hover: #6e6e6e !default;
+
+$outline-secondary-focus: white !default;
+$outline-secondary-invert-focus: black !default;
+$outline-secondary-border-focus: #6e6e6e !default;
+
+$outline-secondary-active: white !default;
+$outline-secondary-invert-active: black !default;
+$outline-secondary-border-active: #6e6e6e !default;
+
+$outline-secondary-disabled: white !default;
+$outline-secondary-invert-disabled: #dbdbdb !default;
+$outline-secondary-border-disabled: #e9e9e9 !default;
+
+// modify-primary
+$modify-primary: white !default;
+$modify-primary-invert: #333 !default;
+$modify-primary-border: #bebebe !default;
+
+$modify-primary-hover: #629dff !default;
+$modify-primary-invert-hover: $modify-primary-invert !default;
+$modify-primary-border-hover: $modify-primary-hover !default;
+
+$modify-primary-focus: #0043ff !default;
+$modify-primary-invert-focus: $modify-primary-invert !default;
+$modify-primary-border-focus: $modify-primary-focus !default;
+
+$modify-primary-active: $modify-primary-focus !default;
+$modify-primary-invert-active: $modify-primary-invert-focus !default;
+$modify-primary-border-active: $modify-primary-border-focus !default;
+
+$modify-primary-disabled: #e5e5e5 !default;
+$modify-primary-invert-disabled: #8e8e8e !default;
+$modify-primary-border-disabled: $modify-primary-disabled !default;
+
+// modify-secondary
+$modify-secondary: #f5f5f5 !default;
+$modify-secondary-invert: #585858 !default;
+$modify-secondary-border: #e5e5e5 !default;
+
+$modify-secondary-hover: $modify-secondary !default;
+$modify-secondary-invert-hover: #333 !default;
+$modify-secondary-border-hover: #151515 !default;
+
+$modify-secondary-focus: #e5e5e5 !default;
+$modify-secondary-invert-focus: $modify-secondary-invert !default;
+$modify-secondary-border-focus: $modify-secondary-border-hover !default;
+
+$modify-secondary-active: $modify-secondary-focus !default;
+$modify-secondary-invert-active: $modify-secondary-invert-focus !default;
+$modify-secondary-border-active: $modify-secondary-border-focus !default;
+
+$modify-secondary-disabled: #e5e5e5 !default;
+$modify-secondary-invert-disabled: #8e8e8e !default;
+$modify-secondary-border-disabled: #ddd !default;
+
+// search
+$search: #26313b !default;
+$search-invert: white !default;
+$search-border: $search !default;
+
+$search-hover: #333 !default;
+$search-invert-hover: white !default;
+$search-border-hover: $search-hover !default;
+
+$search-focus: #333 !default;
+$search-invert-focus: white !default;
+$search-border-focus: $search-focus !default;
+
+$search-active: #333 !default;
+$search-invert-active: white !default;
+$search-border-active: $search-active !default;
+
+$search-disabled: #e9e9e9 !default;
+$search-invert-disabled: white !default;
+$search-border-disabled: $search-disabled !default;
+
+// shuffle
+$shuffle: white !default;
+$shuffle-invert: #666 !default;
+$shuffle-border: #e1e1e1 !default;
+
+$shuffle-hover: white !default;
+$shuffle-invert-hover: #666 !default;
+$shuffle-border-hover: #6e6e6e !default;
+
+$shuffle-focus: white !default;
+$shuffle-invert-focus: #666 !default;
+$shuffle-border-focus: #6e6e6e !default;
+
+$shuffle-active: white !default;
+$shuffle-invert-active: #666 !default;
+$shuffle-border-active: #6e6e6e !default;
+
+$shuffle-disabled: #dbdbdb !default;
+$shuffle-invert-disabled: #dbdbdb !default;
+$shuffle-border-disabled: #e9e9e9 !default;
+
+// ghost
+$ghost: transparent !default;
+$ghost-invert: transparent !default;
+$ghost-border: transparent !default;
+
+$ghost-hover: transparent !default;
+$ghost-invert-hover: transparent !default;
+$ghost-border-hover: transparent !default;
+
+$ghost-focus: transparent !default;
+$ghost-invert-focus: transparent !default;
+$ghost-border-focus: transparent !default;
+
+$ghost-active: transparent !default;
+$ghost-invert-active: transparent !default;
+$ghost-border-active: transparent !default;
+
+$ghost-disabled: transparent !default;
+$ghost-invert-disabled: transparent !default;
+$ghost-border-disabled: transparent !default;
+
+// info, success, warning, error
+$info: $blue_70 !default;
+$info-invert: findColorInvert($info) !default;
+$info-border: $info;
+$info-light: findLightColor($info) !default;
+$info-dark: findDarkColor($info) !default;
+
+$success: $green_50 !default;
+$success-invert: findColorInvert($success) !default;
+$success-border: $success;
+$success-light: findLightColor($success) !default;
+$success-dark: findDarkColor($success) !default;
+
+$warning: $yellow !default;
+$warning-invert: findColorInvert($warning) !default;
+$warning-border: $warning;
+$warning-light: findLightColor($warning) !default;
+$warning-dark: findDarkColor($warning) !default;
+
+$error: $red_60 !default;
+$error-invert: findColorInvert($error) !default;
+$error-border: $error;
+$error-light: findLightColor($error) !default;
+$error-dark: findDarkColor($error) !default;
+
+$colors: (
+  'primary': (
+    $default-primary,
+    $default-primary-invert,
+    $default-primary-border,
+    $default-primary-hover,
+    $default-primary-invert-hover,
+    $default-primary-border-hover,
+    $default-primary-focus,
+    $default-primary-invert-focus,
+    $default-primary-border-focus,
+    $default-primary-active,
+    $default-primary-invert-active,
+    $default-primary-border-active,
+    $default-primary-disabled,
+    $default-primary-invert-disabled,
+    $default-primary-border-disabled,
+  ),
+  'secondary': (
+    $default-secondary,
+    $default-secondary-invert,
+    $default-secondary-border,
+    $default-secondary-hover,
+    $default-secondary-invert-hover,
+    $default-secondary-border-hover,
+    $default-secondary-focus,
+    $default-secondary-invert-focus,
+    $default-secondary-border-focus,
+    $default-secondary-active,
+    $default-secondary-invert-active,
+    $default-secondary-border-active,
+    $default-secondary-disabled,
+    $default-secondary-invert-disabled,
+    $default-secondary-border-disabled,
+  ),
+  'outline.is-primary': (
+    $outline-primary,
+    $outline-primary-invert,
+    $outline-primary-border,
+    $outline-primary-hover,
+    $outline-primary-invert-hover,
+    $outline-primary-border-hover,
+    $outline-primary-focus,
+    $outline-primary-invert-focus,
+    $outline-primary-border-focus,
+    $outline-primary-active,
+    $outline-primary-invert-active,
+    $outline-primary-border-active,
+    $outline-primary-disabled,
+    $outline-primary-invert-disabled,
+    $outline-primary-border-disabled,
+  ),
+  'outline.is-secondary': (
+    $outline-secondary,
+    $outline-secondary-invert,
+    $outline-secondary-border,
+    $outline-secondary-hover,
+    $outline-secondary-invert-hover,
+    $outline-secondary-border-hover,
+    $outline-secondary-focus,
+    $outline-secondary-invert-focus,
+    $outline-secondary-border-focus,
+    $outline-secondary-active,
+    $outline-secondary-invert-active,
+    $outline-secondary-border-active,
+    $outline-secondary-disabled,
+    $outline-secondary-invert-disabled,
+    $outline-secondary-border-disabled,
+  ),
+  'modify.is-primary': (
+    $modify-primary,
+    $modify-primary-invert,
+    $modify-primary-border,
+    $modify-primary-hover,
+    $modify-primary-invert-hover,
+    $modify-primary-border-hover,
+    $modify-primary-focus,
+    $modify-primary-invert-focus,
+    $modify-primary-border-focus,
+    $modify-primary-active,
+    $modify-primary-invert-active,
+    $modify-primary-border-active,
+    $modify-primary-disabled,
+    $modify-primary-invert-disabled,
+    $modify-primary-border-disabled,
+  ),
+  'modify.is-secondary': (
+    $modify-secondary,
+    $modify-secondary-invert,
+    $modify-secondary-border,
+    $modify-secondary-hover,
+    $modify-secondary-invert-hover,
+    $modify-secondary-border-hover,
+    $modify-secondary-focus,
+    $modify-secondary-invert-focus,
+    $modify-secondary-border-focus,
+    $modify-secondary-active,
+    $modify-secondary-invert-active,
+    $modify-secondary-border-active,
+    $modify-secondary-disabled,
+    $modify-secondary-invert-disabled,
+    $modify-secondary-border-disabled,
+  ),
+  'search': (
+    $search,
+    $search-invert,
+    $search-border,
+    $search-hover,
+    $search-invert-hover,
+    $search-border-hover,
+    $search-focus,
+    $search-invert-focus,
+    $search-border-focus,
+    $search-active,
+    $search-invert-active,
+    $search-border-active,
+    $search-disabled,
+    $search-invert-disabled,
+    $search-border-disabled,
+  ),
+  'shuffle': (
+    $shuffle,
+    $shuffle-invert,
+    $shuffle-border,
+    $shuffle-hover,
+    $shuffle-invert-hover,
+    $shuffle-border-hover,
+    $shuffle-focus,
+    $shuffle-invert-focus,
+    $shuffle-border-focus,
+    $shuffle-active,
+    $shuffle-invert-active,
+    $shuffle-border-active,
+    $shuffle-disabled,
+    $shuffle-invert-disabled,
+    $shuffle-border-disabled,
+  ),
+  'ghost': (
+    $ghost,
+    $ghost-invert,
+    $ghost-border,
+    $ghost-hover,
+    $ghost-invert-hover,
+    $ghost-border-hover,
+    $ghost-focus,
+    $ghost-invert-focus,
+    $ghost-border-focus,
+    $ghost-active,
+    $ghost-invert-active,
+    $ghost-border-active,
+    $ghost-disabled,
+    $ghost-invert-disabled,
+    $ghost-border-disabled,
+  ),
+  'info': (
+    $info,
+    $info-invert,
+    $info-border,
+  ),
+  'success': (
+    $success,
+    $success-invert,
+    $success-border,
+  ),
+  'warning': (
+    $warning,
+    $warning-invert,
+    $warning-border,
+  ),
+  'error': (
+    $error,
+    $error-invert,
+    $error-border,
+  ),
+) !default;
+
+$notification-colors: (
+  'info': (
+    'notification-bg': #edf4ff,
+    'notification-bg-img': 'test',
+    'notification-border-color': $blue_70,
+    'notification-border-left-color': $blue_70,
+  ),
+  'success': (
+    'notification-bg': #dafbe4,
+    'notification-bg-img': 'test',
+    'notification-border-color': $green_50,
+    'notification-border-left-color': $green_50,
+  ),
+  'warning': (
+    'notification-bg': #fff8e1,
+    'notification-bg-img': 'test',
+    'notification-border-color': $yellow,
+    'notification-border-left-color': $yellow,
+  ),
+  'error': (
+    'notification-bg': #fff0f1,
+    'notification-bg-img': 'test',
+    'notification-border-color': $red_60,
+    'notification-border-left-color': $red_60,
+  ),
+) !default;
+
+// General colors
+$scheme-main: $white !default;
+$scheme-main-bis: $white-bis !default;
+$scheme-main-ter: $white-ter !default;
+
+$scheme-invert: $black !default;
+$scheme-invert-bis: $black-bis !default;
+$scheme-invert-ter: $black-ter !default;
+
+$border: $gray_20 !default;
+$border-light: $grey-lightest !default;
+$border-light-hover: $grey-light !default;
+$border-hover: $gray_20 !default;
+$border-focus: $gray_20 !default;
+$border-disabled: $gray_20 !default;
+
+$background: $white-ter !default;
+
+// Text colors
+$text: $gray_80 !default;
+$text-invert: $white !default;
+$text-light: $gray_30 !default;
+$text-strong: $gray_80 !default;
+
+// Code colors
+$code-background: $background !default;
+$code_color: $red !default;
+
+$pre_background-color: $background !default;
+$pre_color: $text !default;
+
+// Link colors
+$link: $gray_50 !default;
+$link-invert: findColorInvert($link) !default;
+$link-light: findLightColor($link) !default;
+$link-dark: findDarkColor($link) !default;
+
+$link-hover: $blue_50 !default;
+$link-hover_border-color: $blue_50 !default;
+
+$link-focus: $blue_50 !default;
+$link-focus_border-color: $blue_50 !default;
+
+$link-active: $gray_80 !default;
+$link-active-border: $gray_80 !default;
+
+$link-visited: $purple !default;
+
+// Typography
+$body-font-family: Pretendard, sans-serif;
+$body-font-size: 12rem;
+$body-color: #151515;
+
+$family-monospace: monospace !default;
+$render-mode: optimizeLegibility !default;
+
+$family-secondary: $body-font-family !default;
+$family-code: $family-monospace !default;
+
+$size-0: 7.5rem !default;
+$size-1: 8.75rem !default;
+$size-2: 10rem !default;
+$size-3: 12.5rem !default;
+$size-4: 17.5rem !default;
+$size-5: 20rem !default;
+$size-6: 26.25rem !default;
+$size-7: 33.75rem !default;
+
+$sizes: $size-0 $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 !default;
+
+$size-small: $size-0 !default;
+$size-normal: $size-1 !default;
+$size-medium: $size-2 !default;
+$size-large: $size-3 !default;
+
+$height-0: 10rem !default;
+$height-1: 11.25rem !default;
+$height-2: 13.75rem !default;
+$height-3: 16.25rem !default;
+$height-4: 22.5rem !default;
+$height-5: 25rem !default;
+$height-6: 31.25rem !default;
+$height-7: 40rem !default;
+
+$heights: $height-0 $height-1 $height-2 $height-3 $height-4 $height-5 $height-6 $height-7 !default;
+
+$weight-light: 300 !default;
+$weight-normal: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default;
+$weight-bold: 700 !default;
+
+$radius-small: 2rem !default;
+$radius: 4rem !default;
+$radius-large: 6rem !default;
+
+// Spacing
+$block-spacing: 20rem !default;
+
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap: 32rem !default;
+
+$mobile-enabled: true !default;
+
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet: 769px !default;
+$tablet-enabled: true !default;
+
+// 960rem container + 40rem
+$desktop: 960rem + 2 * $gap !default;
+$desktop-enabled: false !default;
+
+// 1152rem container + 40rem
+$widescreen: 1152rem + 2 * $gap !default;
+$widescreen-enabled: false !default;
+
+// 1344rem container + 40rem
+$fullhd: 1344rem + 2 * $gap !default;
+$fullhd-enabled: false !default;
+
+// Miscellaneous
+$speed: 86ms !default;
+$easing: ease-out !default;
+
+// Flags
+$variable-columns: true !default;
+$rtl: false !default;
+
+// Primary & Gray Scale
+$is-primary: #26313b;
+$is-black: #000;
+$is-white: #fff;
+$gray280: #333333;
+$gray260: #666666;
+$gray240: #707070;
+$gray220: #808080;
+$gray200: #9a9a9a;
+$gray180: #bcbcbc;
+$gray160: #cccccc;
+$gray140: #d4d4d4;
+$gray120: #dbdbdb;
+$gray100: #e1e1e1;
+$gray80: #e9e9e9;
+$gray60: #f1f1f1;
+$gray40: #f6f6f6;
+$gray20: #f8f8f8;
+
+// Secondary & Blue Gray Scale
+$secondary: #476c97;
+$mega_blue300: #0081fd;
+$mega_blue200: #53abff;
+$mega_blue100: #bcd7f2;
+$blue_gray300: #99a8b5;
+$blue_gray200: #eef2f5;
+$blue_gray100: #f2f5f6;
+
+// Point
+$point1: #d40000;
+$point2: #f9b037;
+$point3: #00d5a2;
+$point4: #359dff;
+$point5: #9e5fff;
+$point6: #ef0000;
+$point7: #f8f1f1;

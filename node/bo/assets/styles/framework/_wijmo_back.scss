@@ -98,9 +98,7 @@
     button[class^='btn_'] {
       position: absolute;
       right: 0;
-      // top: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
       width: 30px;
       height: 30px;
       opacity: 0.5;
@@ -143,8 +141,6 @@
 
 .wj-content {
   &.wj-control {
-    border-radius: 5px;
-
     &:hover,
     &:active,
     &:focus {
@@ -164,7 +160,6 @@
           .wj-btn {
             height: 28px !important;
             min-height: 28px !important;
-
             &.wj-btn-default {
               &:hover {
                 background: #fff;
@@ -260,33 +255,6 @@
   }
 }
 
-// input height sm, large
-.u-text-box {
-  &.is-large {
-    .ipt {
-      .wj-content {
-        &.wj-control {
-          .wj-input {
-            .wj-input-group {
-              .wj-form-control {
-                height: 40px !important;
-                min-height: 40px !important;
-                font-size: pxToRem(15);
-              }
-              .wj-input-group-btn {
-                .wj-btn {
-                  height: 40px !important;
-                  min-height: 40px !important;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 // 디스크립션 텍스트
 @mixin desc_txt_type {
   content: '';
@@ -371,47 +339,268 @@
 
 // 퍼블리셔 제작 버튼
 // 버튼
+.btn_wrap {
+  .btn_item {
+    display: inline-block;
+    button {
+      height: 30px;
+      padding: 4px 11px;
+      background: #fff;
+      border: 1px solid $vLighten2;
+      border-radius: 4px;
+      font-size: pxToRem(14);
+      color: $vDarken2;
+      text-align: center;
+      vertical-align: top;
+      & + button {
+        margin-left: 4px;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        border: 1px solid $vDarken4;
+      }
+      &:disabled {
+        border: 1px solid $vLighten5;
+        color: $vLighten5;
+      }
+
+      &.primary {
+        background: $vPrimary3;
+        border: 1px solid $vPrimary3;
+        color: #fff;
+        &:hover,
+        &:active,
+        &:focus {
+          background: #004598;
+        }
+        &:disabled {
+          background: $vLighten5;
+          border: 1px solid $vLighten5;
+        }
+      }
+      &.gray {
+        background: #ccc;
+        border: 1px solid #ccc;
+        color: #fff;
+        &:hover,
+        &:active,
+        &:focus {
+          background: $vPrimary3;
+          border: 1px solid $vPrimary3;
+        }
+        &:disabled {
+          background: $vLighten5;
+          border: 1px solid $vLighten5;
+        }
+      }
+
+      &[class*='ico_'] {
+        width: 30px;
+        height: 30px;
+        padding: 5px 0 7px;
+        &:after {
+          content: '';
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+        }
+        &:disabled {
+          &:after {
+            opacity: 0.4;
+          }
+        }
+      }
+      &.ico_pin {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_pin.png) no-repeat center center;
+        }
+      }
+      &.ico_arr {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_arrow.png) no-repeat center center;
+        }
+        &.l {
+          transform: rotate(90deg);
+        }
+        &.t {
+          transform: rotate(-180deg);
+        }
+        &.r {
+          transform: rotate(-90deg);
+        }
+      }
+      &.ico_reset {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_reset.png) no-repeat center center;
+        }
+      }
+      &.ico_bookmark {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_bookmark.png) no-repeat center center;
+        }
+      }
+      &.ico_find02 {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_find02.png) no-repeat center center;
+        }
+      }
+      &.ico_filter {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_filter.png) no-repeat center center;
+        }
+      }
+      &.ico_excel {
+        width: auto;
+        padding: 4px 11px;
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          margin-top: -2px;
+          margin-right: 3px;
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_excel.png) no-repeat center center;
+          vertical-align: middle;
+        }
+        &:after {
+          display: none !important;
+        }
+        &:disabled {
+          &:before {
+            background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_excel_dis.png) no-repeat center center;
+          }
+        }
+      }
+      &.ico_search {
+        vertical-align: middle;
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          margin-top: -2px;
+          margin-right: 3px;
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_search.png) no-repeat center center;
+        }
+        &:after {
+          display: none !important;
+        }
+      }
+    }
+    & + .btn_item {
+      margin-left: 8px;
+    }
+
+    &.big {
+      button {
+        min-width: 120px;
+        height: 36px;
+        padding: 7px 11px;
+        border: 1px solid #c3c3c3;
+        font-weight: 500;
+
+        &:hover,
+        &:active,
+        &:focus {
+          border: 1px solid $vDarken4;
+        }
+        &:disabled {
+          border: 1px solid $vLighten5;
+        }
+        & + button {
+          margin-left: 4px;
+        }
+        &.primary {
+          background: $vPrimary3;
+          border: 1px solid $vPrimary3;
+          &:hover,
+          &:active,
+          &:focus {
+            background: #004598;
+            border: 1px solid #004598;
+          }
+          &:disabled {
+            background: $vLighten5;
+            border: 1px solid $vLighten5;
+          }
+        }
+        &.gray {
+          min-width: auto;
+          background: #ccc;
+          border: 1px solid #ccc;
+          &:hover,
+          &:active,
+          &:focus {
+            background: $vPrimary3;
+            border: 1px solid $vPrimary3;
+          }
+          &:disabled {
+            background: $vLighten5;
+            border: 1px solid $vLighten5;
+          }
+        }
+        &[class*='ico_'] {
+          width: 36px;
+          height: 36px;
+          padding: 6px 0 8px;
+          &:after {
+            content: '';
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+          }
+        }
+      }
+      & + .btn_item {
+        margin-left: 12px;
+      }
+    }
+  }
+  &.left {
+    text-align: left;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+}
+// 퍼블리셔 제작 버튼
 
 // 신규제작 버튼
 .u-button {
-  padding: 0 20px;
-  background: $is-white;
-  border: 1px solid $gray100;
+  height: 30px;
+  padding: 4px 11px;
+  background: #fff;
+  border: 1px solid $vLighten2;
   border-radius: 4px;
   font-size: pxToRem(14);
-  color: $is-black;
-  height: 32px;
-
+  color: $vDarken2;
+  text-align: center;
+  vertical-align: top;
   & + .u-button {
     margin-left: 4px;
   }
-
   &:hover,
   &:active,
   &:focus {
-    border: 1px solid $gray260;
+    border: 1px solid $vDarken4;
   }
   &:disabled {
-    border: 1px solid $gray100;
-    color: $gray100;
-  }
-  &.is-full {
-    width: 100%;
-  }
-  &.out-line {
-    border: 1px solid $gray260;
+    border: 1px solid $vLighten5;
+    color: $vLighten5;
   }
 
   &.primary {
-    background-color: #26313b;
-    color: white;
-    border-color: #26313b;
+    background: $vPrimary3;
+    border: 1px solid $vPrimary3;
+    color: #fff;
     &:hover,
     &:active,
     &:focus {
-      border-color: #333;
-      background-color: #333;
-      color: white;
+      background: #004598;
     }
     &:disabled {
       background: $vLighten5;
@@ -441,8 +630,8 @@
     &:after {
       content: '';
       display: inline-block;
-      width: 14px;
-      height: 14px;
+      width: 18px;
+      height: 18px;
     }
     &:disabled {
       &:after {
@@ -494,16 +683,15 @@
   }
   &.ico_excel {
     width: auto;
-    height: 32px;
-    padding: 0 20px;
+    padding: 4px 11px;
     &:before {
       content: '';
       display: inline-block;
-      width: 14px;
-      height: 14px;
+      width: 18px;
+      height: 18px;
       margin-top: -2px;
-      margin-right: 4px;
-      background: url(/assets/images/svg/ico_excel.svg) no-repeat center center;
+      margin-right: 3px;
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_excel.png) no-repeat center center;
       vertical-align: middle;
     }
     &:after {
@@ -511,7 +699,7 @@
     }
     &:disabled {
       &:before {
-        background: url(/assets/images/svg/ico_excel_disable.svg) no-repeat center center;
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_excel_dis.png) no-repeat center center;
       }
     }
   }
@@ -528,6 +716,66 @@
     }
     &:after {
       display: none !important;
+    }
+  }
+
+  &.big {
+    min-width: 120px;
+    height: 36px;
+    padding: 7px 11px;
+    border: 1px solid #c3c3c3;
+    font-weight: 500;
+
+    &[class*='ico_'] {
+      width: 36px;
+      height: 36px;
+      padding: 6px 0 8px;
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: 1px solid $vDarken4;
+    }
+    &:disabled {
+      border: 1px solid $vLighten5;
+    }
+    & + button {
+      margin-left: 4px;
+    }
+    &.primary {
+      background: $vPrimary3;
+      border: 1px solid $vPrimary3;
+      &:hover,
+      &:active,
+      &:focus {
+        background: #004598;
+        border: 1px solid #004598;
+      }
+      &:disabled {
+        background: $vLighten5;
+        border: 1px solid $vLighten5;
+      }
+    }
+    &.gray {
+      background: #ccc;
+      border: 1px solid #ccc;
+      &:hover,
+      &:active,
+      &:focus {
+        background: $vPrimary3;
+        border: 1px solid $vPrimary3;
+      }
+      &:disabled {
+        background: $vLighten5;
+        border: 1px solid $vLighten5;
+      }
     }
   }
 }
@@ -586,77 +834,39 @@
 
 // 탭영역
 .wj-tabpanel {
-  &:not(.is-menu) {
-    > div {
-      .wj-tabheaders {
-        .wj-tabheader {
-          position: relative;
-          margin-left: -1px;
-          padding: 10px 20px;
-          font-size: pxToRem(14);
-          border: 1px solid #dbdbdb;
+  > div {
+    .wj-tabheaders {
+      .wj-tabheader {
+        position: relative;
+        margin-left: -1px;
+        padding: 10px 20px;
+        font-size: pxToRem(14);
+        border: 1px solid #dbdbdb;
+        border-bottom: 0;
+        border-radius: 4px 4px 0 0;
+        &.wj-state-active {
+          color: $vDarken1;
+          font-weight: 600;
+          border: 1px solid $vPrimary1;
           border-bottom: 0;
-          border-radius: 4px 4px 0 0;
-          &.wj-state-active {
-            color: $vDarken1;
-            font-weight: 600;
-            border: 1px solid $vPrimary1;
-            border-bottom: 0;
-            z-index: 1;
-            &:after {
-              background: #fff;
-            }
-          }
+          z-index: 1;
           &:after {
-            bottom: -1px;
-            height: 1px;
-            background: $vDarken1;
-            border-radius: 0;
-          }
-          &:first-child {
-            margin-left: 0;
+            background: #fff;
           }
         }
-      }
-      .wj-tabpanes {
-        border-top: 1px solid $vDarken1;
+        &:after {
+          bottom: -1px;
+          height: 1px;
+          background: $vDarken1;
+          border-radius: 0;
+        }
+        &:first-child {
+          margin-left: 0;
+        }
       }
     }
-  }
-
-  &.is-menu {
-    > div {
-      .wj-tabheaders {
-        display: flex;
-        border: none;
-
-        .wj-tabheader {
-          flex: 1 0%;
-          height: 40px;
-          padding: 7px 0;
-          color: #b4b4b4;
-          font-size: pxToRem(15);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          a {
-            border-bottom: 0 !important;
-          }
-
-          &.wj-state-active {
-            color: $vDarken1;
-            font-weight: 700;
-
-            z-index: 1;
-            &:after {
-              height: 2px;
-              border-radius: 3px;
-              background: #030303;
-            }
-          }
-        }
-      }
+    .wj-tabpanes {
+      border-top: 1px solid $vDarken1;
     }
   }
 }
