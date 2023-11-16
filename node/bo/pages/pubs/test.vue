@@ -174,7 +174,7 @@
 
 
   <div class="columns has-gap">
-    <div class="card is-sub" style="width: 500px">
+    <div class="card is-sub" style="width: 33.3%">
       <div class="card-body">
         <h2 class="table-title">
           <span>col4</span>
@@ -191,10 +191,27 @@
         </div>
       </div>
     </div>
-    <div class="card is-sub">
+    <div class="card is-sub" style="width: 33.3%">
       <div class="card-body">
         <h2 class="table-title">
-          <span>col8</span>
+          <span>col4</span>
+          <span class="data-count">
+            총
+            <span>0</span>
+            건
+          </span>
+        </h2>
+        <div class="card-body">
+          <p>
+          Contents
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card is-sub" style="width: 33.3%">
+      <div class="card-body">
+        <h2 class="table-title">
+          <span>col4</span>
           <span class="data-count">
             총
             <span>0</span>
