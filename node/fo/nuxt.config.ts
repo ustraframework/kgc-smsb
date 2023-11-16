@@ -2,8 +2,11 @@ const isMobile = process.env.TARGET_DEVICE === 'mobile'
 
 export default defineNuxtConfig({
   ssr: false,
-  modules: ['@ustra/nuxt', '@kgc/smsb-common'],
-  css: isMobile ? ['~/assets/styles/mobile/index.scss'] : ['~/assets/styles/desktop/index.scss'],
+  modules: ['@ustra/nuxt', '@kgc/smsb-common', 'nuxt-primevue', '@nuxtjs/tailwindcss'],
+  css: isMobile
+    ? ['~/assets/styles/mobile/index.scss']
+    : ['~/assets/styles/desktop/index.scss', 'primevue/resources/themes/lara-dark-teal/theme.css'],
+  // css: ['primevue/resources/themes/lara-dark-teal/theme.css'],
   dir: {
     pages: isMobile ? 'pages_mobile' : 'pages',
     layouts: isMobile ? 'layouts_mobile' : 'layouts',
@@ -31,7 +34,7 @@ export default defineNuxtConfig({
     },
     nuxt: {
       vuetify: {
-        enabled: true,
+        enabled: false,
         mdi: {
           enabled: true,
         },
@@ -40,5 +43,11 @@ export default defineNuxtConfig({
         secret: 'eGZ1MDE2eHc2OGc1dWh3OQ==',
       },
     },
+  },
+  primevue: {
+    options: {
+      unstyled: false,
+    },
+    cssLayerOrder: 'tailwind-base, primevue, tailwind-utilities',
   },
 })
