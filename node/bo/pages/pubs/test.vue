@@ -7,7 +7,7 @@
           <ul aria-label="breadcrumbs" class="breadcrumbs has-chevron-separator">
             <li class="breadcrumb"><a href="#none">인사</a></li>
             <li class="breadcrumb"><a href="#none">인사관리</a></li>
-            <li aria-current="page" class="breadcrumb is-active"><span>인사코드</span></li>
+            <li aria-current="page" class="breadcrumb is-active"><a>인사코드</a></li>
           </ul>
         </div>
       </h1>
