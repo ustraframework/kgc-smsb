@@ -1,0 +1,224 @@
+
+.table {
+  &.is-search {
+    width: 100%;
+    table-layout: fixed;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+
+    > thead,
+    > tbody {
+      > tr {
+        &:first-child {
+          > th,
+          > td {
+              padding-top: 15px;
+          }
+          > th {
+              &:first-child {
+                  padding-left: 28px;
+              }
+              .is-ellipsis {
+                  + .tooltip {
+                      margin-top: 0 !important;
+                  }
+              }
+          }
+          > td {
+              &:last-child {
+                  vertical-align: top;
+                  text-align: right;
+              }
+          }
+        }
+
+        &:last-child {
+          > th,
+          > td {
+              padding-bottom: 15px;
+          }
+
+          > th {
+            // padding-left: 28px;
+          }
+        }
+
+        > th,
+        > td {
+          padding-top: 4px;
+          padding-bottom: 4px;
+          text-align: left;
+        }
+
+        > th {
+          padding-left: 10px;
+          min-height: 62px;
+          position: relative;
+
+          .field {
+            width: calc(100% - 40px) !important;
+          }
+
+          &:first-child {
+            padding-left: 28px;
+          }
+
+          > span {
+            display: inline-block;
+            max-width: 90px;
+            padding: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &.is-required {
+              padding: 7px  0 0 10px;
+              margin-left: -10px;
+              &:before {
+                left: 0;
+              }
+            }
+            &.is-ellipsis {
+              +.tooltip {
+                display: none;
+                position: absolute;
+                top: 52px;
+                left: 28px;
+                margin-top: -20px;
+                transform: translateX(0);
+                max-width: 280px;
+                padding: 10px 15px;
+                transform: none;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+                color: $is-black;
+                border-radius: 5px;
+                text-align: left;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+                overflow: visible;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  left: 20px;
+                  top: -3.5px;
+                  display: inline-block;
+                  width: 6px;
+                  height: 6px;
+                  margin-left: 0.5px;
+                  border-top: 1px solid rgba(0, 0, 0, 0.8);
+                  border-right: 1px solid rgba(0, 0, 0, 0.8);
+                  background-color: $is-white;
+                  transform: rotate(-45deg);
+                  border-radius: 1px;
+                }
+              }
+              &:hover {
+                +.tooltip {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+
+        > td {
+          &:last-child {
+            // padding-right: 20px;
+            // padding-bottom: 11px;
+            // vertical-align: top;
+            // text-align: right;
+          }
+
+          .columns {
+            .field {
+              &:not(:only-child) {
+                padding-right: 0;
+                &:not(:first-child) {
+                  margin-left: 5px !important;
+                }
+              }
+            }
+          }
+
+          .field {
+          // padding-right: 50px;
+
+            .field {
+              padding-right: 0;
+            }
+
+            .control{
+              width: 100% !important;
+              min-width: auto !important;
+              max-width: 100% !important;
+
+              &.is-datepicker {
+                // max-width: 170px !important;
+              };
+            }
+          }
+          
+          > span {
+            &.search-data,
+            &:only-child {
+              display: inline-block;
+              width: calc(100% - 50px) !important;
+              min-height: 32px;
+              padding: 0 10px;
+              color: $gray180 !important;
+              font-size: 14px;
+              line-height: 32px;
+              border: 1px solid $gray80;
+              border-radius: 4px;
+              background-color: $gray60 !important;   
+            }
+          }
+          .u-button {
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
+
+    .tui-datepicker-input {
+        width: calc(50% - 10px);
+    }
+
+    .buttons {
+        &.is-search {
+          .u-button {
+            margin-right: 20px;
+            text-align: right;
+          }
+        }
+    }
+
+    .field {
+        &.is-grouped {
+            max-width: 100% !important;
+        }
+    }
+
+    .control {
+        + .button {
+            &.is-search {
+                &.is-square {
+                    // margin-left: 5px !important;
+                }
+            }
+        }
+    }
+
+    + .form {
+        margin-top: 30px;
+    }
+
+    .is-select {
+        select {
+            min-width: 70px !important;
+        }
+    }
+}
+}
