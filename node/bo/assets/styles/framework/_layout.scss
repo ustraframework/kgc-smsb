@@ -1070,9 +1070,11 @@
   }
 }
 
-
-// 2023.11.14
-// ---- UI개발팀 추가 -----
+/*
+========================================================
+                        UI개발팀
+========================================================
+*/
 
 html {
   overflow: hidden !important;
@@ -1113,7 +1115,6 @@ body {
     position: relative;
     display: flex;
     min-width: 1920px;
-    height: 100vh;
     background-color: #f2f5f6;
   }
 
@@ -1167,8 +1168,27 @@ body {
   border-radius: 13px;
   background-color: #fff;
   box-shadow: 0 0 8rem rgba(0, 0, 0, 0.08);
+
+  &.is-sub {
+    padding: 20px 20px 30px;
+  }
+
+  .card-header{
+    padding: 0 0 13px;
+    margin-bottom: 12px;
+  }
 }
 
 .is-half {
   width: calc(50% - (10px * 2));
+}
+
+.page-title{
+  display: flex;
+  justify-content: space-between;
+  font-size: pxToRem(28);
+  font-weight: 600;
+  line-height: pxToRem(34);
+  color: black;
+  text-align: inherit;
 }

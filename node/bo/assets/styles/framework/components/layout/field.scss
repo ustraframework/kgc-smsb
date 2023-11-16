@@ -15,3 +15,62 @@
     }
   }
 }
+
+
+/*
+========================================================
+                        UI개발팀
+========================================================
+*/
+
+.table-title-wrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  .table-tite{
+    font-size: pxToRem(17);
+    font-weight: 600;
+    line-height: pxToRem(20);
+    color: #151515;
+    margin: 12px 0 10px;
+  }
+
+  .buttons{
+    margin-bottom: 10px;
+  }
+}
+
+.u-field-set{
+  &.is-search {
+    table-layout: fixed;
+    border-radius: 6px;
+    background-color: $gray20;
+
+    .u-field-set-slot {
+      // border-top: 1px solid $gray20;
+      // border-bottom: 1px solid $gray20;
+      border-top: none;
+      border-bottom: none;
+      
+      .u-field-row{
+        border-bottom: 1px solid $gray20;
+      }
+      
+      .u-field {
+        .col {
+          background-color: $gray20 !important;
+        }
+        .row {
+          background-color: $gray20;
+          border-left: none;
+          border-right: none;
+        }
+
+        .u-field-label{
+          padding : 15px 1px 15px 28px;
+        }
+      }
+    }
+  }
+}

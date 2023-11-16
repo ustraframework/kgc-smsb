@@ -28,6 +28,12 @@ import { useWijmoTabPanel } from '#ustra/nuxt-wijmo/composables/tab'
 
 const tabPanel = useWijmoTabPanel()
 
+definePageMeta({
+  auth: {
+    required: false,
+  },
+})
+
 </script>
 
 <style lang="scss" scoped></style>

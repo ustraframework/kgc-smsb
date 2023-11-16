@@ -103,6 +103,9 @@
 <script setup>
 definePageMeta({
   layout: false,
+  auth: {
+    required: false,
+  },
 })
 </script>
 
