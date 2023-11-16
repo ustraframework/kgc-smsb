@@ -24,10 +24,6 @@
     "preinstall": "cd ../common && yarn install",
     "postinstall": "yarn link \"@kgc/smsb-common\""
   },
-  "resolutions": {
-    "@nuxt/kit": "3.4.3",
-    "@nuxt/schema": "3.4.3"
-  },
   "devDependencies": {
     "@esbuild-plugins/node-globals-polyfill": "0.1.1",
     "@esbuild-plugins/node-modules-polyfill": "0.1.4",
@@ -43,9 +39,9 @@
     "@types/node": "16",
     "@types/serve-static": "1.15.0",
     "@types/shelljs": "0.8.11",
-    "@ustra/core": "3.0.0-rc.4",
-    "@ustra/nuxt": "3.0.0-rc.4",
-    "@ustra/nuxt-vuetify": "3.0.0-rc.4",
+    "@ustra/core": "3.0.0-snapshot.10",
+    "@ustra/nuxt": "3.0.0-snapshot.10",
+    "@ustra/nuxt-vuetify": "3.0.0-snapshot.10",
     "autoprefixer": "^10.4.16",
     "cpx2": "4.2.0",
     "front-matter": "4.0.2",
