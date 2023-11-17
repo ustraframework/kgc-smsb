@@ -1,3 +1,4 @@
+// Tailwind
 @layer tailwind-base {
   @tailwind base;
 }
@@ -6,3 +7,15 @@
   @tailwind components;
   @tailwind utilities;
 }
+
+// Configuration
+@import 'variables';
+
+// Base
+@import 'reset';
+@import 'fonts';
+
+// Layout & components
+@import 'root';
+@import './prime-vue/button';
+@import './prime-vue/icons';

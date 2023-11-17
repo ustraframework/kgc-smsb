@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: ['@ustra/nuxt', '@kgc/smsb-common', 'nuxt-primevue', '@nuxtjs/tailwindcss'],
   css: isMobile
     ? ['~/assets/styles/mobile/index.scss']
-    : ['~/assets/styles/desktop/index.scss', 'primevue/resources/themes/lara-dark-teal/theme.css'],
+    : ['~/assets/styles/desktop/index.scss', 'primevue/resources/themes/lara-dark-teal/theme.css', 'primeicons/primeicons.css'],
   // css: ['primevue/resources/themes/lara-dark-teal/theme.css'],
   dir: {
     pages: isMobile ? 'pages_mobile' : 'pages',
