@@ -2078,10 +2078,10 @@
     hookable "^5.5.3"
     unhead "1.8.4"
 
-"@ustra/core@3.0.0-snapshot.10":
-  version "3.0.0-snapshot.10"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/core/-/core-3.0.0-snapshot.10.tgz#295d9ce7e78ad6c5b6c1cf0018aa70515d0e101a"
-  integrity sha512-oujKzDuI61SCwNqNqNjl6tx/fGASUSvVBWONaCLGz/h/ON17FAS23D5o23kd4/K2E9gSI8rrcfof110u983C8A==
+"@ustra/core@3.0.0-snapshot.12":
+  version "3.0.0-snapshot.12"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/core/-/core-3.0.0-snapshot.12.tgz#9efbfc4e8e97de7b9c796effc3762810947e6801"
+  integrity sha512-Gdid0iheOIBbho6Tksxt1opNlsXMBbDeOpJM1EiK6jz8V5nAfmIZ1j2jIlycBTDAqHTLSlJZQQnx7GMZ7DkWDQ==
   dependencies:
     "@howiefh/ant-path-matcher" "^0.0.4"
     "@refactorjs/http-proxy" "^0.1.0"
@@ -2089,7 +2089,7 @@
     "@types/inquirer" "^8.0.0"
     "@types/jest" "^28.1.6"
     "@types/shelljs" "^0.8.11"
-    "@ustra/types" "3.0.0-snapshot.10"
+    "@ustra/types" "3.0.0-snapshot.12"
     ant-path-matcher "^0.0.5"
     axios "^1.5.1"
     axios-retry "^3.8.0"
@@ -2138,21 +2138,21 @@
     winston "^3.8.1"
     winston-daily-rotate-file "^4.7.1"
 
-"@ustra/nuxt-vuetify@3.0.0-snapshot.10":
-  version "3.0.0-snapshot.10"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-vuetify/-/nuxt-vuetify-3.0.0-snapshot.10.tgz#790f6883dbc813a183ff8b895f109d14a543f99c"
-  integrity sha512-NtZuZfOPlWEbvlD+2Pnnx4TuWzzuRlysradeyzotdhv8Z20u5iAOc3Be7naYVO3AHkF+8AcFS90lUWCcDwPsMg==
+"@ustra/nuxt-vuetify@3.0.0-snapshot.12":
+  version "3.0.0-snapshot.12"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-vuetify/-/nuxt-vuetify-3.0.0-snapshot.12.tgz#637ca6cc53bf45ea9a322befa669c44fba8b9b47"
+  integrity sha512-3LZsnY7qdpD3RKrTLyOGUeLhCwq4EUTzcKMJ7VAHGr4fna8nSpacWRbadbljsVyRurMacmXqFBVPbRlUkV5w8Q==
   dependencies:
     "@mdi/font" "^7.0.96"
-    "@ustra/nuxt" "3.0.0-snapshot.10"
+    "@ustra/nuxt" "3.0.0-snapshot.12"
     "@vuepic/vue-datepicker" "7.2.0"
     vite-plugin-vuetify "^1.0.2"
     vuetify "^3.4.1"
 
-"@ustra/nuxt@3.0.0-snapshot.10":
-  version "3.0.0-snapshot.10"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt/-/nuxt-3.0.0-snapshot.10.tgz#459155ee93ee664cd847f7a3b07d359799a91b3d"
-  integrity sha512-yB1FO+Q/8BtDPhPXwznFluAS3q3X8dwmsHE+8JT3DESwITJ9FhQVzcBGoowiD1q43U2RhIEj5JktYqDtqtc6FA==
+"@ustra/nuxt@3.0.0-snapshot.12":
+  version "3.0.0-snapshot.12"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt/-/nuxt-3.0.0-snapshot.12.tgz#db399589ace10cd3bdb521b9bd7763537dc128c5"
+  integrity sha512-M+ovt6BTHsGvPnN0Y9ZPKbwoEE4DrMcP19JgLMZD1g+zalCER98ARaspAhFABZ/sw3iuqhttfdBGBuXoXl9Ewg==
   dependencies:
     "@esbuild-plugins/node-globals-polyfill" "^0.1.1"
     "@esbuild-plugins/node-modules-polyfill" "^0.2.2"
@@ -2164,7 +2164,7 @@
     "@nuxt/vite-builder" "3.8.1"
     "@nuxtjs/i18n" "=8.0.0-beta.10"
     "@pinia/nuxt" "0.5.1"
-    "@ustra/core" "3.0.0-snapshot.10"
+    "@ustra/core" "3.0.0-snapshot.12"
     "@vueuse/core" "10.6.1"
     "@vueuse/nuxt" "10.6.1"
     front-matter "^4.0.2"
@@ -2186,10 +2186,10 @@
     vue "^3.3.8"
     vue-router "^4.2.5"
 
-"@ustra/types@3.0.0-snapshot.10":
-  version "3.0.0-snapshot.10"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/types/-/types-3.0.0-snapshot.10.tgz#9287e844dd6bbfcbd7f699ab40373aabb134cc92"
-  integrity sha512-ri/YkotVKfBghfa4bhtGsaRXZF9RZhKkBnGfM52BZCglfbAJ7fGQbE+FXzZhBvzCXXPDl9I5npZQ4DiwwLjxjw==
+"@ustra/types@3.0.0-snapshot.12":
+  version "3.0.0-snapshot.12"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/types/-/types-3.0.0-snapshot.12.tgz#d400b3ffd9557dba08c27a30c3f9dbc0dae3b861"
+  integrity sha512-H5XMa8M4SS9AuEVErKd4CpEHIOW13DHGdTotFP9dE5EoTqtiRYIWzOiqhbLg0mT8EZCWvBh5Ky2qTcvzKOOtmQ==
 
 "@vercel/nft@^0.24.3":
   version "0.24.3"
