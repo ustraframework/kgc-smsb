@@ -37,3 +37,4 @@ out/
 ### build output ###
 build/
 target/
+.DS_Store

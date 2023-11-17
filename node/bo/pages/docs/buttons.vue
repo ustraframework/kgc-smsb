@@ -91,10 +91,14 @@
         </div>
       </div>
       <div class="column is-half">
-        <h1 class="mb-4">Help Button</h1>
-        <UButton type="is-question"/>
+        <h1 class="mb-5">Help Button</h1>
+        <UButton type="is-question" class="mr-2"/>
+        <UButton type="is-question" disabled/>
 
-        <div class="columns is-half mt-2"></div>
+        <div class="columnn is-half mt-6">
+          <h1 class="mb-5">Favorites Button (CheckBox)</h1>
+          
+        </div>
       </div>
     </div>
   </div>
