@@ -667,38 +667,35 @@ $variable-columns: true !default;
 $rtl: false !default;
 
 // Primary & Gray Scale
-$is-primary: #26313b;
-$is-black: #000;
-$is-white: #fff;
-$gray280: #333333;
-$gray260: #666666;
-$gray240: #707070;
-$gray220: #808080;
-$gray200: #9a9a9a;
-$gray180: #bcbcbc;
-$gray160: #cccccc;
-$gray140: #d4d4d4;
-$gray120: #dbdbdb;
-$gray100: #e1e1e1;
-$gray80: #e9e9e9;
-$gray60: #f1f1f1;
-$gray40: #f6f6f6;
-$gray20: #f8f8f8;
+$is-primary: #151515;
+$is-black : #000;
+$is-white : #fff;
+$gray280 : #333333;
+$gray260 : #666666;
+$gray240 : #707070;
+$gray220 : #808080;
+$gray200 : #9A9A9A;
+$gray180 : #BCBCBC;
+$gray160 : #CCCCCC;
+$gray140 : #D4D4D4;
+$gray120 : #DBDBDB;
+$gray100 : #E1E1E1;
+$gray80 : #E9E9E9;
+$gray60 : #F1F1F1;
+$gray40 : #F6F6F6;
+$gray20 : #F8F8F8;
 
 // Secondary & Blue Gray Scale
-$secondary: #476c97;
-$mega_blue300: #0081fd;
-$mega_blue200: #53abff;
-$mega_blue100: #bcd7f2;
-$blue_gray300: #99a8b5;
-$blue_gray200: #eef2f5;
-$blue_gray100: #f2f5f6;
+$secondary : #476C97;
+$blue_gray300 : #99A8B5;
+$blue_gray200 : #EEF2F5;
+$blue_gray100 : #F2F5F6;
 
 // Point
-$point1: #d40000;
-$point2: #f9b037;
-$point3: #00d5a2;
-$point4: #359dff;
-$point5: #9e5fff;
-$point6: #ef0000;
-$point7: #f8f1f1;
+$point1 : #D40000;
+$point2 : #F9B037;
+$point3 : #00D5A2;
+$point4 : #359DFF;
+$point5 : #9E5FFF;
+$point6 : #EF0000;
+$point7 : #F8F1F1;

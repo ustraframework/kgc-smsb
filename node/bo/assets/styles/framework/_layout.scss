@@ -1087,7 +1087,7 @@ a {
 
 body {
   display: block;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 #default__main {
@@ -1125,8 +1125,7 @@ body {
 
   .page-body {
     width: calc(100% - 300px);
-    padding: 40px 40px;
-    min-height: calc(100vh - 101px);
+    padding: 40px;
     transition: 0.1s;
   }
 }
@@ -1145,6 +1144,14 @@ body {
 .columns {
   display: flex;
 
+  > .card {
+    margin: 10px;
+
+    .card-body {
+      min-height: 200px;
+    }
+  }
+
   .column {
     width: 100%;
     margin: 10px;
@@ -1155,7 +1162,7 @@ body {
   }
 
   &.has-gap {
-    margin: -10px;
+    margin: 0 -10px;
   }
 
   *.is-wrapped {
@@ -1171,6 +1178,10 @@ body {
 
   &.is-sub {
     padding: 20px 20px 30px;
+
+    &.is-search {
+      margin-bottom: 10px;
+    }
   }
 
   .card-header{

@@ -57,7 +57,7 @@ const tabPanel = useWijmoTabPanel()
   border-radius: 13px;
   background-color: white;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
-  height: calc(100% - 180px);
+  height: calc(100vh - 180px);
 
   .profile {
     position: relative;
