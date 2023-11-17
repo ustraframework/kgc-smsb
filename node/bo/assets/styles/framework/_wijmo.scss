@@ -1039,13 +1039,28 @@
       background: url(/assets/images/svg/ico_help.svg) no-repeat center center;
     }
 
+    &:hover,
+    &:active,
+    &:focus {
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url(/assets/images/svg/ico_help_active.svg) no-repeat center center;
+      }
+    }
+
     &:disabled {
-      border-color: $gray80;
-      background-color: $gray80;
-      color: $is-white;
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url(/assets/images/svg/ico_help_disable.svg) no-repeat center center;
+      }
     }
   }
-
 
   &.primary {
     background-color: #26313b;
