@@ -962,6 +962,14 @@
 
   & + .u-button {
     margin-left: 3px;
+
+    &.is-dialog {
+      margin-left: 5px;
+    }
+
+    &.is-outline {
+      margin-left: 10px;
+    }
   }
 
   &:hover,
@@ -1060,6 +1068,9 @@
         background: url(/assets/images/svg/ico_help_disable.svg) no-repeat center center;
       }
     }
+  }
+  &.is-dialog {
+    padding: 0 25px;
   }
 
   &.primary {

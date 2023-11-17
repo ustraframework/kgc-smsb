@@ -101,6 +101,23 @@
         </div>
       </div>
     </div>
+
+    <!-- 5 line -->
+    <div class="columns has-gap mb-12">
+      <div class="column is-half">
+        <h1 class="mb-3">Default Button</h1>
+        <span>버튼 사이 간격 5px</span><br/>
+        <div class="mb-3"></div>
+        <UButton text="취소" type="is-dialog" />
+        <UButton text="확인" type="is-filled is-dialog"/>
+
+      </div>
+      <div class="column is-half">
+        <h1 class="mb-4">Icon Button</h1>
+        
+        <div class="columns is-half mt-2"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -116,5 +133,7 @@ definePageMeta({
 <style lang="scss" scoped>
 .docs__wrap {
   padding: 30px;
+  height: 100%;
+  overflow-y: auto;
 }
 </style>
