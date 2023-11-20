@@ -26,9 +26,9 @@
           </colgroup>
           <tbody>
             <tr>
-              <th><span class="is-required">사번/성명</span></th>
+              <th><span class="is-required">회원번호/명</span></th>
               <td>
-                <UButton text="검색" type="is-outline"/>
+                <UTextBox></UTextBox>
               </td>
               <th></th>
               <td></td>
@@ -36,7 +36,7 @@
               <td></td>
               <td>
                 <div class="buttons is-search">
-                  <UButton text="조회" type="is-filled"/>
+                  <UButton text="조회" type="is-search"/>
                 </div>
               </td>
             </tr>

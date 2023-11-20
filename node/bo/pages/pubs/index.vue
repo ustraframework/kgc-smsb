@@ -25,13 +25,14 @@
 <script setup lang="ts">
 import { WjTabPanel, WjTab } from '#ustra/nuxt-wijmo/components'
 import { useWijmoTabPanel } from '#ustra/nuxt-wijmo/composables/tab'
+import ustra from '@ustra/nuxt/src/plugins/ustra';
 
 const tabPanel = useWijmoTabPanel()
 
 definePageMeta({
   auth: {
     required: false,
-  },
+  }
 })
 
 </script>

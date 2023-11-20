@@ -6,6 +6,7 @@
         <h1 class="mb-4">Default Button</h1>
         <UButton text="Custom Button" />
         <UButton text="Custom Button" disabled />
+        <UButton type="is-outline" text="Custom Button" disabled />
 
         <div class="columns is-half mt-2">
           <UButton text="Custom Button" type="is-full"/>

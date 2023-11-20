@@ -6,16 +6,36 @@
         </h1>
       </div>
       <div class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow >
-            <UField label="회원번호/명"><UTextBox></UTextBox></UField>
-            <UField>
-              <UButtonBox right>
-                <UButton text="조회" type="is-search"/>
-              </UButtonBox>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
+        <form action="" class="form">
+          <table class="table is-search is-fullwidth">
+            <colgroup>
+              <col style="width: 130px;">
+              <col>
+              <col style="width: 130px;">
+              <col>
+              <col style="width: 130px;">
+              <col>
+              <col style="width: 170px;">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th><span class="is-required">회원번호/명</span></th>
+                <td>
+                  <UTextBox></UTextBox>
+                </td>
+                <th></th>
+                <td></td>
+                <th></th>
+                <td></td>
+                <td>
+                  <div class="buttons is-search">
+                    <UButton text="조회" type="is-search"/>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
       </div>
     </div>
 
@@ -23,11 +43,11 @@
     <div class="card is-sub mb-5">
       <div class="card-body">
         <div class="table-title-wrap">
-          <h2 class="table-tite">
+          <h2 class="table-title">
             <span>상세내역</span>
           </h2>
           <div class="buttons">
-            <UWjComboBox :itemsSource="pwd" displayMemberPath="text" />
+            <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 150px !important;"/>
             <UButton text="처리" type="is-outline"/>
             <UButton text="취소" type="is-outline"/>
             <UButton text="저장" type="is-filled"/>
@@ -169,7 +189,7 @@
     <div class="card is-sub mb-5" style="height: 300px;">
       <div class="card-body">
         <div class="table-title-wrap">
-          <h2 class="table-tite">
+          <h2 class="table-title">
             <span>회원 이력 정보</span>
           </h2>
         </div>

@@ -141,124 +141,7 @@
   }
 }
 
-.wj-content {
-  &.wj-control {
-    border-radius: 5px;
 
-    &:hover,
-    &:active,
-    &:focus {
-      border: 1px solid $vDarken3;
-    }
-    border-spacing: 0px;
-    .wj-input {
-      .wj-input-group {
-        .wj-form-control {
-          height: 28px !important;
-          min-height: 28px !important;
-          font-size: pxToRem(14);
-          color: $vDarken1;
-          vertical-align: top;
-        }
-        .wj-input-group-btn {
-          .wj-btn {
-            height: 28px !important;
-            min-height: 28px !important;
-
-            &.wj-btn-default {
-              &:hover {
-                background: #fff;
-              }
-            }
-            .wj-glyph-down {
-              top: -1px;
-              border-top: 7px solid;
-              border-right: 6px solid transparent;
-              border-left: 6px solid transparent;
-            }
-          }
-        }
-      }
-    }
-    &.wj-state-readonly,
-    &.wj-state-disabled {
-      opacity: 1;
-      border: 1px solid #cbcbcb;
-      .wj-input-group {
-        .wj-form-control {
-          background: $vLighten8;
-        }
-        .wj-input-group-btn {
-          opacity: 1;
-          &:last-child:not(:first-child) {
-            .wj-btn {
-              border-left: 1px solid #cbcbcb;
-            }
-          }
-        }
-      }
-      .wj-input-group-btn {
-        background: $vLighten8;
-        .wj-btn {
-          background: none;
-          opacity: 0.6;
-        }
-      }
-    }
-    &.wj-state-disabled {
-      .wj-input-group {
-        .wj-form-control {
-          color: $vDarken5;
-        }
-      }
-    }
-    &.wj-listbox {
-      .wj-listbox-item {
-        &.wj-state-selected {
-          background: $vPrimary3;
-        }
-      }
-    }
-    &.wj-multiselect {
-      &.wj-state-readonly {
-        .wj-input {
-          .wj-input-group {
-            .wj-form-control {
-              background: none;
-            }
-            .wj-input-group-btn {
-              background: none;
-              .wj-btn {
-                opacity: 1;
-              }
-            }
-          }
-        }
-      }
-    }
-    &.wj-multiselectlistbox {
-      .wj-control {
-        &:hover,
-        &:active,
-        &:focus {
-          border: 0;
-        }
-        border: 0;
-      }
-    }
-    &.wj-multi-autocomplete {
-      &.wj-state-readonly {
-        .wj-input {
-          .wj-input-group {
-            .wj-form-control {
-              background: none;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 // input height sm, large
 .u-text-box {
@@ -986,6 +869,7 @@
   }
   &.is-outline {
     border: 1px solid $gray260;
+    color: $is-black;
 
     &:hover,
     &:active,
@@ -1237,7 +1121,194 @@
   }
 }
 
-// 달력
+// ====== input ======
+.wj-content {
+  &.wj-control {
+    border-radius: 4px;
+    width: 100% !important;
+    height: 32px;
+    border: 1px solid $gray120;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: 1px solid $gray260;
+    }
+
+    &.is-outline {
+      border-color: $gray260;
+    }
+    
+    .wj-input {
+      .wj-input-group {
+        .wj-form-control {
+          padding: 0 10px;
+          font-size: pxToRem(14);
+          color: $is-black;
+
+          &::placeholder {
+            color: $gray180;
+          }
+        }
+        .wj-input-group-btn {
+          .wj-btn {
+            height: 28px !important;
+            min-height: 28px !important;
+
+            &.wj-btn-default {
+              &:hover {
+                background: #fff;
+              }
+            }
+            .wj-glyph-down {
+              top: -1px;
+              border-top: 7px solid;
+              border-right: 6px solid transparent;
+              border-left: 6px solid transparent;
+            }
+          }
+        }
+      }
+    }
+    &.wj-state-readonly,
+    &.wj-state-disabled {
+      opacity: 1;
+      border: 1px solid #cbcbcb;
+      .wj-input-group {
+        .wj-form-control {
+          background: $vLighten8;
+        }
+        .wj-input-group-btn {
+          opacity: 1;
+          &:last-child:not(:first-child) {
+            .wj-btn {
+              border-left: 1px solid #cbcbcb;
+            }
+          }
+        }
+      }
+      .wj-input-group-btn {
+        background: $vLighten8;
+        .wj-btn {
+          background: none;
+          opacity: 0.6;
+        }
+      }
+    }
+    &.wj-state-disabled {
+      .wj-input-group {
+        .wj-form-control {
+          color: $vDarken5;
+        }
+      }
+    }
+    &.wj-listbox {
+      .wj-listbox-item {
+        &.wj-state-selected {
+          background: $vPrimary3;
+        }
+      }
+    }
+    &.wj-multiselect {
+      &.wj-state-readonly {
+        .wj-input {
+          .wj-input-group {
+            .wj-form-control {
+              background: none;
+            }
+            .wj-input-group-btn {
+              background: none;
+              .wj-btn {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.wj-multiselectlistbox {
+      .wj-control {
+        &:hover,
+        &:active,
+        &:focus {
+          border: 0;
+        }
+        border: 0;
+      }
+    }
+    &.wj-multi-autocomplete {
+      &.wj-state-readonly {
+        .wj-input {
+          .wj-input-group {
+            .wj-form-control {
+              background: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .ipt
+.ipt {
+  &.err {
+    position: relative;
+    .wj-control {
+      border: 1px solid $pointColorRed;
+      /*사용안함*/
+      &.wj-combobox:after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 15px;
+        height: 15px;
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+      }
+      &.wj-inputmask:after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 15px;
+        height: 15px;
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+      }
+    }
+    .textarea_wrap {
+      textarea {
+        border: 1px solid $pointColorRed;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 15px;
+        height: 15px;
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+      }
+    }
+    &.ipt_btn {
+      .wj-control {
+        /*사용안함*/
+        &.wj-combobox {
+          &:after {
+            display: none;
+          }
+        }
+        &.wj-inputmask {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ====== 달력 ======
 .u-date-box{
   .wj-glyph-calendar{
     &:after {
