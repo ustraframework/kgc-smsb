@@ -9,7 +9,7 @@
 html {
   overflow-x: hidden;
   box-sizing: border-box;
-  font-size: 62.5%;
+  // font-size: 62.5%;
 
   &:lang(ko) {
     word-break: keep-all;
@@ -19,8 +19,8 @@ html {
 body {
   // overflow-x: hidden;
   overflow-wrap: break-word;
-  font-family: $font-family;
-  font-weight: $font-weight-base;
+  font-family: $font-family !important;
+  font-weight: $font-weight-base !important;
   font-size: $font-size-base;
   line-height: $line-height-base;
   -webkit-text-size-adjust: 100%;

@@ -1,8 +1,8 @@
 .p-button {
-  padding: 0.9rem 2rem;
-  border-radius: 0.4rem;
+  padding: 9px 20px;
+  border-radius: 4px;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 14px;
   color: white;
   background-color: var(--j-primary03);
 
@@ -28,61 +28,61 @@
 
   // size
   &.p-button-sm {
-    padding: 0.7rem 1.4rem;
+    padding: 7px 14px;
 
     .p-button-label {
-      font-size: 1.3rem;
+      font-size: 13px;
     }
 
     .p-button-icon {
-      width: 1.2rem;
-      height: 1.2rem;
+      width: 12px;
+      height: 12px;
     }
 
     .p-button-icon-left {
-      margin-right: 0.5rem;
+      margin-right: 5px;
     }
 
     .p-button-icon-right {
-      margin-left: 0.5rem;
+      margin-left: 5px;
     }
   }
 
   &.p-button-lg {
-    padding: 1.5rem 3rem;
+    padding: 15px 30px;
 
     .p-button-label {
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 15px;
     }
 
     .p-button-icon {
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 18px;
+      height: 18px;
     }
 
     .p-button-icon-left {
-      margin-right: 0.6rem;
+      margin-right: 6px;
     }
 
     .p-button-icon-right {
-      margin-left: 0.6rem;
+      margin-left: 6px;
     }
   }
 
   // icons
   .p-button-icon {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 16px;
+    height: 16px;
     font-weight: 700;
   }
 
   .p-button-icon-left {
-    margin-right: 0.4rem;
+    margin-right: 4px;
   }
 
   .p-button-icon-right {
-    margin-left: 0.4rem;
+    margin-left: 4px;
   }
 
   // secondary
@@ -112,8 +112,8 @@
 
   // outline
   &.p-button-outlined {
-    border: 0.1rem solid var(--j-gray300);
-    font-size: 1.8rem;
+    border: 1px solid var(--j-gray300);
+    font-size: 18px;
     color: var(--j-gray600);
     background-color: #fff;
 
@@ -130,8 +130,8 @@
     }
 
     &.is-certify {
-      padding: 2rem 4rem;
-      border-radius: 0.8rem;
+      padding: 20px 40px;
+      border-radius: 8px;
       border-color: var(--j-primary01);
       font-weight: 700;
       color: var(--j-primary01);
@@ -168,18 +168,18 @@
 
   // modifier
   &.is-kakao {
-    border: 0.1rem solid #fae100;
+    border: 1px solid #fae100;
     background-color: #fae100;
   }
 
   &.is-phone {
-    border: 0.1rem solid #ededed;
+    border: 1px solid #ededed;
     background-color: #fff;
   }
 
   &.is-kakao,
   &.is-phone {
-    padding: 1rem 1.6rem;
+    padding: 10px 16px;
     color: #000;
 
     .p-button-label {

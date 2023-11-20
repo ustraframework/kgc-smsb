@@ -1,7 +1,7 @@
 <template>
-  <header class="w-full bg-white h-[10rem] px-[12rem]">
-    <div class="flex min-w-[128rem]">
-      <router-link class="d- mt-[3.7rem]" to="/">
+  <header class="w-full bg-white h-[100px] px-[120px]">
+    <div class="flex min-w-[1280px]">
+      <router-link class="d- mt-[37px]" to="/">
         <img src="@/assets/images/svg/logo.svg" alt="JUNG KWAN JANG Members" />
       </router-link>
     </div>
