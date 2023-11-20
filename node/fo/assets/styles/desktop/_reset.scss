@@ -47,7 +47,7 @@ input,
 select,
 textarea {
   border: 0;
-  font-family: $font-family;
+  font-family: $font-family !important;
 }
 
 em {

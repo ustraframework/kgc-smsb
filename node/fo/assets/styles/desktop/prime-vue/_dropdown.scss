@@ -1,0 +1,108 @@
+.p-dropdown {
+  border: 1px solid var(--j-gray200);
+  box-shadow: none;
+  background-color: #FFF;
+
+  .p-inputtext {
+    height: 38px;
+    border: none;
+    line-height: 38px;
+
+    &.p-inputtext-sm {
+      height: 34px;
+      line-height: 34px;
+    }
+  
+    &.p-inputtext-lg {
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+
+  .p-dropdown-trigger-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    transform: translateY(-50%);
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13 5.6C13 5.7625 12.9443 5.90312 12.833 6.02188L8.89551 10.2219C8.78418 10.3406 8.65234 10.4 8.5 10.4C8.34766 10.4 8.21582 10.3406 8.10449 10.2219L4.16699 6.02188C4.05566 5.90312 4 5.7625 4 5.6C4 5.4375 4.05566 5.29688 4.16699 5.17813C4.27832 5.05937 4.41016 5 4.5625 5H12.4375C12.5898 5 12.7217 5.05937 12.833 5.17813C12.9443 5.29688 13 5.4375 13 5.6Z' fill='%23C4C4C4'/%3E%3C/svg%3E%0A");
+
+    path {
+      display: none;
+    }
+  }
+  
+  // actions
+  &.p-focus {
+    border-color: var(--j-primary02);
+  }
+
+  // disabled
+  &.p-disabled {
+    background-color: var(--j-gray100);
+
+    .p-dropdown-label {
+      color: var(--j-gray300);
+    }
+  }
+
+  // validate
+  &.p-invalid {
+    border-color: var(--j-primary01);
+  }
+}
+
+.p-dropdown-panel {
+  box-shadow: none;
+  border-radius: 4px;
+  border: 1px solid var(--j-gray200);
+  background-color: #FFF;
+}
+
+.p-dropdown-items-wrapper {
+  padding: 5px;
+
+  &::-webkit-scrollbar {
+    width: 12px; /* 스크롤바의 너비 */
+    height: 12px;
+    
+    
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    border-radius: 10px;
+    border: 3px solid #FFF;
+    background-color: #E7E7E7; /* 스크롤바의 색상 */
+
+    &:hover {
+      background-color: #888;
+    }
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255 , 255, 0.5); /*스크롤바 뒷 배경 색상*/
+  }
+}
+
+.p-dropdown-item {
+  padding: 9px 20px;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #222;
+  background-color: #FFF;
+
+  &:not(:first-child) {
+    margin-top: 5px;
+  }
+
+  &.p-highlight {
+    background-color: #FFF5EF;
+  }
+
+  .p-dropdown-panel-sm & {
+    padding: 6px 20px;
+  }
+}
