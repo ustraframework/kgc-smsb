@@ -1396,3 +1396,25 @@
     }
   }  
 }
+
+// table form
+.table {
+  .u-text-box,
+  .u-date-period-box,
+  .wj-dropdown {
+    width: calc(100% - 50px) !important;
+  }
+
+  .u-box {
+    flex-direction: inherit !important;
+    width: calc(100% - 50px);
+
+    > [class^="u-"] {
+      width: auto !important;
+
+      &:not(:first-child) {
+        margin-left: 5px;
+      }
+    }
+  }
+}

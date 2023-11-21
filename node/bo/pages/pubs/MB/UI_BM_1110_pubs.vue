@@ -21,13 +21,11 @@
             <tr>
               <th><span class="is-required">사용채널</span></th>
               <td>
-                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+                <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
               </td>
               <th><span class="is-required">인증일자</span></th>
               <td>
-                <UDateBox mode="date"/>
-                <span>~</span>
-                <UDateBox mode="date"/>
+                <UDatePeriodBox v-model:start="start" v-model:end="end" />
               </td>
               <th><span class="is-required">인증채널</span></th>
               <td>
@@ -42,8 +40,10 @@
             <tr>
               <th>회원번호/명</th>
               <td>
-                <UTextBox type="icon"/>
-                <UTextBox></UTextBox>
+                <UBox>
+                  <UTextBox type="icon"/>
+                  <UTextBox></UTextBox>
+                </UBox>
               </td>
               <th></th>
               <td></td>
@@ -135,6 +135,10 @@ const grid = useWijmoFlexGrid({
 isReadOnly: false,
 })  
 
+const items = [
+  { value: '01', text: '항목1' },
+  { value: '02', text: '항목2' },
+]
 
 definePageMeta({
 auth: {

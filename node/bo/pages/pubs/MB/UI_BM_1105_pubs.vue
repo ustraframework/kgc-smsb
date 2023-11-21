@@ -21,9 +21,7 @@
             <tr>
               <th><span class="is-required">탈퇴일자</span></th>
               <td>
-                <UDateBox mode="date"/>
-                <span>~</span>
-                <UDateBox mode="date"/>
+                <UDatePeriodBox v-model:start="start" v-model:end="end" />
               </td>
               <th><span class="is-required">회원번호/명</span></th>
               <td><UTextBox type="icon"/></td>
