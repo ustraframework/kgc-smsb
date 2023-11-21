@@ -43,7 +43,7 @@
       <v-row class="navbar-right" align="center" no-gutters>
         <v-col cols="auto" class="search-emp">
           <UTextBox style="width:180px;" placeholder="검색할 직원명을 입력하세요."></UTextBox>
-          <v-btn :ripple="false">
+          <v-btn :ripple="false" class="nav-btn">
             <span class="icon">
               <img src="@/assets/images/svg/ico_person.svg" alt="navigation icon" />
             </span>
@@ -52,7 +52,7 @@
         <v-col cols="auto">
           <v-tooltip text="로그아웃" location="bottom" class="nav-tooltip">
             <template v-slot:activator="{ props }">
-              <v-btn v-bind="props" :ripple="false">
+              <v-btn v-bind="props" :ripple="false" class="nav-btn">
                 <span class="icon">
                 <img src="@/assets/images/svg/ico_logout.svg" alt="navigation icon" />
               </span>
