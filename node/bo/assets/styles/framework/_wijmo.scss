@@ -1316,3 +1316,27 @@
     }
   }
 }
+
+// header 직원검색 - 11.21 추가
+.search-emp {
+  .wj-control {
+    &.wj-content {
+      border-radius: 0;
+      border-width: 0 0 1px;
+      
+      .wj-input {
+        .wj-input-group {
+
+          .wj-form-control {
+            padding: 0 6px;
+            border-width: 0 0 1px 0;
+            box-sizing: border-box;
+            font-weight: 400;
+            font-size: 13px !important;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }  
+}

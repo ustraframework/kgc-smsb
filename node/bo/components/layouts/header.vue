@@ -40,6 +40,23 @@
           </v-btn>
         </v-col>
       </v-row>
+      <v-row class="navbar-right" align="center" no-gutters>
+        <v-col cols="auto" class="search-emp">
+          <UTextBox style="width:180px;" placeholder="검색할 직원명을 입력하세요."></UTextBox>
+          <v-btn :ripple="false">
+            <span class="icon">
+              <img src="@/assets/images/svg/ico_person.svg" alt="navigation icon" />
+            </span>
+          </v-btn>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn :ripple="false">
+            <span class="icon">
+              <img src="@/assets/images/svg/ico_logout.svg" alt="navigation icon" />
+            </span>
+          </v-btn>
+        </v-col>
+      </v-row>
     </nav>
   </header>
 </template>
@@ -244,5 +261,37 @@
   display: flex;
   justify-content: center;
   vertical-align: middle;
+}
+
+
+.navbar-right {
+  justify-content: flex-end;
+
+  .v-col {
+    &:not(:first-child) {
+      margin-left: 16px;
+    }
+  }
+  .v-btn {
+    min-width: auto;
+    border: none;
+    padding: 0;
+    
+    &:hover {
+      > .v-btn__overlay {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.search-emp {
+  display: flex;
+  position: relative;
+  .v-btn {
+    position: absolute;
+    right: 0;
+    height: 30px;
+  }
 }
 </style>
