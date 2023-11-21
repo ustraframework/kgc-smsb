@@ -254,6 +254,14 @@
 
 // 그룹 버튼
 .group_btn_list {
+
+  &.is-login {
+    label {
+      font-size: 15px !important;
+      line-height: 18px;
+      color: black;
+    }
+  }
   &.no-border {
     border: none;
 
@@ -882,10 +890,18 @@
     background-color: $is-primary;
     color: $is-white;
 
+    &:hover {
+      background: $gray280;
+    }
+
     &:disabled {
       border-color: $gray80;
       background-color: $gray80;
       color: $is-white;
+    }
+
+    &.is-login {
+      margin-bottom: 18px;
     }
   }
   &.is-large {
@@ -1183,6 +1199,7 @@
 
     &.is-login {
       height: 52px;
+      border-color: $gray80;
 
       .wj-input {
         .wj-input-group {
