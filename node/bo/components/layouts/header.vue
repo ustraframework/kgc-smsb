@@ -50,11 +50,15 @@
           </v-btn>
         </v-col>
         <v-col cols="auto">
-          <v-btn :ripple="false">
-            <span class="icon">
-              <img src="@/assets/images/svg/ico_logout.svg" alt="navigation icon" />
-            </span>
-          </v-btn>
+          <v-tooltip text="로그아웃" location="bottom" class="nav-tooltip">
+            <template v-slot:activator="{ props }">
+              <v-btn v-bind="props" :ripple="false">
+                <span class="icon">
+                <img src="@/assets/images/svg/ico_logout.svg" alt="navigation icon" />
+              </span>
+              </v-btn>
+            </template>
+          </v-tooltip>
         </v-col>
       </v-row>
     </nav>

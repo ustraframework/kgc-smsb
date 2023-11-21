@@ -1337,7 +1337,22 @@
   }
 }
 
-// header 직원검색 - 11.21 추가
+// header
+.nav-tooltip {
+  > .v-overlay__content {
+    top: 44px !important;
+    min-width: 60px !important;
+    padding: 4px !important;
+    color: $is-primary !important;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: 400;
+    line-height: 16rem;
+    border: 1px solid $gray260;
+    border-radius: 5px;
+    background-color: $is-white !important;
+  }
+}
 .search-emp {
   .wj-control {
     &.wj-content {
