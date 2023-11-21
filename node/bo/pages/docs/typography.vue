@@ -87,7 +87,7 @@
         <div class="columns has-table-title">
             <h2 class="table-title">
                 <span>기초코드</span>
-                <span class="data-count">총<span id="codeDtlGrid-rowcount">24</span>건</span>
+                <span class="data-count">총<span>24</span>건</span>
                 <span class="description">공통코드를 확정하세요</span>
             </h2>
         </div>
