@@ -25,7 +25,7 @@
                   <strong>사용 후 반드시 로그아웃</strong>해 주시기 바랍니다.</p>
               </div>
           </div>
-          <p class="description is-copyright">COPYRIGHT © 2023 GS ITM ALL RIGHT RESERVED.</p>
+          <p class="copyright">COPYRIGHT © 2023 GS ITM ALL RIGHT RESERVED.</p>
       </div>
     </div>
   </div>
@@ -61,6 +61,7 @@ definePageMeta({
     overflow: hidden;
   }
   .login__main {
+      position: relative;
       border-radius: 13px;
       padding: 112px 220px 224px;
       width: 800px;
@@ -105,6 +106,17 @@ definePageMeta({
         padding-left: 19px;
       }
     }
+  }
+
+  .copyright{
+    position: absolute;
+    bottom: 21px;
+    background: none;
+    color: #808080;
+    width: 100%;
+    left: 0;
+    font-size: 13px;
+    line-height: 16px;
   }
 }
 </style>
