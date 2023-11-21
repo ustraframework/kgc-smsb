@@ -13,9 +13,18 @@
       </div>
       <div class="column is-half">
         <h1 class="mb-4">Icon Button</h1>
-        <UTextBox type="icon" @iconClick="logMessage" placeholder="search" style="width:300px;" class="mb-1" />
-        <UTextBox type="icon" @iconClick="logMessage" placeholder="search" style="width:300px;" disabled />
-
+        <div class="mb-2"></div>
+        <UTextBox type="icon" @iconClick="logMessage" placeholder="search" style="width:300px;"/>
+        <div class="mb-2"></div>
+        <UTextBox type="icon" @iconClick="logMessage" class="is-outline" placeholder="hover, focus" style="width:300px;"/>
+        <div class="mb-2"></div>
+        <UTextBox type="icon" class="is-error" style="width:300px;"></UTextBox>
+        <div class="mb-2"></div>
+        <UTextBox type="icon" @iconClick="logMessage" placeholder="disabled" style="width:300px;" disabled />
+        <div class="mb-2"></div>
+        <UTextBox type="icon" @iconClick="logMessage" v-model="readonly" style="width:300px;" readonly />
+        
+        
         <div class="columns is-half mt-2"></div>
       </div>
     </div>

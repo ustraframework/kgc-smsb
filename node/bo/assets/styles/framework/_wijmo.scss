@@ -83,62 +83,6 @@
       }
     }
   }
-
-  &.ipt_btn {
-    position: relative;
-    width: 100%;
-    &.icon-type2 {
-      .wj-form-control {
-        padding-right: 60px;
-      }
-    }
-    .wj-form-control {
-      padding-right: 30px;
-    }
-    button[class^='btn_'] {
-      position: absolute;
-      right: 0;
-      // top: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 30px;
-      height: 30px;
-      opacity: 0.5;
-
-      &:hover,
-      &:active,
-      &:focus {
-        opacity: 1;
-      }
-      &.btn-2 {
-        right: 30px;
-      }
-    }
-
-    .btn_find {
-      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_find.png) no-repeat center center;
-    }
-    .btn_refresh {
-      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_refresh.png) no-repeat center center;
-    }
-    .btn_mdi {
-      background: none;
-    }
-    .wj-state-disabled {
-      & ~ button[class^='btn_'] {
-        opacity: 0.2;
-      }
-    }
-    .wj-state-readonly {
-      & ~ button[class^='btn_'] {
-        &:hover,
-        &:active,
-        &:focus {
-          opacity: 0.5;
-        }
-      }
-    }
-  }
 }
 
 
@@ -1260,7 +1204,7 @@
   }
 }
 
-// .ipt
+// button icon
 .ipt {
   &.err {
     position: relative;
@@ -1310,18 +1254,105 @@
         background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
       }
     }
+  }
+
+  // hover
+  &:hover,
+  &:active,
+  &:focus {
     &.ipt_btn {
-      .wj-control {
-        /*사용안함*/
-        &.wj-combobox {
-          &:after {
-            display: none;
+      .btn_find {
+        background: url(/assets/images/svg/ico_search_hover.svg) no-repeat center center;
+      }
+    }
+  }
+
+  // outline
+  .wj-control {
+    &.is-outline {
+      + button {
+        &.btn_find{
+          background: url(/assets/images/svg/ico_search_hover.svg) no-repeat center center;
+        }
+      }
+    }
+
+    // icon is-error
+    &.is-error{
+      border: 1px solid $point1;
+    }
+  }
+
+  // default
+  &.ipt_btn {
+    position: relative;
+    width: 100%;
+
+    .wj-control {
+      &.wj-inputmask {
+        .wj-input {
+          .wj-input-group {
+            .wj-form-control {
+              padding-right: 40px;        
+            }
           }
         }
-        &.wj-inputmask {
-          &:after {
-            display: none;
-          }
+      }
+
+      &.wj-combobox {
+        &:after {
+          display: none;
+        }
+      }
+      &.wj-inputmask {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    button[class^='btn_'] {
+      position: absolute;
+      right: 0;
+      // top: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      right: 5px;
+
+      &:hover,
+      &:active,
+      &:focus {
+        opacity: 1;
+      }
+      &.btn-2 {
+        right: 30px;
+      }
+    }
+
+    .btn_find {
+      background: url(/assets/images/svg/ico_search_enable.svg) no-repeat center center;
+    }
+    .btn_refresh {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_refresh.png) no-repeat center center;
+    }
+    .btn_mdi {
+      background: none;
+    }
+    .wj-state-disabled {
+      + button {
+        cursor: default;
+        &.btn_find{
+          background: url(/assets/images/svg/ico_search_disable.svg) no-repeat center center;
+        }
+      }
+    }
+    .wj-state-readonly {
+      + button {
+        cursor: default;
+        &.btn_find{
+          background: url(/assets/images/svg/ico_search_disable.svg) no-repeat center center;
         }
       }
     }
