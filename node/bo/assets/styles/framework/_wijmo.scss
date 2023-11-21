@@ -1338,6 +1338,11 @@
 }
 
 // header
+.nav-btn {
+  .v-btn__overlay {
+    display: none;
+  }
+}
 .nav-tooltip {
   > .v-overlay__content {
     top: 44px !important;
