@@ -1087,7 +1087,8 @@ a {
 
 body {
   display: block;
-  overflow-y: scroll;
+  //overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #default__main {
@@ -1159,6 +1160,7 @@ body {
     &.is-half {
       width: calc(50% - (10px * 2));
     }
+
   }
 
   &.has-gap {
@@ -1167,6 +1169,10 @@ body {
 
   *.is-wrapped {
     flex-wrap: wrap;
+  }
+
+  &.is-between {
+    justify-content: space-between;
   }
 }
 

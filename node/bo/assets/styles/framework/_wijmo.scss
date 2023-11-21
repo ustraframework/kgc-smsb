@@ -850,9 +850,9 @@
       margin-left: 5px;
     }
 
-    &.is-outline {
-      margin-left: 10px;
-    }
+    // &.is-outline {
+    //   margin-left: 10px;
+    // }
   }
 
   &:hover,
@@ -887,6 +887,14 @@
       background-color: $gray80;
       color: $is-white;
     }
+  }
+  &.is-large {
+    padding: 0 10px;
+    min-width: 86px;
+    height: 52px;
+    font-size: pxToRem(18);
+    font-weight: 600;
+    line-height: 21px;
   }
   &.is-search {
     padding: 0 15px;
@@ -1123,6 +1131,8 @@
 
 // ====== input ======
 .wj-content {
+  opacity: 1 !important;
+  
   &.wj-control {
     border-radius: 4px;
     width: 100% !important;
@@ -1170,35 +1180,35 @@
         }
       }
     }
-    &.wj-state-readonly,
-    &.wj-state-disabled {
-      opacity: 1;
-      border: 1px solid #cbcbcb;
-      .wj-input-group {
-        .wj-form-control {
-          background: $vLighten8;
-        }
-        .wj-input-group-btn {
-          opacity: 1;
-          &:last-child:not(:first-child) {
-            .wj-btn {
-              border-left: 1px solid #cbcbcb;
+
+    &.is-login {
+      height: 52px;
+
+      .wj-input {
+        .wj-input-group {
+          .wj-form-control {
+            padding: 0 40px 0 15px;
+            font-weight: 400;
+            font-size: pxToRem(15);
+            line-height: 20px; 
+
+            &::placeholder {
+              font-size: pxToRem(16);
             }
           }
         }
       }
-      .wj-input-group-btn {
-        background: $vLighten8;
-        .wj-btn {
-          background: none;
-          opacity: 0.6;
-        }
-      }
+    }
+
+    &.wj-state-readonly,
+    &.wj-state-disabled {
+      border-color: $gray80;
+      background-color: $gray60;
     }
     &.wj-state-disabled {
       .wj-input-group {
         .wj-form-control {
-          color: $vDarken5;
+          color: $gray180;
         }
       }
     }
@@ -1255,25 +1265,35 @@
   &.err {
     position: relative;
     .wj-control {
-      border: 1px solid $pointColorRed;
-      /*사용안함*/
+      border: 1px solid $point1;
+
+      &.wj-inputmask {
+        .wj-input {
+          .wj-input-group {
+            .wj-form-control {
+              padding-right: 40px;        
+            }
+          }
+        }
+      }
+      
       &.wj-combobox:after {
         content: '';
         position: absolute;
-        bottom: 8px;
-        right: 8px;
-        width: 15px;
-        height: 15px;
-        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        background: url(/assets/images/svg/ico_error.svg) no-repeat center center;
       }
       &.wj-inputmask:after {
         content: '';
         position: absolute;
-        bottom: 8px;
-        right: 8px;
-        width: 15px;
-        height: 15px;
-        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+        right: 5px;
+        width: 24px;
+        height: 24px;
+        background: url(/assets/images/svg/ico_error.svg) no-repeat center center;
       }
     }
     .textarea_wrap {
