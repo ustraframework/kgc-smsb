@@ -7,6 +7,9 @@ import com.gsitm.ustra.java.security.jwt.authentication.claims.UstraJwtClaims;
 
 import kr.co.kgc.smsb.common.base.config.authentication.user.SmsbBoUser;
 
+/**
+ * BO Claim Appender
+ */
 public class SmsbBoJwtClaimAppender extends SmsbJwtClaimAppender {
 
 	@Override

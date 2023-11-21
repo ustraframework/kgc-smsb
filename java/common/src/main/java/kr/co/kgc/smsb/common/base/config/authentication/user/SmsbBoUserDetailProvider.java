@@ -1,9 +1,7 @@
 package kr.co.kgc.smsb.common.base.config.authentication.user;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,10 +24,8 @@ import com.gsitm.ustra.java.security.authentication.user.UstraUser;
 import com.gsitm.ustra.java.security.exception.UstraSecurityAuthenticationException;
 import com.gsitm.ustra.java.security.jwt.authentication.authentication.UstraJwtAuthentication;
 
-import kr.co.kgc.smsb.common.base.config.authentication.permission.Permissions;
-
 /**
- * BO »ç¿ëÀÚ Á¶È¸ Ã³¸®
+ * BO ì‚¬ìš©ì ì¡°íšŒ ì²˜ë¦¬
  * @author RoyLee
  *
  */
@@ -82,10 +78,10 @@ public class SmsbBoUserDetailProvider<U extends UstraUser> extends UstraCachedUs
 
 
 	/**
-	 * »ç¿ëÀÚ Á¤º¸ Á¶È¸
-	 * @param userName »ç¿ëÀÚ Å° °ª
-	 * @param useDvCds »ç¿ë ±¸ºĞ ¸ñ·Ï (10: °³ÀÎÁ¤º¸°ü¸®ÀÚ, 20:³»ºÎ°ü¸®ÀÚ, 30:°ø±Ş»ç)
-	 * @return Á¶È¸ »ç¿ëÀÚ Á¤º¸
+	 * ì‚¬ìš©ì ì •ë³´ ì¡°íšŒ
+	 * @param userName ì‚¬ìš©ì í‚¤ ê°’
+	 * @param useDvCds ì‚¬ìš© êµ¬ë¶„ ëª©ë¡ (10: ê°œì¸ì •ë³´ê´€ë¦¬ì, 20:ë‚´ë¶€ê´€ë¦¬ì, 30:ê³µê¸‰ì‚¬)
+	 * @return ì¡°íšŒ ì‚¬ìš©ì ì •ë³´
 	 */
 	protected UstraUser getUser(String userName, String useDvCds) {
 
@@ -96,12 +92,12 @@ public class SmsbBoUserDetailProvider<U extends UstraUser> extends UstraCachedUs
 			return null;
 		}
 
-		// »ç¿ë ±¸ºĞÀÌ ¾Æ´Ò °æ¿ì, Ã³¸®
+		// ì‚¬ìš© êµ¬ë¶„ì´ ì•„ë‹ ê²½ìš°, ì²˜ë¦¬
 		if (!StringUtils.contains(useDvCds, user.getUseDvCd())) {
 			return null;
 		}
 
-		// ¹Ì½ÂÀÎ ½Ã¿¡´Â ·Î±×ÀÎ ºÒ°¡
+		// ë¯¸ìŠ¹ì¸ ì‹œì—ëŠ” ë¡œê·¸ì¸ ë¶ˆê°€
 		if (!"Y".equals(user.getApvCmplYn())) {
 			throw UstraSecurityAuthenticationException.from(UstraManagementResponseCode.BEFORE_APPROVAL_USER);
 		}
@@ -109,7 +105,7 @@ public class SmsbBoUserDetailProvider<U extends UstraUser> extends UstraCachedUs
 		boolean isPrivacyInfoManager = "10".equals(user.getUseDvCd());
 
 		if (!isPrivacyInfoManager) {
-			// »ç¿ëÀÚÀÇ ±ÇÇÑ ±×·ì ¸ñ·Ï Á¶È¸
+			// ì‚¬ìš©ìì˜ ê¶Œí•œ ê·¸ë£¹ ëª©ë¡ ì¡°íšŒ
 			List<UstraAuthorityGroupModel> groups = authorityGroupService.getAvailableGroupsOfUser(user.getUsrId());
 			isPrivacyInfoManager = groups.stream().anyMatch(gr -> "Y".equals(gr.getPrvTrtYn()));
 		}
@@ -129,7 +125,7 @@ public class SmsbBoUserDetailProvider<U extends UstraUser> extends UstraCachedUs
 			userAuthorites.clear();
 		}
 
-		// °ø±Ş»ç
+		// ê³µê¸‰ì‚¬
 		if ("30".equals(useDvCds)) {
 
 //			if ("Y".equals(suppcUser.getMstYn())) {
@@ -192,26 +188,26 @@ public class SmsbBoUserDetailProvider<U extends UstraUser> extends UstraCachedUs
 	}
 
 	/**
-	 * È°¼ºÈ­ µÈ »ç¿ëÀÚÀÎÁö Ã¼Å©
+	 * í™œì„±í™” ëœ ì‚¬ìš©ìì¸ì§€ ì²´í¬
 	 *
 	 * @param user
 	 * @return
 	 */
 	protected boolean isEnabledUser(final UstraUserModel user) {
 
-		// Å»Åğ°¡ ¾Æ´Ò °æ¿ì´Â È°¼ºÈ­
+		// íƒˆí‡´ê°€ ì•„ë‹ ê²½ìš°ëŠ” í™œì„±í™”
 		return !"02".equals(user.getUsrSttCd());
 	}
 
 	/**
-	 * ¸¸·áµÇÁö ¾ÊÀº »ç¿ëÀÚÀÎÁö Ã¼Å©
+	 * ë§Œë£Œë˜ì§€ ì•Šì€ ì‚¬ìš©ìì¸ì§€ ì²´í¬
 	 *
 	 * @param user
 	 * @return
 	 */
 	protected boolean isNonExpiredUser(final UstraUserModel user) {
 
-		// »ç¿ë ±â°£ Ã¼Å©
+		// ì‚¬ìš© ê¸°ê°„ ì²´í¬
 		String currentDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
 		if (StringUtils.isNotEmpty(user.getUseSrtDt())) {
@@ -230,7 +226,7 @@ public class SmsbBoUserDetailProvider<U extends UstraUser> extends UstraCachedUs
 	}
 
 	/**
-	 * ÆĞ½º¿öµå°¡ ¸¸·áµÇÁö ¾ÊÀº »ç¿ëÀÚÀÎÁö È®ÀÎ
+	 * íŒ¨ìŠ¤ì›Œë“œê°€ ë§Œë£Œë˜ì§€ ì•Šì€ ì‚¬ìš©ìì¸ì§€ í™•ì¸
 	 *
 	 * @param user
 	 * @return
@@ -240,7 +236,7 @@ public class SmsbBoUserDetailProvider<U extends UstraUser> extends UstraCachedUs
 	}
 
 	/**
-	 * °èÁ¤ÀÌ ºí¶ôµÇÁö ¾ÊÀº »ç¿ëÀÚÀÎÁö È®ÀÎ
+	 * ê³„ì •ì´ ë¸”ë½ë˜ì§€ ì•Šì€ ì‚¬ìš©ìì¸ì§€ í™•ì¸
 	 *
 	 * @param user
 	 * @return

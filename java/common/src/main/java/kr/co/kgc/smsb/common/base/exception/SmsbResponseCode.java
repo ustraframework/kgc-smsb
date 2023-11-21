@@ -6,36 +6,36 @@ import com.gsitm.ustra.java.core.exception.UstraException;
 
 public enum SmsbResponseCode implements ResponseCode {
 
-	FAILURE_SSO_LOGIN("4001", "SSO ÀÎÁõÀ» ½ÇÆÐÇÏ¿´½À´Ï´Ù."),
-	REQUIRE_TRY_SSO("4002", "SSO ÀÎÁõ È®ÀÎÀÌ ÇÊ¿äÇÕ´Ï´Ù."),
-	INVALID_AUTHENTICATION_REQUEST_INFO("4003", "Àß¸øµÈ ÀÎÁõ ¿äÃ» Á¤º¸ÀÔ´Ï´Ù."),
-	CANNOT_FOUND_AUTHENTICATION_USER("4004", "Á¶È¸µÈ »ç¿ëÀÚ Á¤º¸°¡ ¾ø½À´Ï´Ù."),
+    FAILURE_SSO_LOGIN("4001", "SSO ì¸ì¦ì„ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤."),
+    REQUIRE_TRY_SSO("4002", "SSO ì¸ì¦ í™•ì¸ì´ í•„ìš”í•©ë‹ˆë‹¤."),
+    INVALID_AUTHENTICATION_REQUEST_INFO("4003", "ìž˜ëª»ëœ ì¸ì¦ ìš”ì²­ ì •ë³´ìž…ë‹ˆë‹¤."),
+    CANNOT_FOUND_AUTHENTICATION_USER("4004", "ì¡°íšŒëœ ì‚¬ìš©ìž ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤."),
 
 
-	HAS_ERROR_ON_DRM_CONVERSION("SY01", "DRM ÆÄÀÏ º¯È¯ Áß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù. ¿À·ùÄÚµå : {0}"),
-	INVALIDATE_PASSWORD("SY02", "À¯È¿ÇÏÁö ¾ÊÀº ºñ¹Ð¹øÈ£ÀÔ´Ï´Ù. : {0}"),
+    HAS_ERROR_ON_DRM_CONVERSION("SY01", "DRM íŒŒì¼ ë³€í™˜ ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤. ì˜¤ë¥˜ì½”ë“œ : {0}"),
+    INVALIDATE_PASSWORD("SY02", "ìœ íš¨í•˜ì§€ ì•Šì€ ë¹„ë°€ë²ˆí˜¸ìž…ë‹ˆë‹¤. : {0}"),
 
-	HAS_ERROR_REGISTER_SUPPC("SC01", "°ø±Þ»ç °¡ÀÔ ½ÅÃ» Áß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù."),
-	CANNOT_FOUND_USER("SC02", "»ç¿ëÀÚ¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù."),
-	CANNOT_APPROVE_USER_STATUS("SC03", "½ÂÀÎÇÒ ¼ö ¾ø´Â »ç¿ëÀÚÀÔ´Ï´Ù."),
-	CANNOT_REJECT_USER_STATUS("SC04", "ºñ½ÂÀÎÇÒ ¼ö ¾ø´Â »ç¿ëÀÚÀÔ´Ï´Ù."),
-	CANNOT_STOP_USER_STATUS("SC05", "Áß´ÜÇÒ ¼ö ¾ø´Â »ç¿ëÀÚÀÔ´Ï´Ù."),
-	CANNOT_AVAILABLE_USER_STATUS("SC06", "Áß´ÜÇØÁ¦ÇÒ ¼ö ¾ø´Â »ç¿ëÀÚÀÔ´Ï´Ù."),
-	ALREADY_INITIALIZED_PASSWORD_USER("SC07", "ÀÌ¹Ì ºñ¹Ð¹øÈ£°¡ ÃÊ±âÈ­µÈ »ç¿ëÀÚÀÔ´Ï´Ù."),
-	CANNOT_CHANGE_MASTER_USER("SC08", "¸¶½ºÅÍ »ç¿ëÀÚ·Î ÀüÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù."),
-	MUST_HAVE_MASTER_USER("SC09", "¸¶½ºÅÍ »ç¿ëÀÚ´Â ÇÑ ¸í ÀÌ»ó Á¸ÀçÇØ¾ß ÇÕ´Ï´Ù."),
-	NOT_AVALIABLE_SET_AUTHORITY("SC10", "»ç¿ëÀÚ¿¡°Ô ¹èÁ¤ ºÒ°¡´ÉÇÑ ±ÇÇÑÀÌ ÇÒ´çµÇ¾ú½À´Ï´Ù."),
+	HAS_ERROR_REGISTER_SUPPC("SC01", "ê³µê¸‰ì‚¬ ê°€ìž… ì‹ ì²­ ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤."),
+	CANNOT_FOUND_USER("SC02", "ì‚¬ìš©ìžë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤."),
+	CANNOT_APPROVE_USER_STATUS("SC03", "ìŠ¹ì¸í•  ìˆ˜ ì—†ëŠ” ì‚¬ìš©ìžìž…ë‹ˆë‹¤."),
+	CANNOT_REJECT_USER_STATUS("SC04", "ë¹„ìŠ¹ì¸í•  ìˆ˜ ì—†ëŠ” ì‚¬ìš©ìžìž…ë‹ˆë‹¤."),
+	CANNOT_STOP_USER_STATUS("SC05", "ì¤‘ë‹¨í•  ìˆ˜ ì—†ëŠ” ì‚¬ìš©ìžìž…ë‹ˆë‹¤."),
+	CANNOT_AVAILABLE_USER_STATUS("SC06", "ì¤‘ë‹¨í•´ì œí•  ìˆ˜ ì—†ëŠ” ì‚¬ìš©ìžìž…ë‹ˆë‹¤."),
+	ALREADY_INITIALIZED_PASSWORD_USER("SC07", "ì´ë¯¸ ë¹„ë°€ë²ˆí˜¸ê°€ ì´ˆê¸°í™”ëœ ì‚¬ìš©ìžìž…ë‹ˆë‹¤."),
+	CANNOT_CHANGE_MASTER_USER("SC08", "ë§ˆìŠ¤í„° ì‚¬ìš©ìžë¡œ ì „í™˜í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."),
+	MUST_HAVE_MASTER_USER("SC09", "ë§ˆìŠ¤í„° ì‚¬ìš©ìžëŠ” í•œ ëª… ì´ìƒ ì¡´ìž¬í•´ì•¼ í•©ë‹ˆë‹¤."),
+	NOT_AVALIABLE_SET_AUTHORITY("SC10", "ì‚¬ìš©ìžì—ê²Œ ë°°ì • ë¶ˆê°€ëŠ¥í•œ ê¶Œí•œì´ í• ë‹¹ë˜ì—ˆìŠµë‹ˆë‹¤."),
 
 
-	EXISTS_EMAIL("SC11", "ÀÌ¹Ì »ç¿ë ÁßÀÎ ÀÌ¸ÞÀÏ ÁÖ¼ÒÀÔ´Ï´Ù. ´Ù¸¥ ÀÌ¸ÞÀÏ ÁÖ¼Ò¸¦ »ç¿ëÇØ ÁÖ½Ê½Ã¿À."),
-	EXISTS_TEL_NO("SC12", "ÀÌ¹Ì »ç¿ë ÁßÀÎ ÀüÈ­¹øÈ£ÀÔ´Ï´Ù. ´Ù¸¥ ÀüÈ­¹øÈ£¸¦ »ç¿ëÇØ ÁÖ½Ê½Ã¿À."),
+	EXISTS_EMAIL("SC11", "ì´ë¯¸ ì‚¬ìš© ì¤‘ì¸ ì´ë©”ì¼ ì£¼ì†Œìž…ë‹ˆë‹¤. ë‹¤ë¥¸ ì´ë©”ì¼ ì£¼ì†Œë¥¼ ì‚¬ìš©í•´ ì£¼ì‹­ì‹œì˜¤."),
+	EXISTS_TEL_NO("SC12", "ì´ë¯¸ ì‚¬ìš© ì¤‘ì¸ ì „í™”ë²ˆí˜¸ìž…ë‹ˆë‹¤. ë‹¤ë¥¸ ì „í™”ë²ˆí˜¸ë¥¼ ì‚¬ìš©í•´ ì£¼ì‹­ì‹œì˜¤."),
 
-	HAS_ERROR_REGISTER_MEMBER("CU01", "°¡ÀÔ ½ÅÃ» Á¤º¸ µî·Ï Áß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù."),
-	HAS_ERROR_UPDATE_MEMBER("CU02", "»ç¿ëÀÚ Á¤º¸ ¼öÁ¤ Áß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù."),
-	HAS_ERROR_UPDATE_COMPANY("CU03", "È¸¿ø»ç Á¤º¸ ¼öÁ¤ Áß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù."),
-	CANNOT_REMOVE_MASTER_USER("CU04", "¸¶½ºÅÍ »ç¿ëÀÚ´Â »èÁ¦ÇÒ ¼ö ¾ø½À´Ï´Ù."),
-	APPLICATION_STATUS_USER("CU05", "°ü¸®ÀÚ ½ÂÀÎ ´ë±â ÁßÀÔ´Ï´Ù. ½ÂÀÎ ¿Ï·á ÈÄ ÀÌ¿ë°¡´ÉÇÕ´Ï´Ù."),
-	INVALID_REFUND_BANK_ACCOUNT("CU07", "À¯È¿ÇÏÁö ¾ÊÀº È¯ºÒ°èÁÂ Á¤º¸ÀÔ´Ï´Ù. Àç È®ÀÎ ÈÄ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+	HAS_ERROR_REGISTER_MEMBER("CU01", "ê°€ìž… ì‹ ì²­ ì •ë³´ ë“±ë¡ ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤."),
+    HAS_ERROR_UPDATE_MEMBER("CU02", "ì‚¬ìš©ìž ì •ë³´ ìˆ˜ì • ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤."),
+    HAS_ERROR_UPDATE_COMPANY("CU03", "íšŒì›ì‚¬ ì •ë³´ ìˆ˜ì • ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤."),
+	CANNOT_REMOVE_MASTER_USER("CU04", "ë§ˆìŠ¤í„° ì‚¬ìš©ìžëŠ” ì‚­ì œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."),
+	APPLICATION_STATUS_USER("CU05", "ê´€ë¦¬ìž ìŠ¹ì¸ ëŒ€ê¸° ì¤‘ìž…ë‹ˆë‹¤. ìŠ¹ì¸ ì™„ë£Œ í›„ ì´ìš©ê°€ëŠ¥í•©ë‹ˆë‹¤."),
+	INVALID_REFUND_BANK_ACCOUNT("CU07", "ìœ íš¨í•˜ì§€ ì•Šì€ í™˜ë¶ˆê³„ì¢Œ ì •ë³´ìž…ë‹ˆë‹¤. ìž¬ í™•ì¸ í›„ ìž…ë ¥í•´ì£¼ì„¸ìš”.");
 
 
 	private String code;
