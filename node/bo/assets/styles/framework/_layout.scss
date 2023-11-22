@@ -1112,7 +1112,8 @@ body {
   }
 
   .container {
-    width: 100%;
+    width: 100%;    
+    min-height: calc(100% - 55px);
     position: relative;
     display: flex;
     min-width: 1920px;
