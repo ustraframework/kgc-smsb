@@ -8,8 +8,12 @@
         <UTextBox class="is-outline mb-1" style="width:300px;" placeholder="hover, focus"></UTextBox>
         <UTextBox type="icon" iconType="error" class="mb-1" style="width:300px;"></UTextBox>
         <UTextBox style="width:300px;" placeholder="disabled" class="mb-1" disabled></UTextBox>
-        <UTextBox style="width:300px;" v-model="readonly" class="mb-1" readonly></UTextBox>
+        <UTextBox style="width:300px;" v-model="readonly" class="mb-2" readonly></UTextBox>
 
+        <div></div>
+        <span>Large (40px)</span><br/>
+        <div class="mb-2"></div>
+        <UTextBox style="width:300px;" placeholder="enabled" class="is-large"></UTextBox>
       </div>
       <div class="column is-half">
         <h1 class="mb-4">Icon Button</h1>
@@ -23,6 +27,11 @@
         <UTextBox type="icon" @iconClick="logMessage" placeholder="disabled" style="width:300px;" disabled />
         <div class="mb-2"></div>
         <UTextBox type="icon" @iconClick="logMessage" v-model="readonly" style="width:300px;" readonly />
+        <div class="mb-4"></div>
+        <span>Large (40px)</span><br/>
+        <div class="mb-2"></div>
+        <UTextBox type="icon" @iconClick="logMessage" class="is-large" placeholder="search" style="width:300px;"/>
+        
         
         
         <div class="columns is-half mt-2"></div>

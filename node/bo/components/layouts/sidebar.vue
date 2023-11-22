@@ -18,11 +18,6 @@
         </div>
       </UBox>
 
-      <UBox direction="row" class="mb-3">
-        <UButton text="출근" type="primary" class="is-full" />
-        <UButton text="퇴근" type="primary" class="is-full" />
-      </UBox>
-
       <UTextBox type="icon" placeholder="메뉴검색" class="is-large"></UTextBox>
     </div>
 

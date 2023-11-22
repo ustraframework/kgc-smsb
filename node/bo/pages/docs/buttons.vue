@@ -7,9 +7,18 @@
         <UButton text="Custom Button" />
         <UButton text="Custom Button" disabled />
         <UButton type="is-outline" text="Custom Button" disabled />
+        <div class="mb-2"></div>
 
-        <div class="columns is-half mt-2">
+        <span>Full Button</span><br/>
+        <div class="mb-2"></div>
+        <div class="columns is-half mt-2 mb-2">
           <UButton text="Custom Button" type="is-full"/>
+        </div>
+
+        <span>Large Button (52px)</span><br/>
+        <div class="mb-2"></div>
+        <div class="columns is-half mt-2">
+          <UButton text="Custom Button" type="is-full is-large"/>
         </div>
       </div>
       <div class="column is-half">
@@ -18,7 +27,6 @@
         <UButton text="엑셀 다운로드" icon="excel" type="is-outline" />
         <UButton text="엑셀 다운로드" icon="excel" disabled />
 
-        <div class="columns is-half mt-2"></div>
       </div>
     </div>
 
@@ -33,8 +41,13 @@
         <h1 class="mb-4">Confirm Button</h1>
         <UButton text="Confirm Button" type="is-filled"/>
         <UButton text="Confirm Button" type="is-filled" disabled />
-
-        <div class="columns is-half mt-2"></div>
+        <div class="mt-2">
+          <span>Large Button (52px)</span><br/>  
+        </div>
+        <div class="mb-2"></div>
+        <div class="columns is-half mt-2">
+          <UButton text="Confirm Button" type="is-filled is-large is-full"/>
+        </div>
       </div>
     </div>
 
@@ -111,12 +124,6 @@
         <div class="mb-3"></div>
         <UButton text="취소" type="is-dialog" />
         <UButton text="확인" type="is-filled is-dialog"/>
-
-      </div>
-      <div class="column is-half">
-        <h1 class="mb-4">Icon Button</h1>
-        
-        <div class="columns is-half mt-2"></div>
       </div>
     </div>
   </div>

@@ -6,10 +6,6 @@
         <UButton text="팝업 열기" @click="() => (showPopup = true)"></UButton>
       </div>
       <div class="column is-half">
-        <h1 class="mb-4">Icon Button</h1>
-  
-        
-        <div class="columns is-half mt-2"></div>
       </div>
     </div>
   </div>

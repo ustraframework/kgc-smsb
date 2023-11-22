@@ -851,7 +851,7 @@
   &.is-large {
     padding: 0 10px;
     min-width: 86px;
-    height: 52px;
+    height: 52px !important;
     font-size: pxToRem(18);
     font-weight: 600;
     line-height: 21px;
@@ -1094,7 +1094,6 @@
   opacity: 1 !important;
   
   &.wj-control {
-    width: 100% !important;
     border: 1px solid $gray120;
 
     &:hover,
@@ -1105,6 +1104,12 @@
 
     &.is-outline {
       border-color: $gray260;
+    }
+
+    &.wj-inputmask,
+    &.wj-dropdown
+    {
+      width: 100% !important;
     }
     
     .wj-input {
@@ -1139,6 +1144,12 @@
             }
           }
         }
+      }
+    }
+
+    &.is-large {
+      .wj-input {
+        height: 40px;
       }
     }
 

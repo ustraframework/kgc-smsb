@@ -67,57 +67,19 @@
         </div>
         
         <div class="field-grid">
-          <WjFlexGrid :itemsSource="itemsSourceGrid" allowDragging="Rows" :initialized="grid.initialize" class="mt-2">
-            <WjFlexGridColumn header="No" binding="col1" width="*">
-              <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                <UCodeComboBox v-model="cell.value"/>
-              </WjFlexGridCellTemplate>
-            </WjFlexGridColumn>
-
-            <WjFlexGridColumn header="회원번호" binding="col1" width="*">
-              <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                <UCodeComboBox v-model="cell.value"/>
-              </WjFlexGridCellTemplate>
-            </WjFlexGridColumn>
-
-            <WjFlexGridColumn header="회원명" binding="col1" width="*">
-              <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                <UCodeComboBox v-model="cell.value"/>
-              </WjFlexGridCellTemplate>
-            </WjFlexGridColumn>
-
-            <WjFlexGridColumn header="회원구분" binding="col1" width="*">
-              <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                <UCodeComboBox v-model="cell.value"/>
-              </WjFlexGridCellTemplate>
-            </WjFlexGridColumn>
-
-            <WjFlexGridColumn header="잔여포인트" binding="col1" width="*">
-              <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                <UCodeComboBox v-model="cell.value"/>
-              </WjFlexGridCellTemplate>
-            </WjFlexGridColumn>
-
-            <WjFlexGridColumn header="탈퇴일자" binding="col1" width="*" format="yyyy-MM-dd">
-              <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                  <WjInputDate v-model="cell.item.date"/>
-              </WjFlexGridCellTemplate>
-            </WjFlexGridColumn>
-
-            <WjFlexGridColumn header="삭제예정일자" binding="col1" width="*" format="yyyy-MM-dd">
-              <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                  <WjInputDate v-model="cell.item.date"/>
-              </WjFlexGridCellTemplate>
-            </WjFlexGridColumn>
-
-            <WjFlexGridColumn header="탈퇴사유" binding="col1" width="*" >
-              <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                  <WjInputDate v-model="cell.value"/>
-              </WjFlexGridCellTemplate>
-            </WjFlexGridColumn>
+          <WjFlexGrid :itemsSource="itemsSourceGrid">
+            <WjFlexGridColumn header="No" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+            <WjFlexGridColumn header="채널" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+            <WjFlexGridColumn header="컬럼라벨" binding="col1" width="*" />
+            <WjFlexGridColumn header="변경전데이터" binding="col1" width="*" />
+            <WjFlexGridColumn header="변경후데이터" binding="col1" width="*" />
+            <WjFlexGridColumn header="변경사유" binding="col1" width="*" />
+            <WjFlexGridColumn header="컬럼명" binding="col1" width="*" />
+            <WjFlexGridColumn header="수정자" binding="col1" width="*" />
+            <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
           </WjFlexGrid>
-          
-          <UPaginationBar v-model="currentPageNo" :pageSize="pageSize" :totalRecords="totalRecords" />
         </div>
       </div>
     </div>
