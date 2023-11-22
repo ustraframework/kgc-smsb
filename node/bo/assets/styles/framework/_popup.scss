@@ -43,5 +43,15 @@
         }
       }
     }
+    .table {
+      &.is-search {
+        margin-bottom: 30px;
+      }
+    }
+    .u-item {
+      &:last-child {
+        padding-top: 25px;
+      }
+    }
   }
 }

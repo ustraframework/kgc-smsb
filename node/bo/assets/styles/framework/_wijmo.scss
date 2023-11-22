@@ -1443,9 +1443,14 @@
 // table form
 .table {
   .u-text-box,
-  .u-date-period-box,
-  .wj-dropdown {
+  .u-date-period-box {
     width: calc(100% - 50px) !important;
+  }
+
+  .wj-content{
+    &.wj-dropdown{
+      width: calc(100% - 50px) !important;
+    }
   }
 
   .u-box {
