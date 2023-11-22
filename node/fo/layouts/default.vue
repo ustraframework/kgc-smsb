@@ -4,12 +4,12 @@
     <main class="container !max-w-full bg-white flex flex-col">
       <slot></slot>
     </main>
+    <Footer />
   </div>
 </template>
 <script lang="ts" setup>
-import Header from '@/components/layouts/header.vue'
+import Header from '@/components/layouts/header.vue';
+import Footer from '@/components/layouts/footer.vue';
 </script>
 <script lang="ts"></script>
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
