@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gsitm.ustra.java.core.utils.ApplicationContextProvider;
 import com.gsitm.ustra.java.core.utils.UstraMaskingUtils.MaskingType;
 import com.gsitm.ustra.java.core.utils.UstraNetUtils;
+import com.gsitm.ustra.java.core.utils.annotation.MapField;
 import com.gsitm.ustra.java.core.utils.annotation.Masked;
 import com.gsitm.ustra.java.management.properties.UstraManagementCoreProperties;
 import com.gsitm.ustra.java.security.authentication.UstraAuthenticationManager;
@@ -42,11 +43,13 @@ public class SmsbBaseModel {
 	 * 등록 사용자 아이디
 	 */
 	@Masked(MaskingType.ID)
+	@MapField("in_user_id")
 	private String regUserId;
 	
 	/**
 	 * 등록 사용자 아이피
 	 */
+	@MapField("in_ip")
 	private String regUserIp;
 	
 	/**
@@ -78,7 +81,6 @@ public class SmsbBaseModel {
 	@Setter
 	@JsonIgnore
 	private Integer paginationTotalCnt;
-
 
 	/**
 	 * 타 필드 유입 시 처리
