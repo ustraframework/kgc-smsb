@@ -35,22 +35,54 @@
       </WjTabPanel>
     </div>
 
-    <div class="menu-contents"></div>
+    <div class="menu-contents">
+      <UstraLayoutSideMenu v-model="openSideMenu" :navigationSelected="navigationSelected" />
+    </div>
   </aside>
 </template>
 
 <script lang="ts" setup>
 import { WjTabPanel, WjTab } from '#ustra/nuxt-wijmo/components'
 import { useWijmoTabPanel } from '#ustra/nuxt-wijmo/composables/tab'
+import UstraLayoutSideMenu from '~/layouts/side-menu.vue'
 
-const tabPanel = useWijmoTabPanel()
+const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils();
+
+const tabPanel = useWijmoTabPanel();
+
+const openSideMenu = ref(false);
+
+function navigationSelected(nav: Navigation) {
+  if (nav) {
+    openMenu(nav)
+  }
+
+  // if (nav.component) {
+
+  //   // if (useTabMenu.value) {
+
+  //   //   const existsIndex = openedTabNavigations.value.findIndex(n => n.id === nav.id)
+
+  //   //   if (existsIndex > -1) {
+  //   //     selectedTabIndex.value = existsIndex
+  //   //     return
+  //   //   }
+
+  //   //   openedTabNavigations.value.push(nav)
+  //   //   selectedTabIndex.value = openedTabNavigations.value.length - 1
+  //   // } else {
+  //   //   useRouter().push(nav.path)
+  //   // }
+  // }
+}
+
 </script>
 
 <style lang="scss" scoped>
 .sidebar {
   position: relative;
   z-index: 999;
-  width: 260px;
+  width: 100%;
   border-radius: 13px;
   background-color: white;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);

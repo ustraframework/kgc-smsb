@@ -1152,10 +1152,10 @@
     }
 
     &.is-login {
-      height: 52px;
-      border-color: $gray80;
-
       .wj-input {
+        height: 52px;
+        border-color: $gray80;
+
         .wj-input-group {
           .wj-form-control {
             padding: 0 40px 0 15px;

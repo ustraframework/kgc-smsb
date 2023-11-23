@@ -76,11 +76,7 @@
   </v-card>
 </template>
 <script>
-  export default {
-    data: () => ({
-      tab: null,
-    }),
-  }
+
 </script>
 <style lang="scss" scoped>
 @import '@/assets/styles/framework/variable.scss';
