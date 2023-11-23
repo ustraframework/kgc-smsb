@@ -2,7 +2,14 @@
   <div class="card is-sub is-search">
     <div class="card-header">
       <h1 class="page-title">
-        <span>회원정보 변경 이력 조회</span>
+        <span>본문 제목</span>
+        <div class="columns">
+          <ul aria-label="breadcrumbs" class="breadcrumbs has-chevron-separator">
+            <li class="breadcrumb"><a href="#none">인사</a></li>
+            <li class="breadcrumb"><a href="#none">인사관리</a></li>
+            <li aria-current="page" class="breadcrumb is-active"><a>인사코드</a></li>
+          </ul>
+        </div>
       </h1>
       <div class="table-title-wrap">
         <h2 class="table-title">
@@ -24,36 +31,19 @@
           </colgroup>
           <tbody>
             <tr>
-              <th><span class="is-required">사용채널</span></th>
+              <th><span class="is-required">회원번호/명</span></th>
               <td>
-                <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
+                <UTextBox></UTextBox>
               </td>
-              <th><span class="is-required">인증일자</span></th>
+              <th></th>
+              <td></td>
+              <th></th>
+              <td></td>
               <td>
-                <UDatePeriodBox v-model:start="start" v-model:end="end" />
-              </td>
-              <th><span class="is-required">인증채널</span></th>
-              <td>
-                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-              </td>
-              <td rowspan="2">
                 <div class="buttons is-search">
                   <UButton text="조회" type="is-search"/>
                 </div>
               </td>
-            </tr>
-            <tr>
-              <th>회원번호/명</th>
-              <td>
-                <UBox>
-                  <UTextBox type="icon"/>
-                  <UTextBox></UTextBox>
-                </UBox>
-              </td>
-              <th></th>
-              <td></td>
-              <th></th>
-              <td></td>
             </tr>
           </tbody>
         </table>
@@ -61,9 +51,8 @@
     </div>
   </div>
 
-  <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
-    <div class="card is-sub">
+    <div class="card is-sub" style="width: 500px">
       <div class="card-body">
         <div class="table-title-wrap">
           <h2 class="table-title">
@@ -90,6 +79,38 @@
             <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
           </WjFlexGrid>
         </div>
+      </div>
+    </div>
+    <div class="card is-sub">
+      <div class="card-body">
+        <div class="table-title-wrap">
+          <h2 class="table-title">
+            <span>회원 상세 정보</span>
+          </h2>
+        </div>
+
+        <UFieldSet class="board">
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="회원번호"><UTextBox></UTextBox></UField>
+            <UField label="회원명"><UTextBox></UTextBox></UField>
+            <UField label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text"/></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="잔여포인트"><UTextBox></UTextBox></UField>
+            <UField label="탈퇴일자"><UDateBox mode="date"/></UField>
+            <UField label="삭제예정일자"><UDateBox mode="date"/></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="탈퇴사유"><UTextBox></UTextBox></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="복원사유"><UTextBox type="textarea" v-model="test" /></UField>
+          </UFieldRow>
+        </UFieldSet>
       </div>
     </div>
   </div>
@@ -141,7 +162,6 @@ const itemsSourceGrid = ref([
 ]);
 
 </script>
-
 <style lang="scss" scoped>
 
 </style>

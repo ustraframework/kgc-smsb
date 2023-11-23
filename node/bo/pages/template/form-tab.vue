@@ -4,6 +4,11 @@
       <h1 class="page-title">
         <span>회원정보 조회</span>
       </h1>
+      <div class="table-title-wrap">
+        <h2 class="table-title">
+          <span>description</span>
+        </h2>
+      </div>
     </div>
     <div class="card-body">
       <form action="" class="form">

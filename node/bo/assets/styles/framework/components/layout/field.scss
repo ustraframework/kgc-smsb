@@ -35,6 +35,8 @@
     }
     .u-field-slot {
       width: calc(100% - 50px) !important;
+      max-width: 100%;
+      overflow: hidden;
       padding: 5px 50px 5px 5px;
       background-color: var(--u-field-set-background-color);
 

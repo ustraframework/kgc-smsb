@@ -4,6 +4,11 @@
       <h1 class="page-title">
         <span>회원정보 변경 이력 조회</span>
       </h1>
+      <div class="table-title-wrap">
+        <h2 class="table-title">
+          <span>description</span>
+        </h2>
+      </div>
     </div>
     <div class="card-body">
       <form action="" class="form">
@@ -49,6 +54,7 @@
       <div class="card-body">
         <div class="table-title-wrap">
           <h2 class="table-title">
+            <span>상세내역</span>
             <span class="data-count">총<span>24</span>건</span>
           </h2>
           <div class="buttons">

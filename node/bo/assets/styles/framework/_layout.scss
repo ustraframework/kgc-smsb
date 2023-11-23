@@ -1184,6 +1184,27 @@ body {
   &.is-between {
     justify-content: space-between;
   }
+
+  &.is-shuffle {
+    .field-grid {
+      width: calc((100% / 2) - 52px);
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 20px;
+
+      .u-button {
+        margin: 0;
+        &:not(:first-child) {
+          margin-top: 3px;
+        }
+      }
+    }
+  }
 }
 
 .card {

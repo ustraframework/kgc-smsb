@@ -2,7 +2,14 @@
   <div class="card is-sub is-search">
     <div class="card-header">
       <h1 class="page-title">
-        <span>회원정보 변경 이력 조회</span>
+        <span>본문 제목</span>
+        <div class="columns">
+          <ul aria-label="breadcrumbs" class="breadcrumbs has-chevron-separator">
+            <li class="breadcrumb"><a href="#none">인사</a></li>
+            <li class="breadcrumb"><a href="#none">인사관리</a></li>
+            <li aria-current="page" class="breadcrumb is-active"><a>인사코드</a></li>
+          </ul>
+        </div>
       </h1>
       <div class="table-title-wrap">
         <h2 class="table-title">
@@ -24,36 +31,19 @@
           </colgroup>
           <tbody>
             <tr>
-              <th><span class="is-required">사용채널</span></th>
+              <th><span class="is-required">회원번호/명</span></th>
               <td>
-                <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
+                <UTextBox></UTextBox>
               </td>
-              <th><span class="is-required">인증일자</span></th>
+              <th></th>
+              <td></td>
+              <th></th>
+              <td></td>
               <td>
-                <UDatePeriodBox v-model:start="start" v-model:end="end" />
-              </td>
-              <th><span class="is-required">인증채널</span></th>
-              <td>
-                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-              </td>
-              <td rowspan="2">
                 <div class="buttons is-search">
                   <UButton text="조회" type="is-search"/>
                 </div>
               </td>
-            </tr>
-            <tr>
-              <th>회원번호/명</th>
-              <td>
-                <UBox>
-                  <UTextBox type="icon"/>
-                  <UTextBox></UTextBox>
-                </UBox>
-              </td>
-              <th></th>
-              <td></td>
-              <th></th>
-              <td></td>
             </tr>
           </tbody>
         </table>
@@ -61,7 +51,6 @@
     </div>
   </div>
 
-  <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
     <div class="card is-sub">
       <div class="card-body">
@@ -81,15 +70,41 @@
             <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
             <WjFlexGridColumn header="채널" binding="col1" width="*" />
             <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            <WjFlexGridColumn header="컬럼라벨" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경전데이터" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경후데이터" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경사유" binding="col1" width="*" />
-            <WjFlexGridColumn header="컬럼명" binding="col1" width="*" />
-            <WjFlexGridColumn header="수정자" binding="col1" width="*" />
-            <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
           </WjFlexGrid>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns has-gap">
+    <div class="card is-sub">
+      <div class="card-body">
+        <div class="table-title-wrap">
+          <h2 class="table-title">
+            <span>회원 상세 정보</span>
+          </h2>
+        </div>
+
+        <UFieldSet>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="업무구분"><UTextBox></UTextBox></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="업무내용">
+              <UCkEditor5 v-model="content" :height="300" :disabled="disabled" :initialized="ckEditor.initialize" /></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="첨부파일">
+              <div class="buttons">
+                <UButton text="Upload" @click="() => uploadFile()" />
+              </div>
+              <UMultiFileUploader ref="uploader" fileGroupId="menuIcon" />
+            </UField>
+          </UFieldRow>
+        </UFieldSet>
       </div>
     </div>
   </div>
@@ -102,6 +117,8 @@ import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } fro
 const grid = useWijmoFlexGrid({
 isReadOnly: false,
 })  
+
+const ckEditor = useUstraCkEditor5()
 
 const items = [
   { value: '01', text: '항목1' },
@@ -141,7 +158,6 @@ const itemsSourceGrid = ref([
 ]);
 
 </script>
-
 <style lang="scss" scoped>
 
 </style>
