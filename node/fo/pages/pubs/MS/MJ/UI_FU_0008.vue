@@ -76,7 +76,7 @@
                 <InputText v-model="userId" id="userId" class="flex-1" type="text" size="large" placeholder="아이디" />
                 <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] text-[#758EBC] bg-[#ECF0F8]">중복 확인</button>
               </div>
-              <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+              <p class="mt-[5px] text-[13px] text-[#F43131]">아이디를 입력해주세요</p>
               <p class="flex-none mt-[8px] text-[13px] text-[#888] leading-[1.2]">
                 6~20자 이하의 영문, 숫자 조합(허용 특수문자’_’, 띄어쓰기 사용 불가)
               </p>
@@ -95,7 +95,7 @@
                 toggleMask
                 placeholder="비밀번호"
               />
-              <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+              <p class="mt-[5px] text-[13px] text-[#F43131]">비밀번호를 입력해주세요</p>
               <p class="mt-[8px] text-[13px] text-[#888] leading-[1.2]">
                 영문 대/소문자, 숫자, 특수문자 8자 이상 3가지 이상 조합 <br />(허용 특수문자 !@#$%^&*( ) )
               </p>
@@ -115,7 +115,7 @@
                 toggleMask
                 placeholder="비밀번호 확인"
               />
-              <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+              <p class="mt-[5px] text-[13px] text-[#F43131]">비밀번호 확인을 입력해주세요</p>
             </div>
           </li>
         </ul>
@@ -136,7 +136,7 @@
                 <InputText v-model="userEmail" id="userEmail" class="w-full" type="text" size="large" placeholder="이메일" />
                 <Dropdown inputClass="p-inputtext-lg" v-model="domein" :options="domeins" optionLabel="name" class="w-[160px] flex-none" />
               </div>
-              <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+              <p class="mt-[5px] text-[13px] text-[#F43131]">이메일을 입력해주세요</p>
             </div>
           </li>
           <li class="flex items-start">
