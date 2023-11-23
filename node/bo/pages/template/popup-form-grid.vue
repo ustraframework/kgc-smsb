@@ -21,12 +21,12 @@
             </UFieldRow>
             <UFieldRow>
               <UField label="엑셀 파일">
-                <UTextBox type="icon"/>
+                <USingleFileUploader ref="uploader" fileGroupId="menuIcon" v-model:fileId="fileId" />
               </UField>
             </UFieldRow>
             <UFieldRow>
               <UField label="타겟팅">
-                <USingleFileUploader ref="uploader" fileGroupId="menuIcon" v-model:fileId="fileId" />
+                <UTextBox type="icon"/>
               </UField>
             </UFieldRow>
             <UFieldRow>
