@@ -11,5 +11,4 @@
 import Header from '@/components/layouts/header.vue';
 import Footer from '@/components/layouts/footer.vue';
 </script>
-<script lang="ts"></script>
 <style lang="scss"></style>

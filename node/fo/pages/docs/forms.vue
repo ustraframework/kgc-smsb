@@ -13,9 +13,18 @@
         <InputText disabled v-model="value6" type="text" size="large" placeholder="Disabled" />
       </div>
       <div class="flex items-end gap-[38px] mt-[10px]">
-        <InputText class="p-invalid" v-model="value" type="text" size="small" placeholder="Error" />
-        <InputText class="p-invalid" v-model="value" type="text" placeholder="Error" />
-        <InputText class="p-invalid" v-model="value" type="text" size="large" placeholder="Error" />
+        <span>
+          <InputText class="p-invalid" v-model="value" type="text" size="small" placeholder="Error" />
+          <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+        </span>
+        <span>
+          <InputText class="p-invalid" v-model="value" type="text" placeholder="Error" />
+          <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+        </span>
+        <span>
+          <InputText class="p-invalid" v-model="value" type="text" size="large" placeholder="Error" />
+          <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+        </span>
       </div>
     </div>
 
@@ -98,24 +107,35 @@
         />
       </div>
       <div class="flex items-end gap-[38px] mt-[10px]">
-        <Dropdown
-          inputClass="p-inputtext-sm"
-          panelClass="p-dropdown-panel-sm"
-          v-model="selectedCity"
-          :options="cities"
-          optionLabel="name"
-          placeholder="Select A"
-          class="w-[200px] p-invalid"
-        />
-        <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select A" class="w-[200px] p-invalid" />
-        <Dropdown
-          inputClass="p-inputtext-lg"
-          v-model="selectedCity"
-          :options="cities"
-          optionLabel="name"
-          placeholder="Select A"
-          class="w-[200px] p-invalid"
-        />
+        <div>
+          <Dropdown
+            inputClass="p-inputtext-sm"
+            panelClass="p-dropdown-panel-sm"
+            v-model="selectedCity"
+            :options="cities"
+            optionLabel="name"
+            placeholder="Select A"
+            class="w-[200px] p-invalid"
+          />
+          <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+        </div>
+
+        <div>
+          <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select A" class="w-[200px] p-invalid" />
+          <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+        </div>
+
+        <div>
+          <Dropdown
+            inputClass="p-inputtext-lg"
+            v-model="selectedCity"
+            :options="cities"
+            optionLabel="name"
+            placeholder="Select A"
+            class="w-[200px] p-invalid"
+          />
+          <p class="mt-[5px] text-[13px] text-[#F43131]">Error Text</p>
+        </div>
       </div>
     </div>
 
@@ -191,35 +211,35 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 // input
-const value = ref(null)
-const value1 = ref(null)
-const value2 = ref(null)
-const value3 = ref(null)
-const value4 = ref(null)
-const value5 = ref(null)
-const value6 = ref(null)
+const value = ref(null);
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const value4 = ref(null);
+const value5 = ref(null);
+const value6 = ref(null);
 
 // dropdown
-const selectedCity = ref()
+const selectedCity = ref();
 const cities = ref([
   { name: 'New York', code: 'NY' },
   { name: 'Rome', code: 'RM' },
   { name: 'London', code: 'LDN' },
   { name: 'Istanbul', code: 'IST' },
   { name: 'Paris', code: 'PRS' },
-])
+]);
 
 // checkbox
-const pizza = ref()
+const pizza = ref();
 
 // radio
-const ingredient = ref('')
+const ingredient = ref('');
 
 // switch
-const checked = ref(false)
+const checked = ref(false);
 </script>
 
 <style lang="scss" scoped></style>

@@ -107,4 +107,11 @@
       }
     }
   }
+  &.is-large {
+    .u-field-set-slot {
+      .u-field-label {
+        width: 230px !important;
+      }
+    }
+  }
 }
