@@ -7,6 +7,7 @@
   font-size: 14px;
   line-height: 1.6;
   vertical-align: top;
+  opacity: 1;
   color: var(--j-gray700);
 
   &:hover,
@@ -20,6 +21,7 @@
 
   &:disabled {
     border-color: var(--j-gray200);
+    color: var(--j-gray300);
     background-color: var(--j-gray100);
   }
 

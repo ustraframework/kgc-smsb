@@ -12,12 +12,14 @@
         <slot></slot>
       </div>
     </main>
+    <Mdi />
   </div>
   </v-app>
 </template>
 <script lang="ts" setup>
 import Header from '@/components/layouts/header.vue';
 import Sidebar from '@/components/layouts/sidebar.vue';
+import Mdi from '~/components/layouts/mdi.vue';
 
 
 </script>

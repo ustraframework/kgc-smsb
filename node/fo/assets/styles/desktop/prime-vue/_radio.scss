@@ -19,11 +19,16 @@
       opacity: 1;
       border-color: var(--j-gray200);
 
-      &.p-highlight {
-        .p-radiobutton-icon {
-          background-color: var(--j-gray200);
-        }
+      .p-radiobutton-icon {
+        background-color: var(--j-gray200);
       }
+
+      // checked
+      // &.p-highlight {
+      //   .p-radiobutton-icon {
+      //     background-color: var(--j-gray200);
+      //   }
+      // }
     }
   }
 
@@ -57,6 +62,8 @@
   .p-radiobutton-icon {
     width: 10px;
     height: 10px;
+    visibility: visible;
+    transform: translateZ(0) scale(1, 1);
     background-color: var(--j-gray300);
   }
 
