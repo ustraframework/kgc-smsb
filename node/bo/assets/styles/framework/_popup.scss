@@ -48,9 +48,17 @@
         margin-bottom: 30px;
       }
     }
-    .u-item {
-      &:last-child {
-        padding-top: 25px;
+    .u-box {
+      > .u-item {
+        &:last-child {
+          padding-top: 25px;
+        }
+      }
+
+      .table-title-wrap {
+        &:not(:first-child) {
+          margin-top: 20px;
+        }
       }
     }
   }
