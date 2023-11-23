@@ -4,6 +4,11 @@
       <h1 class="page-title">
         <span>회원정보 변경 이력 조회</span>
       </h1>
+      <div class="table-title-wrap">
+        <h2 class="table-title">
+          <span>회원의 인증 이력을 조회합니다.</span>
+        </h2>
+      </div>
     </div>
     <div class="card-body">
       <form action="" class="form">

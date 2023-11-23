@@ -4,6 +4,11 @@
       <h1 class="page-title">
         <span>회원 등록 처리</span>
       </h1>
+      <div class="table-title-wrap">
+        <h2 class="table-title">
+          <span>회원정보를 등록 합니다.</span>
+        </h2>
+      </div>
     </div>
   </div>
 

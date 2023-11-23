@@ -4,6 +4,11 @@
       <h1 class="page-title">
         <span>회원정보 조회</span>
       </h1>
+      <div class="table-title-wrap">
+        <h2 class="table-title">
+          <span>회원정보를 조회 및 수정관리를 할 수 있다.</span>
+        </h2>
+      </div>
     </div>
     <div class="card-body">
       <form action="" class="form">
