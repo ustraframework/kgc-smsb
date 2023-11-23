@@ -85,8 +85,6 @@
   }
 }
 
-
-
 // input height sm, large
 .u-text-box {
   &.is-large {
@@ -1233,7 +1231,7 @@
   }
 }
 
-// button icon
+// ===== input button icon =====
 .ipt {
   &.err {
     position: relative;
@@ -1382,6 +1380,21 @@
         cursor: default;
         &.btn_find{
           background: url(/assets/images/svg/ico_search_disable.svg) no-repeat center center;
+        }
+      }
+    }
+  }
+}
+
+// ====== textarea ======
+.u-text-box{
+  .v-textarea{
+    .v-input__control{
+      .v-field{
+        .v-field__field{
+          .wj-textarea{
+            padding: 10px;
+          }
         }
       }
     }

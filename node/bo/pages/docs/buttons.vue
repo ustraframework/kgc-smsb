@@ -32,11 +32,13 @@
 
     <!-- 2 line -->
     <div class="columns has-gap mb-12">
+
       <div class="column is-half">
         <h1 class="mb-4">Grid CRUD Button</h1>
         <UButton text="Line Button" type="is-outline"/>
         <UButton text="Line Button" disabled />
       </div>
+
       <div class="column is-half">
         <h1 class="mb-4">Confirm Button</h1>
         <UButton text="Confirm Button" type="is-filled"/>
@@ -59,6 +61,7 @@
         <UButton text="조회" type="is-search"/>
         <UButton text="조회" type="is-search" disabled />
       </div>
+      
       <div class="column is-half">
         <h1 class="mb-6">Detail Button</h1>
         <h3 class="mb-4">Shuffle Button</h3>

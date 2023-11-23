@@ -15,8 +15,10 @@
         <div class="mb-2"></div>
         <UTextBox style="width:300px;" placeholder="enabled" class="is-large"></UTextBox>
       </div>
+
+      <!-- search input -->
       <div class="column is-half">
-        <h1 class="mb-4">Icon Button</h1>
+        <h1 class="mb-4">Search Input</h1>
         <div class="mb-2"></div>
         <UTextBox type="icon" @iconClick="logMessage" placeholder="search" style="width:300px;"/>
         <div class="mb-2"></div>
@@ -31,12 +33,18 @@
         <span>Large (40px)</span><br/>
         <div class="mb-2"></div>
         <UTextBox type="icon" @iconClick="logMessage" class="is-large" placeholder="search" style="width:300px;"/>
-        
-        
-        
-        <div class="columns is-half mt-2"></div>
       </div>
     </div>
+
+    <!-- 2 line -->
+    <div class="columns has-gap mb-12">
+      <div class="column is-half">
+        <h1 class="mb-4">Text Area</h1>
+        <UTextBox type="textarea" v-model="value"/>
+
+      </div>
+    </div>
+
   </div>
 </template>
 
