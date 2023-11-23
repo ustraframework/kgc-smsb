@@ -229,6 +229,11 @@
 </template>
 
 <script setup>
+definePageMeta({
+  auth: {
+    required: true,
+  },
+})
 </script>
 
 <style lang="scss" scoped>

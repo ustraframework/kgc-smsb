@@ -11,5 +11,6 @@ definePageMeta({
   auth: {
     required: true,
   },
+  layout: 'default',
 })
 </script>

@@ -1229,3 +1229,11 @@ body {
   color: black;
   text-align: inherit;
 }
+
+// sidebar
+.v-navigation-drawer{
+  &.ustra-lnb{
+    position: unset !important;
+
+  }
+}

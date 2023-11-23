@@ -44,7 +44,7 @@
 <script lang="ts" setup>
 import { WjTabPanel, WjTab } from '#ustra/nuxt-wijmo/components'
 import { useWijmoTabPanel } from '#ustra/nuxt-wijmo/composables/tab'
-import UstraLayoutSideMenu from '~/layouts/side-menu.vue'
+import UstraLayoutSideMenu from '@/components/layouts/lnb.vue'
 
 const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils();
 
