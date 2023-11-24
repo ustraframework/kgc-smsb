@@ -2,8 +2,13 @@
   <div class="card is-sub is-search">
     <div class="card-header">
       <h1 class="page-title">
-        <span>회원정보 변경 이력 조회</span>
+        <span>포인트유형 관리</span>
       </h1>
+      <div class="table-title-wrap">
+        <h2 class="table-title">
+          <span>해당 화면은 포인트 유형을 조회하고 관리하는 페이지 입니다.</span>
+        </h2>
+      </div>
     </div>
     <div class="card-body">
       <form action="" class="form">

@@ -78,6 +78,11 @@
 }
 
 .u-field-set{
+  .u-field-set-slot{
+    border-top: 1px solid #e9e9e9 !important;
+    border-bottom: 0 !important;
+  }
+
   &.is-search {
     table-layout: fixed;
     border-radius: 6px;
