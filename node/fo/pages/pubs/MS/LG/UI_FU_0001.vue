@@ -1,8 +1,8 @@
 <template>
-  <div class="w-[624px] m-auto py-[60px] rounded-[16px] border border-[#ECF0F8]">
+  <div class="w-[624px] m-auto py-[60px] mb-[60px] rounded-[16px] border border-[#ECF0F8]">
     <h2 class="mb-[12px] text-center text-3xl font-bold">로그인</h2>
     <p class="mb-[40px] text-center text-base"><strong>정관장 멤버스 통합 아이디</strong>로 다양한 서비스를 이용해보세요.</p>
-    <div class="flex flex-col w-[320px] mx-auto">
+    <form class="flex flex-col w-[320px] mx-auto">
       <InputText class="w-full" v-model="userId" type="text" size="large" placeholder="아이디" />
       <p class="mt-[5px] text-[13px] text-[#F43131]">Error message</p>
       <Password
@@ -39,7 +39,7 @@
           <button class="sns-btn is-apple" type="button">애플 로그인</button>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 

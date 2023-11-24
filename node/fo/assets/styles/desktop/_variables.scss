@@ -79,7 +79,7 @@ $prefix: $variable-prefix !default;
 $font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Roboto, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움',
   sans-serif !default;
 
-$font-size-base: 1.4rem !default;
+$font-size-base: 14px !default;
 
 $font-weight-base: 400 !default;
 
@@ -87,7 +87,7 @@ $line-height-base: 1.5 !default;
 
 // Body
 $body-bg: $white !default;
-$body-color: $black !default;
+$body-color: $gray-700 !default;
 
 // Document
 $document-max-width: 192rem;
