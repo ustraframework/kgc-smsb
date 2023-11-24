@@ -1,4 +1,4 @@
-package kr.co.kgc.smsb.bo.biz.bi;
+package kr.co.kgc.smsb.bo.biz.bi.tm;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

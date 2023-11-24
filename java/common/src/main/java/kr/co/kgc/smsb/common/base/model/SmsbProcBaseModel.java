@@ -23,4 +23,9 @@ public class SmsbProcBaseModel {
 	 * SP 응답 메시지
 	 */
 	private String otResMsg;
+	
+	/**
+	 * SP 기본 입력, 화면 ID
+	 */
+	private String ioUiId;
 }

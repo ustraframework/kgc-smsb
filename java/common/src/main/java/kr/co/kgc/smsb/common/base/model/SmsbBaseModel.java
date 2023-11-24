@@ -81,6 +81,11 @@ public class SmsbBaseModel {
 	@Setter
 	@JsonIgnore
 	private Integer paginationTotalCnt;
+	
+	/**
+	 * SP 기본 입력, 화면 ID
+	 */
+	private String ioUiId;
 
 	/**
 	 * 타 필드 유입 시 처리

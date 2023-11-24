@@ -47,6 +47,11 @@ export interface ChlTm extends baseModels.BaseModel {
    * 요청 구분 (C/U)
    */
   inReqGbn?: string
+
+  /**
+   * SP 기본 입력, 화면 ID
+   */
+  ioUiId?: string
 }
 
 /**
@@ -72,6 +77,11 @@ export interface Criteria {
    * 기준 일자
    */
   schAplDt?: string
+
+  /**
+   * SP 기본 입력, 화면 ID
+   */
+  ioUiId?: string
 }
 
 /**

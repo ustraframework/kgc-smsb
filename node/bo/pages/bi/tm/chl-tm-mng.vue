@@ -91,29 +91,29 @@
           <UFieldSet>
             <UValidationGroup ref="validationGroup">
               <UFieldRow>
-                <UField left required label="채널" labelWidth="100">
+                <UField left required label="채널" labelWidth="120">
                   <UCodeComboBox grpCd="CHNL_CD" v-model="detailActions.chlTm.value.chnlCd" displayNullText="선택" />
                 </UField>
-                <UField left required label="약관유형" labelWidth="100">
+                <UField left required label="약관유형" labelWidth="120">
                   <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="detailActions.chlTm.value.termPatrDvcd" displayNullText="선택" />
                 </UField>
-                <UField left required label="약관ID" labelWidth="100">
+                <UField left required label="약관ID" labelWidth="120">
                   <UTextBox type="text" v-model="detailActions.chlTm.value.termCd" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
                 </UField>
               </UFieldRow>
               <UFieldRow>
-                <UField left required label="약관명" labelWidth="100">
+                <UField left required label="약관명" labelWidth="120">
                   <UTextBox type="text" v-model="detailActions.chlTm.value.termNm" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
                 </UField>
-                <UField left required label="약관버전" labelWidth="100">
+                <UField left required label="약관버전" labelWidth="120">
                   <UTextBox type="text" v-model="detailActions.chlTm.value.termVrsnNo" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
                 </UField>
-                <UField left required label="필수동의여부" labelWidth="100">
+                <UField left required label="필수동의여부" labelWidth="120">
                   <UCodeComboBox grpCd="ESNT_AGRM_TERM_YN_CD" v-model="detailActions.chlTm.value.esntAgrmTermYn" displayNullText="선택" />
                 </UField>
               </UFieldRow>
               <UFieldRow>
-                <UField left required label="적용기간" labelWidth="100">
+                <UField left required label="적용기간" labelWidth="120">
                   <UDatePeriodBox
                     v-model:start="detailActions.chlTm.value.aplStDt"
                     v-model:end="detailActions.chlTm.value.aplEdDt"
@@ -122,7 +122,7 @@
                 </UField>
               </UFieldRow>
               <UFieldRow>
-                <UField left required label="약관내용" labelWidth="100">
+                <UField left required label="약관내용" labelWidth="120">
                   <div>
                     <UCkEditor5
                       v-model="detailActions.chlTm.value.termCntt"
@@ -151,9 +151,15 @@ import { UValidationGroup } from '#ustra/nuxt-wijmo/components'
 // 서비스 정의
 const chlTmMgntService = useChlTmMgntService()
 
+// Validation 그룹 정의
 const validationGroup = ref<InstanceType<typeof UValidationGroup>>()
 
-// 검색 기능
+// SP 필수 ioUiId
+const uiId = 'chl-tm-mng'
+
+/**
+ * 검색 기능
+ */
 const searchActions = (() => {
   // api 파라메터
   const criteria: Criteria = reactive({
@@ -161,6 +167,7 @@ const searchActions = (() => {
     schChnlCd: null,
     schTermNm: null,
     schTermPatrDvcd: null,
+    ioUiId: uiId,
   })
 
   return {
@@ -168,11 +175,11 @@ const searchActions = (() => {
   }
 })()
 
-// 목록 기능
+/**
+ * 목록 기능
+ */
 const listActions = (() => {
-  /**
-   * 약관 목록
-   */
+  // 약관 목록
   const chlTms = ref<ChlTm[]>([])
 
   /**
@@ -207,11 +214,16 @@ const listActions = (() => {
   }
 })()
 
-// 상세 기능
+/**
+ * 상세 기능
+ */
 const detailActions = (() => {
   // 약관 데이터
   const chlTm = ref<ChlTm>({})
-  // 초기화
+
+  /**
+   * 초기화
+   */
   async function init() {
     chlTm.value = {
       inReqGbn: 'C',
@@ -224,6 +236,7 @@ const detailActions = (() => {
       termNm: null,
       termPatrDvcd: null,
       termVrsnNo: null,
+      ioUiId: uiId,
     }
     await validationGroup.value.init(true)
   }
@@ -234,6 +247,7 @@ const detailActions = (() => {
   async function detail(data: ChlTm) {
     chlTm.value = data
     chlTm.value.inReqGbn = 'U'
+    chlTm.value.ioUiId = uiId
   }
 
   /**
@@ -248,31 +262,48 @@ const detailActions = (() => {
 
     if (chlTm.value.inReqGbn === 'C') {
       if (await confirm('신규등록 하시겠습니까??')) {
-        const result = await chlTmMgntService.save(chlTm.value)
-        // 정상
-        if (result.otResponCode === '00000') {
-          await init()
-          await listActions.load()
-        }
-        // 오류
-        else {
-        }
+        useOnError(
+          async () => {
+            const result = await chlTmMgntService.save(chlTm.value)
+            // 정상
+            if (result.otResponCode === '00000') {
+              await init()
+              await listActions.load()
+            }
+            // 오류
+            else {
+            }
+          },
+          {
+            message: '저장 중 오류가 발생하였습니다.',
+          },
+        )()
       }
     } else {
       if (await confirm('수정 하시겠습니까??')) {
-        const result = await chlTmMgntService.save(chlTm.value)
-        // 정상
-        if (result.otResponCode === '00000') {
-          await init()
-          await listActions.load()
-        }
-        // 오류
-        else {
-        }
+        useOnError(
+          async () => {
+            const result = await chlTmMgntService.save(chlTm.value)
+            // 정상
+            if (result.otResponCode === '00000') {
+              await init()
+              await listActions.load()
+            }
+            // 오류
+            else {
+            }
+          },
+          {
+            message: '저장 중 오류가 발생하였습니다.',
+          },
+        )()
       }
     }
   }
 
+  /**
+   * 삭제
+   */
   async function remove() {
     if (await confirm('삭제 하시겠습니까??')) {
     }

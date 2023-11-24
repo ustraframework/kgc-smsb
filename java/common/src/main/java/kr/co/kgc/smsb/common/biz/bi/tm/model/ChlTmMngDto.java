@@ -4,7 +4,6 @@ import com.gsitm.ustra.java.core.utils.annotation.MapField;
 
 import kr.co.kgc.smsb.common.base.model.SmsbBaseModel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -77,10 +76,9 @@ public class ChlTmMngDto extends SmsbBaseModel {
 	 * 검색조건
 	 */
 	@Data
-	@Builder
 	@NoArgsConstructor
 	@AllArgsConstructor
-	public static class Criteria {
+	public static class Criteria extends SmsbBaseModel {
 	
 		/**
 		 * 채널 코드
