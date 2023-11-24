@@ -43,7 +43,7 @@
 
           <!-- 그리드 -->
           <WjFlexGrid :itemsSource="listActions.chlTms.value" :initialized="listActions.grid.initialize" style="min-height: 250px; max-height: 250px">
-            <WjFlexGridColumn header="No" binding="rowNum" :width="60" align="center" />
+            <WjFlexGridColumn header="No" :width="60" align="center" :cellTemplate="ctx => ctx.row.index + 1" />
             <WjFlexGridColumn
               header="채널"
               binding="chnlCd"
@@ -179,14 +179,14 @@ const listActions = (() => {
    * 회원사 목록 검색
    */
   async function load() {
-    init()
+    await init()
     const data = await chlTmMgntService.getList(searchActions.criteria)
     chlTms.value = data.record
   }
 
-  function init() {
+  async function init() {
     listActions.grid.control.value.select(-1, -1)
-    detailActions.init()
+    await detailActions.init()
   }
 
   /**
@@ -227,7 +227,6 @@ const detailActions = (() => {
     }
     await validationGroup.value.init(true)
   }
-  init()
 
   /**
    * 상세
@@ -252,8 +251,8 @@ const detailActions = (() => {
         const result = await chlTmMgntService.save(chlTm.value)
         // 정상
         if (result.otResponCode === '00000') {
-          init()
-          listActions.load()
+          await init()
+          await listActions.load()
         }
         // 오류
         else {
@@ -264,8 +263,8 @@ const detailActions = (() => {
         const result = await chlTmMgntService.save(chlTm.value)
         // 정상
         if (result.otResponCode === '00000') {
-          init()
-          listActions.load()
+          await init()
+          await listActions.load()
         }
         // 오류
         else {
