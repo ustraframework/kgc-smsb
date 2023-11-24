@@ -89,40 +89,51 @@
         <!-- bottom 영역 -->
         <UItem :ratio="1">
           <UFieldSet>
-            <UFieldRow>
-              <UField left label="채널" labelWidth="100">
-                <UCodeComboBox grpCd="CHNL_CD" v-model="detailActions.chlTm.value.chnlCd" displayNullText="선택" />
-              </UField>
-              <UField left label="약관유형" labelWidth="100">
-                <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="detailActions.chlTm.value.termPatrDvcd" displayNullText="선택" />
-              </UField>
-              <UField left label="약관ID" labelWidth="100">
-                <UTextBox type="text" v-model="detailActions.chlTm.value.termCd" :style="'width: 100%'" />
-              </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField left label="약관명" labelWidth="100">
-                <UTextBox type="text" v-model="detailActions.chlTm.value.termNm" :style="'width: 100%'" />
-              </UField>
-              <UField left label="약관버전" labelWidth="100">
-                <UTextBox type="text" v-model="detailActions.chlTm.value.termVrsnNo" :style="'width: 100%'" />
-              </UField>
-              <UField left label="필수동의여부" labelWidth="100">
-                <UCodeComboBox grpCd="ESNT_AGRM_TERM_YN_CD" v-model="detailActions.chlTm.value.esntAgrmTermYn" displayNullText="선택" />
-              </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField left label="적용기간" labelWidth="100">
-                <UDatePeriodBox v-model:start="detailActions.chlTm.value.aplStDt" v-model:end="detailActions.chlTm.value.aplEdDt" />
-              </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField left label="약관내용" labelWidth="100">
-                <div>
-                  <UCkEditor5 v-model="detailActions.chlTm.value.termCntt" :height="400" :initialized="detailActions.ckEditor.initialize" />
-                </div>
-              </UField>
-            </UFieldRow>
+            <UValidationGroup ref="validationGroup">
+              <UFieldRow>
+                <UField left required label="채널" labelWidth="100">
+                  <UCodeComboBox grpCd="CHNL_CD" v-model="detailActions.chlTm.value.chnlCd" displayNullText="선택" />
+                </UField>
+                <UField left required label="약관유형" labelWidth="100">
+                  <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="detailActions.chlTm.value.termPatrDvcd" displayNullText="선택" />
+                </UField>
+                <UField left required label="약관ID" labelWidth="100">
+                  <UTextBox type="text" v-model="detailActions.chlTm.value.termCd" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
+                </UField>
+              </UFieldRow>
+              <UFieldRow>
+                <UField left required label="약관명" labelWidth="100">
+                  <UTextBox type="text" v-model="detailActions.chlTm.value.termNm" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
+                </UField>
+                <UField left required label="약관버전" labelWidth="100">
+                  <UTextBox type="text" v-model="detailActions.chlTm.value.termVrsnNo" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
+                </UField>
+                <UField left required label="필수동의여부" labelWidth="100">
+                  <UCodeComboBox grpCd="ESNT_AGRM_TERM_YN_CD" v-model="detailActions.chlTm.value.esntAgrmTermYn" displayNullText="선택" />
+                </UField>
+              </UFieldRow>
+              <UFieldRow>
+                <UField left required label="적용기간" labelWidth="100">
+                  <UDatePeriodBox
+                    v-model:start="detailActions.chlTm.value.aplStDt"
+                    v-model:end="detailActions.chlTm.value.aplEdDt"
+                    :isRequired="true"
+                  />
+                </UField>
+              </UFieldRow>
+              <UFieldRow>
+                <UField left required label="약관내용" labelWidth="100">
+                  <div>
+                    <UCkEditor5
+                      v-model="detailActions.chlTm.value.termCntt"
+                      :height="400"
+                      :initialized="detailActions.ckEditor.initialize"
+                      :validation="{ rules: ['required'] }"
+                    />
+                  </div>
+                </UField>
+              </UFieldRow>
+            </UValidationGroup>
           </UFieldSet>
         </UItem>
         <!-- // left 영역 -->
@@ -135,9 +146,12 @@
 import { WjFlexGrid, WjFlexGridColumn, WjComboBox } from '#ustra/nuxt-wijmo/components'
 import { wijmoInput } from '#ustra/nuxt-wijmo'
 import { useChlTmMgntService, Criteria, ChlTm } from '~/services/bi/tm/chl-tm-mng-service'
+import { UValidationGroup } from '#ustra/nuxt-wijmo/components'
 
 // 서비스 정의
 const chlTmMgntService = useChlTmMgntService()
+
+const validationGroup = ref<InstanceType<typeof UValidationGroup>>()
 
 // 검색 기능
 const searchActions = (() => {
@@ -198,7 +212,7 @@ const detailActions = (() => {
   // 약관 데이터
   const chlTm = ref<ChlTm>({})
   // 초기화
-  function init() {
+  async function init() {
     chlTm.value = {
       inReqGbn: 'C',
       aplEdDt: null,
@@ -211,6 +225,7 @@ const detailActions = (() => {
       termPatrDvcd: null,
       termVrsnNo: null,
     }
+    await validationGroup.value.init(true)
   }
   init()
 
@@ -224,10 +239,14 @@ const detailActions = (() => {
 
   /**
    * 저장
-   * @param Checkbox selection 그리드 데이터
    */
   async function save() {
-    let result = 0
+    // Validation 체크
+    const validationResult = await validationGroup.value.validate()
+    if (!validationResult.isValid) {
+      return
+    }
+
     if (chlTm.value.inReqGbn === 'C') {
       if (await confirm('신규등록 하시겠습니까??')) {
         const result = await chlTmMgntService.save(chlTm.value)
