@@ -9,6 +9,7 @@
 html {
   overflow-x: hidden;
   box-sizing: border-box;
+  height: 100%;
   // font-size: 62.5%;
 
   &:lang(ko) {
@@ -19,6 +20,7 @@ html {
 body {
   // overflow-x: hidden;
   overflow-wrap: break-word;
+  height: 100%;
   font-family: $font-family !important;
   font-weight: $font-weight-base !important;
   font-size: $font-size-base;
@@ -85,6 +87,7 @@ iframe {
 
 a {
   text-decoration: none;
+  color: #222;
 }
 
 // Images and content

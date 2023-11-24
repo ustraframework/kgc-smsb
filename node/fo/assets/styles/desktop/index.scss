@@ -17,7 +17,9 @@
 
 // Layout & components
 @import 'root';
-@import './prime-vue/button';
+@import 'layout';
+@import 'buttons';
+@import './prime-vue/buttons';
 @import './prime-vue/icons';
 @import './prime-vue/input';
 @import './prime-vue/password';
