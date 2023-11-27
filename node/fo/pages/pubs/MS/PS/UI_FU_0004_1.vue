@@ -1,21 +1,36 @@
 <template>
-  <div class="w-[624px] mx-auto my-[93px] pt-[60px] pb-[30px] rounded-[16px] border border-[#ECF0F8]">
-    <h2 class="mb-[12px] text-center text-3xl font-bold">비밀번호 재설정</h2>
-    <p class="mb-[40px] text-center text-base">새로운 비밀번호를 입력해주세요.</p>
+  <div class="w-[624px] mx-auto my-[102px] pt-[60px] pb-[30px] rounded-[16px] border border-[#ECF0F8]">
+    <h2 class="mb-[12px] text-center text-3xl font-bold">비밀번호 변경</h2>
+    <p class="mb-[40px] text-center text-base">고객님의 소중한 개인정보를 안전하게 보호하기 위하여 <br />새로운 비밀번호를 변경해주세요.</p>
     <form class="w-[320px] mx-auto">
       <div class="flex flex-col">
+        <label class="py-[9px] text-[#222]" for="userPassword0">현재 비밀번호</label>
+        <Password inputId="userPassword0" inputClass="p-inputtext-lg w-full" v-model="userPassword0" :feedback="false" placeholder="현재 비밀번호를 입력해주세요" />
+        <p class="mt-[5px] text-[13px] text-[#F43131]">비밀번호가 일치하지 않습니다</p>
+      </div>
+
+      <div class="flex flex-col mt-[16px]">
         <label class="py-[9px] text-[#222]" for="userPassword1">새 비밀번호</label>
         <Password inputId="userPassword1" inputClass="p-inputtext-lg w-full" v-model="userPassword1" :feedback="false" toggleMask placeholder="비밀번호를 입력해주세요" />
-        <p class="mt-[5px] text-[13px] text-[#F43131]">Error Message</p>
+        
+        <!-- error -->
+        <p class="mt-[5px] text-[13px] text-[#F43131]">비밀번호가 일치하지 않습니다</p>
       </div>
       
       <div class="flex flex-col mt-[16px]">
         <label class="py-[9px] text-[#222]" for="userPassword2">새 비밀번호 확인</label>
         <Password inputId="userPassword2" inputClass="p-inputtext-lg w-full" v-model="userPassword2" :feedback="false" toggleMask placeholder="변경하실 비밀번호를 다시 입력해 주세요" />
-        <p class="mt-[5px] text-[13px] text-[#F43131]">Error Message</p>
+
+        <!-- positive -->
+        <p class="mt-[5px] text-[13px] text-[#5361E7]">비밀번호가 일치 합니다</p>
+        <!-- error -->
+        <!-- <p class="mt-[5px] text-[13px] text-[#F43131]">Error Message</p> -->
       </div>
       
-      <Button class="w-full mt-[24px]" label="확인" size="large" />
+      <div class="flex gap-2 mt-[24px]">
+        <Button class="flex-1" label="취소" size="large" outlined />
+        <Button class="flex-1" label="확인" size="large" />
+      </div>
     </form>
     
     <div class="mt-[40px] mx-[30px] py-[16px] px-[20px] rounded-[8px] bg-[#F9FAFC]">
@@ -42,6 +57,7 @@
 import { ref } from 'vue';
 
 // input
+const userPassword0 = ref('');
 const userPassword1 = ref('');
 const userPassword2 = ref('');
 </script>

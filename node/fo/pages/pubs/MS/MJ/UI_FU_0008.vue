@@ -76,7 +76,11 @@
                 <InputText v-model="userId" id="userId" class="flex-1" type="text" size="large" placeholder="아이디" />
                 <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] text-[#758EBC] bg-[#ECF0F8]">중복 확인</button>
               </div>
-              <p class="mt-[5px] text-[13px] text-[#F43131]">아이디를 입력해주세요</p>
+              <!-- positive -->
+              <!-- <p class="mt-[5px] text-[13px] text-[#5361E7]">비밀번호가 일치 합니다</p> -->
+              <!-- error -->
+              <p class="mt-[5px] text-[13px] text-[#F43131]">이미 사용 중인 아이디입니다. 다시 입력해주세요.</p>
+
               <p class="flex-none mt-[8px] text-[13px] text-[#888] leading-[1.2]">
                 6~20자 이하의 영문, 숫자 조합(허용 특수문자’_’, 띄어쓰기 사용 불가)
               </p>

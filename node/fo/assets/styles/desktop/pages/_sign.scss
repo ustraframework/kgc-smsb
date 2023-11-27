@@ -21,4 +21,14 @@
       }
     }
   }
+
+  &.is-integration {
+    .p-steps-item {
+      &.p-steps-current:nth-child(2) {
+        .p-menuitem-link::before {
+          background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.87978 11.7211L10.2836 6.31728L8.96631 5L4.87978 9.08653L3.31728 7.52403L2 8.84131L4.87978 11.7211Z' fill='white'/%3E%3Cpath d='M4.87978 23.7211L10.2836 18.3173L8.96631 17L4.87978 21.0865L3.31728 19.524L2 20.8413L4.87978 23.7211Z' fill='white'/%3E%3Cpath d='M29 10.25V8.375H13V10.25H29Z' fill='white'/%3E%3Cpath d='M29 22.25V20.375H13V22.25H29Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+      }
+    }
+  }
 }
