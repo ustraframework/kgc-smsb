@@ -1511,3 +1511,14 @@
     }
   }
 }
+
+// layout
+.columns {
+  &.has-gap {
+    .u-box {
+      .u-item {
+        margin: 10px;
+      }
+    }
+  }
+}
