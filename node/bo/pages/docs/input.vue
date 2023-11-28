@@ -3,7 +3,6 @@
     <div class="columns has-gap mb-12">
       <div class="column is-half">
         <h1 class="mb-4">Default Text Input</h1>
-        <UTextBox style="width:300px;" placeholder="enabled" class="mb-1"></UTextBox>
         <UTextBox style="width:300px;" placeholder="enabled" class="mb-1" v-model="value"></UTextBox>
         <UTextBox class="is-outline mb-1" style="width:300px;" placeholder="hover, focus"></UTextBox>
         <UTextBox type="icon" iconType="error" v-model="errorVal" class="mb-1" style="width:300px;"></UTextBox>

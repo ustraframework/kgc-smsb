@@ -776,13 +776,6 @@
 ========================================================
 */
 
-// 콤보박스
-.wj-combobox {
-  & + .u-button {
-    margin-left: 10px;
-  }
-}
-
 // 버튼
 .u-button {
   padding: 0 20px;
@@ -1104,46 +1097,46 @@
       border-color: $gray260;
     }
 
-    &.wj-inputmask,
-    &.wj-dropdown
+    &.wj-inputmask
     {
       width: 100% !important;
-    }
-    
-    .wj-input {
-      border-radius: 4px;
-      height: 32px;
-    
-      .wj-input-group {
-        .wj-form-control {
-          padding: 0 10px;
-          font-size: pxToRem(14);
-          color: $is-black;
-
-          &::placeholder {
-            color: $gray180;
-          }
-        }
-        .wj-input-group-btn {
-          .wj-btn {
-            height: 28px !important;
-            min-height: 28px !important;
-
-            &.wj-btn-default {
-              &:hover {
-                background: #fff;
-              }
+      .wj-input {
+        border-radius: 4px;
+        height: 32px;
+      
+        .wj-input-group {
+          .wj-form-control {
+            padding: 0 10px;
+            font-size: pxToRem(14);
+            color: $is-black;
+  
+            &::placeholder {
+              color: $gray180;
             }
-            .wj-glyph-down {
-              top: -1px;
-              border-top: 7px solid;
-              border-right: 6px solid transparent;
-              border-left: 6px solid transparent;
+          }
+          .wj-input-group-btn {
+            .wj-btn {
+              height: 28px !important;
+              min-height: 28px !important;
+  
+              &.wj-btn-default {
+                &:hover {
+                  background: #fff;
+                }
+              }
+              .wj-glyph-down {
+                top: -1px;
+                border-top: 7px solid;
+                border-right: 6px solid transparent;
+                border-left: 6px solid transparent;
+              }
             }
           }
         }
       }
     }
+    
+
 
     &.is-large {
       .wj-input {
@@ -1604,6 +1597,113 @@
     .u-box {
       .u-item {
         margin: 10px;
+      }
+    }
+  }
+}
+
+// ==== 콤보박스 =====
+.wj-dropdown {
+  &.wj-combobox{
+    .wj-input {
+      height: 32px;
+
+      .wj-form-control{
+        font-size: pxToRem(14);
+        color: $is-black;
+      }
+
+      .wj-input-group-btn{
+        .wj-btn{
+          position: relative;
+          background-color: $is-white;
+          height: 100% !important;
+          min-height: 100% !important;
+          border-left: 0 !important;
+
+          .wj-glyph-down{
+            border-top: unset;
+            border-right: unset;
+            border-left: unset;
+          }
+
+          &:after {
+            width: 18px;
+            height: 18px;
+            content: '';
+            position: absolute;
+            right: 8px;
+            background: url(/assets/images/svg/ico_combo_arr_open.svg) no-repeat center center;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: unset;
+          }
+        }
+      }
+    }
+
+    &.wj-state-collapsed{
+      .wj-input {
+        .wj-input-group-btn{
+          .wj-btn{
+            &:after {
+              background: url(/assets/images/svg/ico_combo_arr_enable.svg) no-repeat center center;
+            }
+  
+            &:hover,
+            &:active,
+            &:focus {
+              &:after {
+                background: url(/assets/images/svg/ico_combo_arr_hover.svg) no-repeat center center;
+              }
+            }
+          }
+        }
+  
+        &:hover,
+        &:active,
+        &:focus {
+          .wj-btn{
+            &:after {
+              background: url(/assets/images/svg/ico_combo_arr_hover.svg) no-repeat center center;
+            }
+          }
+        }
+      }
+
+      :not(&){
+        border-color: $gray260;
+      }
+    }
+  }
+
+  & + .u-button {
+    margin-left: 10px;
+  }
+}
+
+// ==== 콤보박스 리스트 =====
+.wj-content {
+  &.wj-dropdown-panel{
+    padding: 0;
+    
+    .wj-listbox-item{
+      padding: 6px 10px;
+      font-size: pxToRem(14);
+      color: $is-black;
+
+      &.wj-state-selected{
+        background: $blue_gray200 !important;
+      }
+
+      &:hover {
+        background: $blue_gray200 !important;
+        transition-duration: unset !important;
       }
     }
   }
