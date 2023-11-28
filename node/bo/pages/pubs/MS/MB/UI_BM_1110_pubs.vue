@@ -58,6 +58,29 @@
           </tbody>
         </table>
       </form>
+
+
+      <div class="mt-10"></div>
+
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="사용채널" ><UTextBox /></UField>
+          <UField label="인증일자" ><UTextBox /></UField>
+          <UField label="인증채널" ><UTextBox /></UField>
+          <UField blank>
+            <div class="search-btn">
+              <UButton text="조회" type="is-search"/>
+            </div>
+          </UField>
+        </UFieldRow>
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="필드1(col)"><UTextBox /></UField>
+          <UField label="필드2(col)"><UTextBox /></UField>
+          <UField></UField>
+          <UField></UField>
+        </UFieldRow>
+      </UFieldSet>
+
     </div>
   </div>
 

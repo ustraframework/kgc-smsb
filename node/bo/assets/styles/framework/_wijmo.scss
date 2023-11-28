@@ -1680,6 +1680,17 @@
     &:not(.wj-state-collapsed) {
       border-color: $gray260;
     }
+
+    &.wj-state-disabled{
+      // border-color: $gray80;
+      // background: $gray80;
+
+      border-color: unset;
+      background: unset;
+      .wj-form-control{
+  
+      }
+    }
   }  
 
   & + .u-button {
