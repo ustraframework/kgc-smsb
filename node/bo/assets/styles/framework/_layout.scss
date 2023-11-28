@@ -1465,10 +1465,6 @@ body {
   }
 }
 
-.u-button {
-  width: 100%;
-}
-
 .nav-list {
   .nav {
     background-image: none !important;
@@ -1488,8 +1484,25 @@ body {
     &.favorite {
       background: none !important;
       li {
+        padding-left: 0 !important;
         &:before {
           display: none;
+        }
+        .btn-favorite {
+          border: 1px solid red;
+        }
+      }
+      .checkbox {
+        &.is-star {
+          position: absolute !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          margin: -1rem !important;
+          border: none !important;
+          padding: 0 !important;
+          width: 1rem !important;
+          height: 1rem !important;
+          white-space: nowrap !important;
         }
       }
     }
@@ -1540,5 +1553,36 @@ header {
         background-color: transparent;
       }
     }  
+  }
+}
+
+.navbar-right {
+  justify-content: flex-end;
+  padding-right: 40px;
+
+  .v-col {
+    &:not(:first-child) {
+      margin-left: 16px;
+    }
+  }
+  .v-btn {
+    min-width: auto;
+    border: none;
+    padding: 0;
+    
+    &:hover {
+      > .v-btn__overlay {
+        opacity: 0;
+      }
+    }
+  }
+}
+.search-emp {
+  display: flex;
+  position: relative;
+  .v-btn {
+    position: absolute;
+    right: 0;
+    height: 30px;
   }
 }

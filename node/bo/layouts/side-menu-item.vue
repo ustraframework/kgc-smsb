@@ -98,7 +98,9 @@
                   v-for="(child_nav, i) in nav.items"
                   :key="i"
                 >
-                <button class="favorite is-star"></button>
+                <label class="checkbox is-star">
+                  <input type="checkbox" checked>
+                </label>
                 {{ child_nav.text }}
                 </li>
               </ul>

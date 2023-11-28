@@ -5,7 +5,7 @@
     <v-app-bar color="#003156" density="compact">
       <v-toolbar-title>
         <a class="navbar-link" href="/main" rel="noopener">
-          <img src="@/assets/images/svg/logo.svg" alt="U.STRA HR" class="megastudy-logo" />
+          <img src="@/assets/images/svg/logo.svg" alt="U.STRA HR" />
         </a>
       </v-toolbar-title>
 
