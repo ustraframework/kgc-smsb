@@ -187,8 +187,15 @@ const listActions = (() => {
    */
   async function load() {
     await init()
-    const data = await chlTmMgntService.getList(searchActions.criteria)
-    chlTms.value = data.record
+    useOnError(
+      async () => {
+        const data = await chlTmMgntService.getList(searchActions.criteria)
+        chlTms.value = data.record
+      },
+      {
+        message: '조회 중 오류가 발생하였습니다.',
+      },
+    )()
   }
 
   async function init() {
