@@ -2,7 +2,7 @@
   <v-app id="ustra">
     <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" />
     <UstraLayoutSideMenu v-model="openSideMenu" :navigationSelected="navigationSelected" />
-    <!-- <VAppBar id="tab_bar" height="38" elevation="0" v-if="useTabMenu && selectedTabIndex > -1">
+    <VAppBar id="tab_bar" height="38" elevation="0" v-if="useTabMenu && selectedTabIndex > -1">
       <div id="tab">
         <div class="wrapper">
           <div class="bline"></div>
@@ -25,7 +25,7 @@
         <div class="next_btn"></div>
         <div class="prev_btn"></div>
       </div>
-    </VAppBar> -->
+    </VAppBar>
 
     <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
       <div class="content">
@@ -34,7 +34,7 @@
           <span class="favoriteWrap">
             <UstraLayoutFavoritesButton />
             <LayoutInfoButton />
-            <img src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_info.png" class="info" alt="도움말" />
+            <!-- <img src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_info.png" class="info" alt="도움말" /> -->
           </span>
         </h2>
 
@@ -46,7 +46,7 @@
       </div>
     </VMain>
 
-    <!-- <VMain id="page_wrapper" v-show="!useTabMenu">
+    <VMain id="page_wrapper" v-show="!useTabMenu">
       <div class="content">
         <h2 id="page_title">
           <b v-if="currentMenu">{{ currentMenu.mnuNm }}</b>
@@ -60,13 +60,12 @@
           <slot />
         </div>
       </div>
-    </VMain> -->
+    </VMain>
 
-    <!-- <VFooter color="#003156" app>
+    <VFooter color="#003156" app>
       <VSpacer></VSpacer>
       <span style="color: #fff">&copy; GSITM since 2020-2023</span>
-    </VFooter> -->
-    <Mdi />
+    </VFooter>
   </v-app>
 </template>
 <script lang="ts" setup>
@@ -80,7 +79,6 @@ import UstraLayoutSideMenu from '~/layouts/side-menu.vue'
 import UstraLayoutFavoritesButton from '#ustra/nuxt-wijmo/management/layouts/favorites-button.vue'
 
 import LayoutInfoButton from '~/components/layouts/info-button.vue'
-import Mdi from '@/components/layouts/mdi.vue';
 
 const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils()
 

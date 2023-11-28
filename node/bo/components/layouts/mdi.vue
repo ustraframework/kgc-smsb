@@ -82,10 +82,10 @@
 @import '@/assets/styles/framework/variable.scss';
 
 .mdi {
+  z-index: 9999;
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 10;
   width: calc(100% + 1px);
   height: 41px;
   margin: 0 0 -1px -1px;
