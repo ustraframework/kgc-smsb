@@ -1,6 +1,42 @@
 <template>
   <v-app id="ustra">
-    <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" />
+
+    <!-- header -->
+    <v-app-bar color="#003156" density="compact">
+      <v-toolbar-title>
+        <a class="navbar-link" href="/main" rel="noopener">
+          <img src="@/assets/images/svg/logo.svg" alt="U.STRA HR" class="megastudy-logo" />
+        </a>
+      </v-toolbar-title>
+
+      <v-spacer></v-spacer>
+      
+      <v-row class="navbar-right" align="center" no-gutters>
+        <v-col cols="auto" class="search-emp">
+          <UTextBox style="width:180px;" placeholder="검색할 직원명을 입력하세요."></UTextBox>
+          <v-btn :ripple="false" class="nav-btn">
+            <span class="icon">
+              <img src="@/assets/images/svg/ico_person.svg" alt="navigation icon" />
+            </span>
+          </v-btn>
+        </v-col>
+        <v-list density="compact" class="config-menu-list">
+          <v-list-item v-for="(menu, index) in configMenus" :key="index" @click="menu.onClick">
+            <v-tooltip :text="menu.title" location="bottom" class="nav-tooltip">
+              <template v-slot:activator="{ props }">
+                <v-btn v-bind="props" :ripple="false" class="nav-btn">
+                  <v-icon :icon="menu.icon"></v-icon>
+                </v-btn>
+              </template>
+            </v-tooltip>
+          </v-list-item>
+        </v-list>
+      </v-row>
+    </v-app-bar>
+    <!-- // header -->
+
+  
+    <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
     <UstraLayoutSideMenu v-model="openSideMenu" :navigationSelected="navigationSelected" />
     <!-- <VAppBar id="tab_bar" height="38" elevation="0" v-if="useTabMenu && selectedTabIndex > -1">
       <div id="tab">
@@ -85,9 +121,37 @@ import Mdi from '@/components/layouts/mdi.vue';
 
 import ContentsSample from '@/pages/pubs/MS/MB/UI_BM_1101_pubs.vue';
 
+// Header
+import { useUstraManagementLayout } from '#ustra/nuxt/management/composables'
+import UstraConfigMenu from '#ustra/nuxt-wijmo/management/layouts/config-menu.vue'
+
+// == Header ==
+const emits = defineEmits(['changeNavState'])
+const { displayUserText } = useUstraManagementLayout()
+
+const configMenus = computed(() => {
+  const sampleProps = $ustra.env.appProps.nuxt.wijmo.samples
+  const useSample = sampleProps.enabled
+  const menus = []
+
+  menus.push({
+    title: '로그아웃',
+    icon: 'mdi-logout',
+    async onClick() {
+      const result = await confirm('로그아웃 하시겠습니까?')
+
+      if (result) {
+        $ustra.management.auth.logout()
+      }
+    },
+  })
+
+  return menus
+})
+// ============
+
 
 const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils();
-
 const openSideMenu = ref(false)
 const selectedTabIndex = computed({
   get() {

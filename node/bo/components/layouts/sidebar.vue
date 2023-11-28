@@ -21,20 +21,6 @@
       <UTextBox type="icon" placeholder="메뉴검색" class="is-large"></UTextBox>
     </div>
 
-    <div class="menu-tab mt-1">
-      <WjTabPanel :initialized="tabPanel.initialize" class="is-menu">
-        <WjTab>
-          <a>메뉴</a>
-          <div></div>
-        </WjTab>
-
-        <WjTab>
-          <a>즐겨찾기</a>
-          <div></div>
-        </WjTab>
-      </WjTabPanel>
-    </div>
-
     <div class="menu-contents">
       <UstraLayoutSideMenu v-model="openSideMenu" :navigationSelected="navigationSelected" />
     </div>

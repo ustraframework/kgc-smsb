@@ -1,35 +1,52 @@
 <template>
   <v-navigation-drawer :width="250" color="grey-light-3" permanent border="0" :rail="!isOpenSideMenu" rail-width="60" class="ustra-side-menu">
-    <div id="search_menu" ref="domSearchMenu" :class="{ off: !isOpenSideMenu }">
-      <img
-        width="22"
-        class="open"
-        src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_menu_open.png"
-        v-if="!isOpenSideMenu"
-        cover
-        @click="isOpenSideMenu = true"
-      />
-      <input type="text" name="search" placeholder="메뉴검색" v-model="searchText" @input="searchMode = !!searchText" />
-      <span
-        class="sm_cancel"
-        v-if="searchMode"
-        @click="
-          () => {
-            searchText = ''
-            searchMode = false
-          }
-        "
-        >취소</span
-      >
-      <img
-        src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_menu_close.png"
-        class="close"
-        width="22"
-        v-if="isOpenSideMenu"
-        cover
-        @click="isOpenSideMenu = false"
-      />
+    <div class="profile">
+      <UBox direction="row" class="mb-4">
+        <v-avatar size="50"></v-avatar>
+        <div class="profile-content">
+          <p class="profile-personnel">
+            <span class="profile-name">김덕배</span>
+            <span class="profile-position">팀장</span>
+          </p>
+          <p class="profile-personnel">
+            <span class="profile-id" id="_profile_userId">20220243</span>
+            <span class="profile-divider">|</span>
+            <span class="profile-team" id="_profile_deptNm">인사팀</span>
+          </p>
+          <p id="_profile_emailAd" class="profile-email">duckbae@gsitm.com</p>
+        </div>
+      </UBox>
+
+      <div id="search_menu" ref="domSearchMenu" :class="{ off: !isOpenSideMenu }">
+        <button
+          class="open navBtn-close"
+          v-if="!isOpenSideMenu"
+          cover
+          @click="isOpenSideMenu = true"
+        >
+        </button>
+        <input type="text" name="search" placeholder="메뉴검색" v-model="searchText" @input="searchMode = !!searchText" />
+        <span
+          class="sm_cancel"
+          v-if="searchMode"
+          @click="
+            () => {
+              searchText = ''
+              searchMode = false
+            }
+          "
+          >취소</span
+        >
+        <button
+          class="close navBtn-open"
+          v-if="isOpenSideMenu"
+          cover
+          @click="isOpenSideMenu = false"
+        >
+        </button>
+      </div>
     </div>
+
 
     <nav id="search_menu_result" v-show="searchMode">
       <div class="null_data" v-if="searchedNavs.length < 1">검색결과가 없습니다.</div>
