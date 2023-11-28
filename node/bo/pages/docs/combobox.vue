@@ -4,6 +4,8 @@
       <div class="column is-half">
         <h1 class="mb-4">Default ComboBox</h1>
         <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
+        <div class="mb-2"></div>
+        <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" :disabled="true"/>
 
         <div></div>
       </div>
@@ -42,7 +44,11 @@ const items = [
   { value: '04', text: '항목4' },
   { value: '05', text: '항목5' },
   { value: '06', text: '항목6' },
-]
+];
+
+const visible = ref(true);
+
+
 </script>
 
 <style lang="scss" scoped>

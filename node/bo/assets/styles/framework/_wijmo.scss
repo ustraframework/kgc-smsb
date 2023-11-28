@@ -1675,12 +1675,12 @@
           }
         }
       }
-
-      :not(&){
-        border-color: $gray260;
-      }
     }
-  }
+
+    &:not(.wj-state-collapsed) {
+      border-color: $gray260;
+    }
+  }  
 
   & + .u-button {
     margin-left: 10px;
@@ -1691,6 +1691,10 @@
 .wj-content {
   &.wj-dropdown-panel{
     padding: 0;
+    top: 109px;
+    border-color: $gray260 !important;
+    border-radius: 4px !important;
+    box-shadow: unset;
     
     .wj-listbox-item{
       padding: 6px 10px;
