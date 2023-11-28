@@ -1,0 +1,26 @@
+:root {
+  // Colors
+  @each $color, $value in $colors {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $grays {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $bluegrays {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  // Fonts
+  --#{$prefix}font-size-base: #{$font-size-base};
+  --#{$prefix}line-height-base: #{$line-height-base};
+
+  // Documents
+  --#{$prefix}max-width: #{$document-max-width};
+  --#{$prefix}min-width: #{$document-min-width};
+}
