@@ -1236,12 +1236,12 @@
   &.err {
     position: relative;
     .wj-control {
-      border: 1px solid $point1;
-
       &.wj-inputmask {
+        border: 1px solid $point1;
         .wj-input {
           .wj-input-group {
             .wj-form-control {
+              color: $point1;
               padding-right: 40px;        
             }
           }
@@ -1388,12 +1388,98 @@
 
 // ====== textarea ======
 .u-text-box{
+  .v-field__overlay{
+    background-color: unset !important;
+    opacity: unset !important;
+    transition: unset !important;
+  }
+
   .v-textarea{
     .v-input__control{
       .v-field{
         .v-field__field{
           .wj-textarea{
+            font-size: 14px;
+            line-height: 20px;
+            color: $is-black;
             padding: 10px;
+            border: 1px solid $gray120;
+
+            &:hover,
+            &:active,
+            &:focus {
+              border: 1px solid $gray260;
+            }
+          }
+        }
+      }
+    }
+
+    &.v-input--disabled{
+      .v-input__control{
+        .v-field{
+          opacity: unset !important;
+          .v-field__field{
+            .wj-textarea{
+              border-color: $gray80;
+              background-color: $gray60;
+              color: $gray180;
+            }
+          }
+        }
+      }
+    }
+
+    &.v-input--readonly {
+      .v-input__control{
+        .v-field{
+          opacity: unset !important;
+          .v-field__field{
+            .wj-textarea{
+              border-color: $gray80;
+              background-color: $gray60;
+              color: $is-black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.is-outline {
+    .v-textarea{
+      .v-input__control{
+        .v-field{
+          .v-field__field{
+            .wj-textarea{
+              border-color: $gray260;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.is-error {
+    .v-textarea{
+      .v-input__control{
+        .v-field{
+          .v-field__field{
+            position: relative;
+            .wj-textarea{
+              border-color: $point1;
+              color: $point1;
+            }
+
+            &:after {
+              content: '';
+              position: absolute;
+              right: 5px;
+              bottom: 5px;
+              width: 24px;
+              height: 24px;
+              background: url(/assets/images/svg/ico_error.svg) no-repeat center center;
+            }
           }
         }
       }
