@@ -29,7 +29,7 @@
 
     <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
       <div class="content">
-        <h2 id="page_title">
+        <!-- <h2 id="page_title">
           <b>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }} {{ currentMenu?.mnuDesc }}</b>
           <span class="favoriteWrap">
             <UstraLayoutFavoritesButton />
@@ -42,7 +42,8 @@
           <template v-for="(item, index) in openedTabNavigations" :key="item.id">
             <component v-if="!!item.component" v-show="selectedTabIndex === index" :is="item.component" />
           </template>
-        </div>
+        </div> -->
+        <ContentsSample />
       </div>
     </VMain>
 
@@ -82,7 +83,10 @@ import UstraLayoutFavoritesButton from '#ustra/nuxt-wijmo/management/layouts/fav
 import LayoutInfoButton from '~/components/layouts/info-button.vue'
 import Mdi from '@/components/layouts/mdi.vue';
 
-const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils()
+import ContentsSample from '@/pages/pubs/MS/MB/UI_BM_1101_pubs.vue';
+
+
+const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils();
 
 const openSideMenu = ref(false)
 const selectedTabIndex = computed({
