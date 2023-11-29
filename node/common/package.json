@@ -9,8 +9,8 @@
   },
   "devDependencies": {
     "@types/node": "18",
-    "@ustra/nuxt": "3.0.0-snapshot.12",
-    "@ustra/nuxt-vuetify": "3.0.0-snapshot.12"
+    "@ustra/nuxt": "3.0.0-stable",
+    "@ustra/nuxt-vuetify": "3.0.0-stable"
   },
   "imports": {
     "#ustra/core": "@ustra/core/src",
@@ -23,7 +23,7 @@
     "#ustra/nuxt-vuetify/*": "@ustra/nuxt-vuetify/src/*",
     "#ustra/nuxt-wijmo": "@ustra/nuxt-wijmo/src",
     "#ustra/nuxt-wijmo/*": "@ustra/nuxt-wijmo/src/*",
-    "#hcorestore/common": "@hcorestore/common/src",
-    "#hcorestore/common/*": "@hcorestore/common/src/*"
+    "#kgc/common": "@kgc/smsb-common/src",
+    "#kgc/common/*": "@kgc/smsb-common/src/*"
   }
 }

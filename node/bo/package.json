@@ -31,10 +31,10 @@
     "highlight.js": "11.7.0"
   },
   "devDependencies": {
-    "@ustra/core": "3.0.0-snapshot.12",
-    "@ustra/nuxt": "3.0.0-snapshot.12",
-    "@ustra/nuxt-vuetify": "3.0.0-snapshot.12",
-    "@ustra/nuxt-ckeditor5": "3.0.0-snapshot.12",
-    "@ustra/nuxt-wijmo": "3.0.0-snapshot.12"
+    "@ustra/core": "3.0.0-stable",
+    "@ustra/nuxt": "3.0.0-stable",
+    "@ustra/nuxt-vuetify": "3.0.0-stable",
+    "@ustra/nuxt-ckeditor5": "3.0.0-stable",
+    "@ustra/nuxt-wijmo": "3.0.0-stable"
   }
 }

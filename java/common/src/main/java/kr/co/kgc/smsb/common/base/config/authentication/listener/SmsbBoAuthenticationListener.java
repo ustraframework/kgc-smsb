@@ -24,7 +24,7 @@ import kr.co.kgc.smsb.common.base.config.authentication.user.SmsbBoUser;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * TODO : º» Å¬·¡½º°¡ ÇÊ¿äÇÑÁö °ËÅä ÇÊ¿ä
+ * TODO : ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
  *
  */
 @Slf4j
@@ -32,7 +32,7 @@ public class SmsbBoAuthenticationListener implements UstraAuthenticationListener
 	@Autowired private UstraLoginHistoryService historyService;
 	@Autowired private UstraProperties properties;
 
-	// ºñÁî´Ï½º ÀÎÁõ °ü·Ã ¼­ºñ½º
+	// ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// @Autowired private AuthenticationService authenticationService;
 
 	@Override
@@ -87,7 +87,7 @@ public class SmsbBoAuthenticationListener implements UstraAuthenticationListener
 			info.setLoginHistId(historyService.getKey());
 			historyService.addLoginHistory(info);
 
-			// ºñ¹Ğ¹øÈ£ ºÒÀÏÄ¡¿¡¸¸ failCount Áõ°¡ Ã³¸®
+			// ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜ì—ë§Œ failCount ì¦ê°€ ì²˜ë¦¬
 //			authenticationService.updateOnLogin(false, authenticationToken.getUserName(),
 //					StringUtils.equals(UstraSecurityResponseCode.NOT_MATCH_PASSWORD.getCode(), resCode));
 			return 0;
@@ -153,7 +153,7 @@ public class SmsbBoAuthenticationListener implements UstraAuthenticationListener
 	}
 
 	/**
-	 * ExceptionÀ¸·ÎºÎÅÍ HcoreBoUser Á¶È¸
+	 * Exceptionìœ¼ë¡œë¶€í„° SmsbBoUser ì¡°íšŒ
 	 * @param e
 	 * @return
 	 */
@@ -192,10 +192,10 @@ public class SmsbBoAuthenticationListener implements UstraAuthenticationListener
 	}
 
 	/**
-	 * ÀÎÁõµÈ ½Ã½ºÅÛ Á¤º¸ ÃßÃâ
-	 * @param authentication ÀÎÁõ °´Ã¼
-	 * @param processor ÀÎÁõ ÇÁ·Î¼¼¼­
-	 * @return ½Ã½ºÅÛ ÄÚµå
+	 * ì¸ì¦ëœ ì‹œìŠ¤í…œ ì •ë³´ ì¶”ì¶œ
+	 * @param authentication ì¸ì¦ ê°ì²´
+	 * @param processor ì¸ì¦ í”„ë¡œì„¸ì„œ
+	 * @return ì‹œìŠ¤í…œ ì½”ë“œ
 	 */
 	protected String getAuthenticationSystemCode(UstraJwtAuthentication authentication, UstraAuthenticationProcessor<UstraAuthenticationRequestToken, UstraJwtAuthentication> processor) {
 

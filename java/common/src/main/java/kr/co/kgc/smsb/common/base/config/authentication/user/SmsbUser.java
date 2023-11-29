@@ -27,37 +27,37 @@ public abstract class SmsbUser extends UstraUser {
 
 
 	/**
-	 * ³ëÃâ ¸í
+	 * ë…¸ì¶œ ëª…
 	 */
 	private String displayName;
 
 	/**
-	 * »ç¿ëÀÚ ¾ÆÀÌµğ
+	 * ì‚¬ìš©ì ì•„ì´ë””
 	 */
 	private String userId;
 
 	/**
-	 * ·Î±×ÀÎ ½ÇÆĞ ¼ö
+	 * ë¡œê·¸ì¸ ì‹¤íŒ¨ ìˆ˜
 	 */
 	private Integer loginFailCnt;
 
 	/**
-	 * ÆĞ½º¿öµå ÃÊ±âÈ­ ¿©ºÎ
+	 * íŒ¨ìŠ¤ì›Œë“œ ì´ˆê¸°í™” ì—¬ë¶€
 	 */
 	private boolean resetPassword;
 
 	/**
-	 * ÆĞ½º¿öµå º¯°æ ÇÊ¿ä ¿©ºÎ
+	 * íŒ¨ìŠ¤ì›Œë“œ ë³€ê²½ í•„ìš” ì—¬ë¶€
 	 */
 	private boolean requiredChangePassword;
 
 	/**
-	 * ÃÖÁ¾ Á¢¼ÓÀÏ
+	 * ìµœì¢… ì ‘ì†ì¼
 	 */
 	private LocalDateTime lastConnectedDttm;
 
 	/**
-	 * ÃÖÁ¾ Á¢¼Ó ¾ÆÀÌÇÇ
+	 * ìµœì¢… ì ‘ì† ì•„ì´í”¼
 	 */
 	private String lastConnIp;
 

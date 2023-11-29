@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gsitm.ustra.java.core.utils.ApplicationContextProvider;
 import com.gsitm.ustra.java.core.utils.UstraMaskingUtils.MaskingType;
+import com.gsitm.ustra.java.core.utils.UstraNetUtils;
+import com.gsitm.ustra.java.core.utils.annotation.MapField;
 import com.gsitm.ustra.java.core.utils.annotation.Masked;
 import com.gsitm.ustra.java.management.properties.UstraManagementCoreProperties;
 import com.gsitm.ustra.java.security.authentication.UstraAuthenticationManager;
@@ -38,40 +40,55 @@ public class SmsbBaseModel {
 	private final Object initValue = applySystemDefaultFieldValue(this);
 
 	/**
-	 * µî·Ï »ç¿ëÀÚ ¾ÆÀÌµğ
+	 * ë“±ë¡ ì‚¬ìš©ì ì•„ì´ë””
 	 */
 	@Masked(MaskingType.ID)
+	@MapField("in_user_id")
 	private String regUserId;
-
+	
 	/**
-	 * µî·ÏÀÏ½Ã
+	 * ë“±ë¡ ì‚¬ìš©ì ì•„ì´í”¼
+	 */
+	@MapField("in_ip")
+	private String regUserIp;
+	
+	/**
+	 * ë“±ë¡ì¼ì‹œ
 	 */
 	private LocalDateTime regDttm;
 
 	/**
-	 * ¼öÁ¤ »ç¿ëÀÚ ¾ÆÀÌµğ
+	 * ìˆ˜ì • ì‚¬ìš©ì ì•„ì´ë””
 	 */
 	@Masked(MaskingType.ID)
-	private String modUserId;
-
+	private String mdfUserId;
 
 	/**
-	 * ¼öÁ¤ÀÏ½Ã
+	 * ìˆ˜ì • ì‚¬ìš©ì ì•„ì´í”¼
 	 */
-	private LocalDateTime modDttm;
+	private String mdfUserIp;
+
+	/**
+	 * ìˆ˜ì •ì¼ì‹œ
+	 */
+	private LocalDateTime mdfDttm;
 
 
 	/**
-	 * µ¥ÀÌÅÍ Á¶È¸ Ä«¿îÆ®
+	 * ë°ì´í„° ì¡°íšŒ ì¹´ìš´íŠ¸
 	 */
 	@Getter
 	@Setter
 	@JsonIgnore
 	private Integer paginationTotalCnt;
-
+	
+	/**
+	 * SP ê¸°ë³¸ ì…ë ¥, í™”ë©´ ID
+	 */
+	private String ioUiId;
 
 	/**
-	 * Å¸ ÇÊµå À¯ÀÔ ½Ã Ã³¸®
+	 * íƒ€ í•„ë“œ ìœ ì… ì‹œ ì²˜ë¦¬
 	 */
 	@Builder.Default
 	private Map<String, Object> others = new HashMap<>();
@@ -87,40 +104,46 @@ public class SmsbBaseModel {
 	}
 
 	/**
-	 * ½Ã½ºÅÛ ÇÊµå¸¦ º¹»çÇÑ´Ù.
-	 * @param target º¹»çÇÒ UstraBaseModel °´Ã¼
+	 * ì‹œìŠ¤í…œ í•„ë“œë¥¼ ë³µì‚¬í•œë‹¤.
+	 * @param target ë³µì‚¬í•  UstraBaseModel ê°ì²´
 	 */
 	public void copySystemField(SmsbBaseModel target) {
 		target.setRegDttm(this.getRegDttm());
 		target.setRegUserId(this.getRegUserId());
-		target.setModDttm(this.getModDttm());
-		target.setModUserId(this.getModUserId());
+		target.setRegUserIp(this.getRegUserIp());
+		target.setMdfDttm(this.getMdfDttm());
+		target.setMdfUserId(this.getMdfUserId());
+		target.setMdfUserIp(this.getMdfUserIp());
 	}
 
 	/**
-	 * ½Ã½ºÅÛ ÇÊµå¸¦ Á¦°ÅÇÑ´Ù.
+	 * ì‹œìŠ¤í…œ í•„ë“œë¥¼ ì œê±°í•œë‹¤.
 	 */
 	public void removeSystemField() {
 		this.setRegDttm(null);
 		this.setRegUserId(null);
-		this.setModDttm(null);
-		this.setModUserId(null);
+		this.setRegUserIp(null);
+		this.setMdfDttm(null);
+		this.setMdfUserId(null);
+		this.setMdfUserIp(null);
 	}
 
 	/**
-	 * ¸ğµ¨¿¡ ½Ã½ºÅÛ ÇÊµå ±âº» °ª ¼³Á¤
+	 * ëª¨ë¸ì— ì‹œìŠ¤í…œ í•„ë“œ ê¸°ë³¸ ê°’ ì„¤ì •
 	 * @param model
 	 */
 	public static Object applySystemDefaultFieldValue(SmsbBaseModel model) {
 
 		model.setRegDttm(LocalDateTime.now());
-		model.setModDttm(LocalDateTime.now());
+		model.setRegUserIp(UstraNetUtils.getLocalIp());
+		model.setMdfDttm(LocalDateTime.now());
+		model.setMdfUserIp(UstraNetUtils.getLocalIp());
 
 		UstraAuthenticationManager manager = ApplicationContextProvider.getBeanSafety(UstraAuthenticationManager.class);
 
 		if (manager != null && manager.getAuthentication() != null) {
 			model.setRegUserId(manager.getAuthentication().getName());
-			model.setModUserId(manager.getAuthentication().getName());
+			model.setMdfUserId(manager.getAuthentication().getName());
 		}
 
 		UstraManagementCoreProperties properties = ApplicationContextProvider.getBeanSafety(UstraManagementCoreProperties.class);
@@ -130,8 +153,8 @@ public class SmsbBaseModel {
 				model.setRegUserId(properties.getDefaultUserName());
 			}
 
-			if (StringUtils.isEmpty(model.getModUserId())) {
-				model.setModUserId(properties.getDefaultUserName());
+			if (StringUtils.isEmpty(model.getMdfUserId())) {
+				model.setMdfUserId(properties.getDefaultUserName());
 			}
 		}
 
@@ -139,7 +162,7 @@ public class SmsbBaseModel {
 	}
 
 	/**
-	 * ½Ã½ºÅÛ ÇÊµå ±âº» °ª ¼³Á¤
+	 * ì‹œìŠ¤í…œ í•„ë“œ ê¸°ë³¸ ê°’ ì„¤ì •
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
