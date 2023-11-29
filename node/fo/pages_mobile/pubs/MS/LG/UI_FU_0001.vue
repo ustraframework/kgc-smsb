@@ -1,8 +1,8 @@
 <template>
-  <div class="w-[624px] m-auto py-[60px] mb-[60px] rounded-[16px] border border-[#ECF0F8]">
-    <h2 class="mb-[12px] text-center text-3xl font-bold">로그인</h2>
-    <p class="mb-[40px] text-center text-base"><strong>정관장 멤버스 통합 아이디</strong>로 다양한 서비스를 이용해보세요.</p>
-    <form class="flex flex-col w-[320px] mx-auto">
+  <div class="my-[50px] mx-[20px] px-[20px] py-[40px] rounded-[16px] border border-[#ECF0F8]">
+    <h2 class="mb-[12px] text-center text-2xl font-bold">로그인</h2>
+    <p class="mb-[24px] text-center text-sm"><strong>정관장 멤버스 통합 아이디</strong>로 <br />다양한 서비스를 이용해보세요.</p>
+    <form class="flex flex-col">
       <InputText class="w-full" v-model="userId" type="text" size="large" placeholder="아이디" />
       <p class="mt-[5px] text-[13px] text-[#F43131]">Error message</p>
       <Password
@@ -19,7 +19,7 @@
         <label for="idSave"> 아이디 저장 </label>
       </div>
       <Button class="w-full mt-[24px]" label="로그인" size="large" />
-      <div class="flex justify-center items-center mt-[20px] px-[20px] text-[15px]">
+      <div class="flex justify-center items-center mt-[20px] text-[15px]">
         <router-link to="/">아이디 찾기</router-link>
         <span class="mx-[12px] h-[16px] border-l border-[#E7E7E7]"></span>
         <router-link to="/">비밀번호 재설정</router-link>
