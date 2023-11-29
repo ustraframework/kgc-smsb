@@ -1605,12 +1605,15 @@
 // ==== 콤보박스 =====
 .wj-dropdown {
   &.wj-combobox{
+    width: 100% !important;
+
     .wj-input {
       height: 32px;
 
       .wj-form-control{
         font-size: pxToRem(14);
         color: $is-black;
+        padding-left : 10px;
       }
 
       .wj-input-group-btn{
@@ -1685,10 +1688,16 @@
       // border-color: $gray80;
       // background: $gray80;
 
-      border-color: unset;
-      background: unset;
-      .wj-form-control{
-  
+      border-color: $gray80;
+      background: $gray60;
+
+      .wj-input-group-btn{
+        .wj-btn{
+          background-color: $gray60;
+          &:after {
+            background: url(/assets/images/svg/ico_combo_arr_disable.svg) no-repeat center center;
+          }
+        }
       }
     }
   }  

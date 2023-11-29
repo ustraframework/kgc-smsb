@@ -64,8 +64,8 @@
 
       <UFieldSet class="is-search">
         <UFieldRow :ratio="[1, 1, 1, '170px']">
-          <UField label="사용채널" ><UTextBox /></UField>
-          <UField label="인증일자" ><UTextBox /></UField>
+          <UField label="사용채널" ><WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" /></UField>
+          <UField label="인증일자" ><UDatePeriodBox v-model:start="start" v-model:end="end" /></UField>
           <UField label="인증채널" ><UTextBox /></UField>
           <UField blank>
             <div class="search-btn">
@@ -74,13 +74,17 @@
           </UField>
         </UFieldRow>
         <UFieldRow :ratio="[1, 1, 1, '170px']">
-          <UField label="필드1(col)"><UTextBox /></UField>
+          <UField label="회원번호/명">
+            <UBox>
+              <UTextBox type="icon"/>
+              <UTextBox></UTextBox>
+            </UBox>
+          </UField>
           <UField label="필드2(col)"><UTextBox /></UField>
-          <UField></UField>
-          <UField></UField>
+          <UField blank />
+          <UField blank />
         </UFieldRow>
       </UFieldSet>
-
     </div>
   </div>
 

@@ -6,6 +6,9 @@
         <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
         <div class="mb-2"></div>
         <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" :disabled="true"/>
+        <div class="mb-2"></div>
+        <span>readonly 속성 부여가 X</span>
+        <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" :readonly="true"/>
 
         <div></div>
       </div>
