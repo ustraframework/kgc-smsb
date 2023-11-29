@@ -3,13 +3,17 @@
 
     <!-- header -->
     <v-app-bar color="#003156" density="compact">
+      <!-- <v-app-bar-nav-icon @click.stop="() => emits('changeNavState')" color="white"></v-app-bar-nav-icon> -->
       <v-toolbar-title>
-        <a class="navbar-link" href="/main" rel="noopener">
+        <NuxtLink class="navbar-link" to="/main">
           <img src="@/assets/images/svg/logo.svg" alt="U.STRA HR" />
-        </a>
+        </NuxtLink>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
+
+      <!-- 2023-11-29 UI개발 -->
+      <Gnb />
       
       <v-row class="navbar-right" align="center" no-gutters>
         <v-col cols="auto" class="search-emp">
@@ -65,6 +69,8 @@
 
     <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
       <div class="content">
+        <!-- 2023-11-29 UI개발 -->
+        <ContentsSample />
         <!-- <h2 id="page_title">
           <b>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }} {{ currentMenu?.mnuDesc }}</b>
           <span class="favoriteWrap">
@@ -79,7 +85,6 @@
             <component v-if="!!item.component" v-show="selectedTabIndex === index" :is="item.component" />
           </template>
         </div> -->
-        <ContentsSample />
       </div>
     </VMain>
 
@@ -103,6 +108,8 @@
       <VSpacer></VSpacer>
       <span style="color: #fff">&copy; GSITM since 2020-2023</span>
     </VFooter> -->
+
+    <!-- 2023-11-29 UI개발 -->
     <Mdi />
   </v-app>
 </template>
@@ -117,13 +124,16 @@ import UstraLayoutSideMenu from '~/layouts/side-menu.vue'
 import UstraLayoutFavoritesButton from '#ustra/nuxt-wijmo/management/layouts/favorites-button.vue'
 
 import LayoutInfoButton from '~/components/layouts/info-button.vue'
-import Mdi from '@/components/layouts/mdi.vue';
-
-import ContentsSample from '@/pages/pubs/MS/MB/UI_BM_1101_pubs.vue';
 
 // Header
 import { useUstraManagementLayout } from '#ustra/nuxt/management/composables'
 import UstraConfigMenu from '#ustra/nuxt-wijmo/management/layouts/config-menu.vue'
+
+// 2023-11-29
+import Mdi from '@/components/layouts/mdi.vue';
+import Gnb from '@/components/layouts/gnb.vue';
+import ContentsSample from '@/pages/pubs/MS/MB/UI_BM_1101_pubs.vue';
+
 
 // == Header ==
 const emits = defineEmits(['changeNavState'])
@@ -222,6 +232,10 @@ export default {
 }
 </script>
 <style lang="scss">
+.ustra .v-toolbar {
+  overflow: visible;
+}
+
 .ustra .v-toolbar-title__placeholder {
   color: #fff;
   font-size: 12px;

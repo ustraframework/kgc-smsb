@@ -492,6 +492,24 @@
     overflow: hidden;
     transition-property: opacity;
 
+    .menu-tab{
+      height: 100%;
+
+      .is-menu{
+        &.wj-tabpanel{
+          height: 100%;
+        }
+
+        div:last-child {
+          height: 100%;
+
+          .tabpanes{
+            height: calc(100% - 40px);
+          }
+        }
+      }
+    }
+
     &.off {
       display: none;
     }
@@ -1001,7 +1019,8 @@
     }
 
     .v-toolbar__content > .v-toolbar-title {
-      margin-inline-start: 10px !important;
+      // margin-inline-start: 10px !important;
+      margin-inline-start: 0px !important;
     }
 
     span.icon-text {
@@ -1139,6 +1158,19 @@
     scrollbar-width: thin !important;
     scrollbar-color: gray transparent !important;
   }
+
+  // 2023-11-29
+  .v-toolbar__content > .v-toolbar-title {
+    // margin-inline-start: 10px !important;
+    margin-inline-start: 0px !important;
+    margin-bottom: 5px;
+  }
+
+  .v-app-bar.v-toolbar:not(.v-toolbar--flat) {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  }
+
+
 }
 
 /*
