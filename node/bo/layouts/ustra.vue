@@ -244,6 +244,9 @@ export default {
     & .v-list-item-title {
       font-size: 0.75rem;
     }
+    .v-list-item__overlay {
+      display: none;
+    }
   }
 
   & .v-list-item--density-compact.v-list-item--one-line {
