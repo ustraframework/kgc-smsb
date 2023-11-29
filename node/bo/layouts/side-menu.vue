@@ -156,6 +156,41 @@ const searchedNavs = computed(() => {
     return fullName.includes(searchText.value) || nav.text.includes(searchText.value)
   })
 })
+
+
+const lnb = document.querySelectorAll('#lnb');
+const page = document.querySelector('body');
+
+console.log(lnb);
+console.log(page);
+
+lnb.forEach((lnb) => {
+  console.log(lnb)
+})
+   
+    
+if(page) {
+  page.addEventListener('scroll', () => {
+    if(lnb.classList.contains('is-active')) {
+      if(page.scrollLeft > 0 && page.scrollTop == 0 ) {
+        if(page.scrollLeft < 40) {
+          lnb.style.left = `${40 - page.scrollLeft}rem`;
+        } else {
+          lnb.style.left = `-${page.scrollLeft - 40}rem`;
+        }
+        lnb.style.transition = 'none';
+      } else if(page.scrollLeft == 0) {
+        lnb.style.left = `40rem`;
+      }
+    } else {
+      lnb.style.left = `-260rem`;
+      if(page.scrollLeft > 0 && page.scrollTop == 0) {
+        lnb.style.left = `-280rem`;  
+      }
+    }           
+  })
+}
+
 </script>
 <script lang="ts">
 export default {

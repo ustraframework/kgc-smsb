@@ -93,14 +93,12 @@
                 즐겨찾기 내부 내용 들어가는곳
               -->
 
-              <ul class="sub_nav favorite">
+              <ul class="sub__nav favorite">
                 <li
                   v-for="(child_nav, i) in nav.items"
                   :key="i"
                 >
-                <label class="checkbox is-star">
-                  <input type="checkbox" checked>
-                </label>
+                <UButton class="btn__favorite" />
                 {{ child_nav.text }}
                 </li>
               </ul>
