@@ -11,57 +11,6 @@
       </div>
     </div>
     <div class="card-body">
-      <form action="" class="form">
-        <table class="table is-search is-fullwidth">
-          <colgroup>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 170px;">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th><span class="is-required">사용채널</span></th>
-              <td>
-                <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
-              </td>
-              <th><span class="is-required">인증일자</span></th>
-              <td>
-                <UDatePeriodBox v-model:start="start" v-model:end="end" />
-              </td>
-              <th><span class="is-required">인증채널</span></th>
-              <td>
-                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-              </td>
-              <td rowspan="2">
-                <div class="buttons is-search">
-                  <UButton text="조회" type="is-search"/>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th>회원번호/명</th>
-              <td>
-                <UBox>
-                  <UTextBox type="icon"/>
-                  <UTextBox></UTextBox>
-                </UBox>
-              </td>
-              <th></th>
-              <td></td>
-              <th></th>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-
-
-      <div class="mt-10"></div>
-
       <UFieldSet class="is-search">
         <UFieldRow :ratio="[1, 1, 1, '170px']">
           <UField label="사용채널" ><WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" /></UField>
@@ -80,7 +29,7 @@
               <UTextBox></UTextBox>
             </UBox>
           </UField>
-          <UField label="필드2(col)"><UTextBox /></UField>
+          <UField blank />
           <UField blank />
           <UField blank />
         </UFieldRow>

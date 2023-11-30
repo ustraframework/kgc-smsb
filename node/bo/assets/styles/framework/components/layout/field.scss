@@ -69,8 +69,11 @@
 
 .table-title-wrap{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between !important;
   align-items: flex-end;
+  flex-direction: unset !important;
+  height: auto !important;
+  min-height: auto !important;
 
   .buttons{
     margin-bottom: 10px;

@@ -1,46 +1,18 @@
 <template>
   <div class="card is-sub is-search">
-    <div class="card-header">
-      <h1 class="page-title">
-        <span>회원정보 조회</span>
-      </h1>
-      <div class="table-title-wrap">
-        <h2 class="table-title">
-          <span>회원정보를 조회 및 수정관리를 할 수 있다.</span>
-        </h2>
-      </div>
-    </div>
     <div class="card-body">
-      <form action="" class="form">
-        <table class="table is-search is-fullwidth">
-          <colgroup>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 170px;">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th><span class="is-required">회원번호/명</span></th>
-              <td>
-                <UTextBox></UTextBox>
-              </td>
-              <th></th>
-              <td></td>
-              <th></th>
-              <td></td>
-              <td>
-                <div class="buttons is-search">
-                  <UButton text="조회" type="is-search"/>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="회원번호/명" ><UTextBox></UTextBox></UField>
+          <UField blank></UField>
+          <UField blank></UField>
+          <UField blank>
+            <div class="search-btn">
+              <UButton text="조회" type="is-search"/>
+            </div>
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
     </div>
   </div>
 

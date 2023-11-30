@@ -1,17 +1,4 @@
 <template>
-  <div class="card is-sub is-noSearch">
-    <div class="card-header">
-      <h1 class="page-title">
-        <span>회원 등록 처리</span>
-      </h1>
-      <div class="table-title-wrap">
-        <h2 class="table-title">
-          <span>회원정보를 등록 합니다.</span>
-        </h2>
-      </div>
-    </div>
-  </div>
-
   <!-- ------------------------------------------------------------------ -->
   <div class="card is-sub mb-5">
     <div class="card-body">
@@ -52,18 +39,18 @@
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
           <UField label="핸드폰"><UTextBox></UTextBox></UField>
-          <UField label="인증방식 (수정필요)">
+          <UField label="인증방식" item-direction="row">
             <UButton text="본인인증" type="is-secondary is-medium" class="is-login"/>
             <UButton text="점유인증" type="is-secondary is-medium" class="is-login"/>
           </UField>
-          <UField label="인증확인 (수정필요)">
+          <UField label="인증확인" item-direction="row">
             <UTextBox></UTextBox>
-            <UButton text="확인" type="is-filled is-medium" class="is-login"/>
+            <UButton text="확인" type="is-filled is-medium" width="70px"/>
           </UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
-          <UField label="이메일 (수정필요)">
+          <UField label="이메일" item-direction="row">
             <UTextBox></UTextBox>
             <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
           </UField>
@@ -91,7 +78,9 @@
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow :ratio="[2, 1]">
-          <UField label="가맹점 (수정필요)"><UTextBox type="icon"/><UTextBox/></UField>
+          <UField label="가맹점" item-direction="row">
+            <UTextBox type="icon"/><UTextBox/>
+          </UField>
           <UField></UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
@@ -111,9 +100,9 @@
 
 <script setup>
 definePageMeta({
-auth: {
-  required: false,
-},
+  auth: {
+    required: false,
+  },
 })
 
 const members = [

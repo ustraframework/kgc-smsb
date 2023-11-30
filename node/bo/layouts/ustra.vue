@@ -83,6 +83,7 @@
         
         <!-- 2023-11-29 UI개발 -->
         <ContentsSample />
+
         <!-- <h2 id="page_title">
           <b>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }} {{ currentMenu?.mnuDesc }}</b>
           <span class="favoriteWrap">
@@ -145,6 +146,7 @@ import UstraConfigMenu from '#ustra/nuxt-wijmo/management/layouts/config-menu.vu
 import Mdi from '@/components/layouts/mdi.vue';
 import Gnb from '@/components/layouts/gnb.vue';
 import ContentsSample from '@/pages/pubs/MS/MB/sample.vue';
+//import ContentsSample from '@/pages/pubs/MS/MB/UI_BM_1104_pubs.vue';
 
 
 // == Header ==
