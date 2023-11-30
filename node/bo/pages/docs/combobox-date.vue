@@ -22,8 +22,8 @@
     <!-- 2 line -->
     <div class="columns has-gap mb-12">
       <div class="column is-half">
-        <h1 class="mb-4"></h1>
-
+        <h1 class="mb-4">Date</h1>
+        <UDateBox/>
       </div>
     </div>
 

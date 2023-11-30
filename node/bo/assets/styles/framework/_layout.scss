@@ -1327,6 +1327,7 @@ body {
     &.is-search {
       margin-bottom: 20px;
       // margin-bottom: 10px; ustra 사용시 이걸로 변경
+      padding: 20px;
     }
     
     &.is-noSearch {
@@ -1338,6 +1339,11 @@ body {
         padding: 0;
       }
     }
+  }
+
+  &.is-title {
+    padding: 20px;
+    margin-bottom: 20px
   }
 
   .card-header{

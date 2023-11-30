@@ -69,6 +69,18 @@
 
     <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
       <div class="content">
+        
+        <div class="card is-title">
+            <h1 class="page-title">
+              <span>회원정보 조회</span>
+            </h1>
+            <div class="table-title-wrap">
+              <h2 class="table-title">
+                <span>회원정보를 조회 및 수정관리를 할 수 있다.</span>
+              </h2>
+            </div>
+        </div>
+        
         <!-- 2023-11-29 UI개발 -->
         <ContentsSample />
         <!-- <h2 id="page_title">
@@ -132,7 +144,7 @@ import UstraConfigMenu from '#ustra/nuxt-wijmo/management/layouts/config-menu.vu
 // 2023-11-29
 import Mdi from '@/components/layouts/mdi.vue';
 import Gnb from '@/components/layouts/gnb.vue';
-import ContentsSample from '@/pages/pubs/MS/MB/UI_BM_1101_pubs.vue';
+import ContentsSample from '@/pages/pubs/MS/MB/sample.vue';
 
 
 // == Header ==
