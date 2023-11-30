@@ -8,9 +8,9 @@
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="600" :height="350" title="회원정보 변경 사유">
+  <UPopup v-model="showPopup" :width="600" :height="340" title="회원정보 변경 사유">
     <UBox direction="col">
-      <UItem :ratio="1" style="overflow: auto">
+      <UItem :ratio="1" class="pop-contents">
         <UValidationGroup ref="validationGroup">
           <UFieldSet>
             <UFieldRow>
@@ -21,7 +21,7 @@
           </UFieldSet>
         </UValidationGroup>
       </UItem>
-      <UItem>
+      <UItem class="pop-btn">
         <UButtonBox right top>
           <UButton text="닫기" type="secondary" :width="80" />
           <UButton text="저장" type="primary" :width="80" />

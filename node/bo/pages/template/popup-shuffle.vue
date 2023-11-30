@@ -8,9 +8,9 @@
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="1000" :height="300" title="임직원 검색">
+  <UPopup v-model="showPopup" :width="1000" :height="310" title="임직원 검색">
     <UBox direction="col">
-      <UItem :ratio="3" style="overflow: auto">
+      <UItem :ratio="3" class="pop-contents">
         <div class="columns is-shuffle">
           <div class="field-grid">
             <WjFlexGrid :itemsSource="itemsSourceGrid">
@@ -39,7 +39,7 @@
         </div>
 
       </UItem>
-      <UItem>
+      <UItem class="pop-btn">
         <UButtonBox right top>
           <UButton text="닫기" type="secondary" :width="80" />
           <UButton text="확인" type="primary" :width="80" />
