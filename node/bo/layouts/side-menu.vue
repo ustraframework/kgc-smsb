@@ -5,26 +5,20 @@
         <v-avatar size="50"></v-avatar>
         <div class="profile-content">
           <p class="profile-personnel">
-            <span class="profile-name">김덕배</span>
-            <span class="profile-position">팀장</span>
+            <span class="profile-name">{{ user.userNm }}</span>
+            <!-- <span class="profile-position">팀장</span> -->
           </p>
           <p class="profile-personnel">
-            <span class="profile-id" id="_profile_userId">20220243</span>
+            <span class="profile-id" id="_profile_userId">{{ user.sub }}</span>
             <span class="profile-divider">|</span>
-            <span class="profile-team" id="_profile_deptNm">인사팀</span>
+            <span class="profile-team" id="_profile_deptNm">{{ user.deptNm }}</span>
           </p>
-          <p id="_profile_emailAd" class="profile-email">duckbae@gsitm.com</p>
+          <!-- <p id="_profile_emailAd" class="profile-email">duckbae@gsitm.com</p> -->
         </div>
       </UBox>
 
       <div id="search_menu" ref="domSearchMenu" :class="{ off: !isOpenSideMenu }">
-        <button
-          class="open navBtn-close"
-          v-if="!isOpenSideMenu"
-          cover
-          @click="isOpenSideMenu = true"
-        >
-        </button>
+        <button class="open navBtn-close" v-if="!isOpenSideMenu" cover @click="isOpenSideMenu = true"></button>
         <input type="text" name="search" placeholder="메뉴검색" v-model="searchText" @input="searchMode = !!searchText" />
         <span
           class="sm_cancel"
@@ -37,16 +31,9 @@
           "
           >취소</span
         >
-        <button
-          class="close navBtn-open"
-          v-if="isOpenSideMenu"
-          cover
-          @click="isOpenSideMenu = false"
-        >
-        </button>
+        <button class="close navBtn-open" v-if="isOpenSideMenu" cover @click="isOpenSideMenu = false"></button>
       </div>
     </div>
-
 
     <nav id="search_menu_result" v-show="searchMode">
       <div class="null_data" v-if="searchedNavs.length < 1">검색결과가 없습니다.</div>
@@ -61,7 +48,11 @@
     </nav>
 
     <nav id="lnb" :class="{ collapse: !isOpenSideMenu }" v-show="!searchMode">
-      <UstraLayoutSideMenuItem :navigations="displayNavigations" :navigationSelected="onNavigationSelected" />
+      <UstraLayoutSideMenuItem
+        :navigations="props.navigations"
+        :favorNavigations="props.favorNavigations"
+        :navigationSelected="onNavigationSelected"
+      />
     </nav>
   </v-navigation-drawer>
 </template>
@@ -82,18 +73,30 @@ const props = defineProps({
    * 메뉴 선택 시 callback function
    */
   navigationSelected: Function as PropType<(nav: Navigation) => void | Promise<void>>,
+
+  /**
+   * navigation 목록
+   */
+  navigations: { type: Object as PropType<Navigation[]>, default: [] },
+
+  /**
+   * 즐겨찾기 navigation 목록
+   */
+  favorNavigations: { type: Object as PropType<Navigation[]>, default: [] },
 })
 const model = useVModel(props, 'modelValue')
 
-const { isOpenSideMenu, navigations } = useUstraLayoutManagementSideMenu()
+const { isOpenSideMenu } = useUstraLayoutManagementSideMenu()
 
 const searchText = ref<string>(null)
 const searchMode = ref(false)
-const displayNavigations = computed(() => {
-  return navigations.value.filter(nav => {
-    return nav.visible && nav.id !== 'home'
-  })
-})
+// TODO: 삭제
+// const displayNavigations = computed(() => {
+//   console.log('=====')
+//   return props.navigations.filter(nav => {
+//     return nav.visible && nav.id !== 'home'
+//   })
+// })
 
 watch(isOpenSideMenu, v => (model.value = v), { immediate: true })
 watch(model, v => (isOpenSideMenu.value = v))
@@ -131,7 +134,7 @@ function onNavigationSelected(nav: Navigation) {
   }
 
   if (nav?.path) {
-    clearActive(navigations.value)
+    clearActive(props.navigations)
   }
   props.navigationSelected(nav)
 }
@@ -141,7 +144,7 @@ const searchedNavs = computed(() => {
     return []
   }
 
-  const navs = $ustra.utils.model.flatReclusiveArray(displayNavigations.value, 'items', false)
+  const navs = $ustra.utils.model.flatReclusiveArray(props.navigations, 'items', false)
   return navs.filter(nav => {
     // favorite
     if (nav.favorite || nav.originId) {
@@ -157,6 +160,7 @@ const searchedNavs = computed(() => {
   })
 })
 
+const user = useUstraManagementUser()
 </script>
 <script lang="ts">
 export default {

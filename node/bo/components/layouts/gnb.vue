@@ -1,41 +1,52 @@
 <template>
-    <nav class="navbar-menu">
-      <v-row class="navbar-left" align="center" no-gutters>
-        <v-col cols="auto" class="is-active">
+  <nav class="navbar-menu">
+    <v-row class="navbar-left" align="center" no-gutters>
+      <template :key="i" v-for="(nav, i) in displayNavigations">
+        <v-col cols="auto" :class="{ 'is-active': i === i }">
           <v-btn :ripple="false">
             <span class="icon">
               <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
             </span>
-            <span>메뉴1</span>
+            <span>{{ nav.text }}</span>
           </v-btn>
         </v-col>
-        <v-col cols="auto">
-          <v-btn :ripple="false">
-            <span class="icon">
-              <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
-            </span>
-            <span>메뉴2</span>
-          </v-btn>
-        </v-col>
-        <v-col cols="auto">
-          <v-btn :ripple="false">
-            <span class="icon">
-              <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
-            </span>
-            <span>메뉴3</span>
-          </v-btn>
-        </v-col>
-        <v-col cols="auto">
-          <v-btn :ripple="false">
-            <span class="icon">
-              <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
-            </span>
-            <span>메뉴4</span>
-          </v-btn>
-        </v-col>
-      </v-row>
-      <v-row class="navbar-right" align="center" no-gutters>
-        <v-col cols="auto" class="search-emp">
+      </template>
+      <!-- <v-col cols="auto" class="is-active">
+        <v-btn :ripple="false">
+          <span class="icon">
+            <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+          </span>
+          <span>메뉴1</span>
+        </v-btn>
+      </v-col>
+      <v-col cols="auto">
+        <v-btn :ripple="false">
+          <span class="icon">
+            <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+          </span>
+          <span>메뉴2</span>
+        </v-btn>
+      </v-col>
+      <v-col cols="auto">
+        <v-btn :ripple="false">
+          <span class="icon">
+            <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+          </span>
+          <span>메뉴3</span>
+        </v-btn>
+      </v-col>
+      <v-col cols="auto">
+        <v-btn :ripple="false">
+          <span class="icon">
+            <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+          </span>
+          <span>메뉴4</span>
+        </v-btn>
+      </v-col> -->
+    </v-row>
+    <v-row class="navbar-right" align="center" no-gutters>
+      <!-- 2023-11-30 직원검색 영역 제거 -->
+      <!-- <v-col cols="auto" class="search-emp">
           <UTextBox style="width:180px;" placeholder="검색할 직원명을 입력하세요."></UTextBox>
           <v-btn :ripple="false" class="nav-btn">
             <span class="icon">
@@ -53,12 +64,42 @@
               </v-btn>
             </template>
           </v-tooltip>
-        </v-col>
-      </v-row>
-    </nav>
+        </v-col> -->
+      <!-- 2023-11-30 FW 컨피그 메뉴 추가 -->
+      <UstraConfigMenu />
+    </v-row>
+  </nav>
 </template>
-<script setup>
+<script lang="ts" setup>
+import { ref, computed, defineProps, watch, PropType, markRaw } from '#ustra/nuxt'
+import { useVModel } from '@vueuse/core'
+import { Navigation } from '#ustra/nuxt/management/store/models/navigation'
+import UstraConfigMenu from '#ustra/nuxt-wijmo/management/layouts/config-menu.vue'
 
+const props = defineProps({
+  /**
+   * navigation 목록
+   */
+  navigations: { type: Object as PropType<Navigation[]>, default: [] },
+
+  /**
+   * 메뉴 depth
+   */
+  depth: { type: Number, default: 1 },
+
+  /**
+   * 메뉴 선택 시 callback function
+   */
+  navigationSelected: Function as PropType<(nav: Navigation) => void | Promise<void>>,
+})
+
+const { navigations } = useUstraLayoutManagementSideMenu()
+
+const displayNavigations = computed(() => {
+  return navigations.value.filter(nav => {
+    return nav.visible && nav.id !== 'home' && nav.id !== 'favorites'
+  })
+})
 </script>
 
 <style lang="scss" scoped>
@@ -245,7 +286,6 @@
   vertical-align: middle;
 }
 
-
 .navbar-right {
   justify-content: flex-end;
 
@@ -258,7 +298,7 @@
     min-width: auto;
     border: none;
     padding: 0;
-    
+
     &:hover {
       > .v-btn__overlay {
         opacity: 0;
