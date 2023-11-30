@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <!-- ------------------------------------------------------------------ -->
+  <!-- ================== Sample 1 ================== -->
   <div class="columns has-gap">
     <div class="card is-sub">
       <div class="card-body">
@@ -97,6 +97,85 @@
       </UItem>
     </UBox>
   </div>
+
+  <!-- ================== Sample 2 ================== -->
+
+  <div class="columns has-gap">
+    <div class="card is-sub">
+      <div class="card-body">
+        <div class="table-title-wrap">
+          <h2 class="table-title">
+            <span>회원 상세 정보</span>
+          </h2>
+        </div>
+
+        <UFieldSet>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="회원번호"><UTextBox></UTextBox></UField>
+            <UField label="회원명"><UTextBox></UTextBox></UField>
+            <UField label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text"/></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="잔여포인트"><UTextBox></UTextBox></UField>
+            <UField label="탈퇴일자"><UDateBox mode="date"/></UField>
+            <UField label="삭제예정일자"><UDateBox mode="date"/></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="탈퇴사유"><UTextBox></UTextBox></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="복원사유"><UTextBox type="textarea" v-model="test" /></UField>
+          </UFieldRow>
+        </UFieldSet>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns has-gap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        <UBox class="table-title-wrap">
+          <h2 class="table-title">
+            <span>회원 상세 정보</span>
+          </h2>
+        </UBox>
+
+        <UFieldSet>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="회원번호"><UTextBox></UTextBox></UField>
+            <UField label="회원명"><UTextBox></UTextBox></UField>
+            <UField label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text"/></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="잔여포인트"><UTextBox></UTextBox></UField>
+            <UField label="탈퇴일자"><UDateBox mode="date"/></UField>
+            <UField label="삭제예정일자"><UDateBox mode="date"/></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="탈퇴사유"><UTextBox></UTextBox></UField>
+          </UFieldRow>
+          <!-- ------------------------------------------------------------------ -->
+          <UFieldRow>
+            <UField label="복원사유"><UTextBox type="textarea" v-model="test" /></UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UItem>
+    </UBox>
+  </div>
+
+  <div class="columns has-gap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+      </UItem>
+    </UBox>
+  </div>
 </template>
 
 <script setup>
@@ -145,6 +224,17 @@ const itemsSourceGrid = ref([
 { col1: '텍스트' },
 { col1: '텍스트2'},
 { col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
 ]);
 
 </script>

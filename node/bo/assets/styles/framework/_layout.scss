@@ -1263,6 +1263,10 @@ body {
   > .card {
     margin: 0 10px 20px;
 
+    &.u-box{
+      display: block;
+    }
+
     .card-body {
       min-height: 200px;
     }
