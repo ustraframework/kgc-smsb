@@ -57,7 +57,7 @@
   </v-navigation-drawer>
 </template>
 <script lang="ts" setup>
-import { ref, computed, defineProps, watch, PropType, markRaw } from '#ustra/nuxt'
+import { ref, computed, defineProps, watch, PropType, markRaw, onMounted } from '#ustra/nuxt'
 import { useVModel } from '@vueuse/core'
 import { useUstraLayoutManagementSideMenu } from '#ustra/nuxt/management/composables'
 import UstraLayoutSideMenuItem from '~/layouts/side-menu-item.vue'
@@ -161,6 +161,47 @@ const searchedNavs = computed(() => {
 })
 
 const user = useUstraManagementUser()
+
+
+const lnb = ref('');
+console.log('lnb', lnb);
+onMounted(() => {
+  const lnb = document.querySelector('nav.ustra-side-menu') as HTMLElement;
+  const header = document.querySelector('header') as HTMLElement;
+  const page = document.querySelector('body') as HTMLElement;
+    
+  if(page) {
+    page.addEventListener('scroll', () => {
+      //header 
+      header.style.left = `0`;
+        if(page.scrollLeft > 0 && page.scrollTop == 0) {
+          header.style.left = `-${page.scrollLeft}px`;
+        }
+        header.style.transition = 'none';
+      //lnb
+      if(lnb.classList.contains('v-navigation-drawer--rail')) {
+        lnb.style.left = `0`;
+        if(page.scrollLeft > 0 && page.scrollTop == 0) {
+          lnb.style.left = `-280px`;  
+        }
+        lnb.style.transition = 'none';
+      } else {
+        if(page.scrollLeft > 0 && page.scrollTop == 0 ) {
+          if(page.scrollLeft < 0) {
+            lnb.style.left = `${page.scrollLeft}px`;
+          } else {
+            lnb.style.left = `-${page.scrollLeft}px`;
+          }
+          lnb.style.transition = 'none';
+        } else if(page.scrollLeft == 0) {
+          console.log('0')
+          lnb.style.left = `0`;
+        }
+      }         
+    })
+  }
+})
+
 </script>
 <script lang="ts">
 export default {

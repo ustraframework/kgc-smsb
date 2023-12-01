@@ -25,12 +25,12 @@
           <h2 class="table-title">
             <span>상세내역</span>
           </h2>
-          <div class="buttons">
+          <UButtonBox class="table-buttons">
             <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 150px !important;"/>
             <UButton text="처리" type="is-outline"/>
             <UButton text="취소" type="is-outline"/>
             <UButton text="저장" type="is-filled"/>
-          </div>
+          </UButtonBox>
         </UBox>
         <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
@@ -170,9 +170,11 @@
     <UBox class="card is-sub" style="height: 300px;">
       <UItem class="card-body">
         <UBox class="table-title-wrap">
-          <h2 class="table-title">
-            <span>회원 이력 정보</span>
-          </h2>
+          <UItem itemDirection="row" :ratio="1">
+            <h2 class="table-title">
+              <span>회원 이력 정보</span>
+            </h2>
+          </UItem>
         </UBox>
 
         <WjTabPanel :initialized="tabPanel.initialize" class="mt-5">
