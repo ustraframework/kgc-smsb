@@ -162,9 +162,6 @@ const searchedNavs = computed(() => {
 
 const user = useUstraManagementUser()
 
-
-const lnb = ref('');
-console.log('lnb', lnb);
 onMounted(() => {
   const lnb = document.querySelector('nav.ustra-side-menu') as HTMLElement;
   const header = document.querySelector('header') as HTMLElement;
@@ -174,10 +171,11 @@ onMounted(() => {
     page.addEventListener('scroll', () => {
       //header 
       header.style.left = `0`;
-        if(page.scrollLeft > 0 && page.scrollTop == 0) {
-          header.style.left = `-${page.scrollLeft}px`;
-        }
-        header.style.transition = 'none';
+      if((page.scrollLeft > 0 && page.scrollTop == 0) || page.scrollTop > 0 ) {
+        header.style.left = `-${page.scrollLeft}px`;
+      }
+      header.style.transition = 'none';
+      
       //lnb
       if(lnb.classList.contains('v-navigation-drawer--rail')) {
         lnb.style.left = `0`;
@@ -194,7 +192,6 @@ onMounted(() => {
           }
           lnb.style.transition = 'none';
         } else if(page.scrollLeft == 0) {
-          console.log('0')
           lnb.style.left = `0`;
         }
       }         
