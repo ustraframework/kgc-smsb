@@ -4,7 +4,7 @@
     <div class="columns has-gap">
       <UBox class="card is-sub is-search">
         <UItem class="card-body">
-          <UFieldSet class="is-search">
+          <UFieldSet class="is-search" @keyup.enter="listActions.load()">
             <UFieldRow :ratio="[1, 1, 1, '170px']">
               <UField label="채널">
                 <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.schChnlCd" displayNullText="전체" />
@@ -17,7 +17,7 @@
               </UField>
               <UField blank>
                 <div class="search-btn">
-                  <UButton text="조회" type="is-search"/>
+                  <UButton text="조회" type="is-search" @click="() => listActions.load()" />
                 </div>
               </UField>
             </UFieldRow>
@@ -42,7 +42,9 @@
             <UItem itemDirection="row" :ratio="1">
               <h2 class="table-title">
                 <span>약관 목록</span>
-                <span class="data-count">조회건수 <span>{{ listActions.chlTms.value.length }}</span> 건</span>
+                <span class="data-count"
+                  >조회건수 <span>{{ listActions.chlTms.value.length }}</span> 건</span
+                >
               </h2>
             </UItem>
             <UButtonBox class="search-buttons">
