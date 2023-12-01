@@ -1332,6 +1332,10 @@ body {
       margin-bottom: 20px;
       // margin-bottom: 10px; ustra 사용시 이걸로 변경
       padding: 20px;
+
+      .card-body {
+         min-height: 0px;
+      }
     }
     
     &.is-noSearch {

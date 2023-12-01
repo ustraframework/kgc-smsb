@@ -17,11 +17,12 @@
       </UItem>
     </UBox>
   </div>
+
   <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
+    <div class="card is-sub">
+      <div class="card-body">
+        <div class="table-title-wrap">
           <h2 class="table-title">
             <span>상세내역</span>
           </h2>
@@ -31,7 +32,7 @@
             <UButton text="취소" type="is-outline"/>
             <UButton text="저장" type="is-filled"/>
           </div>
-        </UBox>
+        </div>
         <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
@@ -161,19 +162,19 @@
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
         </UFieldSet>
-      </UItem>
-    </UBox>
+      </div>
+    </div>
   </div>
 
   <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
-    <UBox class="card is-sub" style="height: 300px;">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
+    <div class="card is-sub" style="height: 300px;">
+      <div class="card-body">
+        <div class="table-title-wrap">
           <h2 class="table-title">
             <span>회원 이력 정보</span>
           </h2>
-        </UBox>
+        </div>
 
         <WjTabPanel :initialized="tabPanel.initialize" class="mt-5">
           <WjTab>
@@ -445,8 +446,8 @@
           </WjTab>
 
         </WjTabPanel>
-      </UItem>
-    </UBox>
+      </div>
+    </div>
   </div>
 </template>
 

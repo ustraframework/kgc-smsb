@@ -90,20 +90,23 @@
 
     <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
       <div class="content">
-        <div class="card is-title">
-          <h1 class="page-title">
-            <span>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }}</span>
-            <span class="favoriteWrap">
-              <UstraLayoutFavoritesButton />
-              <LayoutInfoButton />
-            </span>
-          </h1>
-          <div class="table-title-wrap">
-            <h2 class="table-title">
-              <span>{{ currentMenu?.mnuDesc }}</span>
-            </h2>
-          </div>
+          <div class="columns has-gap">
+            <UBox class="card is-title">
+              <h1 class="page-title">
+                <span>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }}</span>
+                <span class="favoriteWrap">
+                  <UstraLayoutFavoritesButton />
+                  <LayoutInfoButton />
+                </span>
+              </h1>
+              <UBox class="table-title-wrap">
+                <h2 class="table-title">
+                  <span>{{ currentMenu?.mnuDesc }}</span>
+                </h2>
+              </UBox>
+          </UBox>
         </div>
+
 
         <div style="height: calc(100% - 59px)">
           <template v-for="(item, index) in openedTabNavigations" :key="item.id">

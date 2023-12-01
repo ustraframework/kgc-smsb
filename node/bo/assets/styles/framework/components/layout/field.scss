@@ -78,6 +78,11 @@
   .buttons{
     margin-bottom: 10px;
   }
+
+  .search-buttons{
+    padding: 0;
+    margin-bottom: 10px;
+  }
 }
 
 .u-field-set{
@@ -97,9 +102,10 @@
       // border-bottom: 1px solid $gray20;
       border-top: 0 !important;
       border-bottom: 0 !important;
+      border-right: 0;
       padding-top: 13px;
       padding-bottom: 13px;
-      
+
       .u-field-row{
         //border-bottom: 1px solid $gray20;
         border-bottom: 0px;
