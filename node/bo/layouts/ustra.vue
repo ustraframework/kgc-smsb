@@ -108,7 +108,7 @@
         </div>
 
 
-        <div style="height: calc(100% - 59px)">
+        <div>
           <template v-for="(item, index) in openedTabNavigations" :key="item.id">
             <component v-if="!!item.component" v-show="selectedTabIndex === index" :is="item.component" />
           </template>
