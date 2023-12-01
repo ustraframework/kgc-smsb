@@ -23,7 +23,7 @@
     <div class="columns has-gap mb-12">
       <div class="column is-half">
         <h1 class="mb-4">Date</h1>
-        <UDateBox/>
+        <UDateBox v-model="test"/>
       </div>
     </div>
 
@@ -31,7 +31,11 @@
 </template>
 
 <script setup>
+import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
+
 import { WjComboBox } from '#ustra/nuxt-wijmo/components'
+
+const test = ref('20220507');
 
 definePageMeta({
   layout: false,

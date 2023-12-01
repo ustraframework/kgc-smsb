@@ -50,9 +50,9 @@
               </h2>
             </UItem>
             <UButtonBox class="table-buttons">
-              <UButton text="신규" type="primary" small @click="() => listActions.init()" />
-              <UButton text="저장" type="primary" small @click="() => detailActions.save()" />
-              <UButton text="삭제" type="primary" small @click="() => detailActions.remove()" />
+              <UButton text="신규" type="is-outline" @click="() => listActions.init()" />
+              <UButton text="삭제" type="is-outline" @click="() => detailActions.remove()" />
+              <UButton text="저장" type="is-filled" @click="() => detailActions.save()" />
             </UButtonBox>
           </UBox>
 

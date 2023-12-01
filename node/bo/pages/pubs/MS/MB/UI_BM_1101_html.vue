@@ -463,9 +463,9 @@ isReadOnly: false,
 const tabPanel = useWijmoTabPanel()
 
 definePageMeta({
-auth: {
-  required: false,
-},
+  auth: {
+    required: false,
+  },
 })
 
 const pwd = [

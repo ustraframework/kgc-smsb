@@ -1,82 +1,87 @@
 <template>
-  <v-card class="mdi">
-    <v-tabs >
-      <v-tab value="one" class="is-active">
-        <span class="mdi-menu">메인페이지</span>
-      </v-tab>
-      <v-tab value="two">
-        <span class="mdi-menu">메뉴1</span>
-        <UButton type="icon" class="button-mdi"/>
-      </v-tab>
-      <v-tab value="three">
-        <span class="mdi-menu">메뉴2</span>
-        <UButton type="icon" class="button-mdi" />
-      </v-tab>
-    </v-tabs>
+  <v-expand-x-transition>
+    <v-card class="mdi" v-show="mdiVisible">
+      <v-tabs >
+        <v-tab value="one" class="is-active">
+          <span class="mdi-menu">메인페이지</span>
+        </v-tab>
+        <v-tab value="two">
+          <span class="mdi-menu">메뉴1</span>
+          <UButton type="icon" class="button-mdi"/>
+        </v-tab>
+        <v-tab value="three">
+          <span class="mdi-menu">메뉴2</span>
+          <UButton type="icon" class="button-mdi" />
+        </v-tab>
+      </v-tabs>
 
-    <div class="mdiShortCuts">
-      <div class="mdiShortCuts-menu">
-        <button class="mdiShortCuts-menuOpenBtn">열려있는 탭메뉴 목록 열림 버튼</button>
-        <div class="mdiShortCuts-menuWrap">
-          <ul class="mdiShortCuts-menuList">
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1 메뉴이름 1 메뉴이름 1 메뉴이름 1</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
-              <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
-            </li>
-            <li class="mdiShortCuts-menuItem">
-              <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
-              <button class="mdiShortCuts-menuCloseBtn">닫기</button>
-            </li>
-          </ul>
+      <div class="mdiShortCuts">
+        <div class="mdiShortCuts-menu">
+          <button class="mdiShortCuts-menuOpenBtn">열려있는 탭메뉴 목록 열림 버튼</button>
+          <div class="mdiShortCuts-menuWrap">
+            <ul class="mdiShortCuts-menuList">
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1 메뉴이름 1 메뉴이름 1 메뉴이름 1</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
+                <button class="mdiShortCuts-menuCloseBtn"><svg class="icon"><use href="#icon-close"></use></svg>닫기</button>
+              </li>
+              <li class="mdiShortCuts-menuItem">
+                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
+                <button class="mdiShortCuts-menuCloseBtn">닫기</button>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <button class="mdiShortCuts-hidden">MDI 숨김 버튼</button>
-    </div>
-  </v-card>
+        <button class="mdiShortCuts-hidden" @click="mdiVisible = false">MDI 숨김 버튼</button>
+      </div>
+    </v-card>
+  </v-expand-x-transition>
 </template>
 
 <script setup>
+
+const mdiVisible = ref(true);
+
 </script>
 <style lang="scss" scoped>
 @import '@/assets/styles/framework/variable.scss';

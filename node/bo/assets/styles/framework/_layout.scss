@@ -1285,9 +1285,9 @@ body {
 
   &.has-gap {
     margin: 0 -10px;
-    &:last-child {
-      padding-bottom: 40px;
-    }
+    // &:last-child {
+    //   padding-bottom: 40px;
+    // }
   }
 
   *.is-wrapped {
@@ -1324,7 +1324,9 @@ body {
   width: 100%;
   border-radius: 13px;
   background-color: #fff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  //box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 16px 0px #00000026;
+
 
   &.is-sub {
     padding: 20px 20px 30px;
