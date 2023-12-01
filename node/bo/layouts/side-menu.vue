@@ -179,12 +179,12 @@ onMounted(() => {
       //lnb
       if(lnb.classList.contains('v-navigation-drawer--rail')) {
         lnb.style.left = `0`;
-        if(page.scrollLeft > 0 && page.scrollTop == 0) {
+        if((page.scrollLeft > 0 && page.scrollTop == 0) || page.scrollTop > 0 ) {
           lnb.style.left = `-280px`;  
         }
         lnb.style.transition = 'none';
       } else {
-        if(page.scrollLeft > 0 && page.scrollTop == 0 ) {
+        if((page.scrollLeft > 0 && page.scrollTop == 0) || page.scrollTop > 0 ) {
           if(page.scrollLeft < 0) {
             lnb.style.left = `${page.scrollLeft}px`;
           } else {
