@@ -33,7 +33,7 @@
       </div>
 
       <a class="mt-auto" href="#" target="_blank">
-        <img src="@/assets/images/banner/whats-new-mo.png" alt="what's NEW 정관장 구매 시 신제품 증정" />
+        <img class="w-full" src="@/assets/images/banner/whats-new-mo.png" alt="what's NEW 정관장 구매 시 신제품 증정" />
       </a>
     </div>
   </div>

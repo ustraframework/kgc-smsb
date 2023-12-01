@@ -5,12 +5,12 @@
       <Steps class="w-[340px] mx-auto" v-model:activeStep="active" :model="items" />
     </div>
     <div class="w-[550px] mx-auto pt-[80px] pb-[65px]">
-      <p class="text-xl text-center mb-[30px]">정관장 멤버스 통합ONE ID를 위한  <strong>서비스 약관동의</strong>를 선택해주세요.</p>
+      <p class="text-xl text-center mb-[30px]">정관장 멤버스 통합ONE ID를 위한 <strong>서비스 약관동의</strong>를 선택해주세요.</p>
 
       <div>
-        <div :class="{ '!border-[#D20F27]': agreeAll }" class="flex items-center px-[24px] py-[16px] mb-[16px] border rounded-lg border-[#E7E7E7]">
+        <div :class="{ '!border-[#D20F27]': agreeAl1 }" class="flex items-center px-[24px] py-[16px] mb-[16px] border rounded-lg border-[#E7E7E7]">
           <Checkbox :binary="true" class="p-checkbox-box-lg" v-model="agreeAll1" inputId="agreeAll1" name="pizza" value="agreeAll" />
-          <label :class="{ 'font-bold': agreeAll }" class="!text-base !ml-[12px]" for="agreeAll1"> 전체 약관동의 </label>
+          <label :class="{ 'font-bold': agreeAll1 }" class="!text-base !ml-[12px]" for="agreeAll1"> 전체 약관동의 </label>
         </div>
         <ul class="mb-[24px]">
           <li class="flex items-center justify-between px-[24px] h-[50px]">
@@ -36,9 +36,9 @@
           </li>
         </ul>
 
-        <div :class="{ '!border-[#D20F27]': agreeAll }" class="flex items-center px-[24px] py-[16px] mb-[16px] border rounded-lg border-[#E7E7E7]">
+        <div :class="{ '!border-[#D20F27]': agreeAll2 }" class="flex items-center px-[24px] py-[16px] mb-[16px] border rounded-lg border-[#E7E7E7]">
           <Checkbox :binary="true" class="p-checkbox-box-lg" v-model="agreeAll2" inputId="agreeAll2" name="pizza" value="agreeAll" />
-          <label :class="{ 'font-bold': agreeAll }" class="!text-base !ml-[12px]" for="agreeAll2"> 전체 약관동의 </label>
+          <label :class="{ 'font-bold': agreeAll2 }" class="!text-base !ml-[12px]" for="agreeAll2"> 전체 약관동의 </label>
         </div>
         <ul class="pb-[16px] mb-[60px] border-b border-[#E7E7E7]">
           <li class="flex items-center justify-between px-[24px] h-[50px]">
