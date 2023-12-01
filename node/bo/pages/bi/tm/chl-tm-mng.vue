@@ -1,47 +1,62 @@
 <template>
   <div>
     <!-- 검색조건 테이블 -->
-    <div class="section-depth">
-      <UFieldSet @keyup.enter="listActions.load()">
-        <UFieldRow :ratio="[1, 1, 1, 0.3]">
-          <UField label="채널" itemDirection="row" labelWidth="100" left>
-            <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.schChnlCd" displayNullText="전체" />
-          </UField>
-          <UField label="약관유형" itemDirection="row" labelWidth="100" left>
-            <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="searchActions.criteria.schTermPatrDvcd" displayNullText="전체" />
-          </UField>
-          <UField label="약관ID/명" itemDirection="row" labelWidth="100" left>
-            <UTextBox type="text" v-model="searchActions.criteria.schTermNm" style="width: 100%"></UTextBox>
-          </UField>
-          <UField blank>
-            <UButtonBox right>
-              <UButton text="조회" type="primary" small @click="() => listActions.load()" />
-            </UButtonBox>
-          </UField>
-        </UFieldRow>
-        <UFieldRow :ratio="[1, 1, 1, 0.3]">
-          <UField label="기준일자" itemDirection="row" labelWidth="100" left>
-            <UDateBox v-model="searchActions.criteria.schAplDt" mode="date" />
-          </UField>
-        </UFieldRow>
-      </UFieldSet>
+    <div class="columns has-gap">
+      <UBox class="card is-sub is-search">
+        <UItem class="card-body">
+          <UFieldSet class="is-search" @keyup.enter="listActions.load()">
+            <UFieldRow :ratio="[1, 1, 1, '170px']">
+              <UField label="채널">
+                <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.schChnlCd" displayNullText="전체" />
+              </UField>
+              <UField label="약관유형">
+                <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="searchActions.criteria.schTermPatrDvcd" displayNullText="전체" />
+              </UField>
+              <UField label="약관ID/명">
+                <UTextBox type="text" v-model="searchActions.criteria.schTermNm" style="width: 100%"></UTextBox>
+              </UField>
+              <UField blank>
+                <div class="search-btn">
+                  <UButton text="조회" type="is-search" @click="() => listActions.load()" />
+                </div>
+              </UField>
+            </UFieldRow>
+            <UFieldRow :ratio="[1, 1, 1, '170px']">
+              <UField label="기준일자">
+                <UDateBox v-model="searchActions.criteria.schAplDt" mode="date" />
+              </UField>
+              <UField blank></UField>
+              <UField blank></UField>
+            </UFieldRow>
+          </UFieldSet>
+        </UItem>
+      </UBox>
     </div>
     <!-- // 검색조건 테이블 -->
 
-    <div class="section-depth">
-      <UBox direction="col" class="tableSection1">
-        <!-- top 영역 -->
-        <UItem :ratio="1">
-          <UButtonBar title="약관 목록" backgroundColor="transparent" class="sub-title">
-            <div class="control-txt">조회건수 {{ listActions.chlTms.value.length }}</div>
-            <UButtonBox right>
-              <UButton text="신규" type="primary" small @click="() => listActions.init()" />
-              <UButton text="저장" type="primary" small @click="() => detailActions.save()" />
-              <UButton text="삭제" type="primary" small @click="() => detailActions.remove()" />
-            </UButtonBox>
-          </UButtonBar>
+    <!-- 본문 - 약관 목록 -->
+    <div class="columns has-gap">
+      <UBox class="card is-sub">
+        <UItem class="card-body">
 
-          <!-- 그리드 -->
+          <!-- hader 영역 -->
+          <UBox class="table-title-wrap" direction="row">
+            <UItem itemDirection="row" :ratio="1">
+              <h2 class="table-title">
+                <span>약관 목록</span>
+                <span class="data-count"
+                  >조회건수 <span>{{ listActions.chlTms.value.length }}</span> 건</span
+                >
+              </h2>
+            </UItem>
+            <UButtonBox class="table-buttons">
+              <UButton text="신규" type="is-outline" @click="() => listActions.init()" />
+              <UButton text="삭제" type="is-outline" @click="() => detailActions.remove()" />
+              <UButton text="저장" type="is-filled" @click="() => detailActions.save()" />
+            </UButtonBox>
+          </UBox>
+
+          <!-- grid 영역 -->
           <WjFlexGrid :itemsSource="listActions.chlTms.value" :initialized="listActions.grid.initialize" style="min-height: 250px; max-height: 250px">
             <WjFlexGridColumn header="No" :width="60" align="center" :cellTemplate="ctx => ctx.row.index + 1" />
             <WjFlexGridColumn
@@ -85,9 +100,22 @@
             <WjFlexGridColumn header="약관내용" binding="termCntt" width="*" align="center" />
           </WjFlexGrid>
         </UItem>
-        <UButtonBar title="이용약관 상세정보" backgroundColor="transparent" class="sub-title"> </UButtonBar>
-        <!-- bottom 영역 -->
-        <UItem :ratio="1">
+      </UBox>
+    </div>
+    <!-- //본문 - 약관 목록 끝 -->
+
+    <!-- 본문 - 이용약관 상세정보 -->
+    <div class="columns has-gap">
+      <UBox class="card is-sub">
+        <UItem class="card-body">
+          <UBox class="table-title-wrap" direction="row">
+            <UItem itemDirection="row" :ratio="1">
+              <h2 class="table-title">
+                <span>이용약관 상세정보</span>
+              </h2>
+            </UItem>
+          </UBox>
+
           <UFieldSet>
             <UValidationGroup ref="validationGroup">
               <UFieldRow>
@@ -136,10 +164,8 @@
             </UValidationGroup>
           </UFieldSet>
         </UItem>
-        <!-- // left 영역 -->
       </UBox>
     </div>
-    <!-- // 검색결과 : 좌1단 우1단 샘플 -->
   </div>
 </template>
 <script lang="ts" setup>

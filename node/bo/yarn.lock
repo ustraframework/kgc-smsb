@@ -2669,7 +2669,7 @@
     which "^3.0.1"
     ws "^8.14.2"
 
-"@nuxt/kit@3.8.2", "@nuxt/kit@^3.1.2", "@nuxt/kit@^3.3.1", "@nuxt/kit@^3.5.0", "@nuxt/kit@^3.7.4", "@nuxt/kit@^3.8.1", "@nuxt/kit@^3.8.2":
+"@nuxt/kit@3.8.2", "@nuxt/kit@^3.1.2", "@nuxt/kit@^3.5.0", "@nuxt/kit@^3.7.4", "@nuxt/kit@^3.8.1", "@nuxt/kit@^3.8.2":
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.8.2.tgz#f4548f3449d2566dbd2febe2b84f47060f7c668c"
   integrity sha512-LrXCm8hAkw+zpX8teUSD/LqXRarlXjbRiYxDkaqw739JSHFReWzBFgJbojsJqL4h1XIEScDGGOWiEgO4QO1sMg==
@@ -3707,10 +3707,10 @@
     hookable "^5.5.3"
     unhead "1.8.8"
 
-"@ustra/core@3.0.0-stable":
-  version "3.0.0-stable"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/core/-/core-3.0.0-stable.tgz#5283d04dd006c5f4eff9f210c20e75c399f30da2"
-  integrity sha512-wltJ2UIyjzHane+yBg5Bcp9geYaKSOaX2NesQRqV4fKDlOwC/hoOgyMgA5YIbl4NXcUvHJFHYAsxa56rOTn58w==
+"@ustra/core@3.0.1-stable":
+  version "3.0.1-stable"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/core/-/core-3.0.1-stable.tgz#59eeb70315478fa74a559ef6b4071161b3a031d3"
+  integrity sha512-YKRIDMillfeWt+ZK4fy4Bs3p1ctiismsCSuW3gZNkyvltaMjizbJrm6oaZkcS0PDMsR8CxsVkOXzPAMrHWYobg==
   dependencies:
     "@howiefh/ant-path-matcher" "^0.0.4"
     "@refactorjs/http-proxy" "^0.1.0"
@@ -3718,7 +3718,7 @@
     "@types/inquirer" "^8.0.0"
     "@types/jest" "^28.1.6"
     "@types/shelljs" "^0.8.11"
-    "@ustra/types" "3.0.0-stable"
+    "@ustra/types" "3.0.1-stable"
     ant-path-matcher "^0.0.5"
     axios "^1.5.1"
     axios-retry "^3.8.0"
@@ -3728,7 +3728,7 @@
     consola "3.2.3"
     cookie-universal "^2.2.2"
     cross-env "^7.0.3"
-    crypto-js "^4.1.1"
+    crypto-js "^4.2.0"
     date-fns "^2.30.0"
     event-source-polyfill "^1.0.31"
     fs-extra "^11.0.3"
@@ -3766,43 +3766,43 @@
     winston "^3.8.1"
     winston-daily-rotate-file "^4.7.1"
 
-"@ustra/nuxt-ckeditor5@3.0.0-stable":
-  version "3.0.0-stable"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-ckeditor5/-/nuxt-ckeditor5-3.0.0-stable.tgz#d3faf80233a6e5c36c06af2ec4fc62ce39ea4e51"
-  integrity sha512-z4AxeP9WvvGA6PJHVBs8hYSOAh3nAbZA/JHFfdJ3WPNZZL5H9BSFhtoYNlYguDjm/TRc85ajzUUA57uexkB3RA==
+"@ustra/nuxt-ckeditor5@3.0.1-stable":
+  version "3.0.1-stable"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-ckeditor5/-/nuxt-ckeditor5-3.0.1-stable.tgz#9ce9c934ab92d8d828b15be77531bb27f1eebe4c"
+  integrity sha512-8g63RnR0NDD36cxqdSg8sLDJpeTR4en/CgiHWr7HELCnKp3PcbuT+MoitrmNj4iEPFx1/k6vv0wc1uFa3Mm0iw==
   dependencies:
     "@ckeditor/ckeditor5-build-classic" "^35.2.1"
     "@ckeditor/ckeditor5-font" "^35.2.1"
     "@ckeditor/ckeditor5-vue" "^4.0.1"
     "@types/ckeditor__ckeditor5-core" "^33.0.3"
-    "@ustra/nuxt" "3.0.0-stable"
+    "@ustra/nuxt" "3.0.1-stable"
 
-"@ustra/nuxt-vuetify@3.0.0-stable":
-  version "3.0.0-stable"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-vuetify/-/nuxt-vuetify-3.0.0-stable.tgz#351f17370e626f7c54fcb2b9f3d46da674ca06b1"
-  integrity sha512-W6L8Pf272n/9Z2FH8Her5MnQlwNVZflstWUEfkekhBNPvVoYx3iAkQ4R/ZYPZxYYvocx/3nMbC72d7wTbnRsHw==
+"@ustra/nuxt-vuetify@3.0.1-stable":
+  version "3.0.1-stable"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-vuetify/-/nuxt-vuetify-3.0.1-stable.tgz#ed18dd3874a9259cdc1afc81a57f4a730ab22533"
+  integrity sha512-xdW2msgR6m7QMpDWCDiTpEK8eCdlqqnCVSztfrvoMsRUlPE5iAl3I+tr5DdPPi1VINVtGpTTUizHCGUO7i2hEw==
   dependencies:
     "@mdi/font" "^7.0.96"
-    "@ustra/nuxt" "3.0.0-stable"
+    "@ustra/nuxt" "3.0.1-stable"
     "@vuepic/vue-datepicker" "7.2.0"
     vite-plugin-vuetify "^1.0.2"
     vuetify "^3.4.1"
 
-"@ustra/nuxt-wijmo@3.0.0-stable":
-  version "3.0.0-stable"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-wijmo/-/nuxt-wijmo-3.0.0-stable.tgz#c8762b56e88847bcf1a6751ff9dd7bd3a17d85cc"
-  integrity sha512-G9fOJ/3SrC90mfuByndLTBzsRt//Jf/IAHNq35SvqAFCl4T95zB3aeAq/FIZEnW6UwT8nbSeQvi5NhrSznDrBw==
+"@ustra/nuxt-wijmo@3.0.1-stable":
+  version "3.0.1-stable"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt-wijmo/-/nuxt-wijmo-3.0.1-stable.tgz#67cfde8c63903842914edd60e18d671524e5dd64"
+  integrity sha512-XpC8rQ9r8qRpHell3z19maJ2j2b6tQWR6Q8lRiKvKkYz3+2K+izBdeJpZtY+7ethNKiaWeBWbydQ5L66fTsPtA==
   dependencies:
     "@grapecity/wijmo.vue2.all" "5.20222.877"
-    "@ustra/core" "3.0.0-stable"
-    "@ustra/nuxt" "3.0.0-stable"
-    "@ustra/nuxt-vuetify" "3.0.0-stable"
+    "@ustra/core" "3.0.1-stable"
+    "@ustra/nuxt" "3.0.1-stable"
+    "@ustra/nuxt-vuetify" "3.0.1-stable"
     jszip "^3.10.1"
 
-"@ustra/nuxt@3.0.0-stable":
-  version "3.0.0-stable"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt/-/nuxt-3.0.0-stable.tgz#86c5c744a104a406276d91bb35edc303678b3375"
-  integrity sha512-xF1VQQwn+OePF5nN/GdOBujQMlOpKDF1oVplOngM2JfYc26qX1FVAR6g/aP1BKI9GbgX1mAiOYhBEP84RfQN4g==
+"@ustra/nuxt@3.0.1-stable":
+  version "3.0.1-stable"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/nuxt/-/nuxt-3.0.1-stable.tgz#18969e4542d8fc4d423b2fdcd5e87951557078f1"
+  integrity sha512-B44B8r1NPu6ciI5eapu6ThlWa+s19mmYIAU7Io+DbFOTvKVYU+K0KDbFUNz6AUs/fCYWuXEaFbN7Ayi59zcrhA==
   dependencies:
     "@esbuild-plugins/node-globals-polyfill" "^0.1.1"
     "@esbuild-plugins/node-modules-polyfill" "^0.2.2"
@@ -3814,18 +3814,16 @@
     "@nuxt/vite-builder" "3.8.2"
     "@nuxtjs/i18n" "=8.0.0-beta.10"
     "@pinia/nuxt" "0.5.1"
-    "@ustra/core" "3.0.0-stable"
+    "@ustra/core" "3.0.1-stable"
     "@vueuse/core" "10.6.1"
     "@vueuse/nuxt" "10.6.1"
     front-matter "^4.0.2"
     github-markdown-css "^5.1.0"
     js-file-download "^0.4.12"
-    monaco-editor "^0.44.0"
     nitropack "2.8.0"
     nuxi "3.10.0"
     nuxt "3.8.2"
     nuxt-cache-ssr "^1.1.0"
-    nuxt-monaco-editor "1.2.2"
     pretendard "^1.3.6"
     rollup-plugin-node-polyfills "^0.2.1"
     rollup-plugin-node-resolve "^5.2.0"
@@ -3833,13 +3831,14 @@
     socket.io-client "^4.6.1"
     sockjs-client "^1.6.1"
     tippy.js "^6.3.7"
+    vite-plugin-compression2 "^0.11.0"
     vue "^3.3.8"
     vue-router "^4.2.5"
 
-"@ustra/types@3.0.0-stable":
-  version "3.0.0-stable"
-  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/types/-/types-3.0.0-stable.tgz#d386684abc84853e93ddffb90583132ac66081a0"
-  integrity sha512-josFewmrxuybWa0mgKf4TWl+dfzNSq7eqayFI2bXfr3MymxCJz9MZqFK3gC1pnYtEXY6W9HP5vzhRacRp42O6Q==
+"@ustra/types@3.0.1-stable":
+  version "3.0.1-stable"
+  resolved "https://repo.gsitm.com/repository/npm-private/@ustra/types/-/types-3.0.1-stable.tgz#6b6030e0abdf7440e35b6d9005e4d5d006f895e6"
+  integrity sha512-ObKjg/wQDq4rvZztYXuvGs1U2WBuShZkc72/AjBoSlmemSOqE4zmC5CwkHS9HpuFE1PtNhIACzAfg0/yeus0lQ==
 
 "@vercel/nft@^0.24.3":
   version "0.24.3"
@@ -5109,7 +5108,7 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-crypto-js@^4.1.1:
+crypto-js@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.2.0.tgz#4d931639ecdfd12ff80e8186dba6af2c2e856631"
   integrity sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==
@@ -5790,7 +5789,7 @@ fast-fifo@^1.1.0, fast-fifo@^1.2.0:
   resolved "https://registry.yarnpkg.com/fast-fifo/-/fast-fifo-1.3.2.tgz#286e31de96eb96d38a97899815740ba2a4f3640c"
   integrity sha512-/d9sfos4yxzpwkDkuN7k2SqFKtYNmCTzgfEpz82x34IM9/zc8KGxQoXg1liNC/izpRM/MBdt44Nmx41ZWqk+FQ==
 
-fast-glob@^3.2.11, fast-glob@^3.2.5, fast-glob@^3.2.7, fast-glob@^3.3.1, fast-glob@^3.3.2:
+fast-glob@^3.2.5, fast-glob@^3.2.7, fast-glob@^3.3.1, fast-glob@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.3.2.tgz#a904501e57cfdd2ffcded45e99a54fef55e46129"
   integrity sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow==
@@ -7701,16 +7700,6 @@ moment@^2.29.1:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
   integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
-monaco-editor-nls@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/monaco-editor-nls/-/monaco-editor-nls-3.1.0.tgz#64086be3b0ee6791ac6bd99c9b1b45ad819c26ee"
-  integrity sha512-GdzgKRAiwXlGI/ude/HbzP8ukml28yUoZ7rx/xsSsmYf9W13jTyWjXjoMK/+pjL6JorAThH2WkCYaDoCnIX7Jg==
-
-monaco-editor@^0.44.0:
-  version "0.44.0"
-  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.44.0.tgz#3c0fe3655923bbf7dd647057302070b5095b6c59"
-  integrity sha512-5SmjNStN6bSuSE5WPT2ZV+iYn1/yI9sd4Igtk23ChvqB7kDk9lZbB9F5frsuvpB+2njdIeGGFf2G4gbE6rCC9Q==
-
 morgan@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.10.0.tgz#091778abc1fc47cd3509824653dae1faab6b17d7"
@@ -8066,15 +8055,6 @@ nuxt-cache-ssr@^1.1.0:
   dependencies:
     cache-manager "^5.1.1"
     ohash "^0.1.5"
-
-nuxt-monaco-editor@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/nuxt-monaco-editor/-/nuxt-monaco-editor-1.2.2.tgz#ca62e554eb66178fbd7f6e0adba69b788d9cd6f0"
-  integrity sha512-P1Op8WmypspRHOdlTPJCNKJwBkIGi9JMFntpgbKuqkMH2z+gkdKrCrHE1g8cOaRu2CH4jOf02Wgt/FtTwRDJiw==
-  dependencies:
-    "@nuxt/kit" "^3.3.1"
-    monaco-editor-nls "^3.0.0"
-    vite-plugin-static-copy "^0.13.1"
 
 nuxt@3.8.2, nuxt@^3.8.1:
   version "3.8.2"
@@ -10218,6 +10198,13 @@ vite-plugin-checker@^0.6.2:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
 
+vite-plugin-compression2@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-compression2/-/vite-plugin-compression2-0.11.0.tgz#341e13902c9e89cbbf7bc4bfc7b651f29c0cf517"
+  integrity sha512-U6oEyRXZD26BynOgD/tStNTbQOLPt96aQNj/gdJTicKVYCQCdlV7QdmSF7VEhSyjiS59pQRhiMBu/uajprxWLA==
+  dependencies:
+    "@rollup/pluginutils" "^5.0.2"
+
 vite-plugin-inspect@^0.7.42:
   version "0.7.42"
   resolved "https://registry.yarnpkg.com/vite-plugin-inspect/-/vite-plugin-inspect-0.7.42.tgz#e055ad2ff82f3eca2f101fcfb29b5fabfe1e7366"
@@ -10231,16 +10218,6 @@ vite-plugin-inspect@^0.7.42:
     open "^9.1.0"
     picocolors "^1.0.0"
     sirv "^2.0.3"
-
-vite-plugin-static-copy@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/vite-plugin-static-copy/-/vite-plugin-static-copy-0.13.1.tgz#0560c904f3c6b0acf756bd81d53131f4a8072d55"
-  integrity sha512-KwIcGBT1aOxSq+laK3VmSngoEa3HXWj/6ZEXdv+y59eZ7p/XSuPahoDo+CfYW22JjTdnstgeKWiX+78KNgDu6g==
-  dependencies:
-    chokidar "^3.5.3"
-    fast-glob "^3.2.11"
-    fs-extra "^11.1.0"
-    picocolors "^1.0.0"
 
 vite-plugin-vue-inspector@^4.0.0:
   version "4.0.0"

@@ -1,34 +1,38 @@
 <template>
   <v-navigation-drawer :width="250" color="grey-light-3" permanent border="0" :rail="!isOpenSideMenu" rail-width="60" class="ustra-side-menu">
-    <div id="search_menu" ref="domSearchMenu" :class="{ off: !isOpenSideMenu }">
-      <img
-        width="22"
-        class="open"
-        src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_menu_open.png"
-        v-if="!isOpenSideMenu"
-        cover
-        @click="isOpenSideMenu = true"
-      />
-      <input type="text" name="search" placeholder="메뉴검색" v-model="searchText" @input="searchMode = !!searchText" />
-      <span
-        class="sm_cancel"
-        v-if="searchMode"
-        @click="
-          () => {
-            searchText = ''
-            searchMode = false
-          }
-        "
-        >취소</span
-      >
-      <img
-        src="@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_menu_close.png"
-        class="close"
-        width="22"
-        v-if="isOpenSideMenu"
-        cover
-        @click="isOpenSideMenu = false"
-      />
+    <div class="profile">
+      <UBox direction="row" class="mb-4">
+        <v-avatar size="50"></v-avatar>
+        <div class="profile-content">
+          <p class="profile-personnel">
+            <span class="profile-name">{{ user.userNm }}</span>
+            <!-- <span class="profile-position">팀장</span> -->
+          </p>
+          <p class="profile-personnel">
+            <span class="profile-id" id="_profile_userId">{{ user.sub }}</span>
+            <span class="profile-divider">|</span>
+            <span class="profile-team" id="_profile_deptNm">{{ user.deptNm }}</span>
+          </p>
+          <!-- <p id="_profile_emailAd" class="profile-email">duckbae@gsitm.com</p> -->
+        </div>
+      </UBox>
+
+      <div id="search_menu" ref="domSearchMenu" :class="{ off: !isOpenSideMenu }">
+        <button class="open navBtn-close" v-if="!isOpenSideMenu" cover @click="isOpenSideMenu = true"></button>
+        <input type="text" name="search" placeholder="메뉴검색" v-model="searchText" @input="searchMode = !!searchText" />
+        <span
+          class="sm_cancel"
+          v-if="searchMode"
+          @click="
+            () => {
+              searchText = ''
+              searchMode = false
+            }
+          "
+          >취소</span
+        >
+        <button class="close navBtn-open" v-if="isOpenSideMenu" cover @click="isOpenSideMenu = false"></button>
+      </div>
     </div>
 
     <nav id="search_menu_result" v-show="searchMode">
@@ -44,12 +48,16 @@
     </nav>
 
     <nav id="lnb" :class="{ collapse: !isOpenSideMenu }" v-show="!searchMode">
-      <UstraLayoutSideMenuItem :navigations="displayNavigations" :navigationSelected="onNavigationSelected" />
+      <UstraLayoutSideMenuItem
+        :navigations="props.navigations"
+        :favorNavigations="props.favorNavigations"
+        :navigationSelected="onNavigationSelected"
+      />
     </nav>
   </v-navigation-drawer>
 </template>
 <script lang="ts" setup>
-import { ref, computed, defineProps, watch, PropType, markRaw } from '#ustra/nuxt'
+import { ref, computed, defineProps, watch, PropType, markRaw, onMounted } from '#ustra/nuxt'
 import { useVModel } from '@vueuse/core'
 import { useUstraLayoutManagementSideMenu } from '#ustra/nuxt/management/composables'
 import UstraLayoutSideMenuItem from '~/layouts/side-menu-item.vue'
@@ -65,18 +73,30 @@ const props = defineProps({
    * 메뉴 선택 시 callback function
    */
   navigationSelected: Function as PropType<(nav: Navigation) => void | Promise<void>>,
+
+  /**
+   * navigation 목록
+   */
+  navigations: { type: Object as PropType<Navigation[]>, default: [] },
+
+  /**
+   * 즐겨찾기 navigation 목록
+   */
+  favorNavigations: { type: Object as PropType<Navigation[]>, default: [] },
 })
 const model = useVModel(props, 'modelValue')
 
-const { isOpenSideMenu, navigations } = useUstraLayoutManagementSideMenu()
+const { isOpenSideMenu } = useUstraLayoutManagementSideMenu()
 
 const searchText = ref<string>(null)
 const searchMode = ref(false)
-const displayNavigations = computed(() => {
-  return navigations.value.filter(nav => {
-    return nav.visible && nav.id !== 'home'
-  })
-})
+// TODO: 삭제
+// const displayNavigations = computed(() => {
+//   console.log('=====')
+//   return props.navigations.filter(nav => {
+//     return nav.visible && nav.id !== 'home'
+//   })
+// })
 
 watch(isOpenSideMenu, v => (model.value = v), { immediate: true })
 watch(model, v => (isOpenSideMenu.value = v))
@@ -114,7 +134,7 @@ function onNavigationSelected(nav: Navigation) {
   }
 
   if (nav?.path) {
-    clearActive(navigations.value)
+    clearActive(props.navigations)
   }
   props.navigationSelected(nav)
 }
@@ -124,7 +144,7 @@ const searchedNavs = computed(() => {
     return []
   }
 
-  const navs = $ustra.utils.model.flatReclusiveArray(displayNavigations.value, 'items', false)
+  const navs = $ustra.utils.model.flatReclusiveArray(props.navigations, 'items', false)
   return navs.filter(nav => {
     // favorite
     if (nav.favorite || nav.originId) {
@@ -139,6 +159,46 @@ const searchedNavs = computed(() => {
     return fullName.includes(searchText.value) || nav.text.includes(searchText.value)
   })
 })
+
+const user = useUstraManagementUser()
+
+onMounted(() => {
+  const lnb = document.querySelector('nav.ustra-side-menu') as HTMLElement;
+  const header = document.querySelector('header') as HTMLElement;
+  const page = document.querySelector('body') as HTMLElement;
+    
+  if(page) {
+    page.addEventListener('scroll', () => {
+      //header 
+      header.style.left = `0`;
+      if(page.scrollTop == 0 || page.scrollTop > 0 ) {
+        header.style.left = `-${page.scrollLeft}px`;
+      }
+      header.style.transition = 'none';
+      
+      //lnb
+      if(lnb.classList.contains('v-navigation-drawer--rail')) {
+        lnb.style.left = `0`;
+        if((page.scrollLeft > 0 && page.scrollTop == 0) || (page.scrollTop > 0 && page.scrollLeft > 0)) {
+          lnb.style.left = `-280px`;  
+        }
+        lnb.style.transition = 'none';
+      } else {
+        if((page.scrollLeft > 0 && page.scrollTop == 0) || page.scrollTop > 0 ) {
+          if(page.scrollLeft < 0) {
+            lnb.style.left = `${page.scrollLeft}px`;
+          } else {
+            lnb.style.left = `-${page.scrollLeft}px`;
+          }
+          lnb.style.transition = 'none';
+        } else if(page.scrollLeft == 0 ) {
+          lnb.style.left = `0`;
+        }
+      }         
+    })
+  }
+})
+
 </script>
 <script lang="ts">
 export default {

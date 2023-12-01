@@ -1,0 +1,1310 @@
+@charset "utf-8";
+
+/* ------------------ common ------------------ */
+
+// 인풋
+.ipt {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100% !important;
+  & .wj-control {
+    width: 100%;
+  }
+  &[class*='wid_'] {
+    .textarea_wrap {
+      width: 100%;
+    }
+  }
+  .textarea_wrap {
+    vertical-align: top;
+    textarea {
+      width: 100%;
+      min-height: 100px;
+    }
+  }
+  input[type='file'] {
+    width: 100%;
+    &:before {
+      width: calc(100% - 76px);
+    }
+  }
+  &.err {
+    position: relative;
+    .wj-control {
+      border: 1px solid $pointColorRed;
+      /*사용안함*/
+      &.wj-combobox:after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 15px;
+        height: 15px;
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+      }
+      &.wj-inputmask:after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 15px;
+        height: 15px;
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+      }
+    }
+    .textarea_wrap {
+      textarea {
+        border: 1px solid $pointColorRed;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 15px;
+        height: 15px;
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+      }
+    }
+    &.ipt_btn {
+      .wj-control {
+        /*사용안함*/
+        &.wj-combobox {
+          &:after {
+            display: none;
+          }
+        }
+        &.wj-inputmask {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.ipt_btn {
+    position: relative;
+    width: 100%;
+    &.icon-type2 {
+      .wj-form-control {
+        padding-right: 60px;
+      }
+    }
+    .wj-form-control {
+      padding-right: 30px;
+    }
+    button[class^='btn_'] {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      opacity: 0.5;
+
+      &:hover,
+      &:active,
+      &:focus {
+        opacity: 1;
+      }
+      &.btn-2 {
+        right: 30px;
+      }
+    }
+
+    .btn_find {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_find.png) no-repeat center center;
+    }
+    .btn_refresh {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_refresh.png) no-repeat center center;
+    }
+    .btn_mdi {
+      background: none;
+    }
+    .wj-state-disabled {
+      & ~ button[class^='btn_'] {
+        opacity: 0.2;
+      }
+    }
+    .wj-state-readonly {
+      & ~ button[class^='btn_'] {
+        &:hover,
+        &:active,
+        &:focus {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+.wj-content {
+  &.wj-control {
+    &:hover,
+    &:active,
+    &:focus {
+      border: 1px solid $vDarken3;
+    }
+    border-spacing: 0px;
+    .wj-input {
+      .wj-input-group {
+        .wj-form-control {
+          height: 28px !important;
+          min-height: 28px !important;
+          font-size: pxToRem(14);
+          color: $vDarken1;
+          vertical-align: top;
+        }
+        .wj-input-group-btn {
+          .wj-btn {
+            height: 28px !important;
+            min-height: 28px !important;
+            &.wj-btn-default {
+              &:hover {
+                background: #fff;
+              }
+            }
+            .wj-glyph-down {
+              top: -1px;
+              border-top: 7px solid;
+              border-right: 6px solid transparent;
+              border-left: 6px solid transparent;
+            }
+          }
+        }
+      }
+    }
+    &.wj-state-readonly,
+    &.wj-state-disabled {
+      opacity: 1;
+      border: 1px solid #cbcbcb;
+      .wj-input-group {
+        .wj-form-control {
+          background: $vLighten8;
+        }
+        .wj-input-group-btn {
+          opacity: 1;
+          &:last-child:not(:first-child) {
+            .wj-btn {
+              border-left: 1px solid #cbcbcb;
+            }
+          }
+        }
+      }
+      .wj-input-group-btn {
+        background: $vLighten8;
+        .wj-btn {
+          background: none;
+          opacity: 0.6;
+        }
+      }
+    }
+    &.wj-state-disabled {
+      .wj-input-group {
+        .wj-form-control {
+          color: $vDarken5;
+        }
+      }
+    }
+    &.wj-listbox {
+      .wj-listbox-item {
+        &.wj-state-selected {
+          background: $vPrimary3;
+        }
+      }
+    }
+    &.wj-multiselect {
+      &.wj-state-readonly {
+        .wj-input {
+          .wj-input-group {
+            .wj-form-control {
+              background: none;
+            }
+            .wj-input-group-btn {
+              background: none;
+              .wj-btn {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.wj-multiselectlistbox {
+      .wj-control {
+        &:hover,
+        &:active,
+        &:focus {
+          border: 0;
+        }
+        border: 0;
+      }
+    }
+    &.wj-multi-autocomplete {
+      &.wj-state-readonly {
+        .wj-input {
+          .wj-input-group {
+            .wj-form-control {
+              background: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 디스크립션 텍스트
+@mixin desc_txt_type {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  margin-top: -2px;
+  vertical-align: middle;
+}
+.desc_txt {
+  font-size: pxToRem(14);
+  color: $vDarken1;
+  &[class*='type'] {
+    &:before {
+      @include desc_txt_type;
+    }
+  }
+  /**
+    전 타입 명칭
+  */
+  &.type01 {
+    &:before {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_defalt.png) no-repeat center center / 14px 14px;
+    }
+  }
+  &.type02 {
+    color: $pointColorRed;
+    &:before {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+    }
+  }
+  &.type03 {
+    &:before {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_check.png) no-repeat center center / 14px 14px;
+    }
+  }
+  /**
+    type 명칭 재정의
+  */
+  &.info {
+    &:before {
+      @include desc_txt_type;
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_defalt.png) no-repeat center center / 14px 14px;
+    }
+  }
+  &.warn {
+    color: $pointColorRed;
+    &:before {
+      @include desc_txt_type;
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_error.png) no-repeat center center / 14px 14px;
+    }
+  }
+  &.check {
+    &:before {
+      @include desc_txt_type;
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_desc_check.png) no-repeat center center / 14px 14px;
+    }
+  }
+}
+
+// 링크 텍스트
+.link {
+  color: $vDarken1;
+  font-size: pxToRem(14);
+  text-decoration: underline;
+  /*전 타입 명칭*/
+  &.type02 {
+    color: $pointColorSkyblue;
+  }
+  &.type03 {
+    color: $vLighten1;
+  }
+  /*신규 타입*/
+  &.blue {
+    color: $pointColorSkyblue;
+  }
+  &.gray {
+    color: $vLighten1;
+  }
+}
+
+// 퍼블리셔 제작 버튼
+// 버튼
+.btn_wrap {
+  .btn_item {
+    display: inline-block;
+    button {
+      height: 30px;
+      padding: 4px 11px;
+      background: #fff;
+      border: 1px solid $vLighten2;
+      border-radius: 4px;
+      font-size: pxToRem(14);
+      color: $vDarken2;
+      text-align: center;
+      vertical-align: top;
+      & + button {
+        margin-left: 4px;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        border: 1px solid $vDarken4;
+      }
+      &:disabled {
+        border: 1px solid $vLighten5;
+        color: $vLighten5;
+      }
+
+      &.primary {
+        background: $vPrimary3;
+        border: 1px solid $vPrimary3;
+        color: #fff;
+        &:hover,
+        &:active,
+        &:focus {
+          background: #004598;
+        }
+        &:disabled {
+          background: $vLighten5;
+          border: 1px solid $vLighten5;
+        }
+      }
+      &.gray {
+        background: #ccc;
+        border: 1px solid #ccc;
+        color: #fff;
+        &:hover,
+        &:active,
+        &:focus {
+          background: $vPrimary3;
+          border: 1px solid $vPrimary3;
+        }
+        &:disabled {
+          background: $vLighten5;
+          border: 1px solid $vLighten5;
+        }
+      }
+
+      &[class*='ico_'] {
+        width: 30px;
+        height: 30px;
+        padding: 5px 0 7px;
+        &:after {
+          content: '';
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+        }
+        &:disabled {
+          &:after {
+            opacity: 0.4;
+          }
+        }
+      }
+      &.ico_pin {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_pin.png) no-repeat center center;
+        }
+      }
+      &.ico_arr {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_arrow.png) no-repeat center center;
+        }
+        &.l {
+          transform: rotate(90deg);
+        }
+        &.t {
+          transform: rotate(-180deg);
+        }
+        &.r {
+          transform: rotate(-90deg);
+        }
+      }
+      &.ico_reset {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_reset.png) no-repeat center center;
+        }
+      }
+      &.ico_bookmark {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_bookmark.png) no-repeat center center;
+        }
+      }
+      &.ico_find02 {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_find02.png) no-repeat center center;
+        }
+      }
+      &.ico_filter {
+        &:after {
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_filter.png) no-repeat center center;
+        }
+      }
+      &.ico_excel {
+        width: auto;
+        padding: 4px 11px;
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          margin-top: -2px;
+          margin-right: 3px;
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_excel.png) no-repeat center center;
+          vertical-align: middle;
+        }
+        &:after {
+          display: none !important;
+        }
+        &:disabled {
+          &:before {
+            background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_excel_dis.png) no-repeat center center;
+          }
+        }
+      }
+      &.ico_search {
+        vertical-align: middle;
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          margin-top: -2px;
+          margin-right: 3px;
+          background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_search.png) no-repeat center center;
+        }
+        &:after {
+          display: none !important;
+        }
+      }
+    }
+    & + .btn_item {
+      margin-left: 8px;
+    }
+
+    &.big {
+      button {
+        min-width: 120px;
+        height: 36px;
+        padding: 7px 11px;
+        border: 1px solid #c3c3c3;
+        font-weight: 500;
+
+        &:hover,
+        &:active,
+        &:focus {
+          border: 1px solid $vDarken4;
+        }
+        &:disabled {
+          border: 1px solid $vLighten5;
+        }
+        & + button {
+          margin-left: 4px;
+        }
+        &.primary {
+          background: $vPrimary3;
+          border: 1px solid $vPrimary3;
+          &:hover,
+          &:active,
+          &:focus {
+            background: #004598;
+            border: 1px solid #004598;
+          }
+          &:disabled {
+            background: $vLighten5;
+            border: 1px solid $vLighten5;
+          }
+        }
+        &.gray {
+          min-width: auto;
+          background: #ccc;
+          border: 1px solid #ccc;
+          &:hover,
+          &:active,
+          &:focus {
+            background: $vPrimary3;
+            border: 1px solid $vPrimary3;
+          }
+          &:disabled {
+            background: $vLighten5;
+            border: 1px solid $vLighten5;
+          }
+        }
+        &[class*='ico_'] {
+          width: 36px;
+          height: 36px;
+          padding: 6px 0 8px;
+          &:after {
+            content: '';
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+          }
+        }
+      }
+      & + .btn_item {
+        margin-left: 12px;
+      }
+    }
+  }
+  &.left {
+    text-align: left;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.right {
+    text-align: right;
+  }
+}
+// 퍼블리셔 제작 버튼
+
+// 신규제작 버튼
+.u-button {
+  height: 30px;
+  padding: 4px 11px;
+  background: #fff;
+  border: 1px solid $vLighten2;
+  border-radius: 4px;
+  font-size: pxToRem(14);
+  color: $vDarken2;
+  text-align: center;
+  vertical-align: top;
+  & + .u-button {
+    margin-left: 4px;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    border: 1px solid $vDarken4;
+  }
+  &:disabled {
+    border: 1px solid $vLighten5;
+    color: $vLighten5;
+  }
+
+  &.primary {
+    background: $vPrimary3;
+    border: 1px solid $vPrimary3;
+    color: #fff;
+    &:hover,
+    &:active,
+    &:focus {
+      background: #004598;
+    }
+    &:disabled {
+      background: $vLighten5;
+      border: 1px solid $vLighten5;
+    }
+  }
+  &.gray {
+    background: #ccc;
+    border: 1px solid #ccc;
+    color: #fff;
+    &:hover,
+    &:active,
+    &:focus {
+      background: $vPrimary3;
+      border: 1px solid $vPrimary3;
+    }
+    &:disabled {
+      background: $vLighten5;
+      border: 1px solid $vLighten5;
+    }
+  }
+
+  &[class*='ico_'] {
+    width: 30px;
+    height: 30px;
+    padding: 5px 0 7px;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+    }
+    &:disabled {
+      &:after {
+        opacity: 0.4;
+      }
+    }
+  }
+  &.ico_pin {
+    &:after {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_pin.png) no-repeat center center;
+    }
+  }
+  &.ico_arr {
+    &:after {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_arrow.png) no-repeat center center;
+    }
+    &.d {
+      transform: rotate(0deg);
+    }
+    &.l {
+      transform: rotate(90deg);
+    }
+    &.t {
+      transform: rotate(-180deg);
+    }
+    &.r {
+      transform: rotate(-90deg);
+    }
+  }
+  &.ico_reset {
+    &:after {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_reset.png) no-repeat center center;
+    }
+  }
+  &.ico_bookmark {
+    &:after {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_bookmark.png) no-repeat center center;
+    }
+  }
+  &.ico_find02 {
+    &:after {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_find02.png) no-repeat center center;
+    }
+  }
+  &.ico_filter {
+    &:after {
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_filter.png) no-repeat center center;
+    }
+  }
+  &.ico_excel {
+    width: auto;
+    padding: 4px 11px;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-top: -2px;
+      margin-right: 3px;
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_excel.png) no-repeat center center;
+      vertical-align: middle;
+    }
+    &:after {
+      display: none !important;
+    }
+    &:disabled {
+      &:before {
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_excel_dis.png) no-repeat center center;
+      }
+    }
+  }
+  &.ico_search {
+    vertical-align: middle;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-top: -2px;
+      margin-right: 3px;
+      background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_search.png) no-repeat center center;
+    }
+    &:after {
+      display: none !important;
+    }
+  }
+
+  &.big {
+    min-width: 120px;
+    height: 36px;
+    padding: 7px 11px;
+    border: 1px solid #c3c3c3;
+    font-weight: 500;
+
+    &[class*='ico_'] {
+      width: 36px;
+      height: 36px;
+      padding: 6px 0 8px;
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: 1px solid $vDarken4;
+    }
+    &:disabled {
+      border: 1px solid $vLighten5;
+    }
+    & + button {
+      margin-left: 4px;
+    }
+    &.primary {
+      background: $vPrimary3;
+      border: 1px solid $vPrimary3;
+      &:hover,
+      &:active,
+      &:focus {
+        background: #004598;
+        border: 1px solid #004598;
+      }
+      &:disabled {
+        background: $vLighten5;
+        border: 1px solid $vLighten5;
+      }
+    }
+    &.gray {
+      background: #ccc;
+      border: 1px solid #ccc;
+      &:hover,
+      &:active,
+      &:focus {
+        background: $vPrimary3;
+        border: 1px solid $vPrimary3;
+      }
+      &:disabled {
+        background: $vLighten5;
+        border: 1px solid $vLighten5;
+      }
+    }
+  }
+}
+
+// 그룹 버튼
+.group_btn_list {
+  &.no-border {
+    border: none;
+
+    & li {
+      border: none;
+    }
+  }
+  display: flex;
+  // flex-wrap: wrap;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #cbcbcb;
+  border-radius: 4px;
+  overflow: hidden;
+  li {
+    width: 100%;
+    height: 28px;
+    border-left: 1px solid #cbcbcb;
+    text-align: center;
+    font-size: pxToRem(14);
+    &:first-child {
+      border-left: none;
+    }
+    input[type='radio'] {
+      & + label {
+        width: 100%;
+        height: 28px;
+        padding: 5px 0;
+        background: #fff;
+        &:before {
+          display: none;
+        }
+      }
+      &:checked + label {
+        background: $vPrimary3;
+        color: #fff;
+        font-weight: 600;
+      }
+      &:disabled + label {
+        color: #bdbdbd;
+      }
+    }
+    label {
+      display: block;
+      height: 28px;
+      padding: 5px 0;
+    }
+  }
+}
+
+// 탭영역
+.wj-tabpanel {
+  > div {
+    .wj-tabheaders {
+      .wj-tabheader {
+        position: relative;
+        margin-left: -1px;
+        padding: 10px 20px;
+        font-size: pxToRem(14);
+        border: 1px solid #dbdbdb;
+        border-bottom: 0;
+        border-radius: 4px 4px 0 0;
+        &.wj-state-active {
+          color: $vDarken1;
+          font-weight: 600;
+          border: 1px solid $vPrimary1;
+          border-bottom: 0;
+          z-index: 1;
+          &:after {
+            background: #fff;
+          }
+        }
+        &:after {
+          bottom: -1px;
+          height: 1px;
+          background: $vDarken1;
+          border-radius: 0;
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+    .wj-tabpanes {
+      border-top: 1px solid $vDarken1;
+    }
+  }
+}
+
+// 중요텍스트 옆 빨간 별표
+.required {
+  &:before {
+    content: '*';
+    position: relative;
+    display: inline-block;
+    top: -2px;
+    margin-right: 5px;
+    color: $pointColorRed;
+  }
+  &.last {
+    &:before {
+      display: none;
+    }
+    &:after {
+      content: '*';
+      position: relative;
+      display: inline-block;
+      top: -2px;
+      margin-left: 5px;
+      color: $pointColorRed;
+    }
+  }
+}
+
+// 세로 테이블
+.h_table {
+  overflow: auto;
+  max-height: 500px;
+  border-top: 1px solid $vPrimary1;
+  border-bottom: 1px solid $vLighten5;
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-right: 1px solid $vLighten5;
+    thead {
+      th {
+        padding: 9px 10px 8px;
+        background: #fafafa;
+        border-left: 1px solid $vLighten5;
+        font-size: pxToRem(13);
+        line-height: pxToRem(16);
+        font-weight: 600;
+        vertical-align: middle;
+      }
+    }
+    tbody {
+      tr {
+        &:first-child {
+          td {
+            border-top: 1px solid $vDarken8;
+          }
+        }
+        td {
+          padding: 6px 11px;
+          border-top: 1px solid $vLighten5;
+          border-left: 1px solid $vLighten5;
+          color: $vDarken1;
+          vertical-align: middle;
+          @include ellipsis;
+          &.combo {
+            padding: 1px;
+          }
+        }
+      }
+    }
+    th,
+    td {
+      input[type='checkbox'] {
+        & + label {
+          &:before {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+    .left {
+      text-align: left;
+    }
+    .center {
+      text-align: center;
+    }
+    .right {
+      text-align: right;
+    }
+  }
+  & ~ .space_btn_box {
+    margin-top: 22px;
+  }
+}
+
+@mixin wj-flexgrid-mixin {
+  border: 0;
+  border-top: 1px solid $vPrimary1;
+  border-bottom: 1px solid $vLighten5;
+  border-right: 1px solid $vLighten5;
+  border-radius: 0;
+  &:hover,
+  &:active,
+  &:focus {
+    border: 0;
+    border-top: 1px solid $vPrimary1;
+    border-bottom: 1px solid $vLighten5;
+    border-right: 1px solid $vLighten5;
+  }
+  .wj-cell {
+    border: 0;
+    border-top: 1px solid $vLighten5;
+    border-left: 1px solid $vLighten5;
+    color: $vDarken1;
+    &.wj-header {
+      background: #fafafa;
+      font-size: pxToRem(13);
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+    }
+    label {
+      input[type='checkbox'] {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 13px;
+        height: 13px;
+        margin-right: 0;
+        background: #fff;
+        border: 1px solid #767676;
+        border-radius: 2px;
+        -webkit-appearance: none;
+        appearance: none;
+        &:hover,
+        &:active,
+        &:focus {
+          border: 1px solid $vPrimary1;
+        }
+        &:checked {
+          background: $vPrimary3 url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_checkbox_on.png) no-repeat center center;
+          border: 1px solid $vPrimary3;
+        }
+        &:disabled {
+          border: 1px solid $vLighten5;
+          background: $vLighten9;
+          &:checked {
+            background: $vLighten5 url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_checkbox_on.png) no-repeat center center;
+            border: 1px solid $vLighten5;
+          }
+        }
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        &:before {
+          border: 1px solid $vPrimary1;
+        }
+      }
+    }
+  }
+  .wj-cells {
+    .wj-row {
+      .wj-cell {
+        &.wj-state-selected,
+        &.wj-state-multi-selected {
+          // background: $vLighten9;
+          background: $pointColorSkyblue;
+          color: #fff;
+        }
+      }
+      &:hover {
+        .wj-cell {
+          &:not(.wj-state-selected) {
+            &:not(.wj-state-multi-selected) {
+              background: #f4f7fd;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.wj-flexgrid {
+  // max-height: 500px;
+  &.wj-control {
+    @include wj-flexgrid-mixin; // 검토 후 삭제예정 (wj-control, wj-content 클래스가 항상 같이들어가는지 확인되면 삭제)
+    &.wj-content {
+      @include wj-flexgrid-mixin;
+    }
+  }
+
+  // to vertial center
+  & .wj-cell {
+    display: flex;
+    align-items: center;
+  }
+  & .wj-cell.wj-align-right {
+    justify-content: flex-end;
+  }
+  & .wj-cell.wj-align-center {
+    justify-content: center;
+  }
+  & .wj-cell.wj-header,
+  & .wj-cell.wj-header.wj-align-center,
+  & .wj-cell.wj-header.wj-align-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// 가로 테이블
+.v_table {
+  width: 100%;
+  tbody {
+    tr {
+      td,
+      th {
+        font-size: pxToRem(14);
+        font-weight: 400;
+        color: #000;
+        line-height: 15px;
+        padding: 6px 11px;
+        border-bottom: 1px solid #e9e9e9;
+        position: relative;
+      }
+      th {
+        font-size: pxToRem(13);
+        font-weight: 600;
+        text-align: right;
+        background-color: #fafafa;
+        vertical-align: middle;
+      }
+      td {
+        textarea {
+          min-width: 200px;
+          min-height: 70px;
+        }
+      }
+
+      &:first-child {
+        th,
+        td {
+          border-top: 1px solid $vPrimary1;
+        }
+      }
+
+      &:last-child {
+        th,
+        td {
+          border-bottom: 1px solid #bcbcbc;
+        }
+      }
+    }
+  }
+  & ~ .space_btn_box {
+    margin-top: 22px;
+  }
+}
+
+.check_group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 30px;
+}
+
+// 페이징
+.paging_wrap {
+  margin-top: 20px;
+  .paging_list {
+    display: flex;
+    justify-content: center;
+    button {
+      min-width: 30px;
+      padding: 0 5px;
+      height: 30px;
+      border: 1px solid transparent;
+      &.active {
+        border: 1px solid $vLighten2;
+        border-radius: 4px;
+        color: $vPrimary4;
+      }
+      &.prev {
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_paging.png) no-repeat center center;
+        transform: rotate(180deg);
+      }
+      &.next {
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_paging.png) no-repeat center center;
+      }
+      &.start {
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_paging_double.png) no-repeat center center;
+        transform: rotate(180deg);
+      }
+      &.end {
+        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_paging_double.png) no-repeat center center;
+      }
+    }
+  }
+}
+
+// 텍스트 버튼 좌우 배열
+.space_btn_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+  .btn_wrap:only-child {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+// 그리드 상단 타이틀
+.grid_h1 {
+  margin-top: 29px;
+  margin-bottom: 5px;
+  font-size: pxToRem(17);
+  font-weight: 600;
+  color: $vDarken1;
+  & + .space_btn_box {
+    margin-top: 0;
+  }
+}
+.grid_h2 {
+  font-size: pxToRem(15);
+  font-weight: 600;
+  color: $vDarken1;
+  position: relative;
+  padding-left: 17px;
+  &:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    border-bottom: 2px solid $vPrimary1;
+    border-left: 2px solid $vPrimary1;
+    transform: rotate(-135deg);
+    border-color: $vPrimary1;
+    left: 0px;
+  }
+}
+
+/* ------------------ contents ------------------ */
+
+// 상단 조회 상세 영역
+.search_wrap {
+  position: relative;
+  margin: 20px 0;
+  padding: 8px 15px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  .search_ipt_list {
+    padding: 12px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 2.66%;
+    .list_item {
+      width: 23%;
+      .tit {
+        font-size: pxToRem(14);
+        color: $vDarken3;
+      }
+      .ipt {
+        margin-top: 8px;
+        & + .tit {
+          margin-top: 10px;
+        }
+        .textarea_wrap {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .btn_wrap {
+    &.abs {
+      position: absolute;
+      left: 0;
+      bottom: -33px;
+    }
+  }
+  .space_btn_box {
+    margin-bottom: 0;
+  }
+}
+
+// 조회 결과 영역
+.result_wrap {
+  margin-top: 12px;
+}
+
+.v_table {
+  & + .btn_wrap {
+    margin-top: 20px;
+  }
+}
+
+.fixed_btn_wrap {
+  height: 56px;
+  .fixed_btn_inner {
+    position: fixed;
+    bottom: 30px;
+    left: 250px;
+    width: calc((100% - 250px) - 0px);
+    padding: 10px 30px;
+    background: #fff;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    transition-duration: 0.2s;
+    transition-property: box-shadow, transform, visibility, width, height, left, right, top, bottom;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    .space_btn_box {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.v-navigation-drawer--rail {
+  & ~ .v-main {
+    .fixed_btn_inner {
+      left: 60px;
+      width: calc((100% - 60px) - 0px);
+    }
+  }
+}
+
+.wj-dropdown-panel {
+  padding: 10px 5px;
+}
+
+.wj-treeview .wj-node .wj-node-check {
+  display: inline-block;
+}
+
+.wj-treeview .wj-node.wj-state-selected {
+  background: $pointColorSkyblue;
+  color: #fff;
+}

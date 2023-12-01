@@ -82,10 +82,11 @@ ul,
 var,
 video {
   border: 0;
-  font-family: 'Pretendard';
+  //font-family: 'Pretendard';
+  font-family: $body-font-family;
   margin: 0;
   padding: 0;
-  vertical-align: baseline;
+  // vertical-align: baseline;
 }
 article,
 aside,
@@ -146,6 +147,8 @@ select,
 .text-h4,
 .text-h5,
 .text-h6 {
+  // font-weight: 400 !important;
+  // font-size: pxToRem(14) !important;
   font-weight: 400 !important;
   font-size: pxToRem(14) !important;
 }

@@ -9,8 +9,8 @@
   },
   "devDependencies": {
     "@types/node": "18",
-    "@ustra/nuxt": "3.0.0-stable",
-    "@ustra/nuxt-vuetify": "3.0.0-stable"
+    "@ustra/nuxt": "3.0.1-stable",
+    "@ustra/nuxt-vuetify": "3.0.1-stable"
   },
   "imports": {
     "#ustra/core": "@ustra/core/src",

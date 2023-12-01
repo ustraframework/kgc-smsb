@@ -1,0 +1,94 @@
+// Variables
+
+// Color system
+// scss-docs-start gray-color-variables
+$white: #fff !default;
+$gray: #fbfbfb !default;
+$gray-100: #f6f6f6 !default;
+$gray-200: #e7e7e7 !default;
+$gray-300: #c3c3c3 !default;
+$gray-400: #888888 !default;
+$gray-500: #666666 !default;
+$gray-600: #464646 !default;
+$gray-700: #222222 !default;
+$bluegray-200: #f9fafc !default;
+$bluegray-300: #f4f6fa !default;
+$bluegray-400: #ecf0f8 !default;
+$bluegray-500: #c8d1e2 !default;
+$bluegray-600: #a4aec1 !default;
+$bluegray-700: #758ebc !default;
+$black: #000 !default;
+// scss-docs-end gray-color-variables
+
+// scss-docs-start gray-colors-map
+$grays: (
+  'gray100': $gray-100,
+  'gray200': $gray-200,
+  'gray300': $gray-300,
+  'gray400': $gray-400,
+  'gray500': $gray-500,
+  'gray600': $gray-600,
+  'gray700': $gray-700,
+) !default;
+// scss-docs-end gray-colors-map
+
+// scss-docs-start gray-colors-map
+$bluegrays: (
+  'bluegray200': $bluegray-200,
+  'bluegray300': $bluegray-300,
+  'bluegray400': $bluegray-400,
+  'bluegray500': $bluegray-500,
+  'bluegray600': $bluegray-600,
+  'bluegray700': $bluegray-700,
+) !default;
+// scss-docs-end gray-colors-map
+
+// scss-docs-start colors-map
+$colors: (
+  'black': $black,
+  'white': $white,
+  'transparent': transparent,
+) !default;
+// scss-docs-end colors-map
+
+// scss-docs-start theme-color-variables
+$primary-01: #d20f27 !default;
+$primary-02: #f46144 !default;
+$primary-03: #5f0000 !default;
+$secondary-01: #b1c8f4 !default;
+$danger: #f43131 !default;
+$success: #5361e7 !default;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  'primary01': $primary-01,
+  'primary02': $primary-02,
+  'primary03': $primary-03,
+  'secondary01': $secondary-01,
+  'success': $success,
+  'danger': $danger,
+) !default;
+// scss-docs-end theme-colors-map
+
+// Prefix for :root CSS variables
+$variable-prefix: j- !default;
+$prefix: $variable-prefix !default;
+
+// Font
+$font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Roboto, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움',
+  sans-serif !default;
+
+$font-size-base: 14px !default;
+
+$font-weight-base: 400 !default;
+
+$line-height-base: 1.5 !default;
+
+// Body
+$body-bg: $white !default;
+$body-color: $gray-700 !default;
+
+// Document
+$document-max-width: 192rem;
+$document-min-width: 160rem;

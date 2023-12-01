@@ -1,0 +1,33 @@
+// Tailwind
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+// Configuration
+@import 'variables';
+
+// Base
+@import 'reset';
+@import 'fonts';
+
+// Layout & components
+@import 'root';
+@import 'layout';
+@import 'buttons';
+@import './prime-vue/buttons';
+@import './prime-vue/icons';
+@import './prime-vue/input';
+@import './prime-vue/password';
+@import './prime-vue/dropdown';
+@import './prime-vue/checkbox';
+@import './prime-vue/radio';
+@import './prime-vue/switch';
+@import './prime-vue/steps';
+
+// Pages
+@import './pages/sign';

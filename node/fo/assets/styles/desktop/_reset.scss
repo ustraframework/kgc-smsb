@@ -1,0 +1,99 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  height: 100%;
+  // font-size: 62.5%;
+
+  &:lang(ko) {
+    word-break: keep-all;
+  }
+}
+
+body {
+  // overflow-x: hidden;
+  overflow-wrap: break-word;
+  height: 100%;
+  font-family: $font-family !important;
+  font-weight: $font-weight-base !important;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  -webkit-text-size-adjust: 100%;
+  color: $body-color;
+  background-color: $body-bg;
+}
+
+main {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+button,
+fieldset,
+iframe,
+input,
+select,
+textarea {
+  border: 0;
+  font-family: $font-family !important;
+}
+
+em {
+  font-style: normal;
+}
+
+button,
+dialog,
+input,
+mark,
+meter,
+progress {
+  background-color: transparent;
+}
+
+table {
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button,
+input,
+meter,
+progress,
+select,
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+iframe {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+// Images and content
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
