@@ -1505,7 +1505,6 @@
               width: unset;
               height: unset;
               border: unset;
-              border-top: unset;
               top: unset;
             }
   
@@ -1515,7 +1514,7 @@
               content: '';
               position: absolute;
               right: 8px;
-              background: url(/assets/images/svg/ico_combo_arr_open.svg) no-repeat center center;
+              background: url(/assets/images/svg/ico_calender.svg) no-repeat center center;
               top: 50%;
               transform: translateY(-50%);
             }

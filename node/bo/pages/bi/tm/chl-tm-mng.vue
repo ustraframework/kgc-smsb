@@ -38,6 +38,8 @@
     <div class="columns has-gap">
       <UBox class="card is-sub">
         <UItem class="card-body">
+
+          <!-- hader 영역 -->
           <UBox class="table-title-wrap" direction="row">
             <UItem itemDirection="row" :ratio="1">
               <h2 class="table-title">
@@ -45,13 +47,14 @@
                 <span class="data-count">조회건수 <span>{{ listActions.chlTms.value.length }}</span> 건</span>
               </h2>
             </UItem>
-            <UButtonBox class="search-buttons">
+            <UButtonBox class="table-buttons">
               <UButton text="신규" type="primary" small @click="() => listActions.init()" />
               <UButton text="저장" type="primary" small @click="() => detailActions.save()" />
               <UButton text="삭제" type="primary" small @click="() => detailActions.remove()" />
             </UButtonBox>
           </UBox>
 
+          <!-- grid 영역 -->
           <WjFlexGrid :itemsSource="listActions.chlTms.value" :initialized="listActions.grid.initialize" style="min-height: 250px; max-height: 250px">
             <WjFlexGridColumn header="No" :width="60" align="center" :cellTemplate="ctx => ctx.row.index + 1" />
             <WjFlexGridColumn
