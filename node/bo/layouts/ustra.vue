@@ -16,6 +16,35 @@
 
       <nav class="navbar-menu">
         <v-row class="navbar-left" align="center" no-gutters>
+          <v-sheet
+              class="mx-auto"
+            >
+              <v-slide-group
+                show-arrows
+              >
+                <v-slide-group-item
+                  v-for="(nav, i) in displayNavigations"
+                  :key="i"
+                  v-slot="{ toggle }"
+                >
+                  <v-btn
+                    class="btn-gnbToggle"
+                    rounded
+                    @click="toggle"
+                  >
+                    <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                      <v-btn :ripple="false" @click="gnbSelected(nav)">
+                        <span class="icon">
+                          <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                        </span>
+                        <span>{{ nav.text }}</span>
+                      </v-btn>
+                    </v-col>
+                  </v-btn>
+                </v-slide-group-item>
+              </v-slide-group>
+            </v-sheet>
+<!--   
           <template :key="i" v-for="(nav, i) in displayNavigations">
             <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
               <v-btn :ripple="false" @click="gnbSelected(nav)">
@@ -25,7 +54,7 @@
                 <span>{{ nav.text }}</span>
               </v-btn>
             </v-col>
-          </template>
+          </template> -->
         </v-row>
         <v-row class="navbar-right" align="right" no-gutters>
           <UstraConfigMenu />
@@ -608,8 +637,18 @@ export default {
 
 .navbar-left {
   display: flex;
+  justify-content: flex-start;
   font-weight: 700;
   font-size: 16px;
+  max-width: calc(100% - 100px);
+
+  .v-btn__overlay, 
+    .v-btn__underlay{
+      display: none;
+    }
+  .v-sheet {
+    width: 100%;
+  }
 
   .v-btn {
     border: none;

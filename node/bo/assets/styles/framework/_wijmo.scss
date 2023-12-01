@@ -1580,6 +1580,96 @@
   }  
 }
 
+.navbar-left {
+  .v-sheet {
+    height: 100%;
+    position: relative;
+    padding: 0 20px;
+
+    .v-slide-group__prev,
+    .v-slide-group__next {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      z-index: 1000;
+      justify-content: flex-start;
+      // width: 100px;
+      height: 55px;
+      transform: translateY(-50%);
+      // background: linear-gradient(to right, white, 80%, transparent);
+    }
+    .v-slide-group__next {
+      left: inherit;
+      right: 0;
+      justify-content: flex-end;
+      // background: linear-gradient(to left, white, 80%, transparent);
+    }
+    .v-slide-group__next--disabled, 
+    .v-slide-group__prev--disabled {
+      opacity: 1;
+    }
+    .mdi-chevron-left {
+      margin-top: 5px;
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 15L7 9.5L12 4' stroke='%23808080' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat left center;
+      }
+    }
+    .mdi-chevron-right {
+      margin-top: 5px;
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 15L13 9.5L8 4' stroke='%23808080' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat right center;
+      }
+    }
+  }
+  .v-slide-group__container {
+    position: relative;
+    margin: 0 15px;
+    // &:before,
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   z-index: 100;
+    //   display: block;
+    //   height: 55px;
+    //   // border: 1px solid red;
+    // }
+    // &:before {
+    //   left: 0;
+    //   width: 50px;
+    //   background: linear-gradient(to right, white, 80%, transparent)
+    // }
+    // &:after {
+    //   right: 0;
+    //   width: 150px;
+    //   background: linear-gradient(to left, white, transparent)
+    // }
+  }
+  .v-btn {
+    padding: 0 !important;
+    overflow-y: visible;
+    border-radius: 0;
+    .v-btn {
+      padding: 0 24px!important;
+    overflow-y: visible;
+    }
+  }
+  .v-btn__overlay,
+  .v-btn__underlay {
+    display: none;
+  }
+  .v-col {
+    padding: 0 !important;
+  }
+}
+
 // table form
 .table {
   .u-text-box,
