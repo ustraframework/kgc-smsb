@@ -1672,9 +1672,11 @@ header {
     // }
 
     .mdi-dots-vertical {
-        &:before {
-          color: $is-primary;
-        }
+        width: 25px;
+        height: 25px;
+        background-color: $is-primary;
+        border-radius: 50%;
+        transform: rotate(90deg);
     }
   }
 }
