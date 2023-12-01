@@ -27,7 +27,7 @@
             </v-col>
           </template>
         </v-row>
-        <v-row class="navbar-right" align="center" no-gutters>
+        <v-row class="navbar-right" align="right" no-gutters>
           <UstraConfigMenu />
         </v-row>
       </nav>
@@ -598,6 +598,7 @@ export default {
 
 .navbar-menu {
   position: absolute;
+  top: 0;
   left: 300px;
   display: flex;
   justify-content: space-between;
