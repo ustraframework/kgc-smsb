@@ -14,13 +14,13 @@
       <form action="" class="form">
         <table class="table is-search is-fullwidth">
           <colgroup>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 170px;">
+            <col style="width: 130px" />
+            <col />
+            <col style="width: 130px" />
+            <col />
+            <col style="width: 130px" />
+            <col />
+            <col style="width: 170px" />
           </colgroup>
           <tbody>
             <tr>
@@ -38,7 +38,7 @@
               </td>
               <td rowspan="2">
                 <div class="buttons is-search">
-                  <UButton text="조회" type="is-search"/>
+                  <UButton text="조회" type="is-search" />
                 </div>
               </td>
             </tr>
@@ -70,7 +70,7 @@
             <UButton text="엑셀 다운로드" icon="excel" />
           </div>
         </div>
-        
+
         <div class="field-grid">
           <WjFlexGrid :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
@@ -92,18 +92,19 @@
 </template>
 
 <script setup>
-import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
+import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components'
 
 const grid = useWijmoFlexGrid({
-isReadOnly: false,
-})  
-
+  isReadOnly: false,
+})
 
 definePageMeta({
-auth: {
-  required: false,
-},
+  auth: {
+    required: false,
+  },
+  layout: 'ustra-pub',
 })
+
 const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = usePaginationCollectionView((pageNo, orders) => {
   return useOnError(
     async () => {
@@ -126,6 +127,4 @@ const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = 
 })
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

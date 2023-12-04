@@ -1,31 +1,175 @@
 <template>
-  <v-expand-x-transition>
-    <v-card class="mdi" v-show="mdiVisible">
-      <v-tabs>
-        <v-tab value="one" class="is-active">
-          <span class="mdi-menu">메인페이지</span>
-        </v-tab>
-        <v-tab value="two">
-          <span class="mdi-menu">메뉴1</span>
-          <UButton type="icon" class="button-mdi" />
-        </v-tab>
-        <v-tab value="three">
-          <span class="mdi-menu">메뉴2</span>
-          <UButton type="icon" class="button-mdi" />
-        </v-tab>
-      </v-tabs>
+  <v-app id="ustra">
+    <!-- header -->
+    <v-app-bar color="#003156" density="compact">
+      <v-toolbar-title>
+        <NuxtLink class="navbar-link" to="/main">
+          <img src="@/assets/images/svg/logo.svg" alt="U.STRA HR" />
+        </NuxtLink>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
 
-      <div class="mdiShortCuts">
-        <button class="mdiShortCuts-hidden" @click="mdiVisible = false">MDI 숨김 버튼</button>
+      <!-- 2023-11-29 UI개발 -->
+      <nav class="navbar-menu">
+        <v-row class="navbar-left" align="center" no-gutters>
+          <v-col cols="auto" class="is-active">
+            <v-btn :ripple="false">
+              <span class="icon">
+                <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+              </span>
+              <span>메뉴1</span>
+            </v-btn>
+          </v-col>
+          <v-col cols="auto">
+            <v-btn :ripple="false">
+              <span class="icon">
+                <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+              </span>
+              <span>메뉴2</span>
+            </v-btn>
+          </v-col>
+          <v-col cols="auto">
+            <v-btn :ripple="false">
+              <span class="icon">
+                <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+              </span>
+              <span>메뉴3</span>
+            </v-btn>
+          </v-col>
+        </v-row>
+        <v-row class="navbar-right" align="center" no-gutters>
+          <UstraConfigMenu />
+        </v-row>
+      </nav>
+    </v-app-bar>
+    <!-- // header -->
+
+    <UstraLayoutSideMenu v-model="openSideMenu" />
+
+    <VMain id="page_wrapper" class="t_zero">
+      <div class="content">
+        <div class="columns has-gap">
+          <UBox class="card is-title">
+            <h1 class="page-title">
+              <span>메뉴명</span>
+              <span class="favoriteWrap">
+                <UstraLayoutFavoritesButton />
+                <LayoutInfoButton />
+              </span>
+            </h1>
+            <UBox class="table-title-wrap">
+              <h2 class="table-title">
+                <span>메뉴 설명</span>
+              </h2>
+            </UBox>
+          </UBox>
+        </div>
+        <slot></slot>
+
+        <!-- 2023-11-29 UI개발 -->
+        <!-- <ContentsSample /> -->
       </div>
-    </v-card>
-  </v-expand-x-transition>
-</template>
+    </VMain>
 
-<script setup>
-const mdiVisible = ref(true)
+    <!-- 2023-11-29 UI개발 -->
+    <Mdi />
+  </v-app>
+</template>
+<script lang="ts" setup>
+import { useHead, useRouter } from '#app'
+import { ref, computed, watch } from '#ustra/nuxt'
+import { useUstraManagementLayoutUtils } from '#ustra/nuxt/management/composables'
+
+import UstraLayoutHeader from '#ustra/nuxt-wijmo/management/layouts/header.vue'
+import UstraLayoutSideMenu from '~/layouts/side-menu.vue'
+import UstraLayoutFavoritesButton from '#ustra/nuxt-wijmo/management/layouts/favorites-button.vue'
+
+import LayoutInfoButton from '~/components/layouts/info-button.vue'
+
+// Header
+import UstraConfigMenu from '#ustra/nuxt-wijmo/management/layouts/config-menu.vue'
+
+// 2023-11-29
+import Mdi from '@/components/layouts/mdi.vue'
+
+// == Header ==
+const emits = defineEmits(['changeNavState'])
+
+// ============
+
+const { openMenu, closeTabMenuByIndex } = useUstraManagementLayoutUtils()
+const openSideMenu = ref(false)
+const selectedTabIndex = computed({
+  get() {
+    return $ustra.management.store.navigation.selectedTabIndex
+  },
+  set(v: number) {
+    $ustra.management.store.navigation.selectedTabIndex = v
+  },
+})
+const useTabMenu = computed(() => $ustra.env.appProps.nuxt.management.ui.tabMenu.enabled)
+const openedTabNavigations = computed(() => $ustra.management.store.navigation.openedTabNavigations)
+
+// set main page
+if (useTabMenu.value) {
+  if (openedTabNavigations.value.length > 0) {
+    selectedTabIndex.value = 0
+  }
+}
+
+useHead({
+  bodyAttrs: {
+    class: 'ustra management',
+  },
+})
 </script>
+<script lang="ts">
+export default {
+  name: 'UstraMain',
+}
+</script>
+
 <style lang="scss" scoped>
+.ustra .v-toolbar {
+  overflow: visible;
+}
+
+.ustra .v-toolbar-title__placeholder {
+  color: #fff;
+  font-size: 12px;
+}
+
+.ustra .v-card-item .v-card-subtitle {
+  white-space: normal;
+}
+
+.ustra .markdown-body {
+  margin: 5px 0;
+}
+
+.ustra .config-menu-list {
+  padding: 0;
+
+  & .v-list-item {
+    cursor: pointer;
+
+    & .v-list-item-title {
+      font-size: 0.75rem;
+    }
+    .v-list-item__overlay {
+      display: none;
+    }
+  }
+
+  & .v-list-item--density-compact.v-list-item--one-line {
+    min-height: min-content;
+  }
+
+  & .v-list-item__prepend > .v-icon {
+    margin-inline-end: 20px;
+  }
+}
+
 @import '@/assets/styles/framework/variable.scss';
 
 .mdi {
@@ -209,6 +353,229 @@ const mdiVisible = ref(true)
       top: -87px;
       background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='30' height='30' rx='15' fill='%23151515'/%3E%3Cmask id='path-2-inside-1_134_6876' fill='white'%3E%3Cpath d='M6 12.5C6 11.3954 6.89543 10.5 8 10.5H22C23.1046 10.5 24 11.3954 24 12.5V15.5H6V12.5Z'/%3E%3C/mask%3E%3Cpath d='M4.5 12.5C4.5 10.567 6.067 9 8 9H22C23.933 9 25.5 10.567 25.5 12.5H22.5C22.5 12.2239 22.2761 12 22 12H8C7.72386 12 7.5 12.2239 7.5 12.5H4.5ZM24 15.5H6H24ZM4.5 15.5V12.5C4.5 10.567 6.067 9 8 9V12C7.72386 12 7.5 12.2239 7.5 12.5V15.5H4.5ZM22 9C23.933 9 25.5 10.567 25.5 12.5V15.5H22.5V12.5C22.5 12.2239 22.2761 12 22 12V9Z' fill='white' mask='url(%23path-2-inside-1_134_6876)'/%3E%3Cpath d='M18 20.5L15 18L12 20.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
     }
+  }
+}
+
+.navbar-menu {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 42px 0 40px;
+  width: calc(100% - 300px);
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: flex-start;
+  font-weight: 700;
+  font-size: 16px;
+  max-width: calc(100% - 100px);
+
+  .v-btn__overlay,
+  .v-btn__underlay {
+    display: none;
+  }
+  .v-sheet {
+    width: 100%;
+  }
+
+  .v-btn {
+    border: none;
+  }
+  .v-col {
+    :deep(.v-btn__content) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+    }
+    .v-btn__content .icon {
+      align-items: baseline;
+      visibility: hidden;
+    }
+
+    &:focus,
+    &.is-focus,
+    &.is-active {
+      &::before {
+        position: absolute;
+        z-index: -1;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 9px;
+    }
+
+    &.is-active {
+      &::before {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 65px;
+        height: 12px;
+        background-color: #dde4f2;
+      }
+    }
+  }
+
+  .v-col {
+    .v-btn {
+      text-decoration: none;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: -12px;
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+      }
+    }
+
+    &:hover,
+    &.is-hover,
+    &.is-active {
+      .v-btn {
+        color: white;
+
+        .v-btn__content span {
+          margin-top: 10px;
+          font-size: 17px;
+          line-height: 19px;
+        }
+      }
+
+      .v-btn__content .icon {
+        visibility: visible;
+      }
+    }
+
+    &:hover,
+    &.is-hover {
+      .v-btn {
+        &::before {
+          background-color: $gray160;
+          transition: 0.2s ease-out;
+        }
+      }
+    }
+
+    &.is-active {
+      .v-btn {
+        &::before {
+          background-color: $is-primary;
+          border-radius: 0px 0px 20px 20px;
+        }
+      }
+    }
+
+    &.has-dropdown {
+      padding: 0;
+    }
+
+    &.is-expanded {
+      flex: auto;
+    }
+
+    &.is-tab {
+      border-bottom: 1px solid transparent;
+      padding-bottom: calc(5px - 1px);
+      min-height: 32.5px;
+
+      &:hover,
+      &:focus {
+        border-bottom-color: $link;
+        background-color: transparent;
+      }
+
+      &.is-active {
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-bottom-color: $link;
+        padding-bottom: calc(5px - 3px);
+        background-color: transparent;
+        color: $link;
+      }
+    }
+  }
+
+  .v-btn {
+    display: flex;
+    flex-direction: column;
+    padding: 0 29px;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #151515;
+
+    span {
+      margin-top: 0;
+      transition: margin 0.3s ease-out;
+    }
+  }
+
+  .v-btn__content .icon {
+    width: 26px;
+    height: 26px;
+    color: #fffdfd;
+
+    &:not(:last-child) {
+      &:not(.is-last) {
+        margin-bottom: -6px;
+      }
+    }
+  }
+
+  .v-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 55px;
+
+    .v-btn__content span {
+      position: relative;
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.navbar-right {
+  justify-content: flex-end;
+
+  .v-col {
+    &:not(:first-child) {
+      margin-left: 16px;
+    }
+  }
+  .v-btn {
+    min-width: auto;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      > .v-btn__overlay {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.search-emp {
+  display: flex;
+  position: relative;
+  .v-btn {
+    position: absolute;
+    right: 0;
+    height: 30px;
   }
 }
 </style>

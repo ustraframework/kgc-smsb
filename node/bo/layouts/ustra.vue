@@ -16,35 +16,23 @@
 
       <nav class="navbar-menu">
         <v-row class="navbar-left" align="center" no-gutters>
-          <v-sheet
-              class="mx-auto"
-            >
-              <v-slide-group
-                show-arrows
-              >
-                <v-slide-group-item
-                  v-for="(nav, i) in displayNavigations"
-                  :key="i"
-                  v-slot="{ toggle }"
-                >
-                  <v-btn
-                    class="btn-gnbToggle"
-                    rounded
-                    @click="toggle"
-                  >
-                    <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
-                      <v-btn :ripple="false" @click="gnbSelected(nav)">
-                        <span class="icon">
-                          <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
-                        </span>
-                        <span>{{ nav.text }}</span>
-                      </v-btn>
-                    </v-col>
-                  </v-btn>
-                </v-slide-group-item>
-              </v-slide-group>
-            </v-sheet>
-<!--   
+          <v-sheet class="mx-auto">
+            <v-slide-group show-arrows>
+              <v-slide-group-item v-for="(nav, i) in displayNavigations" :key="i" v-slot="{ toggle }">
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+              </v-slide-group-item>
+            </v-slide-group>
+          </v-sheet>
+          <!--
           <template :key="i" v-for="(nav, i) in displayNavigations">
             <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
               <v-btn :ripple="false" @click="gnbSelected(nav)">
@@ -119,23 +107,22 @@
 
     <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
       <div class="content">
-          <div class="columns has-gap">
-            <UBox class="card is-title">
-              <h1 class="page-title">
-                <span>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }}</span>
-                <span class="favoriteWrap">
-                  <UstraLayoutFavoritesButton />
-                  <LayoutInfoButton />
-                </span>
-              </h1>
-              <UBox class="table-title-wrap">
-                <h2 class="table-title">
-                  <span>{{ currentMenu?.mnuDesc }}</span>
-                </h2>
-              </UBox>
+        <div class="columns has-gap">
+          <UBox class="card is-title">
+            <h1 class="page-title">
+              <span>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }}</span>
+              <span class="favoriteWrap">
+                <UstraLayoutFavoritesButton />
+                <LayoutInfoButton />
+              </span>
+            </h1>
+            <UBox class="table-title-wrap">
+              <h2 class="table-title">
+                <span>{{ currentMenu?.mnuDesc }}</span>
+              </h2>
+            </UBox>
           </UBox>
         </div>
-
 
         <div>
           <template v-for="(item, index) in openedTabNavigations" :key="item.id">
@@ -177,84 +164,6 @@
       </v-tabs>
 
       <div class="mdiShortCuts">
-        <div class="mdiShortCuts-menu">
-          <button class="mdiShortCuts-menuOpenBtn">열려있는 탭메뉴 목록 열림 버튼</button>
-          <div class="mdiShortCuts-menuWrap">
-            <ul class="mdiShortCuts-menuList">
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1 메뉴이름 1 메뉴이름 1 메뉴이름 1</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 1</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 2</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 3</a>
-                <button class="mdiShortCuts-menuCloseBtn">
-                  <svg class="icon"><use href="#icon-close"></use></svg>닫기
-                </button>
-              </li>
-              <li class="mdiShortCuts-menuItem">
-                <a href="#" class="mdiShortCuts-menuLink">메뉴이름 4</a>
-                <button class="mdiShortCuts-menuCloseBtn">닫기</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <button class="mdiShortCuts-hidden">MDI 숨김 버튼</button>
       </div>
     </v-card>
@@ -642,10 +551,10 @@ export default {
   font-size: 16px;
   max-width: calc(100% - 100px);
 
-  .v-btn__overlay, 
-    .v-btn__underlay{
-      display: none;
-    }
+  .v-btn__overlay,
+  .v-btn__underlay {
+    display: none;
+  }
   .v-sheet {
     width: 100%;
   }

@@ -14,13 +14,13 @@
       <form action="" class="form">
         <table class="table is-search is-fullwidth">
           <colgroup>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 170px;">
+            <col style="width: 130px" />
+            <col />
+            <col style="width: 130px" />
+            <col />
+            <col style="width: 130px" />
+            <col />
+            <col style="width: 170px" />
           </colgroup>
           <tbody>
             <tr>
@@ -29,12 +29,12 @@
                 <UDatePeriodBox v-model:start="start" v-model:end="end" />
               </td>
               <th><span class="is-required">회원번호/명</span></th>
-              <td><UTextBox type="icon"/></td>
+              <td><UTextBox type="icon" /></td>
               <th></th>
               <td></td>
               <td>
                 <div class="buttons is-search">
-                  <UButton text="조회" type="is-search"/>
+                  <UButton text="조회" type="is-search" />
                 </div>
               </td>
             </tr>
@@ -53,7 +53,7 @@
             <span class="data-count">총<span>24</span>건</span>
           </h2>
           <div class="buttons">
-            <UButton text="탈퇴복원처리" type="is-filled"/>
+            <UButton text="탈퇴복원처리" type="is-filled" />
           </div>
         </div>
 
@@ -91,13 +91,13 @@
           <UFieldRow>
             <UField label="회원번호"><UTextBox></UTextBox></UField>
             <UField label="회원명"><UTextBox></UTextBox></UField>
-            <UField label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text"/></UField>
+            <UField label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text" /></UField>
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
             <UField label="잔여포인트"><UTextBox></UTextBox></UField>
-            <UField label="탈퇴일자"><UDateBox mode="date"/></UField>
-            <UField label="삭제예정일자"><UDateBox mode="date"/></UField>
+            <UField label="탈퇴일자"><UDateBox mode="date" /></UField>
+            <UField label="삭제예정일자"><UDateBox mode="date" /></UField>
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
@@ -114,51 +114,41 @@
 </template>
 
 <script setup>
-import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
+import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components'
 
 const grid = useWijmoFlexGrid({
-isReadOnly: false,
-})  
-
-definePageMeta({
-auth: {
-  required: false,
-},
+  isReadOnly: false,
 })
 
-const pwd = [
-{ value : 'reset' , text: '비밀번호 초기화'}
-];
+definePageMeta({
+  auth: {
+    required: false,
+  },
+  layout: 'ustra-pub',
+})
 
-const members = [
-{ value : '1' , text: '일반회원'},
-];
+const pwd = [{ value: 'reset', text: '비밀번호 초기화' }]
+
+const members = [{ value: '1', text: '일반회원' }]
 
 const solarItems = reactive([
-{ value: '1', text: '양력' },
-{ value: '2', text: '음력' },
-]);
-const solarValue = ref('1');
+  { value: '1', text: '양력' },
+  { value: '2', text: '음력' },
+])
+const solarValue = ref('1')
 
 const radioItems = reactive([
-{ value: 'y', text: '예' },
-{ value: 'n', text: '아니오' },
-]);
-const radioValue = ref('y');
+  { value: 'y', text: '예' },
+  { value: 'n', text: '아니오' },
+])
+const radioValue = ref('y')
 
 const items = [
-{ value : '1' , text: 'item1'},
-{ value : '2' , text: 'item2'},
+  { value: '1', text: 'item1' },
+  { value: '2', text: 'item2' },
 ]
 
-const itemsSourceGrid = ref([
-{ col1: '텍스트' },
-{ col1: '텍스트2'},
-{ col1: '텍스트3'},
-]);
-
+const itemsSourceGrid = ref([{ col1: '텍스트' }, { col1: '텍스트2' }, { col1: '텍스트3' }])
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
