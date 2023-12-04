@@ -1,0 +1,102 @@
+buildscript {
+    ext {
+        springBootVersion = '2.6.2'
+        set('springCloudVersion', "2021.0.8")
+        set('log4j2.version', '2.18.0')
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://repo.gsitm.com/repository/m2-public/" }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('io.spring.gradle:dependency-management-plugin:1.1.3')
+        classpath("io.franzbecker:gradle-lombok:1.8")
+
+    }
+}
+
+configurations.all {
+	resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+		if (details.requested.group == 'org.apache.logging.log4j') {
+			details.useVersion '2.18.0'
+		}
+	}
+}
+
+group = 'kr.co.kgc.smsb'
+version = '0.0.1-SNAPSHOT'
+
+ext {
+	ustraVersion = '2.2.1.170-SNAPSHOT'
+    set('springCloudVersion', "2021.0.8")
+    set('log4j2.version', '2.18.0')
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Encoding
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+eclipse {
+	classpath { downloadSources=true }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+
+repositories {
+  	mavenCentral()
+    maven { url "https://repo.gsitm.com/repository/m2-public/" }
+}
+
+dependencies {
+
+	compile project(":common")
+
+    // Spring Boot
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+//    testImplementation 'org.springframework.boot:spring-start-test'
+
+    // lombok
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    implementation 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testImplementation 'org.projectlombok:lombok:1.18.12'
+
+    // test
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+
+    // logging
+    implementation 'org.apache.logging.log4j:log4j-to-slf4j:2.18.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.18.0'
+    implementation 'ch.qos.logback:logback-core:1.2.11'
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
+
+
+    // U.STRA Java
+    compile "com.gsitm.ustra.java:ustra-net:${ustraVersion}"
+    compile "com.gsitm.ustra.java.starter:ustra-starter-restapi:${ustraVersion}"
+    compile "com.gsitm.ustra.java.starter:ustra-starter-mybatis:${ustraVersion}"
+    compile "com.gsitm.ustra.java:ustra-management-core:${ustraVersion}"
+
+
+}
+
+

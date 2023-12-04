@@ -19,7 +19,7 @@ public class SmsbAuthenticationProcessor extends UstraJwtAuthenticationProcessor
 	}
 
 	/**
-	 * BO Authentication Processor 积己
+	 * BO Authentication Processor 靸濎劚
 	 * @param properties
 	 * @param requestTokenChecker
 	 * @return
@@ -40,7 +40,7 @@ public class SmsbAuthenticationProcessor extends UstraJwtAuthenticationProcessor
 
 
 	/**
-	 * PO Authentication Processor 积己
+	 * PO Authentication Processor 靸濎劚
 	 * @param properties
 	 * @param requestTokenChecker
 	 * @return
@@ -61,7 +61,7 @@ public class SmsbAuthenticationProcessor extends UstraJwtAuthenticationProcessor
 
 
 	/**
-	 * FO Authentication Processor 积己
+	 * FO Authentication Processor 靸濎劚
 	 * @param properties
 	 * @param requestTokenChecker
 	 * @return

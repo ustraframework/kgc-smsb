@@ -28,9 +28,9 @@ const layout = computed(() => {
     return layoutProp.layoutName
   }
 
-  if (useTabUi && layoutProp?.layoutName) {
-    return false
-  }
+  // if (useTabUi && layoutProp?.layoutName) {
+  //   return false
+  // }
 
   if (layoutProp?.include && layoutProp?.layoutName) {
     return layoutProp.layoutName

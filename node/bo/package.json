@@ -19,7 +19,7 @@
     "#kgc/smsb-common/*": "@kgc/smsb-common/src/*"
   },
   "scripts": {
-    "clean": "nuxt clean",
+    "clean": "nuxt cleanup",
     "dev": "cross-env CONFIG_ENV=local nuxt dev --force -p 11061",
     "generate": "cross-env CONFIG_ENV=dev nuxt clean && nuxt generate",
     "prepare": "nuxt prepare",
@@ -28,43 +28,13 @@
     "postinstall": "yarn link \"@kgc/smsb-common\""
   },
   "resolutions": {
-    "@nuxt/kit": "3.4.3",
-    "@nuxt/schema": "3.4.3"
+    "highlight.js": "11.7.0"
   },
   "devDependencies": {
-    "@esbuild-plugins/node-globals-polyfill": "0.1.1",
-    "@esbuild-plugins/node-modules-polyfill": "0.1.4",
-    "@mdi/font": "7.0.96",
-    "@rollup/plugin-alias": "3.1.9",
-    "@types/body-parser": "1.19.2",
-    "@types/compression": "1.7.2",
-    "@types/fs-extra": "9.0.13",
-    "@types/jest": "28.1.6",
-    "@types/morgan": "1.9.3",
-    "@types/multer": "1.4.7",
-    "@types/node": "16",
-    "@types/serve-static": "1.15.0",
-    "@types/shelljs": "0.8.11",
-    "@ustra/core": "3.0.0-rc.4",
-    "@ustra/nuxt": "3.0.0-rc.4",
-    "@ustra/nuxt-vuetify": "3.0.0-rc.4",
-    "@ustra/nuxt-ckeditor5": "3.0.0-rc.4",
-    "@ustra/nuxt-wijmo": "3.0.0-rc.4",
-    "cpx2": "4.2.0",
-    "front-matter": "4.0.2",
-    "fs-extra": "10.1.0",
-    "madge": "5.0.1",
-    "rollup-plugin-node-polyfills": "0.2.1",
-    "rollup-plugin-node-resolve": "5.2.0",
-    "sass": "1.54.4",
-    "ts-jest": "28.0.8",
-    "ts-node": "10.9.1",
-    "tsconfig-paths": "4.0.0",
-    "typedoc": "0.23.10",
-    "typescript": "4.8.2",
-    "vue-tsc": "0.40.13"
-  },
-  "dependencies": {
-    "monaco-editor": "^0.34.1"
+    "@ustra/core": "3.0.1-stable",
+    "@ustra/nuxt": "3.0.1-stable",
+    "@ustra/nuxt-vuetify": "3.0.1-stable",
+    "@ustra/nuxt-ckeditor5": "3.0.1-stable",
+    "@ustra/nuxt-wijmo": "3.0.1-stable"
   }
 }

@@ -21,7 +21,7 @@ public class DateTimeUtils {
 	}
 
 	/***
-	 * ±âº»°ªÀ¸·Î yyyyMMddHHmmss Æ÷¸ä Çü½ÄÀÇ ³¯Â¥ ¹İÈ¯
+	 * ê¸°ë³¸ê°’ìœ¼ë¡œ yyyyMMddHHmmss í¬ë©§ í˜•ì‹ì˜ ë‚ ì§œ ë°˜í™˜
 	 * @return
 	 */
 	public static String NowDateTime() {
@@ -29,9 +29,9 @@ public class DateTimeUtils {
 	}
 
 	/***
-	 * DateTime Formatter¿¡ ¸Â´Â ³¯Â¥ Çü½Ä ¹İÈ¯
+	 * DateTime Formatterì— ë§ëŠ” ë‚ ì§œ í˜•ì‹ ë°˜í™˜
 	 * @param dtPattern ex) yyyyMMddHHmmss
-	 * @return String ¹®ÀÚ¿­
+	 * @return String ë¬¸ìì—´
 	 */
 	public static String NowDateTime(String dtPattern) {
 		DateTimeFormatter dtFormat = DateTimeFormatter.ofPattern(dtPattern);

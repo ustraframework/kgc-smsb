@@ -19,7 +19,7 @@ import com.gsitm.ustra.java.security.jwt.authentication.properties.UstraJwtAuthe
 import com.gsitm.ustra.java.security.jwt.authentication.store.UstraJwtRefreshTokenStore;
 
 /**
- * ¿Œ¡ı Configuration
+ * Ïù∏Ï¶ù Configuration
  */
 public class SmsbAuthenticationConfigurer implements UstraJwtAuthenticationConfigurer<UstraAuthenticationRequestToken, UstraJwtAuthentication> {
 

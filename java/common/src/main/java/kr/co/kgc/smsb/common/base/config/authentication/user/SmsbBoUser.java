@@ -35,27 +35,27 @@ public class SmsbBoUser extends SmsbUser {
 	}
 
 	/**
-	 * °³ÀÎÁ¤º¸ °ü¸®ÀÚ ¿©ºÎ
+	 * ê°œì¸ì •ë³´ ê´€ë¦¬ì ì—¬ë¶€
 	 */
 	private boolean isPrivacyInfoManager = false;
 
 	/**
-	 * ºÎ¼­ ¸í
+	 * ë¶€ì„œ ëª…
 	 */
 	private String deptNm;
 
 	/**
-	 * °ø±Ş»ç ÄÚµå
+	 * ê³µê¸‰ì‚¬ ì½”ë“œ
 	 */
 	private String suppcCd;
 
 	/**
-	 * °ø±Ş»ç ¸í
+	 * ê³µê¸‰ì‚¬ ëª…
 	 */
 	private String suppcNm;
 
 	/**
-	 * Á÷±Ş ¸í
+	 * ì§ê¸‰ ëª…
 	 */
 	private String rankNm;
 }

@@ -3,17 +3,17 @@ package kr.co.kgc.smsb.common.base.code;
 public interface SmsbResultCode {
 
 	/**
-	 * 览翠 内靛
+	 * 鞚戨嫷 旖旊摐
 	 */
 	String getCode();
 
 	/**
-	 * 览翠 皋矫瘤
+	 * 鞚戨嫷 氅旍嫓歆�
 	 */
 	String getMessage();
 
 	/**
-	 * 己傍 咯何
+	 * 靹标车 鞐秬
 	 */
 	default boolean isSuccess() {
 		return "0000".equals(this.getCode());
