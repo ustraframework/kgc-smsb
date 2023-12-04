@@ -13,6 +13,16 @@
               </div>
             </UField>
           </UFieldRow>
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UField label="회원번호/명" ><UTextBox></UTextBox></UField>
+            <UField blank></UField>
+            <UField blank></UField>
+            <UField blank>
+              <div class="search-btn">
+                <UButton text="조회" type="is-search"/>
+              </div>
+            </UField>
+          </UFieldRow>
         </UFieldSet>
       </UItem>
     </UBox>

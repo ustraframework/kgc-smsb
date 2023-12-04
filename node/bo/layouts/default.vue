@@ -2,7 +2,14 @@
 <template>
   <v-app id="ustra">
     <div id="default__main">
-    <Header />
+    <!-- <Header /> -->
+    <header id="header">
+    <div class="navbar-logo">
+      <a class="navbar-link" href="/main" rel="noopener">
+        <img src="@/assets/images/svg/logo.svg" alt="U.STRA HR" class="megastudy-logo" />
+      </a>
+    </div>
+  </header>
     <main class="container">
       <div class="left-navbar">
         <Sidebar />

@@ -35,31 +35,30 @@
             </UFieldRow>
           </UFieldSet>
         </UValidationGroup>
-        
-        <div class="table-title-wrap mt-20">
+
+        <UBox class="table-title-wrap">
           <h2 class="table-title">
             <span>클럽 대상</span>
             <span class="data-count">총<span>24</span>건</span>
           </h2>
-          <div class="buttons">
+          <UButtonBox class="table-buttons">
             <UButton text="대상자 업로드" type="is-outline"/>
             <UButton text="추가" type="is-outline"/>
             <UButton text="삭제" type="is-outline"/>
-          </div>
-        </div>
-
-        <div class="field-grid">
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="채널" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            <WjFlexGridColumn header="컬럼라벨" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경전데이터" binding="col1" width="*" />
-          </WjFlexGrid>
-        </div>
+          </UButtonBox>
+        </UBox>
         
+        <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+          <WjFlexGridColumn header="채널" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+          <WjFlexGridColumn header="컬럼라벨" binding="col1" width="*" />
+          <WjFlexGridColumn header="변경전데이터" binding="col1" width="*" />
+        </WjFlexGrid>
       </UItem>
+
+      <!-- footer 버튼 영역 -->
       <UItem class="pop-btn">
         <UButtonBox right top>
           <UButton text="닫기" type="secondary" :width="80" />

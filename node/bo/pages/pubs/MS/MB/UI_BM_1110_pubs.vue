@@ -13,19 +13,19 @@
     <div class="card-body">
       <UFieldSet class="is-search">
         <UFieldRow :ratio="[1, 1, 1, '170px']">
-          <UField label="사용채널" ><WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" /></UField>
-          <UField label="인증일자" ><UDatePeriodBox v-model:start="start" v-model:end="end" /></UField>
-          <UField label="인증채널" ><UTextBox /></UField>
+          <UField label="사용채널"><WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" /></UField>
+          <UField label="인증일자"><UDatePeriodBox v-model:start="start" v-model:end="end" /></UField>
+          <UField label="인증채널"><UTextBox /></UField>
           <UField blank>
             <div class="search-btn">
-              <UButton text="조회" type="is-search"/>
+              <UButton text="조회" type="is-search" />
             </div>
           </UField>
         </UFieldRow>
         <UFieldRow :ratio="[1, 1, 1, '170px']">
           <UField label="회원번호/명">
             <UBox>
-              <UTextBox type="icon"/>
+              <UTextBox type="icon" />
               <UTextBox></UTextBox>
             </UBox>
           </UField>
@@ -49,7 +49,7 @@
             <UButton text="엑셀 다운로드" icon="excel" />
           </div>
         </div>
-        
+
         <div class="field-grid">
           <WjFlexGrid :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
@@ -72,11 +72,11 @@
 
 <script setup>
 import { WjComboBox } from '#ustra/nuxt-wijmo/components'
-import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
+import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components'
 
 const grid = useWijmoFlexGrid({
-isReadOnly: false,
-})  
+  isReadOnly: false,
+})
 
 const items = [
   { value: '01', text: '항목1' },
@@ -84,10 +84,12 @@ const items = [
 ]
 
 definePageMeta({
-auth: {
-  required: false,
-},
+  auth: {
+    required: false,
+  },
+  layout: 'ustra-pub',
 })
+
 const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = usePaginationCollectionView((pageNo, orders) => {
   return useOnError(
     async () => {
@@ -109,14 +111,7 @@ const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = 
   )()
 })
 
-const itemsSourceGrid = ref([
-{ col1: '텍스트' },
-{ col1: '텍스트2'},
-{ col1: '텍스트3'},
-]);
-
+const itemsSourceGrid = ref([{ col1: '텍스트' }, { col1: '텍스트2' }, { col1: '텍스트3' }])
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

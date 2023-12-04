@@ -1,64 +1,37 @@
 <template>
-  <div class="card is-sub is-search">
-    <div class="card-header">
-      <h1 class="page-title">
-        <span>회원정보 조회</span>
-      </h1>
-      <div class="table-title-wrap">
-        <h2 class="table-title">
-          <span>description</span>
-        </h2>
-      </div>
-    </div>
-    <div class="card-body">
-      <form action="" class="form">
-        <table class="table is-search is-fullwidth">
-          <colgroup>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 170px;">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th><span class="is-required">회원번호/명</span></th>
-              <td>
-                <UTextBox></UTextBox>
-              </td>
-              <th></th>
-              <td></td>
-              <th></th>
-              <td></td>
-              <td>
-                <div class="buttons is-search">
-                  <UButton text="조회" type="is-search"/>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-    </div>
+  <div class="columns has-gap">
+    <UBox class="card is-sub is-search">
+      <UItem class="card-body">
+        <UFieldSet class="is-search">
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UField label="검색영역" ><UTextBox></UTextBox></UField>
+            <UField blank></UField>
+            <UField blank></UField>
+            <UField blank>
+              <div class="search-btn">
+                <UButton text="조회" type="is-search"/>
+              </div>
+            </UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UItem>
+    </UBox>
   </div>
 
   <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
-    <div class="card is-sub">
-      <div class="card-body">
-        <div class="table-title-wrap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        <UBox class="table-title-wrap">
           <h2 class="table-title">
-            <span>상세내역</span>
+            <span>Sub title</span>
           </h2>
-          <div class="buttons">
-            <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 150px !important;"/>
+          <UButtonBox class="table-buttons">
             <UButton text="처리" type="is-outline"/>
             <UButton text="취소" type="is-outline"/>
             <UButton text="저장" type="is-filled"/>
-          </div>
-        </div>
+          </UButtonBox>
+        </UBox>
         <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
@@ -188,19 +161,19 @@
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
         </UFieldSet>
-      </div>
-    </div>
+      </UItem>
+    </UBox>
   </div>
 
   <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
-    <div class="card is-sub" style="height: 300px;">
-      <div class="card-body">
-        <div class="table-title-wrap">
+    <UBox class="card is-sub" style="height: 300px;">
+      <UItem class="card-body">
+        <UBox class="table-title-wrap">
           <h2 class="table-title">
-            <span>회원 이력 정보</span>
+            <span>Sub title</span>
           </h2>
-        </div>
+        </UBox>
 
         <WjTabPanel :initialized="tabPanel.initialize" class="mt-5">
           <WjTab>
@@ -472,8 +445,8 @@
           </WjTab>
 
         </WjTabPanel>
-      </div>
-    </div>
+      </UItem>
+    </UBox>
   </div>
 </template>
 
@@ -489,9 +462,10 @@ isReadOnly: false,
 const tabPanel = useWijmoTabPanel()
 
 definePageMeta({
-auth: {
-  required: false,
-},
+  auth: {
+    required: false,
+  },
+  layout: 'ustra-pub'
 })
 
 const pwd = [
