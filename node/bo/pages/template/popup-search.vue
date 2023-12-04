@@ -11,42 +11,27 @@
   <UPopup v-model="showPopup" :width="1000" :height="550" title="임직원 검색">
     <UBox direction="col">
       <UItem :ratio="1" class="pop-contents">
-        <table class="table is-search is-fullwidth">
-          <colgroup>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 170px;">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th><span>사번/성명</span></th>
-              <td>
-                <UTextBox></UTextBox>
-              </td>
-              <th><span>부서코드/명</span></th>
-              <td>
-                <UTextBox></UTextBox>
-              </td>
-              <td>
-                <div class="buttons is-search">
+        <UBox class="pop-search">
+          <UFieldSet class="is-search">
+            <UFieldRow :ratio="[1, 1, '170px']">
+              <UField label="검색영역" ><UTextBox></UTextBox></UField>
+              <UField blank></UField>
+              <UField blank>
+                <div class="search-btn">
                   <UButton text="조회" type="is-search"/>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="field-grid">
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="소속" binding="col1" width="*" />
-            <WjFlexGridColumn header="사번" binding="col1" width="*" />
-            <WjFlexGridColumn header="성명" binding="col1" width="*" />
-            <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
-          </WjFlexGrid>
-        </div>
+              </UField>
+            </UFieldRow>
+          </UFieldSet>
+        </UBox>
+        
+        <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="소속" binding="col1" width="*" />
+          <WjFlexGridColumn header="사번" binding="col1" width="*" />
+          <WjFlexGridColumn header="성명" binding="col1" width="*" />
+          <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
+        </WjFlexGrid>
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>

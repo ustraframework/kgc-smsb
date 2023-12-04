@@ -231,7 +231,7 @@
 <script setup>
 definePageMeta({
   auth: {
-    required: true,
+    required: false,
   },
 })
 </script>

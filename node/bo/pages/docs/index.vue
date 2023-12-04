@@ -4,9 +4,9 @@
       <div class="card is-sub">
         <div class="card-body">
           <h2 class="table-title"><span>컴포넌트 목록</span></h2>
-          <WjFlexGrid :itemsSource="items2" :initialized="grid2.initialize" style="min-height: 200px; max-height: 200px">
+          <WjFlexGrid :itemsSource="items2" :initialized="grid2.initialize" style="min-height: 250px; max-height: 250px">
             <WjFlexGridColumn header="컴포넌트명" binding="col1" width="*" />
-            <WjFlexGridColumn header="경로" binding="col2" width="2*" />
+            <WjFlexGridColumn header="경로" binding="col2" width="*" />
             <WjFlexGridColumn header="링크" binding="col2" :width="110">
               <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
                 <div>
@@ -17,8 +17,12 @@
               </WjFlexGridCellTemplate>
             </WjFlexGridColumn>
           </WjFlexGrid>
+        </div>
+      </div>
+      <div class="card is-sub">
+        <div class="card-body">
           <h2 class="table-title"><span>BO 템플릿 목록</span></h2>
-          <WjFlexGrid :itemsSource="items3" :initialized="grid3.initialize" style="min-height: 200px; max-height: 200px">
+          <WjFlexGrid :itemsSource="items3" :initialized="grid3.initialize" style="min-height: 250px; max-height: 250px">
             <WjFlexGridColumn header="템플릿" binding="col1" width="*" />
             <WjFlexGridColumn header="구조" binding="col3" width="*" />
             <WjFlexGridColumn header="경로" binding="col2" width="2*" />
@@ -35,11 +39,13 @@
         </div>
       </div>
     </div>
+
+
     <div class="columns has-gap">
       <div class="card is-sub">
         <div class="card-body">
           <h2 class="table-title"><span>BO 페이지 목록</span></h2>
-          <WjFlexGrid :itemsSource="items" :initialized="grid.initialize" style="min-height: 200px; max-height: 200px">
+          <WjFlexGrid :itemsSource="items" :initialized="grid.initialize" style="min-height: 800px; max-height: 800px">
             <WjFlexGridColumn header="단위업무명" binding="col1" width="*" />
             <WjFlexGridColumn header="레벨" binding="col2" width="*" />
             <WjFlexGridColumn header="화면명" binding="col3" width="2*" />

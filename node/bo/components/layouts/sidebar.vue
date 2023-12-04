@@ -22,7 +22,7 @@
     </div>
 
     <div class="menu-contents">
-      <UstraLayoutSideMenu v-model="openSideMenu" :navigationSelected="navigationSelected" />
+      <!-- <UstraLayoutSideMenu v-model="openSideMenu" :navigationSelected="navigationSelected" /> -->
     </div>
   </aside>
 </template>
