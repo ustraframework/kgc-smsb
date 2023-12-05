@@ -56,8 +56,19 @@
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
-            <UField label="단골매장"><UTextBox type="icon" /></UField>
-            <UField label="주소"><UTextBox type="icon" /></UField>
+            <UField label="단골매장">
+              <UBox>
+                <UTextBox type="icon" />
+                <UTextBox/>
+              </UBox>
+            </UField>
+            <UField label="주소">
+              <UBox>
+                <UTextBox type="icon" />
+                <UTextBox/>
+                <UTextBox/>
+              </UBox>
+            </UField>
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
@@ -71,11 +82,16 @@
             <UField label="회원통합여부"><URadioGroupBox v-model="radioValue" :itemsSource="radioItems" /></UField>
             <UField label="클랜징 상태"><UWjComboBox :itemsSource="items" displayMemberPath="text" /></UField>
             <UField label="클랜징 일자"><UTextBox /></UField>
-            <UField></UField>
+            <UField label="로그인 실패 횟수"><UTextBox /></UField>
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow :ratio="[2, 1, 1]">
-            <UField label="가맹점"><UTextBox type="icon" /></UField>
+            <UField label="가맹점">
+              <UBox>
+                <UTextBox type="icon" />
+                <UTextBox/>
+              </UBox>
+            </UField>
             <UField></UField>
             <UField></UField>
           </UFieldRow>
@@ -102,7 +118,7 @@
               </UCheckGroupBox>
             </UField>
             <UField label="Push 여부">
-              <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '' }]" item-align="left"> </UCheckGroupBox>
+              <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: 'PUSH' }]" item-align="left"> </UCheckGroupBox>
             </UField>
             <UField></UField>
           </UFieldRow>

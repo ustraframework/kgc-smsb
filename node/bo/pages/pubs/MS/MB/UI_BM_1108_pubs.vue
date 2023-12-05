@@ -2,43 +2,34 @@
   <div class="docs__wrap">
     <div class="columns has-gap mb-12">
       <div class="column is-half">
-        <h1 class="mb-4">임직원 검색</h1>
+        <h1 class="mb-4">프로그램 검색</h1>
         <UButton text="팝업 열기" @click="() => (showPopup = true)"></UButton>
       </div>
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="1000" :height="600" title="임직원 검색">
+  <UPopup v-model="showPopup" :width="900" :height="550" title="프로그램 검색">
     <UBox direction="col">
-      <UItem :ratio="1" style="overflow: auto">
-        <table class="table is-search is-fullwidth">
-          <colgroup>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 170px;">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th><span>사번/성명</span></th>
-              <td>
-                <UTextBox></UTextBox>
-              </td>
-              <th><span>부서코드/명</span></th>
-              <td>
-                <UTextBox></UTextBox>
-              </td>
-              <td>
-                <div class="buttons is-search">
+      <UItem :ratio="1" class="pop-contents">
+        <UBox class="pop-search">
+          <UFieldSet class="is-search">
+            <UFieldRow :ratio="[1, 1, '170px']">
+              <UField label="사번/성명" >
+                <UTextBox />
+              </UField>
+              <UField label="부서코드/명" required>
+                <UTextBox />
+              </UField>
+              <UField blank>
+                <div class="search-btn">
                   <UButton text="조회" type="is-search"/>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="field-grid">
+              </UField>
+            </UFieldRow>
+          </UFieldSet>
+        </UBox>
+        
+        <UBox height="250px">
           <WjFlexGrid :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="소속" binding="col1" width="*" />
@@ -46,9 +37,9 @@
             <WjFlexGridColumn header="성명" binding="col1" width="*" />
             <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
           </WjFlexGrid>
-        </div>
+        </UBox>
       </UItem>
-      <UItem>
+      <UItem class="pop-btn">
         <UButtonBox right top>
           <UButton text="닫기" type="secondary" :width="80" />
           <UButton text="확인" type="primary" :width="80" />
@@ -59,6 +50,7 @@
 </template>
 
 <script setup>
+import { WjComboBox } from '#ustra/nuxt-wijmo/components'
 import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
 
 const grid = useWijmoFlexGrid({
@@ -95,7 +87,24 @@ definePageMeta({
 
 const showPopup = ref(false)
 
+const items = [
+{ value : '1' , text: 'item1'},
+{ value : '2' , text: 'item2'},
+]
+
 const itemsSourceGrid = ref([
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
 { col1: '텍스트' },
 { col1: '텍스트2'},
 { col1: '텍스트3'},

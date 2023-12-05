@@ -8,48 +8,39 @@
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="1000" :height="600" title="프로그램 검색">
+  <UPopup v-model="showPopup" :width="1000" :height="550" title="프로그램 검색">
     <UBox direction="col">
-      <UItem :ratio="1" style="overflow: auto">
-        <table class="table is-search is-fullwidth">
-          <colgroup>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 130px;">
-            <col>
-            <col style="width: 170px;">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th><span>프로그램ID/명</span></th>
-              <td>
-                <UTextBox></UTextBox>
-              </td>
-              <th><span class="is-required">개인정보여부</span></th>
-              <td>
-                <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
-              </td>
-              <td>
-                <div class="buttons is-search">
+      <UItem :ratio="1" class="pop-contents">
+        <UBox class="pop-search">
+          <UFieldSet class="is-search">
+            <UFieldRow :ratio="[1, 1, '170px']">
+              <UField label="프로그램ID/명" >
+                <UTextBox />
+              </UField>
+              <UField label="개인정보여부" required>
+                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+              </UField>
+              <UField blank>
+                <div class="search-btn">
                   <UButton text="조회" type="is-search"/>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="field-grid">
+              </UField>
+            </UFieldRow>
+          </UFieldSet>
+        </UBox>
+        
+        <UBox height="250px">
           <WjFlexGrid :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="대메뉴" binding="col1" width="*" />
             <WjFlexGridColumn header="중메뉴" binding="col1" width="*" />
             <WjFlexGridColumn header="프로그램ID" binding="col1" width="*" />
-            <WjFlexGridColumn header="프로그래명" binding="col1" width="*" />
+            <WjFlexGridColumn header="프로그램명" binding="col1" width="*" />
             <WjFlexGridColumn header="개인정보여부" binding="col1" width="*" />
           </WjFlexGrid>
-        </div>
+        </UBox>
       </UItem>
-      <UItem>
+      <UItem class="pop-btn">
         <UButtonBox right top>
           <UButton text="닫기" type="secondary" :width="80" />
           <UButton text="확인" type="primary" :width="80" />
@@ -103,6 +94,18 @@ const items = [
 ]
 
 const itemsSourceGrid = ref([
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
 { col1: '텍스트' },
 { col1: '텍스트2'},
 { col1: '텍스트3'},

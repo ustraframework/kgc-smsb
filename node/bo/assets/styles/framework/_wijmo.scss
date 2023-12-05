@@ -1585,6 +1585,7 @@
     height: 100%;
     position: relative;
     padding: 0 20px;
+    background: transparent;
 
     .v-slide-group__prev,
     .v-slide-group__next {
@@ -1632,6 +1633,7 @@
   .v-slide-group__container {
     position: relative;
     margin: 0 15px;
+    height: 67px !important;
     // &:before,
     // &:after {
     //   content: '';

@@ -1,6 +1,36 @@
 @charset "utf-8";
 
 .ustra.management {
+  background: #f2f5f6;
+
+  .v-application {
+    height: auto !important;
+  }
+  .v-application__wrap {
+    min-height: calc(100vh - 40px) !important;
+    height: calc(100% - 40px) !important;
+    background: #f2f5f6;
+  }
+
+  &.mdi-hidden {
+    height: 100% !important;
+    .v-application__wrap {
+      min-height: 100vh !important;
+      height: 100% !important;
+      background: #f2f5f6;
+    }
+
+    main {
+      + .v-card.mdi {
+        bottom: -40px !important;
+
+        .mdiShortCuts-hidden {
+          top: -45px;
+          background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='30' height='30' rx='15' fill='%23151515'/%3E%3Cmask id='path-2-inside-1_134_6876' fill='white'%3E%3Cpath d='M6 12.5C6 11.3954 6.89543 10.5 8 10.5H22C23.1046 10.5 24 11.3954 24 12.5V15.5H6V12.5Z'/%3E%3C/mask%3E%3Cpath d='M4.5 12.5C4.5 10.567 6.067 9 8 9H22C23.933 9 25.5 10.567 25.5 12.5H22.5C22.5 12.2239 22.2761 12 22 12H8C7.72386 12 7.5 12.2239 7.5 12.5H4.5ZM24 15.5H6H24ZM4.5 15.5V12.5C4.5 10.567 6.067 9 8 9V12C7.72386 12 7.5 12.2239 7.5 12.5V15.5H4.5ZM22 9C23.933 9 25.5 10.567 25.5 12.5V15.5H22.5V12.5C22.5 12.2239 22.2761 12 22 12V9Z' fill='white' mask='url(%23path-2-inside-1_134_6876)'/%3E%3Cpath d='M18 20.5L15 18L12 20.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+      }
+    }
+  }
   & #logo {
     color: white;
     text-decoration: none;
@@ -130,14 +160,14 @@
   }
 
   & #page_wrapper {
-    width: 100%;
-    min-width: 1920px;
+    width: calc(100% - 6px);
+    min-width: calc(1920px - 6px);
     height: auto;
-    margin: 55px 0 0;
+    // margin: 55px 0 0;
     // overflow: scroll;
 
     .content {
-      height: 100%;
+      height: calc(100% - 55px);
       position: relative;
 
       #page_title {
@@ -1167,6 +1197,7 @@
   }
 
   .v-app-bar.v-toolbar:not(.v-toolbar--flat) {
+    position: sticky !important;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   }
 
@@ -1190,7 +1221,7 @@ a {
 
 body {
   display: block;
-  overflow: scroll;
+  overflow: auto;
   height: calc(100% - 40px) !important;
 }
 
@@ -1270,12 +1301,6 @@ body {
 
     .card-body {
       min-height: 200px;
-    }
-  }
-
-  .u-box {
-    .is-gap {
-      margin: 0 10px 20px;
     }
   }
 
@@ -1411,10 +1436,13 @@ body {
 .v-main {
   padding: 40px 40px 40px 336px  !important;
   background-color: $blue_gray100;
+  height: calc(100% - 55px);
+  box-sizing: border-box;
 }
 
 // sidebar
 .ustra-side-menu {
+  position: absolute !important;
   top: 95px !important;
   // left: 40px !important;
   width: 256px !important;
@@ -1703,5 +1731,16 @@ header {
 .v-menu {
   .v-theme--dark {
     background: $is-primary !important;
+  }
+}
+
+.u-item {
+  
+  &.gap-left{
+    margin-left: 10px;
+  }
+
+  &.gap-right {
+    margin-right: 10px;
   }
 }

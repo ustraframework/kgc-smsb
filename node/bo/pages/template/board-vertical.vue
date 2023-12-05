@@ -20,12 +20,12 @@
   </div>
   <!-- // 검색영역 --> 
 
-  <div class="columns has-gap">
+  <div class="columns">
     <UBox direction="row">
       <!-- 좌측 영역 -->
-      <UItem baseSize="500" class="is-gap">
+      <UItem baseSize="500" class="gap-right">
         <UBox class="card is-sub">
-          <UItem class="card-body">
+          <UItem class="card-body" baseSize="500">
             <UBox class="table-title-wrap" direction="row">
               <UItem itemDirection="row" :ratio="1">
                 <h2 class="table-title">
@@ -35,18 +35,20 @@
               </UItem>
             </UBox>
             
-            <WjFlexGrid :itemsSource="itemsSourceGrid">
-              <WjFlexGridColumn header="No" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-              <WjFlexGridColumn header="채널" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            </WjFlexGrid>
+            <UBox>
+              <WjFlexGrid :itemsSource="itemsSourceGrid">
+                <WjFlexGridColumn header="No" binding="col1" width="*" />
+                <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+                <WjFlexGridColumn header="채널" binding="col1" width="*" />
+                <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+              </WjFlexGrid>
+            </UBox>
           </UItem>
         </UBox>
       </UItem>
       
       <!-- 우측 영역 -->
-      <UItem ratio="1" class="is-gap">
+      <UItem ratio="1" class="gap-left">
         <UBox class="card is-sub">
           <UItem class="card-body">
             <UBox class="table-title-wrap">

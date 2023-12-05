@@ -36,16 +36,18 @@
           </UButtonBox>
         </UBox>
         
-        <WjFlexGrid :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="포인트유형코드" binding="col1" width="*" />
-          <WjFlexGridColumn header="유형코드명" binding="col1" width="*" />
-          <WjFlexGridColumn header="유형구분코드" binding="col1" width="*" />
-          <WjFlexGridColumn header="유형구분코드명" binding="col1" width="*" />
-          <WjFlexGridColumn header="적용시작일자" binding="col1" width="*" />
-          <WjFlexGridColumn header="적용종료일자" binding="col1" width="*" />
-          <WjFlexGridColumn header="유효기간개월수" binding="col1" width="*" />
-        </WjFlexGrid>
+        <UBox>
+          <WjFlexGrid :itemsSource="itemsSourceGrid">
+            <WjFlexGridColumn header="No" binding="col1" width="*" />
+            <WjFlexGridColumn header="포인트유형코드" binding="col1" width="*" />
+            <WjFlexGridColumn header="유형코드명" binding="col1" width="*" />
+            <WjFlexGridColumn header="유형구분코드" binding="col1" width="*" />
+            <WjFlexGridColumn header="유형구분코드명" binding="col1" width="*" />
+            <WjFlexGridColumn header="적용시작일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="적용종료일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="유효기간개월수" binding="col1" width="*" />
+          </WjFlexGrid>
+        </UBox>
       </UItem>
     </UBox>
   </div>

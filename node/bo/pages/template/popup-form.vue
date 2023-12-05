@@ -23,8 +23,8 @@
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>
-          <UButton text="닫기" type="secondary" :width="80" />
-          <UButton text="저장" type="primary" :width="80" />
+          <UButton text="닫기" type="is-outline"/>
+          <UButton text="저장" type="is-filled"/>
         </UButtonBox>
       </UItem>
     </UBox>

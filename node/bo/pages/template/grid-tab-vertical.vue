@@ -22,9 +22,10 @@
 
 
   <!------ contents ------>
-  <div class="columns has-gap">
+  <div class="columns">
     <UBox direction="row" height="300">
-      <UItem baseSize="500" class="is-gap">
+      <!-- 좌측 영역 -->
+      <UItem baseSize="500" class="gap-right">
         <UBox class="card is-sub">
           <UItem class="card-body">
             <UBox class="table-title-wrap">
@@ -39,15 +40,19 @@
               </UButtonBox>
             </UBox>
             
-            <WjFlexGrid :itemsSource="itemsSourceGrid">
-              <WjFlexGridColumn header="No" binding="col1" width="*" />
-              <WjFlexGridColumn header="포인트유형코드" binding="col1" width="*" />
-              <WjFlexGridColumn header="유형코드명" binding="col1" width="*" />
-            </WjFlexGrid>
+            <UBox>
+              <WjFlexGrid :itemsSource="itemsSourceGrid">
+                <WjFlexGridColumn header="No" binding="col1" width="*" />
+                <WjFlexGridColumn header="포인트유형코드" binding="col1" width="*" />
+                <WjFlexGridColumn header="유형코드명" binding="col1" width="*" />
+              </WjFlexGrid>
+            </UBox>
           </UItem>
         </UBox>
       </UItem>
-      <UItem ratio="1" class="is-gap">
+
+      <!-- 좌측영역 -->
+      <UItem ratio="1" class="gap-left">
         <UBox class="card is-sub">
           <UItem class="card-body">
             <WjTabPanel :initialized="tabPanel.initialize" class="mt-5">

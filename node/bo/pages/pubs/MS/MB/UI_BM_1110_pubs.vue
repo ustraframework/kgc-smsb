@@ -1,72 +1,70 @@
 <template>
-  <div class="card is-sub is-search">
-    <div class="card-header">
-      <h1 class="page-title">
-        <span>회원정보 변경 이력 조회</span>
-      </h1>
-      <div class="table-title-wrap">
-        <h2 class="table-title">
-          <span>회원의 인증 이력을 조회합니다.</span>
-        </h2>
-      </div>
-    </div>
-    <div class="card-body">
-      <UFieldSet class="is-search">
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
-          <UField label="사용채널"><WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" /></UField>
-          <UField label="인증일자"><UDatePeriodBox v-model:start="start" v-model:end="end" /></UField>
-          <UField label="인증채널"><UTextBox /></UField>
-          <UField blank>
-            <div class="search-btn">
-              <UButton text="조회" type="is-search" />
-            </div>
-          </UField>
-        </UFieldRow>
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
-          <UField label="회원번호/명">
-            <UBox>
-              <UTextBox type="icon" />
-              <UTextBox></UTextBox>
-            </UBox>
-          </UField>
-          <UField blank />
-          <UField blank />
-          <UField blank />
-        </UFieldRow>
-      </UFieldSet>
-    </div>
+  <div class="columns has-gap">
+    <UBox class="card is-sub is-search">
+      <UItem class="card-body">
+        <UFieldSet class="is-search">
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UField label="사용채널" required>
+              <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
+            </UField>
+            <UField label="인증일자" required>
+              <UDatePeriodBox v-model:start="start" v-model:end="end" />
+            </UField>
+            <UField blank></UField>
+            <UField blank>
+              <div class="search-btn">
+                <UButton text="조회" type="is-search" />
+              </div>
+            </UField>
+          </UFieldRow>
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UField label="인증채널" required>
+              <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
+            </UField>
+            <UField label="회원번호/명" required>
+              <UBox>
+                <UTextBox type="icon"/>
+                <UTextBox disabled/>
+              </UBox>
+            </UField>
+            <UField blank></UField>
+            <UField blank></UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UItem>
+    </UBox>
   </div>
 
   <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
-    <div class="card is-sub">
-      <div class="card-body">
-        <div class="table-title-wrap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        <UBox class="table-title-wrap">
           <h2 class="table-title">
-            <span class="data-count">총<span>24</span>건</span>
+            <span class="data-count">총<span>50</span>건</span>
           </h2>
-          <div class="buttons">
+          <UButtonBox class="table-buttons">
             <UButton text="엑셀 다운로드" icon="excel" />
-          </div>
-        </div>
+          </UButtonBox>
+        </UBox>
 
-        <div class="field-grid">
+        <UBox height="345px">
           <WjFlexGrid :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="채널" binding="col1" width="*" />
             <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            <WjFlexGridColumn header="컬럼라벨" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경전데이터" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경후데이터" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경사유" binding="col1" width="*" />
-            <WjFlexGridColumn header="컬럼명" binding="col1" width="*" />
-            <WjFlexGridColumn header="수정자" binding="col1" width="*" />
-            <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원ID" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원구분" binding="col1" width="*" />
+            <WjFlexGridColumn header="사용채널" binding="col1" width="*" />
+            <WjFlexGridColumn header="인증채널" binding="col1" width="*" />
+            <WjFlexGridColumn header="접속단말" binding="col1" width="*" />
+            <WjFlexGridColumn header="접속 브라우저" binding="col1" width="*" />
+            <WjFlexGridColumn header="인증상태" binding="col1" width="*" />
+            <WjFlexGridColumn header="인증일시" binding="col1" width="*" />
           </WjFlexGrid>
-        </div>
-      </div>
-    </div>
+        </UBox>
+      </UItem>
+    </UBox>
   </div>
 </template>
 
