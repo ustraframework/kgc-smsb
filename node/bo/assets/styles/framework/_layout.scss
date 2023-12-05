@@ -1,6 +1,13 @@
 @charset "utf-8";
 
 .ustra.management {
+  
+  .v-application__wrap {
+    min-height: calc(100vh - 40px) !important;
+    height: calc(100% - 40px) !important;
+    background: #f2f5f6;
+  }
+
   & #logo {
     color: white;
     text-decoration: none;
@@ -130,14 +137,14 @@
   }
 
   & #page_wrapper {
-    width: 100%;
-    min-width: 1920px;
+    width: calc(100% - 6px);
+    min-width: calc(1920px - 6px);
     height: auto;
     margin: 55px 0 0;
     // overflow: scroll;
 
     .content {
-      height: 100%;
+      height: calc(100% - 55px);
       position: relative;
 
       #page_title {
@@ -1190,7 +1197,7 @@ a {
 
 body {
   display: block;
-  overflow: scroll;
+  overflow: auto;
   height: calc(100% - 40px) !important;
 }
 
@@ -1270,12 +1277,6 @@ body {
 
     .card-body {
       min-height: 200px;
-    }
-  }
-
-  .u-box {
-    .is-gap {
-      margin: 0 10px 20px;
     }
   }
 
@@ -1411,6 +1412,8 @@ body {
 .v-main {
   padding: 40px 40px 40px 336px  !important;
   background-color: $blue_gray100;
+  height: calc(100% - 55px);
+  box-sizing: border-box;
 }
 
 // sidebar
