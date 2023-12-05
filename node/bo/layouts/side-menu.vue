@@ -168,7 +168,8 @@ onMounted(() => {
   const page = document.querySelector('body') as HTMLElement;
     
   if(page) {
-    page.addEventListener('scroll', () => {
+    page.addEventListener('scroll', (e) => {
+      e.preventDefault();
       //header 
       header.style.left = `0`;
       if(page.scrollTop == 0 || page.scrollTop > 0 ) {
