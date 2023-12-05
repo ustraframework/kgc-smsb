@@ -4,22 +4,27 @@
       <UItem class="card-body">
         <UFieldSet class="is-search">
           <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="소멸구분코드" >
-              <UTextBox/>
+            <UField required label="지사" >
+              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
-            <UField label="본부코드" >
+            <UField required label="매장코드/명" >
               <UBox>
                 <UTextBox type="icon" />
                 <UTextBox disabled/>
               </UBox>
             </UField>
-            <UField label="조회건수">
-              <UTextBox/>
+            <UField required label="요청상태">
+              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
             <UField blank>
               <div class="search-btn">
                 <UButton text="조회" type="is-search"/>
               </div>
+            </UField>
+          </UFieldRow>
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UField required label="요청기간" >
+              <UDatePeriodBox v-model="dateArr1" />
             </UField>
           </UFieldRow>
         </UFieldSet>
@@ -33,27 +38,38 @@
       <UItem class="card-body">
         <UBox class="table-title-wrap">
           <h2 class="table-title">
+            <span>영수증포인트적립확정</span>
             <span class="data-count">총<span>100</span>건</span>
           </h2>
           <UButtonBox class="table-buttons">
-            <UButton text="신규" type="is-outline"/>
-            <UButton text="저장" type="is-filled"/>
+            <UButton text="반려" type="is-outline"/>
+            <UButton text="승인" type="is-filled"/>
           </UButtonBox>
         </UBox>
 
         <UBox>
           <WjFlexGrid :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="소멸구분코드" binding="col1" width="*" />
-            <WjFlexGridColumn header="소멸예정일자" binding="col1" width="*" />
-            <WjFlexGridColumn header="카드번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="포인트유형그룹코드" binding="col1" width="*" />
-            <WjFlexGridColumn header="소멸포인트" binding="col1" width="*" />
-            <WjFlexGridColumn header="잔여포인트" binding="col1" width="*" />
-            <WjFlexGridColumn header="최신3년적립포인터" binding="col1" width="*" />
-            <WjFlexGridColumn header="관리매장" binding="col1" width="*" />
-            <WjFlexGridColumn header="본부코드" binding="col1" width="*" />
-            <WjFlexGridColumn header="소멸예상일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="요청일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="요청매장" binding="col1" width="*" />
+            <WjFlexGridColumn header="채널" binding="col1" width="*" />
+            <WjFlexGridColumn header="포인트유형그룹요청상태코드" binding="col1" width="*" />
+            <WjFlexGridColumn header="판매일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="POS기기" binding="col1" width="*" />
+            <WjFlexGridColumn header="영수증번호" binding="col1" width="*" />
+            <WjFlexGridColumn header="판매분류" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원명" binding="col1" width="*" />            <WjFlexGridColumn header="연락처" binding="col1" width="*" />
+            <WjFlexGridColumn header="매출금액" binding="col1" width="*" />
+            <WjFlexGridColumn header="매출수량" binding="col1" width="*" />
+            <WjFlexGridColumn header="적립POINT" binding="col1" width="*" />
+            <WjFlexGridColumn header="사유" binding="col1" width="*" />
+            <WjFlexGridColumn header="처리내역" binding="col1" width="*" />
+            <WjFlexGridColumn header="처리일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="확정자명" binding="col1" width="*" />
+            <WjFlexGridColumn header="구매내역" binding="col1" width="*" />
+            <WjFlexGridColumn header="영수내용" binding="col1" width="*" />
+
           </WjFlexGrid>
         </UBox>
       </UItem>
@@ -65,74 +81,57 @@
       <UItem class="card-body">
         <UBox class="table-title-wrap">
           <h2 class="table-title">
-              <span>상세내역</span>
+              <span>영수증포인트적립확정 상세</span>
           </h2>
         </UBox>
         
-        <UFieldSet class="is-large">
+        <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
-            <UField label="소멸구분코드">
-              <UTextBox disabled/>
+            <UField required label="영수증바코드번호">
+                <UTextBox type="icon" />
             </UField>
-            <UField label="소멸예정일자">
-              <UTextBox disabled/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="카드번호">
-              <UTextBox disabled/>
-            </UField>
-            <UField label="포인트유형그룹코드">
+            <UField required label="판매일자">
               <UTextBox disabled/>
             </UField>
           </UFieldRow>
           <UFieldRow>
-            <UField label="소멸포인트">
+            <UField required label="매출금액">
               <UTextBox disabled/>
             </UField>
-            <UField label="잔여포인트">
-              <UTextBox disabled/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="최신3년적립포인터">
-              <UTextBox disabled/>
-            </UField>
-            <UField label="관리매장">
+            <UField required label="POS기기">
               <UTextBox disabled/>
             </UField>
           </UFieldRow>
           <UFieldRow>
-            <UField label="본부코드">
+            <UField required label="적립POINT">
               <UTextBox disabled/>
             </UField>
-            <UField label="소멸예상일자">
-              <UTextBox disabled/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="등록일자">
-              <UTextBox disabled/>
-            </UField>
-            <UField label="등록IP">
+            <UField required label="영수증번호">
               <UTextBox disabled/>
             </UField>
           </UFieldRow>
           <UFieldRow>
-            <UField label="등록사본">
+            <UField required label="매출수량">
               <UTextBox disabled/>
             </UField>
-            <UField label="수정일자">
-              <UTextBox disabled/>
+            <UField label="">
             </UField>
           </UFieldRow>
           <UFieldRow>
-            <UField label="수정IP">
-              <UTextBox disabled/>
+            <UField required label="회원번호/명">
+              <UBox>
+                <UTextBox type="icon" style="width: 200px"/>
+                <UTextBox disabled></UTextBox>
+              </UBox>
             </UField>
-            <UField label="수정일자">
-              <UTextBox disabled/>
+            <UField label="요청상태">
+              <UTextBox readonly/>
+            </UField>
+          </UFieldRow>
+          <UFieldRow>
+            <UField label="요청사유">
+              <UTextBox/>
             </UField>
           </UFieldRow>
         </UFieldSet>
@@ -185,6 +184,12 @@ const itemsSourceGrid = ref([
 { col1: '텍스트2'},
 { col1: '텍스트3'},
 ]);
+
+// const items = [
+// { value : '1' , text: 'item1'},
+// { value : '2' , text: 'item2'},
+// ]
+
 
 </script>
 
