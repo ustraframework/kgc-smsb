@@ -62,14 +62,17 @@
             <span>Sub title</span>
           </h2>
         </div>
-        <WjFlexGrid :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="포인트 지급일" binding="col1" width="*" />
-          <WjFlexGridColumn header="포인트 유형" binding="col1" width="*" />
-          <WjFlexGridColumn header="포인트" binding="col1" width="*" />
-          <WjFlexGridColumn header="내용" binding="col1" width="*" />
-          <WjFlexGridColumn header="소멸 예정일" binding="col1" width="*" />
-        </WjFlexGrid>
+        
+        <UBox>
+          <WjFlexGrid :itemsSource="itemsSourceGrid">
+            <WjFlexGridColumn header="No" binding="col1" width="*" />
+            <WjFlexGridColumn header="포인트 지급일" binding="col1" width="*" />
+            <WjFlexGridColumn header="포인트 유형" binding="col1" width="*" />
+            <WjFlexGridColumn header="포인트" binding="col1" width="*" />
+            <WjFlexGridColumn header="내용" binding="col1" width="*" />
+            <WjFlexGridColumn header="소멸 예정일" binding="col1" width="*" />
+          </WjFlexGrid>
+        </UBox>
       </UItem>
     </UBox>
   </div>

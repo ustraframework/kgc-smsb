@@ -1,115 +1,106 @@
 <template>
-  <div class="card is-sub is-search">
-    <div class="card-header">
-      <h1 class="page-title">
-        <span>회원정보 조회</span>
-      </h1>
-      <div class="table-title-wrap">
-        <h2 class="table-title">
-          <span>탈퇴 회원을 조회하고 복원처리를 한다.</span>
-        </h2>
-      </div>
-    </div>
-    <div class="card-body">
-      <form action="" class="form">
-        <table class="table is-search is-fullwidth">
-          <colgroup>
-            <col style="width: 130px" />
-            <col />
-            <col style="width: 130px" />
-            <col />
-            <col style="width: 130px" />
-            <col />
-            <col style="width: 170px" />
-          </colgroup>
-          <tbody>
-            <tr>
-              <th><span class="is-required">탈퇴일자</span></th>
-              <td>
-                <UDatePeriodBox v-model:start="start" v-model:end="end" />
-              </td>
-              <th><span class="is-required">회원번호/명</span></th>
-              <td><UTextBox type="icon" /></td>
-              <th></th>
-              <td></td>
-              <td>
-                <div class="buttons is-search">
-                  <UButton text="조회" type="is-search" />
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-    </div>
+
+  <div class="columns has-gap">
+    <UBox class="card is-sub is-search">
+      <UItem class="card-body">
+        <UFieldSet class="is-search">
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UField label="탈퇴일자" required>
+              <UDatePeriodBox v-model:start="start" v-model:end="end" />
+            </UField>
+            <UField label="회원번호/명">
+              <UBox>
+                <UTextBox type="icon"/>
+                <UTextBox disabled/>
+              </UBox>
+            </UField>
+            <UField blank></UField>
+            <UField blank>
+              <div class="search-btn">
+                <UButton text="조회" type="is-search" />
+              </div>
+            </UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UItem>
+    </UBox>
   </div>
 
   <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
-    <div class="card is-sub">
-      <div class="card-body">
-        <div class="table-title-wrap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        <UBox class="table-title-wrap">
           <h2 class="table-title">
-            <span class="data-count">총<span>24</span>건</span>
+            <span class="data-count">총<span>50</span>건</span>
           </h2>
-          <div class="buttons">
+          <UButtonBox class="table-buttons">
             <UButton text="탈퇴복원처리" type="is-filled" />
-          </div>
-        </div>
+          </UButtonBox>
+        </UBox>
 
-        <div class="field-grid">
+        <UBox height="345">
           <WjFlexGrid :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="채널" binding="col1" width="*" />
             <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            <WjFlexGridColumn header="컬럼라벨" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경전데이터" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경후데이터" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경사유" binding="col1" width="*" />
-            <WjFlexGridColumn header="컬럼명" binding="col1" width="*" />
-            <WjFlexGridColumn header="수정자" binding="col1" width="*" />
-            <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원구분" binding="col1" width="*" />
+            <WjFlexGridColumn header="잔여포인트" binding="col1" width="*" />
+            <WjFlexGridColumn header="탈퇴일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="삭제예정일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="탈퇴사유" binding="col1" width="*" />
           </WjFlexGrid>
-        </div>
-      </div>
-    </div>
+        </UBox>
+      </UItem>
+    </UBox>
   </div>
 
   <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
-    <div class="card is-sub">
-      <div class="card-body">
-        <div class="table-title-wrap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        <UBox class="table-title-wrap">
           <h2 class="table-title">
             <span>회원 상세 정보</span>
           </h2>
-        </div>
+        </UBox>
 
         <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
-            <UField label="회원번호"><UTextBox></UTextBox></UField>
-            <UField label="회원명"><UTextBox></UTextBox></UField>
-            <UField label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text" /></UField>
+            <UField label="회원번호"><UTextBox disabled /></UField>
+            <UField label="회원명"><UTextBox disabled /></UField>
+            <UField label="회원유형">
+              <UWjComboBox :itemsSource="members" displayMemberPath="text" :disabled="true"/>
+            </UField>
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
-            <UField label="잔여포인트"><UTextBox></UTextBox></UField>
-            <UField label="탈퇴일자"><UDateBox mode="date" /></UField>
-            <UField label="삭제예정일자"><UDateBox mode="date" /></UField>
+            <UField label="잔여포인트">
+              <UTextBox disabled />
+            </UField>
+            <UField label="탈퇴일자">
+              <UTextBox disabled />
+            </UField>
+            <UField label="삭제예정일자">
+              <UTextBox disabled />
+            </UField>
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
-            <UField label="탈퇴사유"><UTextBox></UTextBox></UField>
+            <UField label="탈퇴사유">
+              <UTextBox disabled />
+            </UField>
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
-            <UField label="복원사유"><UTextBox type="textarea" v-model="test" /></UField>
+            <UField label="복원사유" required>
+              <UTextBox type="textarea" v-model="test" />
+            </UField>
           </UFieldRow>
         </UFieldSet>
-      </div>
-    </div>
+      </UItem>
+    </UBox>
   </div>
 </template>
 

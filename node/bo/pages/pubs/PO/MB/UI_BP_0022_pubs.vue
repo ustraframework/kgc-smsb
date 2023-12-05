@@ -47,7 +47,7 @@
           </UButtonBox>
         </UBox>
 
-        <UBox>
+        <UBox height="300px">
           <WjFlexGrid :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="요청일자" binding="col1" width="*" />
@@ -59,7 +59,8 @@
             <WjFlexGridColumn header="영수증번호" binding="col1" width="*" />
             <WjFlexGridColumn header="판매분류" binding="col1" width="*" />
             <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원명" binding="col1" width="*" />            <WjFlexGridColumn header="연락처" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원명" binding="col1" width="*" />            
+            <WjFlexGridColumn header="연락처" binding="col1" width="*" />
             <WjFlexGridColumn header="매출금액" binding="col1" width="*" />
             <WjFlexGridColumn header="매출수량" binding="col1" width="*" />
             <WjFlexGridColumn header="적립POINT" binding="col1" width="*" />
@@ -69,7 +70,6 @@
             <WjFlexGridColumn header="확정자명" binding="col1" width="*" />
             <WjFlexGridColumn header="구매내역" binding="col1" width="*" />
             <WjFlexGridColumn header="영수내용" binding="col1" width="*" />
-
           </WjFlexGrid>
         </UBox>
       </UItem>
@@ -180,6 +180,12 @@ const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = 
 })
 
 const itemsSourceGrid = ref([
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
 { col1: '텍스트' },
 { col1: '텍스트2'},
 { col1: '텍스트3'},

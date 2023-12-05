@@ -25,13 +25,15 @@
           </UFieldSet>
         </UBox>
         
-        <WjFlexGrid :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="소속" binding="col1" width="*" />
-          <WjFlexGridColumn header="사번" binding="col1" width="*" />
-          <WjFlexGridColumn header="성명" binding="col1" width="*" />
-          <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
-        </WjFlexGrid>
+        <UBox height="250px">
+          <WjFlexGrid :itemsSource="itemsSourceGrid">
+            <WjFlexGridColumn header="No" binding="col1" width="*" />
+            <WjFlexGridColumn header="소속" binding="col1" width="*" />
+            <WjFlexGridColumn header="사번" binding="col1" width="*" />
+            <WjFlexGridColumn header="성명" binding="col1" width="*" />
+            <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
+          </WjFlexGrid>
+        </UBox>
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>
@@ -81,6 +83,21 @@ definePageMeta({
 const showPopup = ref(false)
 
 const itemsSourceGrid = ref([
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
 { col1: '텍스트' },
 { col1: '텍스트2'},
 { col1: '텍스트3'},
