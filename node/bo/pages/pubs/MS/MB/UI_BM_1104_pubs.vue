@@ -21,27 +21,29 @@
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
           <UField label="회원번호"><UTextBox></UTextBox></UField>
-          <UField label="회원명"><UTextBox></UTextBox></UField>
+          <UField label="회원명" required><UTextBox></UTextBox></UField>
           <UField label="카드번호"><UTextBox></UTextBox></UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
-          <UField label="생년월일"><UDateBox mode="date" /></UField>
+          <UField label="생년월일" required><UDateBox mode="date" /></UField>
           <UField label="실생일"><UDateBox mode="date" /></UField>
           <UField label="양/음력"><URadioGroupBox v-model="solarValue" :itemsSource="solarItems" /></UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
-          <UField label="성별"><URadioGroupBox v-model="genderValue" :itemsSource="genderItems" /></UField>
-          <UField label="내/외국인"><URadioGroupBox v-model="nationalityValue" :itemsSource="nationalityItems" /></UField>
-          <UField label="국적"><UWjComboBox :itemsSource="items" displayMemberPath="text" /></UField>
+          <UField label="성별" required><URadioGroupBox v-model="genderValue" :itemsSource="genderItems" /></UField>
+          <UField label="내/외국인" required><URadioGroupBox v-model="nationalityValue" :itemsSource="nationalityItems" /></UField>
+          <UField label="국적" required><UWjComboBox :itemsSource="items" displayMemberPath="text" /></UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
-          <UField label="핸드폰"><UTextBox></UTextBox></UField>
-          <UField label="인증방식" item-direction="row">
-            <UButton text="본인인증" type="is-secondary is-medium" class="is-login" />
-            <UButton text="점유인증" type="is-secondary is-medium" class="is-login" />
+          <UField label="핸드폰" required><UTextBox></UTextBox></UField>
+          <UField label="인증방식" item-direction="row" required>
+            <UBox>
+              <UButton text="본인인증" type="is-secondary is-medium" class="is-login" />
+              <UButton text="점유인증" type="is-secondary is-medium" class="is-login" />
+            </UBox>
           </UField>
           <UField label="인증확인" item-direction="row">
             <UTextBox></UTextBox>
@@ -49,16 +51,26 @@
           </UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
-        <UFieldRow>
+        <UFieldRow :ratio="[1, 2]">
           <UField label="이메일" item-direction="row">
             <UTextBox></UTextBox>
             <UWjComboBox :itemsSource="items" displayMemberPath="text" />
           </UField>
-          <UField label="단골매장"><UTextBox type="icon" /></UField>
+          <UField label="단골매장">
+            <UBox>
+              <UTextBox type="icon" />
+              <UTextBox/>
+            </UBox>
+          </UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
-          <UField label="주소"><UTextBox type="icon" /></UField>
+          <UField label="주소">
+            <UBox>
+              <UTextBox type="icon" />
+              <UTextBox/>
+            </UBox>
+          </UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow :ratio="[2, 1, 1]">
@@ -89,7 +101,18 @@
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
-          <UField label="이용약관 동의여부 (수정필요)">테이블 필요</UField>
+          <UField label="이용약관 동의여부" required>
+            <WjFlexGrid :itemsSource="itemsSourceGrid" style="max-width: 495px;">
+              <WjFlexGridColumn header="이용약관" binding="col1" width="2*" />
+              <WjFlexGridColumn header="동의여부" width="*" align="center">
+                <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
+                  <UBox>
+                    <UCheckGroupBox :items-source="[{ }]" v-model="checked"> </UCheckGroupBox>
+                  </UBox>
+                </WjFlexGridCellTemplate>
+              </WjFlexGridColumn>
+            </WjFlexGrid>
+          </UField>
         </UFieldRow>
       </UFieldSet>
     </div>
@@ -97,6 +120,8 @@
 </template>
 
 <script setup>
+import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate } from '#ustra/nuxt-wijmo/components';
+
 definePageMeta({
   auth: {
     required: false,

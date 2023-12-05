@@ -28,8 +28,8 @@
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>
-          <UButton text="닫기" type="secondary" :width="80" />
-          <UButton text="처리" type="primary" :width="80" />
+          <UButton text="닫기" type="is-outline"/>
+          <UButton text="처리" type="is-filled"/>
         </UButtonBox>
       </UItem>
     </UBox>
