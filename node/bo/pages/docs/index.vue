@@ -295,7 +295,7 @@ const items = ref([
   { col1: '포인트', col2: '포인트 조회 관리', col3: '포인트선물내역조회', col4: 'UI_BP_0014', col5: '', col6: '', col7: 'X' },
   { col1: '포인트', col2: '포인트 조회 관리', col3: '포인트거래내역조회', col4: 'UI_BP_0015', col5: '', col6: '', col7: 'X' },
   { col1: '포인트', col2: '포인트 조회 관리', col3: '포인트소멸처리이력조회', col4: 'UI_BP_0016', col5: '', col6: '', col7: 'X' },
-  { col1: '포인트', col2: '포인트 조회 관리', col3: '소멸예정내역조회', col4: 'UI_BP_0017', col5: '/pubs/PO/PB/UI_BP_0017_pubs', col6: 'grid-form', col7: 'X' },
+  { col1: '포인트', col2: '포인트 조회 관리', col3: '소멸예정내역조회', col4: 'UI_BP_0017', col5: '/pubs/PO/PI/UI_BP_0017_pubs', col6: 'grid-form', col7: 'X' },
   { col1: '포인트', col2: '회원정보조회', col3: '회원거래내역조회(포인트탭)', col4: 'UI_BP_0018', col5: '', col6: '', col7: 'X' },
   { col1: '포인트', col2: '회원지원', col3: '추가포인트지급', col4: 'UI_BP_0019', col5: '/pubs/PO/MB/UI_BP_0019_pubs', col6: 'form-grid-form', col7: 'O' },
   { col1: '포인트', col2: '회원지원', col3: '영수증포인트적립확정', col4: 'UI_BP_0022', col5: '/pubs/PO/MB/UI_BP_0022_pubs', col6: 'grid-form', col7: 'O' },
