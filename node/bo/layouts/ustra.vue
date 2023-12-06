@@ -73,8 +73,9 @@
     </v-app-bar>
     <!-- // header -->
 
-    <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
-    <UstraLayoutSideMenu
+    <div class="content__layout">
+ <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
+ <UstraLayoutSideMenu
       v-model="openSideMenu"
       :navigationSelected="navigationSelected"
       :navigations="sideNavigations"
@@ -149,6 +150,9 @@
         </div> -->
       </div>
     </VMain>
+    </div>
+
+   
 
     <!-- 2023-11-29 UI개발 -->
     <!-- <Mdi /> -->
@@ -634,6 +638,7 @@ export default {
 }
 
 .navbar-right {
+  height: 55px;
   justify-content: flex-end;
 
   .v-col {
