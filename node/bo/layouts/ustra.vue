@@ -1,7 +1,7 @@
 <template>
   <v-app id="ustra">
     <!-- header -->
-    <v-app-bar color="#003156" density="compact">
+    <v-app-bar color="#003156" density="compact" style="max-width: calc(100% - 6px);">
       <!-- <v-app-bar-nav-icon @click.stop="() => emits('changeNavState')" color="white"></v-app-bar-nav-icon> -->
       <v-toolbar-title>
         <NuxtLink class="navbar-link" to="/main">
@@ -73,8 +73,9 @@
     </v-app-bar>
     <!-- // header -->
 
-    <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
-    <UstraLayoutSideMenu
+    <div class="content__layout">
+ <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
+ <UstraLayoutSideMenu
       v-model="openSideMenu"
       :navigationSelected="navigationSelected"
       :navigations="sideNavigations"
@@ -149,6 +150,9 @@
         </div> -->
       </div>
     </VMain>
+    </div>
+
+   
 
     <!-- 2023-11-29 UI개발 -->
     <!-- <Mdi /> -->
@@ -306,7 +310,7 @@ onMounted(() => {
   const mdi = document.querySelector('.mdiShortCuts-hidden');
 
   mdi.addEventListener('click',  () => {
-    body.classList.toggle('mdi-hidden')
+    body.classList.toggle('mdi-hidden');
     console.log(body);
   })
 })
@@ -634,6 +638,7 @@ export default {
 }
 
 .navbar-right {
+  height: 55px;
   justify-content: flex-end;
 
   .v-col {

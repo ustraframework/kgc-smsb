@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="columns has-gap">
     <UBox class="card is-sub is-search">
       <UItem class="card-body">
@@ -66,7 +67,7 @@
         </UBox>
 
         <UBox height="345px">
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="지급일자" binding="col1" width="*" />
             <WjFlexGridColumn header="지급방법" binding="col1" width="*" />
@@ -130,6 +131,7 @@
       </UItem>
     </UBox>
   </div>
+</div>
 </template>
 
 <script setup>

@@ -1,4 +1,5 @@
 <template>
+<div>
   <!-- 검색영역 -->
   <div class="columns has-gap">
     <UBox class="card is-sub is-search">
@@ -23,7 +24,7 @@
   <div class="columns">
     <UBox direction="row">
       <!-- 좌측 영역 -->
-      <UItem baseSize="500" class="gap-right">
+      <UItem baseSize="600" class="gap-right">
         <UBox class="card is-sub">
           <UItem class="card-body" baseSize="500">
             <UBox class="table-title-wrap" direction="row">
@@ -81,6 +82,7 @@
       </UItem>
     </UBox>
   </div>
+</div>
 </template>
 
 <script setup>

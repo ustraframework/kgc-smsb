@@ -12,7 +12,7 @@
     <UBox direction="col">
       <UItem :ratio="1" class="pop-contents">
         <UBox>
-          <WjFlexGrid :itemsSource="itemsSourceGrid" height="300px">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid" height="300px">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="포인트유형" binding="col1" width="*" />
             <WjFlexGridColumn header="채널" binding="col1" width="*" />

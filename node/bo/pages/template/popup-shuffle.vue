@@ -13,7 +13,7 @@
       <UItem :ratio="3" class="pop-contents">
         <div class="columns is-shuffle">
           <div class="field-grid">
-            <WjFlexGrid :itemsSource="itemsSourceGrid">
+            <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
               <WjFlexGridColumn header="No" binding="col1" width="*" />
               <WjFlexGridColumn header="소속" binding="col1" width="*" />
               <WjFlexGridColumn header="사번" binding="col1" width="*" />
@@ -28,7 +28,7 @@
           </div>
 
           <div class="field-grid">
-            <WjFlexGrid :itemsSource="itemsSourceGrid">
+            <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
               <WjFlexGridColumn header="No" binding="col1" width="*" />
               <WjFlexGridColumn header="소속" binding="col1" width="*" />
               <WjFlexGridColumn header="사번" binding="col1" width="*" />

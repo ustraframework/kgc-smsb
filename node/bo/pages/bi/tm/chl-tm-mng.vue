@@ -57,7 +57,7 @@
           </UBox>
 
           <!-- grid 영역 -->
-          <WjFlexGrid :itemsSource="listActions.chlTms.value" :initialized="listActions.grid.initialize" style="min-height: 250px; max-height: 250px">
+          <WjFlexGrid class="column-grid" :itemsSource="listActions.chlTms.value" :initialized="listActions.grid.initialize" style="min-height: 250px; max-height: 250px">
             <WjFlexGridColumn header="No" :width="60" align="center" :cellTemplate="ctx => ctx.row.index + 1" />
             <WjFlexGridColumn
               header="채널"
