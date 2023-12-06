@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="columns has-gap">
     <UBox class="card is-sub is-search">
       <UItem class="card-body">
@@ -130,6 +131,7 @@
       </UItem>
     </UBox>
   </div>
+</div>
 </template>
 
 <script setup>

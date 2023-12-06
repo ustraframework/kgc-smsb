@@ -1,4 +1,5 @@
 <template>
+<div>
   <!-- 검색영역 -->
   <div class="columns has-gap">
     <UBox class="card is-sub is-search">
@@ -85,6 +86,7 @@
       </UItem>
     </UBox>
   </div>
+</div>
 </template>
 
 <script setup>
