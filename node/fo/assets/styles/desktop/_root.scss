@@ -19,6 +19,8 @@
   // Fonts
   --#{$prefix}font-size-base: #{$font-size-base};
   --#{$prefix}line-height-base: #{$line-height-base};
+  --font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Roboto, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움',
+    sans-serif !important;
 
   // Documents
   --#{$prefix}max-width: #{$document-max-width};
