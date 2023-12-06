@@ -1591,12 +1591,11 @@
     .v-slide-group__next {
       position: absolute;
       left: 0;
-      top: 50%;
+      top: 0;
       z-index: 1000;
       justify-content: flex-start;
       // width: 100px;
       height: 55px;
-      transform: translateY(-50%);
       // background: linear-gradient(to right, white, 80%, transparent);
     }
     .v-slide-group__next {

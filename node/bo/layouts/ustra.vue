@@ -29,6 +29,116 @@
                     </v-btn>
                   </v-col>
                 </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
+                <v-btn class="btn-gnbToggle" rounded @click="toggle">
+                  <v-col cols="auto" :class="{ 'is-active': nav.id === selectedGnbId }">
+                    <v-btn :ripple="false" @click="gnbSelected(nav)">
+                      <span class="icon">
+                        <img src="@/assets/images/svg/people.svg" alt="navigation icon" />
+                      </span>
+                      <span>{{ nav.text }}</span>
+                    </v-btn>
+                  </v-col>
+                </v-btn>
               </v-slide-group-item>
             </v-slide-group>
           </v-sheet>
@@ -73,8 +183,9 @@
     </v-app-bar>
     <!-- // header -->
 
-    <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
-    <UstraLayoutSideMenu
+    <div class="content__layout">
+ <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
+ <UstraLayoutSideMenu
       v-model="openSideMenu"
       :navigationSelected="navigationSelected"
       :navigations="sideNavigations"
@@ -149,6 +260,9 @@
         </div> -->
       </div>
     </VMain>
+    </div>
+
+   
 
     <!-- 2023-11-29 UI개발 -->
     <!-- <Mdi /> -->
@@ -634,6 +748,7 @@ export default {
 }
 
 .navbar-right {
+  height: 55px;
   justify-content: flex-end;
 
   .v-col {
