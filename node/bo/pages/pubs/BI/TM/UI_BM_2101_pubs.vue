@@ -5,13 +5,30 @@
         <UItem class="card-body">
           <UFieldSet class="is-search">
             <UFieldRow :ratio="[1, 1, 1, '170px']">
-              <UField label="검색영역" ><UTextBox></UTextBox></UField>
-              <UField blank></UField>
-              <UField blank></UField>
+              <UField label="채널" >
+                <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+              </UField>
+              <UField label="약관유형" >
+                <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+              </UField>
+              <UField label="약관ID/명" >
+                <UTextBox></UTextBox>
+              </UField>
               <UField blank>
                 <div class="search-btn">
                   <UButton text="조회" type="is-search"/>
                 </div>
+              </UField>
+            </UFieldRow>
+            <UFieldRow :ratio="[1, 1, 1, '170px']">
+              <UField label="기준일자" >
+                <UDateBox mode="date" />
+              </UField>
+              <UField blank>
+              </UField>
+              <UField blank>
+              </UField>
+              <UField blank>
               </UField>
             </UFieldRow>
           </UFieldSet>
@@ -24,13 +41,11 @@
         <UItem class="card-body">
           <UBox class="table-title-wrap">
             <h2 class="table-title">
-              <span>Sub title</span>
               <span class="data-count">총<span>24</span>건</span>
             </h2>
             <UButtonBox class="table-buttons">
-              <UButton text="엑셀 다운로드" icon="excel" />
-              <UButton text="처리" type="is-outline"/>
-              <UButton text="취소" type="is-outline"/>
+              <UButton text="신규" type="is-outline"/>
+              <UButton text="삭제" type="is-outline"/>
               <UButton text="저장" type="is-filled"/>
             </UButtonBox>
           </UBox>
@@ -38,9 +53,15 @@
           <UBox>
             <WjFlexGrid :itemsSource="itemsSourceGrid">
               <WjFlexGridColumn header="No" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
               <WjFlexGridColumn header="채널" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+              <WjFlexGridColumn header="약관유형" binding="col1" width="*" />
+              <WjFlexGridColumn header="약관ID" binding="col1" width="*" />
+              <WjFlexGridColumn header="약관명" binding="col1" width="*" />
+              <WjFlexGridColumn header="약관버전" binding="col1" width="*" />
+              <WjFlexGridColumn header="필수동의여부" binding="col1" width="*" />
+              <WjFlexGridColumn header="적용시작일자" binding="col1" width="*" />
+              <WjFlexGridColumn header="적용종료일자" binding="col1" width="*" />
+              <WjFlexGridColumn header="약관내용" binding="col1" width="*" />
             </WjFlexGrid>
           </UBox>
         </UItem>
@@ -52,28 +73,44 @@
         <UItem class="card-body">
           <UBox class="table-title-wrap">
             <h2 class="table-title">
-              <span>Sub title</span>
+              <span>이용약관 상세정보</span>
             </h2>
           </UBox>
   
           <UFieldSet>
             <!-- ------------------------------------------------------------------ -->
             <UFieldRow>
-              <UField label="업무구분"><UTextBox></UTextBox></UField>
-            </UFieldRow>
-            <!-- ------------------------------------------------------------------ -->
-            <UFieldRow>
-              <UField label="업무내용">
-                <UCkEditor5 v-model="content" :height="300" :disabled="disabled" :initialized="ckEditor.initialize" /></UField>
-            </UFieldRow>
-            <!-- ------------------------------------------------------------------ -->
-            <UFieldRow>
-              <UField label="첨부파일">
-                <div class="buttons">
-                  <UButton text="Upload" @click="() => uploadFile()" />
-                </div>
-                <UMultiFileUploader ref="uploader" fileGroupId="menuIcon" />
+              <UField required label="채널">
+                <UWjComboBox :itemsSource="items" displayMemberPath="text" />
               </UField>
+              <UField required label="약관유형">
+                <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+              </UField>
+              <UField required label="약관ID"><UTextBox></UTextBox></UField>
+            </UFieldRow>
+            <!-- ------------------------------------------------------------------ -->
+            <UFieldRow>
+              <UField required label="약관명">
+                <UTextBox></UTextBox>
+              </UField>
+              <UField required label="약관버전">
+                <UTextBox></UTextBox>
+              </UField>
+              <UField required label="필수동의여부">
+                <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+              </UField>
+            </UFieldRow>
+            <!-- ------------------------------------------------------------------ -->
+            <UFieldRow :ratio="[2, 1]">
+              <UField required label="적용기간">
+                <UDatePeriodBox v-model:start="start" v-model:end="end" />
+              </UField>
+              <UField></UField>
+            </UFieldRow>
+            <!-- ------------------------------------------------------------------ -->
+            <UFieldRow>
+              <UField required label="약관내용">
+                <UCkEditor5 v-model="content" :height="300" :disabled="disabled" :initialized="ckEditor.initialize" /></UField>
             </UFieldRow>
           </UFieldSet>
         </UItem>
