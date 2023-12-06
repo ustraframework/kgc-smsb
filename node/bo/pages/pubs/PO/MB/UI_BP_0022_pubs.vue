@@ -49,7 +49,7 @@
         </UBox>
 
         <UBox height="300px">
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="요청일자" binding="col1" width="*" />
             <WjFlexGridColumn header="요청매장" binding="col1" width="*" />
@@ -191,6 +191,8 @@ const itemsSourceGrid = ref([
 { col1: '텍스트' },
 { col1: '텍스트2'},
 { col1: '텍스트3'},
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
 ]);
 
 // const items = [
@@ -202,5 +204,4 @@ const itemsSourceGrid = ref([
 </script>
 
 <style lang="scss" scoped>
-
 </style>

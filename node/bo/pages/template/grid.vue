@@ -39,7 +39,7 @@
         </UBox>
         
         <UBox>
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="포인트유형코드" binding="col1" width="*" />
             <WjFlexGridColumn header="유형코드명" binding="col1" width="*" />

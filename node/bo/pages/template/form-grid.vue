@@ -65,7 +65,7 @@
         </div>
         
         <UBox>
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="포인트 지급일" binding="col1" width="*" />
             <WjFlexGridColumn header="포인트 유형" binding="col1" width="*" />

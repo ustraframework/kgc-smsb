@@ -43,7 +43,7 @@
         </UBox>
 
         <UBox>
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="소멸구분코드" binding="col1" width="*" />
             <WjFlexGridColumn header="소멸예정일자" binding="col1" width="*" />

@@ -39,8 +39,8 @@
           </UButtonBox>
         </UBox>
 
-        <UBox height="345">
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <UBox height="345px">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
             <WjFlexGridColumn header="회원명" binding="col1" width="*" />

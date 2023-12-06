@@ -57,7 +57,7 @@
           </UBox>
 
           <!-- grid 영역 -->
-          <WjFlexGrid :itemsSource="listActions.chlTms.value" :initialized="listActions.grid.initialize" style="min-height: 250px; max-height: 250px">
+          <WjFlexGrid class="column-grid" :itemsSource="listActions.chlTms.value" :initialized="listActions.grid.initialize" style="min-height: 250px; max-height: 250px">
             <WjFlexGridColumn header="No" :width="60" align="center" :cellTemplate="ctx => ctx.row.index + 1" />
             <WjFlexGridColumn
               header="채널"
@@ -166,6 +166,50 @@
         </UItem>
       </UBox>
     </div>
+
+      <!-- ------------------------------------------------------------------ -->
+  <div class="columns has-gap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        <UBox class="table-title-wrap">
+          <h2 class="table-title">
+            <span>영수증포인트적립확정</span>
+            <span class="data-count">총<span>100</span>건</span>
+          </h2>
+          <UButtonBox class="table-buttons">
+            <UButton text="반려" type="is-outline"/>
+            <UButton text="승인" type="is-filled"/>
+          </UButtonBox>
+        </UBox>
+
+        <UBox height="300px">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
+            <WjFlexGridColumn header="No" binding="col1" width="*" />
+            <WjFlexGridColumn header="요청일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="요청매장" binding="col1" width="*" />
+            <WjFlexGridColumn header="채널" binding="col1" width="*" />
+            <WjFlexGridColumn header="포인트유형그룹요청상태코드" binding="col1" width="*" />
+            <WjFlexGridColumn header="판매일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="POS기기" binding="col1" width="*" />
+            <WjFlexGridColumn header="영수증번호" binding="col1" width="*" />
+            <WjFlexGridColumn header="판매분류" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+            <WjFlexGridColumn header="회원명" binding="col1" width="*" />            
+            <WjFlexGridColumn header="연락처" binding="col1" width="*" />
+            <WjFlexGridColumn header="매출금액" binding="col1" width="*" />
+            <WjFlexGridColumn header="매출수량" binding="col1" width="*" />
+            <WjFlexGridColumn header="적립POINT" binding="col1" width="*" />
+            <WjFlexGridColumn header="사유" binding="col1" width="*" />
+            <WjFlexGridColumn header="처리내역" binding="col1" width="*" />
+            <WjFlexGridColumn header="처리일자" binding="col1" width="*" />
+            <WjFlexGridColumn header="확정자명" binding="col1" width="*" />
+            <WjFlexGridColumn header="구매내역" binding="col1" width="*" />
+            <WjFlexGridColumn header="영수내용" binding="col1" width="*" />
+          </WjFlexGrid>
+        </UBox>
+      </UItem>
+    </UBox>
+  </div>
   </div>
 </template>
 <script lang="ts" setup>
@@ -353,6 +397,21 @@ const detailActions = (() => {
     init,
   }
 })()
+
+const itemsSourceGrid = ref([
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트' },
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+{ col1: '텍스트2'},
+{ col1: '텍스트3'},
+]);
+
 </script>
 <script lang="ts">
 export default {

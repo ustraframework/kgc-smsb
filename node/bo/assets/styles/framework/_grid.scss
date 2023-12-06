@@ -4,3 +4,13 @@
 //   }
 // }
 
+.column-grid{
+  contain: inline-size;
+}
+
+.field-grid,
+.tab-grid {
+  .wj-flexgrid{
+    contain: inline-size;
+  }
+}

@@ -69,7 +69,7 @@
         </UBox>
 
         <UBox>
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="지급일자" binding="col1" width="*" />
             <WjFlexGridColumn header="지급방법" binding="col1" width="*" />

@@ -1331,7 +1331,8 @@ body {
 
   &.is-shuffle {
     .field-grid {
-      width: calc((100% / 2) - 52px);
+      //width: calc((100% / 2) - 52px);
+      width: calc((100% / 2) - 32px);
     }
 
     .buttons {

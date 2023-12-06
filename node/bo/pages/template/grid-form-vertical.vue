@@ -37,7 +37,7 @@
             </UBox>
 
             <UBox>
-              <WjFlexGrid :itemsSource="itemsSourceGrid">
+              <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
                 <WjFlexGridColumn header="No" binding="col1" width="*" />
                 <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
                 <WjFlexGridColumn header="채널" binding="col1" width="*" />

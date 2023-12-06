@@ -53,7 +53,7 @@
         </UBox>
 
         <UBox height="345px">
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="수행업무" binding="col1" width="*" />
             <WjFlexGridColumn header="프로그램ID" binding="col1" width="*" />

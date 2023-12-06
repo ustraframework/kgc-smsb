@@ -30,7 +30,7 @@
         </UBox>
         
         <UBox height="250px">
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="소속" binding="col1" width="*" />
             <WjFlexGridColumn header="사번" binding="col1" width="*" />

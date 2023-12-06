@@ -45,7 +45,7 @@
         </UBox>
         
         <UBox>
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
             <WjFlexGridColumn header="No" binding="col1" width="*" />
             <WjFlexGridColumn header="포인트유형" binding="col1" width="*" />
             <WjFlexGridColumn header="채널" binding="col1" width="*" />
