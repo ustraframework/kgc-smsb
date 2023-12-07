@@ -1376,6 +1376,16 @@ body {
       .card-body {
          min-height: 0px;
       }
+      
+      .u-field-label {
+        &.right {
+          span {
+            text-align: left !important;   
+            white-space: nowrap;
+
+          }
+        }
+      }
     }
     
     &.is-noSearch {

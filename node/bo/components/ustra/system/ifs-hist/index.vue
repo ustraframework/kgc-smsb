@@ -1,61 +1,77 @@
 <template>
-  <UBox direction="col">
-    <UItem>
-      <UFieldSet>
-        <UFieldRow :ratio="[1, 1, 1, 1]">
-          <UField direction="row" label="프로세스 아이디">
-            <UTextBox type="text" v-model="searchAction.searchParam.procId" style="width: 230px" />
-          </UField>
-          <UField direction="row" label="요청 아이디">
-            <UTextBox type="text" v-model="searchAction.searchParam.reqId" style="width: 230px" />
-          </UField>
-          <UField direction="row" label="인터페이스 아이디">
-            <UTextBox type="text" v-model="searchAction.searchParam.ifId" style="width: 230px" />
-          </UField>
-          <UField direction="row" label="URL">
-            <UTextBox type="text" v-model="searchAction.searchParam.url" style="width: 230px" />
-          </UField>
-        </UFieldRow>
-        <UFieldRow :ratio="[1, 1, 1, 1]">
-          <UField direction="row" label="채널 코드">
-            <UCodeComboBox grpCd="CHNL_CD" v-model="searchAction.searchParam.chnlCd" style="width: 230px" :displayNullText="'전체'" />
-          </UField>
-          <UField direction="row" label="성공 여부">
-            <WjComboBox
-              v-model="searchAction.searchParam.succYn"
-              style="width: 230px"
-              :itemsSource="searchAction.succYnItems"
-              displayMemberPath="text"
-              selectedValuePath="value"
-            />
-          </UField>
-          <UField direction="row" label="응답 코드 값">
-            <UTextBox type="text" v-model="searchAction.searchParam.resCdVal" style="width: 230px" />
-          </UField>
-        </UFieldRow>
-        <UFieldRow>
-          <UField direction="row" label="기간">
-            <UDatePeriodBox
-              :width="500"
-              v-model:start="searchAction.searchParam.searchSrtDttm"
-              v-model:end="searchAction.searchParam.searchEndDttm"
-              mode="datetime"
-              displayFormat="yyyy-MM-dd HH:mm"
-              valueFormat="yyyyMMddHHmm"
-            />
-          </UField>
-        </UFieldRow>
-      </UFieldSet>
-      <UButtonBox :center="true">
-        <UButton class="gray ico_reset" @click="searchAction.clearSearchParam"><span class="blind">초기화</span></UButton>
-        <UButton text="조회" class="primary ico_search" @click="searchAction.loadSearchedData" />
-        <UButton text="엑셀다운로드" icon="xlsxfile" type="default" @click="gridAction.excelDownload" />
-      </UButtonBox>
-    </UItem>
 
-    <UItem :ratio="1">
-      <UBox direction="row" style="gap: 5px">
-        <UItem :ratio="6">
+  
+  <!-- 검색영역 -->
+  <div class="columns has-gap">
+    <UBox class="card is-sub is-search">
+      <UItem class="card-body">
+        <UFieldSet class="is-search">
+          <UFieldRow :ratio="[1, 1, 1, '300px']">
+            <UField label="프로세스 아이디">
+              <UTextBox type="text" v-model="searchAction.searchParam.procId"/>
+            </UField>
+            <UField label="요청 아이디">
+              <UTextBox type="text" v-model="searchAction.searchParam.reqId" style="width: 230px" />
+            </UField>
+            <UField label="인터페이스 아이디">
+              <UTextBox type="text" v-model="searchAction.searchParam.ifId"/>
+            </UField>
+            <UField blank>
+              <div class="search-btn">
+                <UButton text="엑셀다운로드" icon="xlsxfile" type="default" @click="gridAction.excelDownload" />
+                <UButton class="gray ico_reset"><span class="blind">초기화</span></UButton>
+                <UButton text="조회" type="is-search" @click="searchAction.loadSearchedData"/>
+              </div>
+            </UField>
+          </UFieldRow>
+          <UFieldRow :ratio="[1, 1, 1, '300px']">
+            <UField label="URL">
+              <UTextBox type="text" v-model="searchAction.searchParam.url"/>
+            </UField>
+            <UField direction="row" label="채널 코드">
+              <UCodeComboBox grpCd="CHNL_CD" v-model="searchAction.searchParam.chnlCd" style="width: 230px" :displayNullText="'전체'" />
+            </UField>
+            <UField direction="row" label="성공 여부">
+              <WjComboBox
+                v-model="searchAction.searchParam.succYn"
+                style="width: 230px"
+                :itemsSource="searchAction.succYnItems"
+                displayMemberPath="text"
+                selectedValuePath="value"
+              />
+            </UField>
+            <UField blank></UField>
+          </UFieldRow>
+          <UFieldRow :ratio="[1, 2, '300px']">
+            <UField direction="row" label="응답 코드 값">
+              <UTextBox type="text" v-model="searchAction.searchParam.resCdVal" style="width: 230px" />
+            </UField>
+            <UField label="기간">
+              <UDatePeriodBox
+                v-model:start="searchAction.searchParam.searchSrtDttm"
+                v-model:end="searchAction.searchParam.searchEndDttm"
+                mode="datetime"
+                displayFormat="yyyy-MM-dd HH:mm"
+                valueFormat="yyyyMMddHHmm"
+              />
+              <UField blank></UField>
+              <UField blank></UField>
+            </UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UItem>
+    </UBox>
+  </div>
+  <!-- // 검색영역 --> 
+
+
+
+  <!-- ------------------------------------------------------------------ -->
+  <div class="columns has-gap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        
+        <UBox>
           <WjFlexGrid style="height: 500px" :initialized="gridAction.histGrid.initialize">
             <WjFlexGridColumn binding="procId" header="프로세스 아이디" width="*" />
             <WjFlexGridColumn binding="reqId" header="요청아이디" width="*" />
@@ -74,8 +90,20 @@
             <WjFlexGridColumn binding="usrKey" header="사용자키" width="*" />
             <WjFlexGridColumn binding="regDttm" header="처리일시" width="*" :cellTemplate="ctx => $ustra.utils.formatting.datetime(ctx.value)" />
           </WjFlexGrid>
-        </UItem>
-        <UItem :ratio="3" v-if="formAction.isFormVisible.value">
+        </UBox>
+        <UBox>
+
+        </UBox>
+
+      </UItem>
+    </UBox>
+  </div>
+
+  
+  <div class="columns has-gap" v-if="formAction.isFormVisible.value">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        <UBox>
           <UFieldSet>
             <UFieldRow>
               <UField label="요청 헤더 내용"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.reqHedCont" /> </UField>
@@ -101,10 +129,13 @@
               </UButtonBox>
             </UFieldRow>
           </UFieldSet>
-        </UItem>
-      </UBox>
-    </UItem>
-  </UBox>
+        </UBox>
+      </UItem>
+    </UBox>
+  </div>     
+
+
+        
 </template>
 <script lang="ts" setup>
 import { ref, reactive, useOnError } from '#ustra/nuxt'
