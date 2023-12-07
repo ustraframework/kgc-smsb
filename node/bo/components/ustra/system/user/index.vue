@@ -1,67 +1,97 @@
 <template>
-  <UBox>
-    <UItem>
-      <UFieldSet>
-        <UFieldRow>
-          <UField label="사용자 아이디/명" :totalWidth="300">
-            <WjInputMask v-model="searchActions.criteria.usrNm" />
-          </UField>
+<div>
+  <div class="columns has-gap">
+    <UBox class="card is-sub is-search">
+      <UItem class="card-body">
+        <UFieldSet class="is-search">
+          <UFieldRow :ratio="[1, 1, '340px']">
+            <UField label="사용자 아이디/명" style="min-width: 150px !important;">
+              <WjInputMask v-model="searchActions.criteria.usrNm" />
+            </UField>
+            <UField label="상태">
+              <UCodeComboBox grpCd="USR_STT_CD" v-model="searchActions.criteria.usrSttCd" displayNullText="전체" />
+            </UField>
+            <UField blank>
+              <div class="search-btn">
+                <UButton text="신규" :width="80" :height="34" @click="() => formActions.init(true)" />
+                <UButton text="조회" type="is-search"  @click="() => listActions.load()" />
+              </div>
+            </UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UItem>
+    </UBox>
+  </div>
+  
+  <div class="columns">
+    <UBox direction="row">
+      <!-- 좌측 영역 -->
+      <UItem baseSize="990" class="gap-right">
+        <UBox class="card is-sub" height="580px">
+          <UItem class="card-body">
+            <WjFlexGrid :isReadOnly="true" style="height:530px" :itemsSource="listActions.users.value" :initialized="listActions.grid.initialize">
+              <!-- <WjFlexGridColumn header="소속 그룹" binding="authGrp" /> -->
+              <WjFlexGridColumn header="아이디" binding="usrId" />
+              <WjFlexGridColumn header="이름" binding="usrNm" />
+              <WjFlexGridColumn header="회사명" binding="orgCd" :cellTemplate="ctx => useUstraCodeValue('ORG_CD', ctx.value)" />
+              <WjFlexGridColumn header="부서명" binding="deptCd" :cellTemplate="ctx => useUstraUserDeptName(ctx.item)" />
+              <WjFlexGridColumn
+                header="상태"
+                binding="usrSttCd"
+                :cellTemplate="ctx => useUstraCodeValue('USR_STT_CD', ctx.value)"
+                align="center"
+                :width="80"
+              />
+              <WjFlexGridColumn
+                header="구분"
+                binding="useDvCd"
+                :cellTemplate="ctx => useUstraCodeValue('USE_DV_CD', ctx.value)"
+                align="center"
+                :width="120"
+              />
+              <WjFlexGridColumn
+                header="승인완료"
+                binding="apvCmplYn"
+                :cellTemplate="ctx => (ctx.value === 'Y' ? '완료' : '미완료')"
+                align="center"
+                :width="80"
+              />
+              <WjFlexGridColumn
+                header="등록일"
+                binding="regDttm"
+                :cellTemplate="ctx => $ustra.utils.formatting.datetime(ctx.value)"
+                align="center"
+                :width="180"
+              />
+            </WjFlexGrid>
+          </UItem>
+        </UBox>        
+      </UItem>
 
-          <UField label="상태" :totalWidth="300">
-            <UCodeComboBox grpCd="USR_STT_CD" v-model="searchActions.criteria.usrSttCd" displayNullText="전체" />
-          </UField>
+      <!-- 우측 영역 -->
+      <UItem ratio="1" class="gap-left">
+        <UBox class="card is-sub">
+          <UItem class="card-body">
+            <UBox class="table-title-wrap">
+              <h2 class="table-title"></h2>
+              <UButtonBox class="table-buttons">
+                <UButton text="삭제" type="is-outline"
+                  v-if="!formActions.isNew.value && authActions.hasApprovalStatus.value"
+                  @click="() => formActions.remove()"
+                />
+                <UButton text="저장" type="is-filled" 
+                  @click="() => formActions.save()"
+                  v-if="formActions.isNew.value || (!formActions.isNew.value && authActions.hasApprovalStatus.value)"/>
+              </UButtonBox>
+              <ApprovalPopup
+                  v-model="approvalActions.opened.value"
+                  :ref="popup => {
+                    approvalActions.popup.value = popup as InstanceType<typeof ApprovalPopup>
+                  }"
+                ></ApprovalPopup>
+            </UBox>
 
-          <UButtonBox right top>
-            <UButton text="검색" type="primary" :width="80" @click="() => listActions.load()" />
-            <UButton text="신규" :width="80" @click="() => formActions.init(true)" />
-          </UButtonBox>
-        </UFieldRow>
-      </UFieldSet>
-    </UItem>
-    <UItem :ratio="1">
-      <UBox direction="row">
-        <UItem :ratio="6" scrollType="hidden">
-          <WjFlexGrid :isReadOnly="true" style="height: 100%" :itemsSource="listActions.users.value" :initialized="listActions.grid.initialize">
-            <!-- <WjFlexGridColumn header="소속 그룹" binding="authGrp" /> -->
-            <WjFlexGridColumn header="아이디" binding="usrId" />
-            <WjFlexGridColumn header="이름" binding="usrNm" />
-            <WjFlexGridColumn header="회사명" binding="orgCd" :cellTemplate="ctx => useUstraCodeValue('ORG_CD', ctx.value)" />
-            <WjFlexGridColumn header="부서명" binding="deptCd" :cellTemplate="ctx => useUstraUserDeptName(ctx.item)" />
-            <WjFlexGridColumn
-              header="상태"
-              binding="usrSttCd"
-              :cellTemplate="ctx => useUstraCodeValue('USR_STT_CD', ctx.value)"
-              align="center"
-              :width="80"
-            />
-            <WjFlexGridColumn
-              header="구분"
-              binding="useDvCd"
-              :cellTemplate="ctx => useUstraCodeValue('USE_DV_CD', ctx.value)"
-              align="center"
-              :width="120"
-            />
-            <WjFlexGridColumn
-              header="승인완료"
-              binding="apvCmplYn"
-              :cellTemplate="ctx => (ctx.value === 'Y' ? '완료' : '미완료')"
-              align="center"
-              :width="80"
-            />
-            <WjFlexGridColumn
-              header="등록일"
-              binding="regDttm"
-              :cellTemplate="ctx => $ustra.utils.formatting.datetime(ctx.value)"
-              align="center"
-              :width="180"
-            />
-          </WjFlexGrid>
-        </UItem>
-
-        <UItem :ratio="4">
-          <UBox direction="col">
-            <UItem :ratio="1" scrollType="auto">
-              <UValidationGroup
+            <UValidationGroup
                 :ref="ctl => {
                 formActions.validationGroup.value = ctl as InstanceType<typeof UValidationGroup>
               }"
@@ -200,36 +230,12 @@
                   </UFieldRow>
                 </UFieldSet>
               </UValidationGroup>
-            </UItem>
-            <UItem>
-              <UButtonBox right top>
-                <UButton
-                  text="저장"
-                  type="primary"
-                  :width="80"
-                  @click="() => formActions.save()"
-                  v-if="formActions.isNew.value || (!formActions.isNew.value && authActions.hasApprovalStatus.value)"
-                />
-                <UButton
-                  text="삭제"
-                  :width="80"
-                  v-if="!formActions.isNew.value && authActions.hasApprovalStatus.value"
-                  @click="() => formActions.remove()"
-                />
-
-                <ApprovalPopup
-                  v-model="approvalActions.opened.value"
-                  :ref="popup => {
-                    approvalActions.popup.value = popup as InstanceType<typeof ApprovalPopup>
-                  }"
-                ></ApprovalPopup>
-              </UButtonBox>
-            </UItem>
-          </UBox>
-        </UItem>
-      </UBox>
-    </UItem>
-  </UBox>
+          </UItem>
+        </UBox>
+      </UItem>
+    </UBox>
+  </div>
+</div>
 </template>
 
 <script lang="ts" setup>

@@ -1,14 +1,21 @@
 <template>
   <UBox direction="col">
     <UItem>
+      <UBox class="table-title-wrap mt-2">
+        <UButtonBox class="table-buttons">
+          <UButton text="초기화" @click="searchAction.clearSearchParam"/>
+          <UButton text="조회" :width="80" @click="searchAction.loadSearchedData"/>
+          <UButton text="엑셀 다운로드" icon="excel" @click="gridAction.excelDownload"/>
+        </UButtonBox>
+      </UBox>
+
       <UFieldSet>
         <UFieldRow :ratio="[1, 1, 1, 1, 1]">
           <UField required direction="col" label="시스템구분">
-            <UCodeComboBox grpCd="SYS_CD" v-model="searchAction.searchParam.sysCd" style="width: 250px" />
+            <UCodeComboBox grpCd="SYS_CD" v-model="searchAction.searchParam.sysCd"/>
           </UField>
           <UField direction="col" label="기간">
             <UDatePeriodBox
-              :width="300"
               v-model:start="searchAction.searchParam.searchSrtDttm"
               v-model:end="searchAction.searchParam.searchEndDttm"
               mode="date"
@@ -17,29 +24,26 @@
             />
           </UField>
           <UField direction="col" label="차트종류">
-            <UCodeComboBox grpCd="CHRT_KIND_CD" v-model="searchAction.searchParam.chartType" style="width: 250px" />
+            <UCodeComboBox grpCd="CHRT_KIND_CD" v-model="searchAction.searchParam.chartType"/>
           </UField>
           <UField direction="col" label="사용자 아이디">
-            <UTextBox type="text" v-model="searchAction.searchParam.usrId" style="width: 250px" />
+            <UTextBox type="text" v-model="searchAction.searchParam.usrId"/>
           </UField>
           <UField direction="col" label="사용자 명">
-            <UTextBox type="text" v-model="searchAction.searchParam.usrNm" style="width: 250px" />
+            <UTextBox type="text" v-model="searchAction.searchParam.usrNm"/>
           </UField>
         </UFieldRow>
       </UFieldSet>
-      <UButtonBox :center="true">
-        <UButton class="gray ico_reset" @click="searchAction.clearSearchParam"><span class="blind">초기화</span></UButton>
-        <UButton text="조회" class="primary ico_search" @click="searchAction.loadSearchedData" />
-        <UButton text="엑셀다운로드" icon="xlsxfile" type="default" @click="gridAction.excelDownload" />
-      </UButtonBox>
     </UItem>
 
     <UItem>
-      <UButtonBox :right="true">
-        <UButton text="PNG" class="btn btn-default" v-on:click="chartAction.exportChart('png')" :width="50" />
-        <UButton text="JPEG" class="btn btn-default" v-on:click="chartAction.exportChart('jpeg')" :width="50" />
-        <UButton text="SVG" class="btn btn-default" v-on:click="chartAction.exportChart('svg')" :width="50" />
-      </UButtonBox>
+      <UBox class="table-title-wrap mt-2">
+        <UButtonBox class="table-buttons">
+          <UButton text="PNG" v-on:click="chartAction.exportChart('png')" :width="80" />
+          <UButton text="JPEG" v-on:click="chartAction.exportChart('jpeg')" :width="80" />
+          <UButton text="SVG" v-on:click="chartAction.exportChart('svg')" :width="80" />
+        </UButtonBox>
+      </UBox>
 
       <WjFlexChart
         v-if="searchAction.searchParam.chartType === '10'"

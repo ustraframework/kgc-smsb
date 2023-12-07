@@ -183,7 +183,7 @@ const items = ref([
 
   { col1: '회원', col2: '부정회원관리', col3: '부정적립 의심회원 기준관리', col4: 'UI_BM_1301', col5: '', col6: 'grid-form', col7: 'X' },
   { col1: '회원', col2: '부정회원관리', col3: '리셀러 기준관리', col4: 'UI_BM_1302', col5: '', col6: 'grid-form', col7: 'X' },
-  { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원관리', col4: 'UI_BM_1303', col5: '', col6: 'grid-grid', col7: 'X' },
+  { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원관리', col4: 'UI_BM_1303', col5: '/pubs/MS/UM/UI_BM_1303_pubs', col6: 'grid-grid', col7: 'O' },
   { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원 처리 내역', col4: 'UI_BM_1304', col5: '', col6: 'popup-form', col7: 'X' },
   { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원 검토 요청', col4: 'UI_BM_1305', col5: '', col6: 'popup-form', col7: 'X' },
   { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원관리 이력', col4: 'UI_BM_1306', col5: '', col6: 'popup-grid', col7: 'X' },
@@ -199,7 +199,7 @@ const items = ref([
   { col1: '회원', col2: '클럽관리', col3: '타겟팅 대상자 등록', col4: 'UI_BM_1505', col5: '', col6: 'popup-search', col7: 'X' },
   { col1: '회원', col2: '클럽관리', col3: '타겟팅 대상 추출 내역', col4: 'UI_BM_1506', col5: '', col6: 'grid-grid', col7: 'X' },
 
-  { col1: '회원', col2: '약관관리', col3: '채널별 약관정보 관리', col4: 'UI_BM_2101', col5: '', col6: 'board', col7: 'X' },
+  { col1: '회원', col2: '약관관리', col3: '채널별 약관정보 관리', col4: 'UI_BM_2101', col5: '/pubs/BI/TM/UI_BM_2101_pubs', col6: 'board', col7: 'O' },
   { col1: '회원', col2: '약관관리', col3: '약관 동의 이력조회', col4: 'UI_BM_2102', col5: '', col6: 'grid-grid', col7: 'X' },
   { col1: '회원', col2: '약관관리', col3: '마케팅이용동의조회', col4: 'UI_BM_2103', col5: '', col6: 'grid', col7: 'X' },
   { col1: '회원', col2: '약관관리', col3: '마케팅이용동의 이력 조회', col4: 'UI_BM_2104', col5: '', col6: 'popup-grid', col7: 'X' },
@@ -231,7 +231,7 @@ const items = ref([
 
   { col1: '회원', col2: '전시/배너관리', col3: '전시관리', col4: 'UI_BM_3201', col5: '', col6: 'grid-form-grid-vertical', col7: 'X' },
   { col1: '회원', col2: '전시/배너관리', col3: '전시상세 등록', col4: 'UI_BM_3202', col5: '', col6: 'popup-form', col7: 'X' },
-  { col1: '회원', col2: '전시/배너관리', col3: '배너관리', col4: 'UI_BM_3203', col5: '', col6: 'grid-form-grid-vertical', col7: 'X' },
+  { col1: '회원', col2: '전시/배너관리', col3: '배너관리', col4: 'UI_BM_3203', col5: '/pubs/SY/DP/UI_BM_3203_pubs', col6: 'grid-form-grid-vertical', col7: 'O' },
   { col1: '회원', col2: '전시/배너관리', col3: '배너상세 등록', col4: 'UI_BM_3204', col5: '', col6: 'popup-form', col7: 'X' },
   { col1: '회원', col2: '전시/배너관리', col3: '팝업관리', col4: 'UI_BM_3205', col5: '', col6: 'board', col7: 'X' },
 

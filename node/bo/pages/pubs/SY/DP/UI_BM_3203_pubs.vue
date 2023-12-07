@@ -6,14 +6,28 @@
         <UItem class="card-body">
           <UFieldSet class="is-search">
             <UFieldRow :ratio="[1, 1, 1, '170px']">
-              <UField label="검색영역" ><UTextBox></UTextBox></UField>
-              <UField blank></UField>
-              <UField blank></UField>
+              <UField label="기준일자" required>
+                <UDateBox />
+              </UField>
+              <UField label="배너위치">
+                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+              </UField>
+              <UField label="배너종류">
+                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+              </UField>
               <UField blank>
                 <div class="search-btn">
                   <UButton text="조회" type="is-search"/>
                 </div>
               </UField>
+            </UFieldRow>
+            <UFieldRow :ratio="[1, 1, 1, '170px']">
+              <UField label="배너명">
+                <UTextBox />
+              </UField>
+              <UField blank />
+              <UField blank />
+              <UField blank />
             </UFieldRow>
           </UFieldSet>
         </UItem>
@@ -25,23 +39,22 @@
       <UBox direction="row">
         <!-- 좌측 영역 -->
         <UItem baseSize="500" class="gap-right">
-          <UBox class="card is-sub">
+          <UBox class="card is-sub" height="535px">
             <UItem class="card-body">
               <UBox class="table-title-wrap" direction="row">
                 <UItem itemDirection="row" :ratio="1">
                   <h2 class="table-title">
-                    <span>Sub title</span>
-                    <span class="data-count">총<span>24</span>건</span>
+                    <span class="data-count">총<span>100</span>건</span>
                   </h2>
                 </UItem>
               </UBox>
   
-              <UBox>
+              <UBox height="450px">
                 <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
                   <WjFlexGridColumn header="No" binding="col1" width="*" />
-                  <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-                  <WjFlexGridColumn header="채널" binding="col1" width="*" />
-                  <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+                  <WjFlexGridColumn header="배너ID" binding="col1" width="*" />
+                  <WjFlexGridColumn header="배너명" binding="col1" width="*" />
+                  <WjFlexGridColumn header="배너종류" binding="col1" width="*" />
                 </WjFlexGrid>
               </UBox>
             </UItem>
@@ -50,36 +63,73 @@
   
         <!-- 우측 영역 -->
         <UItem ratio="1" class="gap-left">
-          <UBox class="card is-sub">
+          <UBox class="card is-sub" height="535px">
             <UItem class="card-body">
               <UBox class="table-title-wrap">
                 <h2 class="table-title">
-                  <span>Sub title</span>
+                  <span>배너 마스터</span>
                 </h2>
               </UBox>
-  
+
               <UFieldSet>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
-                  <UField label="회원번호"><UTextBox></UTextBox></UField>
-                  <UField label="회원명"><UTextBox></UTextBox></UField>
-                  <UField label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text"/></UField>
+                  <UField label="배너ID" required><UTextBox></UTextBox></UField>
+                  <UField label="배너명" required><UTextBox></UTextBox></UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
-                  <UField label="잔여포인트"><UTextBox></UTextBox></UField>
-                  <UField label="탈퇴일자"><UDateBox mode="date"/></UField>
-                  <UField label="삭제예정일자"><UDateBox mode="date"/></UField>
+                  <UField label="배너위치" required>
+                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+                  </UField>
+                  <UField label="배너종류" required>
+                    <URadioGroupBox v-model="radioValue" :itemsSource="radioItems" />
+                  </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
-                  <UField label="탈퇴사유"><UTextBox></UTextBox></UField>
+                  <UField label="타겟대상" required>
+                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+                  </UField>
+                  <UField label="사용여부" required>
+                    <URadioGroupBox v-model="radioValue" :itemsSource="radioItems2" />
+                  </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
-                  <UField label="복원사유"><UTextBox type="textarea" v-model="test" /></UField>
+                  <UField label="정렬순서" required>
+                    <UTextBox />
+                  </UField>
+                  <UField></UField>
+                </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow>
+                  <UField label="적용기간">
+                    <UDatePeriodBox v-model:start="start" v-model:end="end" />
+                  </UField>
+                </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow>
+                  <UField label="배너설명"><UTextBox v-model="test" /></UField>
                 </UFieldRow>
               </UFieldSet>
+            </UItem>
+
+            <UItem class="card-body">
+              <UBox class="table-title-wrap">
+                <h2 class="table-title">
+                  <span>배너 마스터 상세내역</span>
+                </h2>
+              </UBox>
+              
+              <UBox height="125px">
+                <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
+                  <WjFlexGridColumn header="No" binding="col1" width="*" />
+                  <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+                  <WjFlexGridColumn header="채널" binding="col1" width="*" />
+                  <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+                </WjFlexGrid>
+              </UBox>
             </UItem>
           </UBox>
         </UItem>
@@ -132,9 +182,37 @@
   { col1: '텍스트' },
   { col1: '텍스트2'},
   { col1: '텍스트3'},
+  { col1: '텍스트' },
+  { col1: '텍스트2'},
+  { col1: '텍스트3'},
+  { col1: '텍스트' },
+  { col1: '텍스트2'},
+  { col1: '텍스트3'},
+  { col1: '텍스트' },
+  { col1: '텍스트2'},
+  { col1: '텍스트3'},
+  { col1: '텍스트' },
+  { col1: '텍스트2'},
+  { col1: '텍스트3'},
+  { col1: '텍스트' },
+  { col1: '텍스트2'},
+  { col1: '텍스트3'},
+  { col1: '텍스트' },
+  { col1: '텍스트2'},
+  { col1: '텍스트3'},
   ]);
-  
-  </script>
-  <style lang="scss" scoped>
-  
-  </style>
+
+const radioItems = reactive([
+  { value: 'pc', text: 'PC' },
+  { value: 'mobile', text: '모바일' },
+])
+
+const radioItems2 = reactive([
+  { value: 'y', text: '예' },
+  { value: 'n', text: '아니오' },
+])
+
+</script>
+<style lang="scss" scoped>
+
+</style>

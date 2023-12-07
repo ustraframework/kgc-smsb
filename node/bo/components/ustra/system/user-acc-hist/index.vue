@@ -1,18 +1,22 @@
 <template>
-  <UBox direction="col">
-    <UItem :ratio="1">
-      <WjTabPanel class="menu-tab-panel">
-        <WjTab>
-          <a>로그인 이력</a>
-          <LoginHist />
-        </WjTab>
-        <WjTab>
-          <a>접속 횟수</a>
-          <AccCnt />
-        </WjTab>
-      </WjTabPanel>
-    </UItem>
-  </UBox>
+<div>
+  <div class="columns has-gap">
+    <UBox class="card is-sub">
+      <UItem class="card-body">
+        <WjTabPanel class="menu-tab-panel">
+          <WjTab>
+            <a>로그인 이력</a>
+            <LoginHist />
+          </WjTab>
+          <WjTab>
+            <a>접속 횟수</a>
+            <AccCnt />
+          </WjTab>
+        </WjTabPanel>
+      </UItem>
+    </UBox>
+  </div>
+</div>
 </template>
 <script lang="ts" setup>
 import { ref } from '#ustra/nuxt'

@@ -58,11 +58,11 @@
   <div class="columns has-gap">
     <UBox class="card is-sub" style="height: 300px;">
       <UItem class="card-body">
-        <div class="table-title-wrap">
+        <UBox class="table-title-wrap">
           <h2 class="table-title">
             <span>Sub title</span>
           </h2>
-        </div>
+        </UBox>
         
         <UBox>
           <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
