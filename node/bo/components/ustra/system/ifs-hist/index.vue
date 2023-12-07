@@ -1,6 +1,5 @@
 <template>
-
-  
+<div>
   <!-- 검색영역 -->
   <div class="columns has-gap">
     <UBox class="card is-sub is-search">
@@ -63,13 +62,9 @@
   </div>
   <!-- // 검색영역 --> 
 
-
-
-  <!-- ------------------------------------------------------------------ -->
   <div class="columns has-gap">
     <UBox class="card is-sub">
       <UItem class="card-body">
-        
         <UBox>
           <WjFlexGrid style="height: 500px" :initialized="gridAction.histGrid.initialize">
             <WjFlexGridColumn binding="procId" header="프로세스 아이디" width="*" />
@@ -90,14 +85,9 @@
             <WjFlexGridColumn binding="regDttm" header="처리일시" width="*" :cellTemplate="ctx => $ustra.utils.formatting.datetime(ctx.value)" />
           </WjFlexGrid>
         </UBox>
-        <UBox>
-
-        </UBox>
-
       </UItem>
     </UBox>
   </div>
-
   
   <div class="columns has-gap" v-if="formAction.isFormVisible.value">
     <UBox class="card is-sub">
@@ -132,9 +122,7 @@
       </UItem>
     </UBox>
   </div>     
-
-
-        
+</div>      
 </template>
 <script lang="ts" setup>
 import { ref, reactive, useOnError } from '#ustra/nuxt'

@@ -1,5 +1,5 @@
 <template>
-  
+<div>
   <div class="columns">
     <UBox direction="row">
       <!-- 좌측 영역 -->
@@ -135,7 +135,7 @@
       </UItem>
     </UBox>
   </div>
-  
+</div> 
 </template>
 <script lang="ts" setup>
 import { shallowRef, ref, onBeforeMount, reactive, useDeepMerge, useOnError, watch, nextTick } from '#ustra/nuxt'

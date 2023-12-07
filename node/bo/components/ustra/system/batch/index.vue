@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="columns has-gap">
     <UBox class="card is-sub">
       <UItem class="card-body" style="height: 750px">
@@ -27,6 +28,7 @@
       </UItem>
     </UBox>
   </div>
+</div>
 </template>
 <script lang="ts" setup>
 import { ref } from '#ustra/nuxt'
