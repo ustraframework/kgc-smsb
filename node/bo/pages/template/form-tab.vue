@@ -28,7 +28,7 @@
             <span>Sub title</span>
           </h2>
           <UButtonBox class="table-buttons">
-            <UButton text="처리" type="is-outline"/>
+            <UButton text="처리" type="is-outline"/>d
             <UButton text="취소" type="is-outline"/>
             <UButton text="저장" type="is-filled"/>
           </UButtonBox>
