@@ -35,13 +35,13 @@
 
         <div class="flex justify-center gap-5">
           <button class="sns-btn is-kakao" type="button" @click="visible1 = true">카카오 로그인</button>
-          <button class="sns-btn is-naver" type="button">네이버 로그인</button>
+          <button class="sns-btn is-naver" type="button" @click="visible2 = true">네이버 로그인</button>
           <button class="sns-btn is-apple" type="button">애플 로그인</button>
         </div>
       </div>
     </form>
 
-    <Dialog v-model:visible="visible1" modal header="간편로그인" :style="{ width: '500px' }">
+    <Dialog v-model:visible="visible2" modal header="간편로그인" :style="{ width: '500px' }">
       <div class="p-[40px] text-center">
         <h1 class="text-3xl text-black font-bold mb-[12px]">SNS 계정 연결</h1>
         <p class="mb-[40px]">
@@ -71,21 +71,58 @@
         </form>
       </div>
     </Dialog>
+
+    <Dialog v-model:visible="visible1" modal header="간편로그인" :style="{ width: '500px' }">
+      <div class="p-[40px] text-center">
+        <h1 class="text-3xl text-black font-bold mb-[12px]">SNS 계정 연결</h1>
+        <p class="mb-[40px]">
+          <strong>정관장 멤버스에 가입된 회원정보가 있습니다.</strong> <br />기존에 가입된 계정으로 로그인 하면 SNS 계정과 연동하여 간편하게 로그인할
+          수 있습니다.
+        </p>
+        <form class="flex flex-col w-[320px] mx-auto text-left">
+          <div class="flex items-center">
+            <RadioButton v-model="ingredient" inputId="ingredient11" name="rice" value="Radio1" />
+            <label for="ingredient11">Radio1</label>
+          </div>
+          <Password
+            class="w-full mt-[20px]"
+            inputClass="p-inputtext-lg w-full"
+            v-model="userPassword2"
+            :feedback="false"
+            toggleMask
+            placeholder="비밀번호"
+          />
+          <p class="mt-[5px] text-[13px] text-[#F43131]">비밀번호를 입력해주세요</p>
+          <Button class="w-full mt-[24px]" label="계정 연결" size="large" />
+          <div class="flex justify-center items-center mt-[20px] px-[20px] text-[15px]">
+            <router-link to="/">비밀번호 재설정</router-link>
+            <span class="mx-[12px] h-[16px] border-l border-[#E7E7E7]"></span>
+            <router-link to="/">회원가입</router-link>
+          </div>
+        </form>
+      </div>
+    </Dialog>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
+// dialog
 const visible1 = ref(false);
 const visible2 = ref(false);
 
+// input
 const userId = ref('');
 const userPassword = ref('');
 const userId1 = ref('');
 const userPassword2 = ref('');
 
+// checkbox
 const save = ref('');
+
+// radio
+const ingredient = ref('');
 </script>
 
 <style lang="scss" scoped></style>

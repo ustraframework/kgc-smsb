@@ -1,6 +1,15 @@
 <template>
-  <UBox direction="col" style="padding: 5px">
+  <UBox direction="col">
     <UItem :ratio="1">
+
+      <UBox class="table-title-wrap">
+        <UButtonBox class="table-buttons">
+        <!-- <UButton text="이력보기"  @click="showHist" /> -->
+        <UButton v-if="!isNew" text="삭제" :width="80" :disabled="mode === 'new'" @click="() => deleteForm()" />
+        <UButton text="저장" type="primary" :width="80" @click="() => saveActions.saveForm()" />
+        </UButtonBox>
+      </UBox>
+
       <UValidationGroup ref="validationGroup">
         <UFieldSet>
           <UFieldRow>
@@ -167,13 +176,6 @@
           </UFieldRow> -->
         </UFieldSet>
       </UValidationGroup>
-    </UItem>
-    <UItem>
-      <UButtonBox right top>
-        <!-- <UButton text="이력보기" icon="search" type="success" class="left" @click="showHist" /> -->
-        <UButton text="저장" type="primary" :width="80" @click="() => saveActions.saveForm()" />
-        <UButton v-if="!isNew" text="삭제" :width="80" :disabled="mode === 'new'" @click="() => deleteForm()" />
-      </UButtonBox>
     </UItem>
   </UBox>
 </template>

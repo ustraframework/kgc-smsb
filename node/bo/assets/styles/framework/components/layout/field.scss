@@ -1,16 +1,19 @@
 .u-field-set-slot {
   .u-field {
+     border-left: 1px solid #e9e9e9 !important;
+
     .u-field-label {
+      border-left: 0 !important;
       padding: 13px 17px 12px 29px !important;
       color: $gray220;
       justify-content: flex-start !important;
+
       &.col {
         background-color: $gray20;
         justify-content: center !important;
 
         +.u-field-slot {
           width: 100% !important;
-          margin: 10px;
           padding: 10px;
         }
       }
@@ -113,6 +116,7 @@
       }
       
       .u-field {
+        border-left: 0 !important;
         .u-field-slot-blank{
           height: 100%;
 
@@ -137,8 +141,11 @@
         }
 
         .u-field-label{
-          min-width: 130px !important;
-          width: 130px !important;
+          // min-width: 130px !important;
+          // width: 130px !important;
+          min-width: 150px !important;
+          width: 150px !important;
+
           color: $is-black;
           //font-weight: 600;
           font-size: pxToRem(14);

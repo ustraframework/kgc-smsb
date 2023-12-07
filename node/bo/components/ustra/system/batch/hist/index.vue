@@ -1,8 +1,15 @@
 <template>
   <UBox direction="col">
     <UItem>
+      <UBox class="table-title-wrap">
+        <UButtonBox>
+          <UButton text="초기화" :width="80" @click="searchAction.clearSearchParam"><span class="blind"></span></UButton>
+          <UButton text="조회" class="primary" @click="() => searchAction.loadSearchedData()" />
+        </UButtonBox>
+      </UBox>
+      
       <UFieldSet>
-        <UFieldRow :ratio="[1, 1, 1, 1]">
+        <UFieldRow :ratio="[1,1,1]">
           <UField label="배치 이력 아이디">
             <UTextBox type="text" v-model="searchAction.searchParam.batHistId" />
           </UField>
@@ -12,17 +19,11 @@
           <UField label="배치 명">
             <UTextBox type="text" v-model="searchAction.searchParam.batNm" />
           </UField>
-          <UField blank>
-            <UButtonBox :right="true">
-              <UButton class="gray ico_reset" @click="searchAction.clearSearchParam"><span class="blind">초기화</span></UButton>
-              <UButton text="조회" class="primary ico_search" @click="() => searchAction.loadSearchedData()" />
-            </UButtonBox>
-          </UField>
         </UFieldRow>
       </UFieldSet>
     </UItem>
 
-    <UItem :ratio="1">
+    <UItem :ratio="1" style="margin-top: 30px">
       <UBox direction="col">
         <WjFlexGrid style="height: 500px" :initialized="gridAction.histGrid.initialize">
           <WjFlexGridColumn binding="batHistId" header="배치 이력 아이디" width="*" />

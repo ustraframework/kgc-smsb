@@ -1,7 +1,7 @@
 <template>
   <WjFlexGrid
     :isReadOnly="true"
-    style="height: 100%"
+    style="height: calc(100% - 300px)"
     :itemsSource="ifs"
     selectionMode="Row"
     :initialized="grid.initialize"

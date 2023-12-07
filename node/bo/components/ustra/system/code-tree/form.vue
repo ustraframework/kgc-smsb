@@ -1,7 +1,7 @@
 <template>
-  <UPopup v-model="model" :width="500" :height="600" title="코드 입력">
+  <UPopup v-model="model" :width="500" :height="690" title="코드 입력">
     <UBox direction="col">
-      <UItem :ratio="1" style="overflow: auto">
+      <UItem :ratio="1" style="overflow: auto" class="pop-contents">
         <UValidationGroup ref="validationGroup">
           <UFieldSet>
             <UFieldRow>
@@ -100,7 +100,7 @@
           </UFieldSet>
         </UValidationGroup>
       </UItem>
-      <UItem>
+      <UItem class="pop-btn">
         <UButtonBox right top>
           <UButton text="저장" type="primary" :width="80" @click="save" />
           <UButton text="삭제" v-if="isEditMode" :width="80" @click="remove" />

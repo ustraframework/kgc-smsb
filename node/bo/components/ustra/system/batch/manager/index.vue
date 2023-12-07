@@ -1,23 +1,26 @@
 <template>
   <UBox direction="col">
     <UItem>
+      <UBox class="table-title-wrap">
+        <UButtonBox>
+              <UButton text="초기화" :width="80" @click="searchAction.clearSearchParam"></UButton>
+              <UButton text="신규" @click="formAction.newForm" />
+              <UButton text="조회" class="primary" @click="searchAction.loadSearchedData" />
+        </UButtonBox>
+      </UBox>
+
       <UFieldSet>
-        <UFieldRow :ratio="[1, 3]">
+        <UFieldRow :ratio="[1,2]">
           <UField label="매니저 아이디">
             <UTextBox type="text" v-model="searchAction.searchParam.managerId" />
           </UField>
-          <UField blank>
-            <UButtonBox>
-              <UButton class="gray ico_reset" @click="searchAction.clearSearchParam"><span class="blind">초기화</span></UButton>
-              <UButton text="조회" class="primary ico_search" @click="searchAction.loadSearchedData" />
-              <UButton text="신규" @click="formAction.newForm" />
-            </UButtonBox>
-          </UField>
+          <UField blank></UField>
         </UFieldRow>
       </UFieldSet>
     </UItem>
-    <UItem>
-      <UBox direction="row" style="gap: 5px">
+    
+    <UItem :ratio="1" style="margin-top: 30px">
+      <UBox direction="row" style="gap: 15px">
         <UItem :ratio="5">
           <WjFlexGrid style="height: 560px" :initialized="gridAction.grid.initialize" :itemsSource="data">
             <WjFlexGridColumn binding="managerId" header="매니저 아이디" width="*" />
@@ -27,6 +30,14 @@
           </WjFlexGrid>
         </UItem>
         <UItem :ratio="5" :disabled="formAction.formDisabled.value">
+          
+          <UBox class="table-title-wrap">
+            <UButtonBox class="table-buttons">
+                <UButton text="삭제" :disabled="formAction.mode.value === 'new'" @click="formAction.deleteForm" />
+                <UButton text="저장" type="primary" @click="formAction.saveForm" />
+            </UButtonBox>
+          </UBox>
+
           <UValidationGroup
             :ref="ctl => {
               validationGroup = ctl as InstanceType<typeof UValidationGroup>
@@ -55,10 +66,6 @@
                   ><URadioGroupBox v-model="formAction.inputData.enabled" :itemsSource="searchAction.enabledList" />
                 </UField>
               </UFieldRow>
-              <UButtonBox :right="true">
-                <UButton text="저장" @click="formAction.saveForm" />
-                <UButton text="삭제" :disabled="formAction.mode.value === 'new'" @click="formAction.deleteForm" />
-              </UButtonBox>
             </UFieldSet>
           </UValidationGroup>
         </UItem>

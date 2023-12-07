@@ -1,31 +1,32 @@
 <template>
   <UBox>
     <UItem>
-      <UFieldSet>
-        <UFieldRow>
-          <UField label="사용자 아이디/명" :totalWidth="300">
-            <WjInputMask v-model="searchActions.criteria.usrNm" />
-          </UField>
-
-          <UField label="상태" :totalWidth="300">
-            <UCodeComboBox grpCd="USR_STT_CD" v-model="searchActions.criteria.usrSttCd" displayNullText="전체" />
-          </UField>
-
-          <UField blank>
-            <UCheckGroupBox
+      <UBox class="table-title-wrap">
+        <UButtonBox>
+          <UCheckGroupBox
               v-model="searchActions.criteria.authGrpNoneYn"
               :itemsSource="[{ text: '소속 그룹 없는 사용자', trueValue: 'Y', falseValue: 'N' }]"
             />
+          <UButton text="조회" type="primary" :width="80" @click="() => listActions.load()" />
+        </UButtonBox>
+      </UBox>
+      
+      <UFieldSet>
+        <UFieldRow>
+          <UField label="사용자 아이디/명">
+            <WjInputMask v-model="searchActions.criteria.usrNm" />
           </UField>
 
-          <UButtonBox right top>
-            <UButton text="검색" type="primary" :width="80" @click="() => listActions.load()" />
-          </UButtonBox>
+          <UField label="상태">
+            <UCodeComboBox grpCd="USR_STT_CD" v-model="searchActions.criteria.usrSttCd" displayNullText="전체" />
+          </UField>
+          <UField blank>
+          </UField>
         </UFieldRow>
       </UFieldSet>
     </UItem>
     <UItem>
-      <UBox direction="row" style="gap: 5px">
+      <UBox direction="row" style="gap: 15px; padding-top: 30px;">
         <UItem :ratio="4">
           <WjFlexGrid :isReadOnly="true" style="height: 600px" :itemsSource="listActions.users.value" :initialized="listActions.grid.initialize">
             <WjFlexGridColumn header="소속 그룹" binding="authGrp" :width="150" />

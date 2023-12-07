@@ -1,7 +1,7 @@
 <template>
   <v-app id="ustra">
     <!-- header -->
-    <v-app-bar color="#003156" density="compact" style="max-width: calc(100% - 6px);">
+    <v-app-bar color="#003156" density="compact">
       <!-- <v-app-bar-nav-icon @click.stop="() => emits('changeNavState')" color="white"></v-app-bar-nav-icon> -->
       <v-toolbar-title>
         <NuxtLink class="navbar-link" to="/main">

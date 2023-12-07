@@ -1,9 +1,20 @@
 <template>
-  <UBox direction="col" :disabled="!props.parentCode">
-    <UItem :ratio="1" scrollType="hidden">
-      <WjFlexGrid
+  <UBox class="table-title-wrap">
+    <UButtonBox class="table-title-wrap" style="padding-right: 0px;">
+        <UButton
+          text="신규"
+          @click="
+            () => {
+              emits('clickNewButton', props.depth, Math.max(Math.max(...codes.map(c => c.srtNo), codes.length + 1)))
+            }
+          "
+          type="is-filled"
+        />
+    </UButtonBox>
+  </UBox>
+  <UBox>
+    <WjFlexGrid
         :itemsSource="!props.parentCode ? [] : codes"
-        style="height: 100%"
         :isReadOnly="true"
         selectionMode="Row"
         :initialized="
@@ -22,24 +33,7 @@
           align="center"
           :cellTemplate="ctx => `${ctx.value === 'Y' ? '사용' : '미사용'}`"
         />
-      </WjFlexGrid>
-    </UItem>
-    <UItem>
-      <UButtonBar>
-        <UButtonBox>
-          <UButton
-            text="신규"
-            :width="80"
-            @click="
-              () => {
-                emits('clickNewButton', props.depth, Math.max(Math.max(...codes.map(c => c.srtNo), codes.length + 1)))
-              }
-            "
-            type="primary"
-          />
-        </UButtonBox>
-      </UButtonBar>
-    </UItem>
+    </WjFlexGrid>
   </UBox>
 </template>
 <script lang="ts" setup>

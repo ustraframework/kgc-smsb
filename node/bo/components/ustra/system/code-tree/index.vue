@@ -1,11 +1,12 @@
 <template>
-  <UBox direction="col">
-    <UItem>
-      <UButtonBar>
-        <UFieldSet>
-          <UFieldRow>
-            <UField label="그릅코드" totalWidth="400"
-              ><WjComboBox
+<div>
+  <div class="columns has-gap">
+    <UBox class="card is-sub is-search">
+      <UItem class="card-body">
+        <UFieldSet class="is-search">
+          <UFieldRow :ratio="[1, 1, '340px']">
+            <UField label="그릅코드">
+              <WjComboBox
                 v-model="selectedGrpCode"
                 :itemsSource="groupCodes"
                 displayMemberPath="displayText"
@@ -13,30 +14,36 @@
                 :width="300"
               ></WjComboBox>
             </UField>
-            <UButtonBox right top>
-              <UButton text="신규" :width="80" @click="() => openNewForm(0, null)" />
-              <UButton
-                v-if="!!selectedGrpCode"
-                text="수정"
-                :width="80"
-                @click="
-                  () => {
-                    openEditForm(
-                      0,
-                      groupCodes.find(c => c.grpCd === selectedGrpCode),
-                    )
-                  }
-                "
-              />
-            </UButtonBox>
+            
+            <UField blank />
+            <UField blank>
+              <div class="search-btn">
+                <UButton text="신규" :width="80" @click="() => openNewForm(0, null)" />
+                <UButton
+                  v-if="!!selectedGrpCode"
+                  text="수정"
+                  :width="80"
+                  @click="
+                    () => {
+                      openEditForm(
+                        0,
+                        groupCodes.find(c => c.grpCd === selectedGrpCode),
+                      )
+                    }
+                  "
+                />
+              </div>
+            </UField>
           </UFieldRow>
         </UFieldSet>
-      </UButtonBar>
-    </UItem>
-    <UItem :ratio="1">
-      <UBox direction="row">
-        <UItem :ratio="1">
-          <UstraSystemCodeList
+      </UItem>
+    </UBox>
+  </div>
+
+  <div class="columns has-gap">
+    <UBox class="card is-sub" :ratio="1" height="580">
+      <UItem class="card-body">
+        <UstraSystemCodeList
             :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
             :depth="1"
             :parentCode="parentCode1"
@@ -49,9 +56,11 @@
             @clickEditButton="(depth, data) => openEditForm(depth, data)"
             @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
           />
-        </UItem>
-        <UItem :ratio="1">
-          <UstraSystemCodeList
+      </UItem>
+    </UBox>
+    <UBox class="card is-sub" :ratio="1" height="580">
+      <UItem class="card-body">
+        <UstraSystemCodeList
             :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
             :depth="2"
             :parentCode="parentCode2"
@@ -63,28 +72,29 @@
             @clickEditButton="(depth, data) => openEditForm(depth, data)"
             @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
           />
-        </UItem>
-        <UItem :ratio="1">
-          <UstraSystemCodeList
-            :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
-            :depth="3"
-            :parentCode="parentCode3"
-            @clickEditButton="(depth, data) => openEditForm(depth, data)"
-            @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
-          />
-        </UItem>
-      </UBox>
-    </UItem>
-    <UItem>
-      <UstraSystemCodeFrom
-        v-model="isOpendForm"
-        :sortNo="newSortNo"
-        :selectedCode="selectedCode"
-        :depth="formDepth"
-        @updated="(depth, code) => reload(depth, code)"
-      />
-    </UItem>
-  </UBox>
+      </UItem>
+    </UBox>
+    <UBox class="card is-sub" :ratio="1" height="580">
+      <UItem class="card-body">
+        <UstraSystemCodeList
+          :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
+          :depth="3"
+          :parentCode="parentCode3"
+          @clickEditButton="(depth, data) => openEditForm(depth, data)"
+          @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
+        />
+      </UItem>
+    </UBox>
+  </div>
+  <UstraSystemCodeFrom
+    v-model="isOpendForm"
+    :sortNo="newSortNo"
+    :selectedCode="selectedCode"
+    :depth="formDepth"
+    @updated="(depth, code) => reload(depth, code)"
+  />
+</div>
+
 </template>
 <script lang="ts" setup>
 import { reactive, onBeforeMount, ref, computed, watch } from '#ustra/nuxt'

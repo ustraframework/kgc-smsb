@@ -516,6 +516,7 @@
     @include wj-flexgrid-mixin; // 검토 후 삭제예정 (wj-control, wj-content 클래스가 항상 같이들어가는지 확인되면 삭제)
     &.wj-content {
       @include wj-flexgrid-mixin;
+      contain: layout;
     }
   }
 

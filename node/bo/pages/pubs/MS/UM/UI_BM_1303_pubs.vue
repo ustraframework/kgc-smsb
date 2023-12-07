@@ -22,10 +22,10 @@
               </UField>
             </UFieldRow>
             <UFieldRow :ratio="[1, 1, 1, '170px']">
-              <UField required label="회원번호/명" >
+              <UField label="회원번호/명" >
                 <UBox>
                   <UTextBox type="icon"></UTextBox>
-                  <UTextBox></UTextBox>
+                  <UTextBox disabled></UTextBox>
                 </UBox>
                 </UField>
               <UField blank></UField>

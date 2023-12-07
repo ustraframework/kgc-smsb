@@ -1,8 +1,8 @@
 <template>
-  <UBox direction="row" style="gap: 5px">
+  <UBox direction="row" style="gap: 15px">
     <UItem :ratio="4">
       <WjTreeView
-        style="width: 100%; height: 100%"
+        style="width: 100%; height: 600px; margin-top: 10px;"
         class="pa-2"
         displayMemberPath="authGrpNm"
         childItemsPath="items"

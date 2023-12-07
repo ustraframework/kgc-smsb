@@ -1,6 +1,12 @@
 <template>
-  <UBox direction="col" style="padding: 5px">
-    <UItem :ratio="1">
+  <UBox direction="col">
+    <UBox class="table-title-wrap mt-2">
+      <UButtonBox class="table-buttons">
+        <UButton v-if="!isNew" text="삭제" :width="80" @click="() => remove()" />
+        <UButton text="저장" type="is-filled" :width="80" @click="() => save()" />
+      </UButtonBox>
+    </UBox>
+    <UItem :ratio="1">      
       <UValidationGroup ref="validationGroup">
         <UFieldSet>
           <UFieldRow>
@@ -67,12 +73,6 @@
           <Users v-model="inputData.users" />
         </UFieldSet>
       </UValidationGroup>
-    </UItem>
-    <UItem>
-      <UButtonBox right top>
-        <UButton text="저장" type="primary" :width="80" @click="() => save()" />
-        <UButton v-if="!isNew" text="삭제" :width="80" @click="() => remove()" />
-      </UButtonBox>
     </UItem>
   </UBox>
   <!--  -->
