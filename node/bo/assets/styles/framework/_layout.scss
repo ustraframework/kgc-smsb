@@ -4,8 +4,9 @@
   background: #f2f5f6;
 
   .v-application {
-    height: auto !important;
+    height: 100% !important;
     display: block;
+    overflow: auto;
   }
   .v-application__wrap {
     display: block;
@@ -13,7 +14,7 @@
     min-height: calc(100vh - 40px) !important;
     height: calc(100% - 40px) !important;
     background: #f2f5f6;
-    overflow: auto;
+    // overflow: auto;
   }
 
   &.mdi-hidden {
@@ -1225,7 +1226,7 @@ a {
 
 body {
   display: block;
-  overflow: auto;
+  // overflow: auto;
   height: calc(100% - 40px) !important;
 }
 
