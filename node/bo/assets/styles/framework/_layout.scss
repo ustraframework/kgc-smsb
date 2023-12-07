@@ -4,9 +4,12 @@
   background: #f2f5f6;
 
   .v-application {
-    height: auto !important;
+    height: 100% !important;
+    overflow: scroll;
   }
   .v-application__wrap {
+    // min-width: calc(100% - 6px);
+    max-width: inherit !important;
     min-height: calc(100vh - 40px) !important;
     height: calc(100% - 40px) !important;
     background: #f2f5f6;
@@ -160,8 +163,9 @@
   }
 
   & #page_wrapper {
-    width: calc(100% - 6px);
-    min-width: calc(1920px - 6px);
+    // width: calc(100% - 6px);
+    // min-width: calc(1920px - 6px);
+    // min-width: calc(1920px - 6px);calc(100% - 6px)
     height: auto;
     // margin: 55px 0 0;
     // overflow: scroll;
@@ -1221,8 +1225,8 @@ a {
 
 body {
   display: block;
-  overflow: auto;
-  height: calc(100% - 40px) !important;
+  // overflow: auto;
+  height: calc(100% - 34px) !important;
 }
 
 #default__main {
