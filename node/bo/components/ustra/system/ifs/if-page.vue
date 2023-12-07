@@ -1,7 +1,14 @@
 <template>
   <UBox direction="col">
     <!-- search bar -->
-    <UItem baseSize="100">
+    <UItem>
+      <UBox class="table-title-wrap">
+        <UButtonBox>
+          <UButton text="신규" @click="formActions.newIfs" />
+          <UButton text="조회" class="primary" @click="search" />
+        </UButtonBox>
+      </UBox>
+
       <UButtonBar>
         <UFieldSet>
           <UFieldRow>
@@ -40,15 +47,14 @@
               <WjInputMask v-model="searchActions.criteria.url" />
             </UField>
             <UButtonBox right top>
-              <UButton text="신규" :width="80" @click="formActions.newIfs" />
-              <UButton text="검색" :width="80" @click="search" />
             </UButtonBox>
           </UFieldRow>
         </UFieldSet>
       </UButtonBar>
     </UItem>
-    <UItem ratio="1">
-      <UBox direction="row">
+
+    <UItem ratio="1" style="margin-top: 30px">
+      <UBox direction="row" style="gap: 15px">
         <UItem ratio="1" :disabled="listDisabled">
           <IfsList :ref="e => (listComponent = e as InstanceType<typeof IfsList>)" @select="rowSelected"></IfsList>
         </UItem>

@@ -1,6 +1,13 @@
 <template>
-  <UBox direction="col" style="padding: 5px">
+  <UBox direction="col">
     <UItem :ratio="1">
+      <UBox class="table-title-wrap">
+        <UButtonBox>
+          <UButton text="권한불러오기" @click="() => $ustra.global.alert('준비 중 입니다.')" />
+          <UButton text="저장" type="primary" :width="80" @click="() => save()" />
+        </UButtonBox>
+      </UBox>
+
       <UValidationGroup ref="validationGroup" class="auth-form">
         <UFieldSet>
           <UFieldRow>
@@ -9,7 +16,7 @@
             </UField>
           </UFieldRow>
           <WjFlexGrid
-            style="height: 500px"
+            style="height: 500px; margin-top: 10px;"
             :itemsSource="inputData.menus"
             childItemsPath="items"
             :initialized="grid.initialize"
@@ -40,17 +47,6 @@
           </WjFlexGrid>
         </UFieldSet>
       </UValidationGroup>
-    </UItem>
-    <UItem>
-      <UButtonBar>
-        <UButtonBox>
-          <UButton text="권한불러오기" @click="() => $ustra.global.alert('준비 중 입니다.')" />
-        </UButtonBox>
-        <USpacer />
-        <UButtonBox>
-          <UButton text="저장" type="primary" :width="80" @click="() => save()" />
-        </UButtonBox>
-      </UButtonBar>
     </UItem>
   </UBox>
 </template>

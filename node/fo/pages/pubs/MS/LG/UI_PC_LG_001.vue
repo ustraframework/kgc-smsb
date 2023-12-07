@@ -41,7 +41,7 @@
       </div>
     </form>
 
-    <Dialog v-model:visible="visible1" modal header="간편로그인" :style="{ width: '500px' }">
+    <Dialog v-model:visible="visible2" modal header="간편로그인" :style="{ width: '500px' }">
       <div class="p-[40px] text-center">
         <h1 class="text-3xl text-black font-bold mb-[12px]">SNS 계정 연결</h1>
         <p class="mb-[40px]">
@@ -72,7 +72,7 @@
       </div>
     </Dialog>
 
-    <Dialog v-model:visible="visible2" modal header="간편로그인" :style="{ width: '500px' }">
+    <Dialog v-model:visible="visible1" modal header="간편로그인" :style="{ width: '500px' }">
       <div class="p-[40px] text-center">
         <h1 class="text-3xl text-black font-bold mb-[12px]">SNS 계정 연결</h1>
         <p class="mb-[40px]">
