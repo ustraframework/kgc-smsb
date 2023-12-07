@@ -1,6 +1,5 @@
 <template>
 <div>
-
   <div class="columns has-gap">
     <UBox class="card is-sub is-search">
       <UItem class="card-body">
@@ -41,65 +40,59 @@
     </UBox>
   </div>
 
-    <div class="columns has-gap">
-      <UBox class="card is-sub">
-        <UItem class="card-body">
-          <UBox direction="col">
-            <UItem :ratio="1">
-              <UBox direction="row">
-                <UItem :ratio="1">
-                  <UstraSystemCodeList
-                    :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
-                    :depth="1"
-                    :parentCode="parentCode1"
-                    @selectionChanged="
-                      data => {
-                        parentCode3 = null
-                        parentCode2 = data
-                      }
-                    "
-                    @clickEditButton="(depth, data) => openEditForm(depth, data)"
-                    @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
-                  />
-                </UItem>
-                <UItem :ratio="1">
-                  <UstraSystemCodeList
-                    :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
-                    :depth="2"
-                    :parentCode="parentCode2"
-                    @selectionChanged="
-                      data => {
-                        parentCode3 = data
-                      }
-                    "
-                    @clickEditButton="(depth, data) => openEditForm(depth, data)"
-                    @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
-                  />
-                </UItem>
-                <UItem :ratio="1">
-                  <UstraSystemCodeList
-                    :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
-                    :depth="3"
-                    :parentCode="parentCode3"
-                    @clickEditButton="(depth, data) => openEditForm(depth, data)"
-                    @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
-                  />
-                </UItem>
-              </UBox>
-            </UItem>
-            <UItem>
-              <UstraSystemCodeFrom
-                v-model="isOpendForm"
-                :sortNo="newSortNo"
-                :selectedCode="selectedCode"
-                :depth="formDepth"
-                @updated="(depth, code) => reload(depth, code)"
-              />
-            </UItem>
-          </UBox>
-        </UItem>
-      </UBox>
+  <div class="columns has-gap">
+    <UBox class="card is-sub" :ratio="1" height="580">
+      <UItem class="card-body">
+        <UstraSystemCodeList
+            :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
+            :depth="1"
+            :parentCode="parentCode1"
+            @selectionChanged="
+              data => {
+                parentCode3 = null
+                parentCode2 = data
+              }
+            "
+            @clickEditButton="(depth, data) => openEditForm(depth, data)"
+            @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
+          />
+      </UItem>
+    </UBox>
+    <UBox class="card is-sub" :ratio="1" height="580">
+      <UItem class="card-body">
+        <UstraSystemCodeList
+            :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
+            :depth="2"
+            :parentCode="parentCode2"
+            @selectionChanged="
+              data => {
+                parentCode3 = data
+              }
+            "
+            @clickEditButton="(depth, data) => openEditForm(depth, data)"
+            @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
+          />
+      </UItem>
+    </UBox>
+    <UBox class="card is-sub" :ratio="1" height="580">
+      <UItem class="card-body">
+        <UstraSystemCodeList
+          :ref="c => listComponents.push(c as InstanceType<typeof UstraSystemCodeList>)"
+          :depth="3"
+          :parentCode="parentCode3"
+          @clickEditButton="(depth, data) => openEditForm(depth, data)"
+          @clickNewButton="(depth, sortNo) => openNewForm(depth, sortNo)"
+        />
+      </UItem>
+    </UBox>
   </div>
+  <UstraSystemCodeFrom
+    v-model="isOpendForm"
+    :sortNo="newSortNo"
+    :selectedCode="selectedCode"
+    :depth="formDepth"
+    @updated="(depth, code) => reload(depth, code)"
+  />
 </div>
 
 </template>
