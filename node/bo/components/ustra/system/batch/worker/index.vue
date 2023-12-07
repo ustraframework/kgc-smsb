@@ -1,26 +1,29 @@
 <template>
   <UBox direction="col">
     <UItem>
+      <UBox class="table-title-wrap">
+        <UButtonBox>
+              <UButton text="초기화" :width="80" @click="searchAction.clearSearchParam"><span class="blind">초기화</span></UButton>
+              <UButton text="신규" @click="formAction.newForm" />
+              <UButton text="조회" class="primary" @click="searchAction.loadSearchedData" />
+        </UButtonBox>
+      </UBox>
+
       <UFieldSet>
-        <UFieldRow :ratio="[1, 1, 2]">
+        <UFieldRow :ratio="[1, 1, 1]">
           <UField label="워커 아이디">
             <UTextBox type="text" v-model="searchAction.searchParam.workerId" />
           </UField>
           <UField label="엔드포인트">
             <UTextBox type="text" v-model="searchAction.searchParam.endpoint" />
           </UField>
-          <UField blank>
-            <UButtonBox right>
-              <UButton class="gray ico_reset" @click="searchAction.clearSearchParam"><span class="blind">초기화</span></UButton>
-              <UButton text="조회" class="primary ico_search" @click="searchAction.loadSearchedData" />
-              <UButton text="신규" @click="formAction.newForm" />
-            </UButtonBox>
-          </UField>
+          <UField blank></UField>
         </UFieldRow>
       </UFieldSet>
     </UItem>
-    <UItem>
-      <UBox direction="row" style="gap: 5px">
+
+    <UItem style="margin-top: 30px">
+      <UBox direction="row" style="gap: 15px">
         <UItem :ratio="5">
           <WjFlexGrid style="height: 560px" :initialized="gridAction.grid.initialize" :itemsSource="data">
             <WjFlexGridColumn binding="workerId" header="워커 아이디" width="*" />
@@ -30,6 +33,28 @@
           </WjFlexGrid>
         </UItem>
         <UItem :ratio="5" :disabled="formAction.formDisabled.value">
+          <UBox class="table-title-wrap">
+            <UButtonBox class="table-buttons">
+              <UButton
+                text="시작"
+                icon="mdi-play-circle"
+                mdiIconColor="gray"
+                :width="95"
+                :disabled="formAction.mode.value === 'new'"
+                @click="formAction.enable"
+              />
+              <UButton
+                text="중지"
+                icon="mdi-pause-circle"
+                mdiIconColor="gray"
+                :width="95"
+                :disabled="formAction.mode.value === 'new'"
+                @click="formAction.disable"
+              />
+              <UButton text="삭제" :disabled="formAction.mode.value === 'new'" @click="formAction.deleteForm" />
+              <UButton text="저장" class="primary" @click="formAction.saveForm" />
+            </UButtonBox>
+          </UBox>
           <UValidationGroup
             :ref="ctl => {
               validationGroup = ctl as InstanceType<typeof UValidationGroup>
@@ -54,35 +79,6 @@
               <UFieldRow>
                 <UField label="사용 여부" required
                   ><URadioGroupBox v-model="formAction.inputData.enabled" :itemsSource="searchAction.enabledList" />
-                </UField>
-              </UFieldRow>
-
-              <UFieldRow :ratio="[1, 1]">
-                <UField direction="col">
-                  <UButtonBox :left="true">
-                    <UButton
-                      text="시작"
-                      icon="mdi-play-circle"
-                      mdiIconColor="gray"
-                      :width="80"
-                      :disabled="formAction.mode.value === 'new'"
-                      @click="formAction.enable"
-                    />
-                    <UButton
-                      text="중지"
-                      icon="mdi-pause-circle"
-                      mdiIconColor="gray"
-                      :width="80"
-                      :disabled="formAction.mode.value === 'new'"
-                      @click="formAction.disable"
-                    />
-                  </UButtonBox>
-                </UField>
-                <UField direction="col">
-                  <UButtonBox :right="true">
-                    <UButton text="저장" @click="formAction.saveForm" />
-                    <UButton text="삭제" :disabled="formAction.mode.value === 'new'" @click="formAction.deleteForm" />
-                  </UButtonBox>
                 </UField>
               </UFieldRow>
             </UFieldSet>

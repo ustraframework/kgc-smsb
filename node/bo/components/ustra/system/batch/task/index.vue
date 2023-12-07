@@ -1,28 +1,31 @@
 <template>
   <UBox direction="col">
     <UItem>
+      <UBox class="table-title-wrap">
+        <UButtonBox>
+          <UButton text="초기화" :width="80" @click="searchAction.clearSearchParam"></UButton>
+          <UButton text="신규" @click="formAction.newForm" />
+          <UButton text="조회" class="primary" @click="searchAction.loadSearchedData" />
+        </UButtonBox>
+      </UBox>
+
       <UFieldSet>
-        <UFieldRow :ratio="[1, 1, 2]">
+        <UFieldRow>
           <UField label="배치 아이디">
             <UTextBox type="text" v-model="searchAction.searchParam.batId" />
           </UField>
           <UField label="배치 명">
             <UTextBox type="text" v-model="searchAction.searchParam.batNm" />
           </UField>
-          <UField blank>
-            <UButtonBox>
-              <UButton class="gray ico_reset" @click="searchAction.clearSearchParam"><span class="blind">초기화</span></UButton>
-              <UButton text="조회" class="primary ico_search" @click="searchAction.loadSearchedData" />
-              <UButton text="신규" @click="formAction.newForm" />
-            </UButtonBox>
-          </UField>
+          <UField blank></UField>
         </UFieldRow>
       </UFieldSet>
     </UItem>
-    <UItem>
-      <UBox direction="row" style="gap: 5px">
+
+    <UItem style="margin-top: 30px">
+      <UBox direction="row" style="gap: 15px">
         <UItem :ratio="5">
-          <WjFlexGrid style="height: 560px" :initialized="gridAction.grid.initialize">
+          <WjFlexGrid style="height: 545px" :initialized="gridAction.grid.initialize">
             <WjFlexGridColumn binding="batId" header="배치 아이디" width="*" />
             <WjFlexGridColumn binding="batNm" header="배치 명" width="*" />
             <WjFlexGridColumn binding="useYn" header="사용 여부" width="*" />
@@ -30,6 +33,23 @@
           </WjFlexGrid>
         </UItem>
         <UItem :ratio="5" :disabled="formAction.formDisabled.value">
+
+          <UBox class="table-title-wrap">
+            <UButtonBox class="table-buttons">
+              <UButton
+                text="시작"
+                icon="mdi-play-circle"
+                mdiIconColor="gray"
+                :width="95"
+                :disabled="formAction.mode.value === 'new'"
+                @click="formAction.batchStart"
+              />
+              
+              <UButton text="삭제" :disabled="formAction.mode.value === 'new'" @click="formAction.deleteForm" />
+              <UButton text="저장" @click="formAction.saveForm" type="primary" />
+            </UButtonBox>
+          </UBox>
+          
           <UValidationGroup
             :ref="ctl => {
               validationGroup = ctl as InstanceType<typeof UValidationGroup>
@@ -98,26 +118,6 @@
                     >{{ $ustra.utils.formatting.datetime(formAction.inputData.updDttm, 'yyyy-MM-dd hh:mm:ss') }} /
                     {{ formAction.inputData.updUsrId }} / {{ formAction.inputData.updUsrIp }}
                   </b>
-                </UField>
-              </UFieldRow>
-              <UFieldRow :ratio="[1, 1]">
-                <UField direction="col">
-                  <UButtonBox :left="true">
-                    <UButton
-                      text="시작"
-                      icon="mdi-play-circle"
-                      mdiIconColor="gray"
-                      :width="80"
-                      :disabled="formAction.mode.value === 'new'"
-                      @click="formAction.batchStart"
-                    />
-                  </UButtonBox>
-                </UField>
-                <UField direction="col">
-                  <UButtonBox :right="true">
-                    <UButton text="저장" @click="formAction.saveForm" />
-                    <UButton text="삭제" :disabled="formAction.mode.value === 'new'" @click="formAction.deleteForm" />
-                  </UButtonBox>
                 </UField>
               </UFieldRow>
             </UFieldSet>
