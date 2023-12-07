@@ -11,7 +11,7 @@
               <UTextBox type="text" v-model="searchAction.searchParam.procId"/>
             </UField>
             <UField label="요청 아이디">
-              <UTextBox type="text" v-model="searchAction.searchParam.reqId" style="width: 230px" />
+              <UTextBox type="text" v-model="searchAction.searchParam.reqId" />
             </UField>
             <UField label="인터페이스 아이디">
               <UTextBox type="text" v-model="searchAction.searchParam.ifId"/>
@@ -29,12 +29,11 @@
               <UTextBox type="text" v-model="searchAction.searchParam.url"/>
             </UField>
             <UField direction="row" label="채널 코드">
-              <UCodeComboBox grpCd="CHNL_CD" v-model="searchAction.searchParam.chnlCd" style="width: 230px" :displayNullText="'전체'" />
+              <UCodeComboBox grpCd="CHNL_CD" v-model="searchAction.searchParam.chnlCd" :displayNullText="'전체'" />
             </UField>
             <UField direction="row" label="성공 여부">
               <WjComboBox
                 v-model="searchAction.searchParam.succYn"
-                style="width: 230px"
                 :itemsSource="searchAction.succYnItems"
                 displayMemberPath="text"
                 selectedValuePath="value"
@@ -44,7 +43,7 @@
           </UFieldRow>
           <UFieldRow :ratio="[1, 2, '300px']">
             <UField direction="row" label="응답 코드 값">
-              <UTextBox type="text" v-model="searchAction.searchParam.resCdVal" style="width: 230px" />
+              <UTextBox type="text" v-model="searchAction.searchParam.resCdVal" />
             </UField>
             <UField label="기간">
               <UDatePeriodBox
