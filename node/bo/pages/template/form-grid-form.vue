@@ -105,44 +105,42 @@
         </UButtonBox>
       </UBox>
 
-      <UBox>
-        <UFieldSet>
-          <UFieldRow>
-            <UField label="회원번호" required>
-              <UTextBox disabled/>
-            </UField>
-            <UField label="회원명" required>
-              <UTextBox disabled/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="포인트유형구분" required>
-              <UWjComboBox :itemsSource="items" displayMemberPath="text" />
-            </UField>
-            <UField label="차감가능포인트">
-              <UTextBox disabled/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="유효기간">
-              <UWjComboBox :itemsSource="items" displayMemberPath="text" />
-            </UField>
-            <UField label="적용포인트">
-              <UTextBox/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="지급사유">
-              <UTextBox/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="비고(고객노출용)" required>
-              <UTextBox/>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UBox>
+      <UFieldSet>
+        <UFieldRow>
+          <UField label="회원번호" required>
+            <UTextBox disabled/>
+          </UField>
+          <UField label="회원명" required>
+            <UTextBox disabled/>
+          </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="포인트유형구분" required>
+            <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+          </UField>
+          <UField label="차감가능포인트">
+            <UTextBox disabled/>
+          </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="유효기간">
+            <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+          </UField>
+          <UField label="적용포인트">
+            <UTextBox/>
+          </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="지급사유">
+            <UTextBox/>
+          </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="비고(고객노출용)" required>
+            <UTextBox/>
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
     </UItem>
   </UBox>
 </div>
