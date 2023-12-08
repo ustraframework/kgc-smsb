@@ -50,6 +50,13 @@
           <span>col12</span>
           <span class="data-count">총<span>24</span>건</span>
         </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
       </UBox>
       
       <UBox>
@@ -77,6 +84,13 @@
           <span>col5</span>
           <span class="data-count">총<span>24</span>건</span>
         </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
       </UBox>
       
       <UBox>
@@ -104,6 +118,13 @@
           <span>col9</span>
           <span class="data-count">총<span>24</span>건</span>
         </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
       </UBox>
       
       <UBox>
@@ -131,6 +152,13 @@
           <span>col8</span>
           <span class="data-count">총<span>24</span>건</span>
         </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
       </UBox>
       
       <UBox>
