@@ -1,11 +1,11 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="탈퇴일자" required>
+  <!-- 검색영역 -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search"  ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="탈퇴일자" required>
               <UDatePeriodBox v-model:start="start" v-model:end="end" />
             </UField>
             <UField label="회원번호/명">
@@ -20,42 +20,55 @@
                 <UButton text="조회" type="is-search" />
               </div>
             </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
 
-  <!-- ------------------------------------------------------------------ -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <h2 class="table-title">
-            <span class="data-count">총<span>50</span>건</span>
-          </h2>
-          <UButtonBox class="table-buttons">
-            <UButton text="탈퇴복원처리" type="is-filled" />
-          </UButtonBox>
-        </UBox>
+  <!-- ----------------------------- Grid ------------------------------- -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub"  ratio="1" >
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+          <span class="data-count">총<span>50</span>건</span>
+        </h2>
+        <UButtonBox class="table-buttons">
+          <UButton text="탈퇴복원처리" type="is-filled" />
+        </UButtonBox>
+      </UBox>
+      
+      <UBox height="345px">
+        <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원구분" binding="col1" width="*" />
+          <WjFlexGridColumn header="잔여포인트" binding="col1" width="*" />
+          <WjFlexGridColumn header="탈퇴일자" binding="col1" width="*" />
+          <WjFlexGridColumn header="삭제예정일자" binding="col1" width="*" />
+          <WjFlexGridColumn header="탈퇴사유" binding="col1" width="*" />
+        </WjFlexGrid>
+      </UBox>
+    </UItem>
+  </UBox>
 
-        <UBox height="345px">
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원구분" binding="col1" width="*" />
-            <WjFlexGridColumn header="잔여포인트" binding="col1" width="*" />
-            <WjFlexGridColumn header="탈퇴일자" binding="col1" width="*" />
-            <WjFlexGridColumn header="삭제예정일자" binding="col1" width="*" />
-            <WjFlexGridColumn header="탈퇴사유" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
 
-  <!-- ------------------------------------------------------------------ -->
+  <!-- -------------------------------- 회원 상세 정보 ------------------------------- -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub"  ratio="1" >
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+          <span>회원 상세 정보</span>
+        </h2>
+      </UBox>
+      
+      <UBox>
+        Contents
+      </UBox>
+    </UItem>
+  </UBox>
+
+  
   <div class="columns has-gap">
     <UBox class="card is-sub">
       <UItem class="card-body">

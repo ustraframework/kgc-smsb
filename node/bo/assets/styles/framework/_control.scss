@@ -28,17 +28,19 @@ textarea {
     background: $vLighten8;
   }
 }
+
+// 2023-12-08 UI개발
 input[type='checkbox'] {
   display: none;
   & + label {
-    color: $vDarken1;
+    color: $is-black;
     &:before {
       content: '';
       display: inline-block;
-      width: 13px;
-      height: 13px;
+      width: 16px;
+      height: 16px;
       margin-right: 6px;
-      margin-top: -3px;
+      margin-top: -2.5px;
       vertical-align: middle;
       background: #fff;
       border: 1px solid #767676;
@@ -47,74 +49,79 @@ input[type='checkbox'] {
     &:hover,
     &:active,
     &:focus {
+      cursor: pointer;
       &:before {
-        border: 1px solid $vPrimary1;
+        border: 1px solid $is-primary;
       }
     }
   }
   &:checked {
     & + label:before {
-      background: $vPrimary3 url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_checkbox_on.png) no-repeat center center;
-      border: 1px solid $vPrimary3;
+      background: $is-primary url(/assets/images/svg/ico_check.svg) no-repeat center center;
+      border: 1px solid $is-primary;
     }
   }
   &:disabled {
     & + label {
-      color: $vLighten1;
+      cursor: unset;
+      color: $is-black;
       &:before {
-        border: 1px solid $vLighten5;
-        background: $vLighten9;
+        border: 1px solid $gray20;
+        background: $gray80;
       }
     }
     &:checked {
       & + label:before {
-        background: $vLighten5 url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_checkbox_on.png) no-repeat center center;
-        border: 1px solid $vLighten5;
+        background: $gray80 url(/assets/images/svg/ico_check.svg) no-repeat center center;
+        border: 1px solid $gray80;
       }
     }
   }
 }
+
+// 2023-12-08 UI개발
 input[type='radio'] {
   display: none;
   & + label {
-    color: $vDarken1;
+    color: $is-black;
     &:before {
       content: '';
       display: inline-block;
-      width: 15px;
-      height: 15px;
+      width: 16px;
+      height: 16px;
       margin-right: 6px;
-      margin-top: -3px;
+      margin-top: -2.5px;
       vertical-align: middle;
       background: #fff;
-      border: 1px solid #767676;
+      border: 1px solid $gray180;
       border-radius: 15px;
     }
     &:hover,
     &:active,
     &:focus {
+      cursor: pointer;
       &:before {
-        border: 1px solid $vPrimary1;
+        border: 1px solid $is-primary;
       }
     }
   }
   &:checked {
     & + label:before {
-      border: 4px solid $vPrimary3;
+      border: 4px solid $is-primary;
     }
   }
   &:disabled {
     & + label {
-      color: $vLighten1;
+      color: $gray180;
       &:before {
-        border: 1px solid $vLighten5;
-        background: $vLighten9;
+        border: 1px solid $gray80;
+        background: $gray20;
       }
     }
     &:checked {
       & + label:before {
-        background: $vLighten9;
-        border: 4px solid $vLighten5;
+        background: $is-white;
+        border: 4px solid $gray80;
       }
     }
   }
