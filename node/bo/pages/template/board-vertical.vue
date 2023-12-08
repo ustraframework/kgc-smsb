@@ -1,87 +1,81 @@
 <template>
 <div>
   <!-- 검색영역 -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="검색영역" ><UTextBox></UTextBox></UField>
-            <UField blank></UField>
-            <UField blank></UField>
-            <UField blank>
-              <div class="search-btn">
-                <UButton text="조회" type="is-search"/>
-              </div>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search"  ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="검색영역" ><UTextBox></UTextBox></UField>
+          <UField blank></UField>
+          <UField blank></UField>
+          <UField blank>
+            <div class="search-btn">
+              <UButton text="조회" type="is-search"/>
+            </div>
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
   <!-- // 검색영역 --> 
 
-  <div class="columns">
-    <UBox direction="row">
-      <!-- 좌측 영역 -->
-      <UItem baseSize="600" class="gap-right">
-        <UBox class="card is-sub">
-          <UItem class="card-body" baseSize="500">
-            <UBox class="table-title-wrap" direction="row">
-              <UItem itemDirection="row" :ratio="1">
-                <h2 class="table-title">
-                  <span>Sub title</span>
-                  <span class="data-count">총<span>24</span>건</span>
-                </h2>
-              </UItem>
-            </UBox>
-            
-            <UBox>
-              <WjFlexGrid :itemsSource="itemsSourceGrid">
-                <WjFlexGridColumn header="No" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-                <WjFlexGridColumn header="채널" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-              </WjFlexGrid>
-            </UBox>
-          </UItem>
-        </UBox>
-      </UItem>
+  <UBox class="columns" direction="row" height="830">
+    <!-- 좌측 영역 -->
+    <UItem class="card is-sub" ratio="4">
+      <UBox class="table-title-wrap" direction="row">
+        <UItem itemDirection="row" :ratio="1">
+          <h2 class="table-title">
+            <span>Sub title</span>
+            <span class="data-count">총<span>24</span>건</span>
+          </h2>
+        </UItem>
+      </UBox>
       
-      <!-- 우측 영역 -->
-      <UItem ratio="1" class="gap-left">
-        <UBox class="card is-sub">
-          <UItem class="card-body">
-            <UBox class="table-title-wrap">
-              <h2 class="table-title">
-                <span>Sub title</span>
-              </h2>
-            </UBox>
-            <UFieldSet>
-              <!-- ------------------------------------------------------------------ -->
-              <UFieldRow>
-                <UField label="업무구분"><UTextBox></UTextBox></UField>
-              </UFieldRow>
-              <!-- ------------------------------------------------------------------ -->
-              <UFieldRow>
-                <UField label="업무내용">
-                  <UCkEditor5 v-model="content" :height="300" :disabled="disabled" :initialized="ckEditor.initialize" /></UField>
-              </UFieldRow>
-              <!-- ------------------------------------------------------------------ -->
-              <UFieldRow>
-                <UField label="첨부파일">
-                  <div class="buttons">
-                    <UButton text="Upload" @click="() => uploadFile()" />
-                  </div>
-                  <UMultiFileUploader ref="uploader" fileGroupId="menuIcon" />
-                </UField>
-              </UFieldRow>
-            </UFieldSet>
-          </UItem>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+      <UBox>
+        <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+          <WjFlexGridColumn header="채널" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+        </WjFlexGrid>
+      </UBox>
+    </UItem>
+    <!-- 우측 영역 -->
+    <UItem class="card is-sub" ratio="8">
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+          <span>Sub title</span>
+        </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
+      </UBox>
+      <UFieldSet>
+        <!-- ------------------------------------------------------------------ -->
+        <UFieldRow>
+          <UField label="업무구분"><UTextBox></UTextBox></UField>
+        </UFieldRow>
+        <!-- ------------------------------------------------------------------ -->
+        <UFieldRow>
+          <UField label="업무내용">
+            <UCkEditor5 v-model="content" :height="300" :disabled="disabled" :initialized="ckEditor.initialize" /></UField>
+        </UFieldRow>
+        <!-- ------------------------------------------------------------------ -->
+        <UFieldRow>
+          <UField label="첨부파일">
+            <div class="buttons">
+              <UButton text="Upload" @click="() => uploadFile()" />
+            </div>
+            <UMultiFileUploader ref="uploader" fileGroupId="menuIcon" />
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
 </div>
 </template>
 
