@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="1100" :height="620" title="임직원 검색">
+  <UPopup v-model="showPopup" :width="1100" :height="630" title="임직원 검색">
     <UBox direction="col">
       <UItem :ratio="1" class="pop-contents">
         <UBox class="pop-search" style="margin-bottom: 10px;">
@@ -45,26 +45,23 @@
            </UFieldSet>
         </UBox>
 
-        
-          <UBox class="table-title-wrap">
-            <h2 class="table-title">
-              <span class="data-count">총<span>9</span>건</span>
-            </h2>
-          </UBox>
+        <UBox class="table-title-wrap">
+          <h2 class="table-title">
+            <span class="data-count">총<span>9</span>건</span>
+          </h2>
+        </UBox>
 
-          <UBox height="200px">
-            <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-              <WjFlexGridColumn header="No" binding="col1" width="*" />
-              <WjFlexGridColumn header="고객번호" binding="col1" width="*" />
-              <WjFlexGridColumn header="고객명" binding="col1" width="*" />
-              <WjFlexGridColumn header="카드번호" binding="col1" width="*" />
-              <WjFlexGridColumn header="본부" binding="col1" width="*" />
-              <WjFlexGridColumn header="매장명" binding="col1" width="*" />
-              <WjFlexGridColumn header="생년월일" binding="col1" width="*" />
-              <WjFlexGridColumn header="핸드폰번호" binding="col1" width="*" />
-              <WjFlexGridColumn header="등급" binding="col1" width="*" />
-            </WjFlexGrid>
-          </UBox>
+        <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 208px;">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="고객번호" binding="col1" width="*" />
+          <WjFlexGridColumn header="고객명" binding="col1" width="*" />
+          <WjFlexGridColumn header="카드번호" binding="col1" width="*" />
+          <WjFlexGridColumn header="본부" binding="col1" width="*" />
+          <WjFlexGridColumn header="매장명" binding="col1" width="*" />
+          <WjFlexGridColumn header="생년월일" binding="col1" width="*" />
+          <WjFlexGridColumn header="핸드폰번호" binding="col1" width="*" />
+          <WjFlexGridColumn header="등급" binding="col1" width="*" />
+        </WjFlexGrid>
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>

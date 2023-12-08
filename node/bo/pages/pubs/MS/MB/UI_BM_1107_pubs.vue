@@ -29,16 +29,14 @@
           </UFieldSet>
         </UBox>
         
-        <UBox height="250px">
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="대메뉴" binding="col1" width="*" />
-            <WjFlexGridColumn header="중메뉴" binding="col1" width="*" />
-            <WjFlexGridColumn header="프로그램ID" binding="col1" width="*" />
-            <WjFlexGridColumn header="프로그램명" binding="col1" width="*" />
-            <WjFlexGridColumn header="개인정보여부" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
+        <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 250px;">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="대메뉴" binding="col1" width="*" />
+          <WjFlexGridColumn header="중메뉴" binding="col1" width="*" />
+          <WjFlexGridColumn header="프로그램ID" binding="col1" width="*" />
+          <WjFlexGridColumn header="프로그램명" binding="col1" width="*" />
+          <WjFlexGridColumn header="개인정보여부" binding="col1" width="*" />
+        </WjFlexGrid>
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>

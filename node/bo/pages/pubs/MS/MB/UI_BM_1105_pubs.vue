@@ -37,18 +37,16 @@
         </UButtonBox>
       </UBox>
       
-      <UBox height="345px">
-        <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-          <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-          <WjFlexGridColumn header="회원구분" binding="col1" width="*" />
-          <WjFlexGridColumn header="잔여포인트" binding="col1" width="*" />
-          <WjFlexGridColumn header="탈퇴일자" binding="col1" width="*" />
-          <WjFlexGridColumn header="삭제예정일자" binding="col1" width="*" />
-          <WjFlexGridColumn header="탈퇴사유" binding="col1" width="*" />
-        </WjFlexGrid>
-      </UBox>
+      <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <WjFlexGridColumn header="No" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원구분" binding="col1" width="*" />
+        <WjFlexGridColumn header="잔여포인트" binding="col1" width="*" />
+        <WjFlexGridColumn header="탈퇴일자" binding="col1" width="*" />
+        <WjFlexGridColumn header="삭제예정일자" binding="col1" width="*" />
+        <WjFlexGridColumn header="탈퇴사유" binding="col1" width="*" />
+      </WjFlexGrid>
     </UItem>
   </UBox>
 

@@ -8,20 +8,18 @@
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="1000" :height="400" title="사용제한이력">
+  <UPopup v-model="showPopup" :width="1000" :height="390" title="사용제한이력">
     <UBox direction="col">
       <UItem :ratio="1" class="pop-contents">
-        <UBox>
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid" height="300px">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="포인트유형" binding="col1" width="*" />
-            <WjFlexGridColumn header="채널" binding="col1" width="*" />
-            <WjFlexGridColumn header="제품유형" binding="col1" width="*" />
-            <WjFlexGridColumn header="사용가능여부" binding="col1" width="*" />
-            <WjFlexGridColumn header="적용시작일자" binding="col1" width="*" />
-            <WjFlexGridColumn header="적용종료일자" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
+        <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 198px;">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="포인트유형" binding="col1" width="*" />
+          <WjFlexGridColumn header="채널" binding="col1" width="*" />
+          <WjFlexGridColumn header="제품유형" binding="col1" width="*" />
+          <WjFlexGridColumn header="사용가능여부" binding="col1" width="*" />
+          <WjFlexGridColumn header="적용시작일자" binding="col1" width="*" />
+          <WjFlexGridColumn header="적용종료일자" binding="col1" width="*" />
+        </WjFlexGrid>
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>

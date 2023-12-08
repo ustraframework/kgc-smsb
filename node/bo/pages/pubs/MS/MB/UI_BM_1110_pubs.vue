@@ -1,10 +1,9 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search" ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
             <UField label="사용채널" required>
               <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
             </UField>
@@ -31,42 +30,38 @@
             <UField blank></UField>
             <UField blank></UField>
           </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+      </UFieldSet>
+    </UItem>
+  </UBox>
 
   <!-- ------------------------------------------------------------------ -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <h2 class="table-title">
-            <span class="data-count">총<span>50</span>건</span>
-          </h2>
-          <UButtonBox class="table-buttons">
-            <UButton text="엑셀 다운로드" icon="excel" />
-          </UButtonBox>
-        </UBox>
-
-        <UBox height="345px">
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원ID" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원구분" binding="col1" width="*" />
-            <WjFlexGridColumn header="사용채널" binding="col1" width="*" />
-            <WjFlexGridColumn header="인증채널" binding="col1" width="*" />
-            <WjFlexGridColumn header="접속단말" binding="col1" width="*" />
-            <WjFlexGridColumn header="접속 브라우저" binding="col1" width="*" />
-            <WjFlexGridColumn header="인증상태" binding="col1" width="*" />
-            <WjFlexGridColumn header="인증일시" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub" ratio="1" >
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+          <span class="data-count">총<span>50</span>건</span>
+        </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UButton text="엑셀 다운로드" icon="excel" />
+        </UButtonBox>
+      </UBox>
+      
+      <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <WjFlexGridColumn header="No" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원ID" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원구분" binding="col1" width="*" />
+        <WjFlexGridColumn header="사용채널" binding="col1" width="*" />
+        <WjFlexGridColumn header="인증채널" binding="col1" width="*" />
+        <WjFlexGridColumn header="접속단말" binding="col1" width="*" />
+        <WjFlexGridColumn header="접속 브라우저" binding="col1" width="*" />
+        <WjFlexGridColumn header="인증상태" binding="col1" width="*" />
+        <WjFlexGridColumn header="인증일시" binding="col1" width="*" />
+      </WjFlexGrid>
+    </UItem>
+  </UBox>
 </div>
 </template>
 
