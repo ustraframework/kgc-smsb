@@ -1,73 +1,68 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="항목구분" required>
-              <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
-            </UField>
-            <UField label="변경일자" required>
-              <UDatePeriodBox v-model:start="start" v-model:end="end" />
-            </UField>
-            <UField blank></UField>
-            <UField blank>
-              <div class="search-btn">
-                <UButton text="조회" type="is-search" />
-              </div>
-            </UField>
-          </UFieldRow>
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="회원유형" required>
-              <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
-            </UField>
-            <UField label="회원번호/명" required>
-              <UBox>
-                <UTextBox type="icon"/>
-                <UTextBox/>
-              </UBox>
-            </UField>
-            <UField blank></UField>
-            <UField blank></UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search" ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="항목구분" required>
+            <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
+          </UField>
+          <UField label="변경일자" required>
+            <UDatePeriodBox v-model:start="start" v-model:end="end" />
+          </UField>
+          <UField blank></UField>
+          <UField blank>
+            <div class="search-btn">
+              <UButton text="조회" type="is-search" />
+            </div>
+          </UField>
+        </UFieldRow>
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="회원유형" required>
+            <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
+          </UField>
+          <UField label="회원번호/명">
+            <UBox>
+              <UTextBox type="icon"/>
+              <UTextBox/>
+            </UBox>
+          </UField>
+          <UField blank></UField>
+          <UField blank></UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
 
   <!-- ------------------------------------------------------------------ -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <h2 class="table-title">
-            <span class="data-count">총<span>50</span>건</span>
-          </h2>
-          <UButtonBox class="table-buttons">
-            <UButton text="엑셀 다운로드" icon="excel" />
-          </UButtonBox>
-        </UBox>
-
-        <UBox height="345px">
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원유형" binding="col1" width="*" />
-            <WjFlexGridColumn header="항목구분" binding="col1" width="*" />
-            <WjFlexGridColumn header="항목구분명" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경이전 값" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경이후 값" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경사유" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경자" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경일시" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경자IP" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub" ratio="1" >
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+          <span class="data-count">총<span>50</span>건</span>
+        </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UButton text="엑셀 다운로드" icon="excel" />
+        </UButtonBox>
+      </UBox>
+      
+      <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 438px">
+        <WjFlexGridColumn header="No" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원유형" binding="col1" width="*" />
+        <WjFlexGridColumn header="항목구분" binding="col1" width="*" />
+        <WjFlexGridColumn header="항목구분명" binding="col1" width="*" />
+        <WjFlexGridColumn header="변경이전 값" binding="col1" width="*" />
+        <WjFlexGridColumn header="변경이후 값" binding="col1" width="*" />
+        <WjFlexGridColumn header="변경사유" binding="col1" width="*" />
+        <WjFlexGridColumn header="변경자" binding="col1" width="*" />
+        <WjFlexGridColumn header="변경일시" binding="col1" width="*" />
+        <WjFlexGridColumn header="변경자IP" binding="col1" width="*" />
+      </WjFlexGrid>
+    </UItem>
+  </UBox>
 </div>
 </template>
 

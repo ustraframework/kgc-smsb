@@ -2,13 +2,13 @@
   <div class="docs__wrap">
     <div class="columns has-gap mb-12">
       <div class="column is-half">
-        <h1 class="mb-4">프로그램 검색</h1>
+        <h1 class="mb-4">임직원 검색</h1>
         <UButton text="팝업 열기" @click="() => (showPopup = true)"></UButton>
       </div>
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="900" :height="550" title="프로그램 검색">
+  <UPopup v-model="showPopup" :width="900" :height="550" title="임직원 검색">
     <UBox direction="col">
       <UItem :ratio="1" class="pop-contents">
         <UBox class="pop-search">
@@ -17,7 +17,7 @@
               <UField label="사번/성명" >
                 <UTextBox />
               </UField>
-              <UField label="부서코드/명" required>
+              <UField label="부서코드/명">
                 <UTextBox />
               </UField>
               <UField blank>
@@ -29,15 +29,14 @@
           </UFieldSet>
         </UBox>
         
-        <UBox height="250px">
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="소속" binding="col1" width="*" />
-            <WjFlexGridColumn header="사번" binding="col1" width="*" />
-            <WjFlexGridColumn header="성명" binding="col1" width="*" />
-            <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
+        <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 250px;">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="소속" binding="col1" width="*" />
+          <WjFlexGridColumn header="사번" binding="col1" width="*" />
+          <WjFlexGridColumn header="성명" binding="col1" width="*" />
+          <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
+        </WjFlexGrid>
+        
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>
