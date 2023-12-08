@@ -1,71 +1,63 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet>
-          <UFieldRow>
-            <UField direction="col" required label="시스템">
+  <!-- 검색영역 -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search" ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField required label="시스템" >
               <UCodeComboBox v-model="searchBarActions.selectedSystemCode.value" grpCd="SYS_CD"/>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
-  <div class="columns">
-    <UBox direction="row" height="740px">
-      <!-- 좌측 트리 -->
-      <UItem baseSize="500" class="gap-right">
-        <UBox class="card is-sub">
-          <UItem class="card-body">
-            <WjTreeView
-              style="width: 100%; height: 100%"
-              displayMemberPath="authGrpNm"
-              childItemsPath="items"
-              :autoCollapse="false"
-              :itemsSource="treeActions.items.value"
-              :loadedItems="s => treeActions.onLoadedItems(s)"
-              :itemClicked="e => formActions.load(e.selectedItem.authGrpId)"
-              :initialized="treeActions.treeView.initialize"
-            ></WjTreeView>
-            <WjMenu
-              style="display: none; min-width: 200px"
-              :itemClicked="contextMenuActions.onItemClick"
-              :initialized="e => (contextMenuActions.menu.value = e)"
-            >
-              <WjMenuItem value="newOnTop" v-if="!contextMenuActions.selectedContextMenuData.value">
-                <VIcon class="mr-2">mdi-plus</VIcon>권한 그룹 추가
-              </WjMenuItem>
-              <WjMenuItem value="newOnChild" v-if="!!contextMenuActions.selectedContextMenuData.value">
-                <VIcon class="mr-2">mdi-plus</VIcon>"{{ contextMenuActions.selectedContextMenuData.value.authGrpNm }}"의 하위 그룹 추가
-              </WjMenuItem>
-              <WjMenuSeparator />
-              <WjMenuItem value="expandAll"><VIcon class="mr-2">mdi-arrow-expand-all</VIcon>모두 펼치기</WjMenuItem>
-              <WjMenuItem value="collapsedAll"><VIcon class="mr-2">mdi-arrow-collapse-all</VIcon>모두 접기</WjMenuItem>
-            </WjMenu>
-          </UItem>
-        </UBox>        
-      </UItem>
+          </UField>
+          <UField blank></UField>
+          <UField blank></UField>
+          <UField blank></UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
+  <!-- // 검색영역 -->
 
-      <!-- 우측 영역 -->
-      <UItem ratio="1" class="gap-left">
-        <UBox class="card is-sub">
-          <UItem class="card-body">
-            <Form
-              :ref="e => {
-                if (e) {
-                  formActions.component.value = e as InstanceType<typeof Form>
-                }
-              }"
-              :systemCode="searchBarActions.selectedSystemCode.value"
-              @updated="authGrpId => treeActions.loadAuthGroups(authGrpId)"
-            />
-          </UItem>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+  
+  <UBox class="columns" direction="row" height="740px">
+    <UItem class="card is-sub" ratio="4">
+      <WjTreeView
+        style="width: 100%; height: 100%"
+        displayMemberPath="authGrpNm"
+        childItemsPath="items"
+        :autoCollapse="false"
+        :itemsSource="treeActions.items.value"
+        :loadedItems="s => treeActions.onLoadedItems(s)"
+        :itemClicked="e => formActions.load(e.selectedItem.authGrpId)"
+        :initialized="treeActions.treeView.initialize"
+      ></WjTreeView>
+      <WjMenu
+        style="display: none; min-width: 200px"
+        :itemClicked="contextMenuActions.onItemClick"
+        :initialized="e => (contextMenuActions.menu.value = e)"
+      >
+        <WjMenuItem value="newOnTop" v-if="!contextMenuActions.selectedContextMenuData.value">
+          <VIcon class="mr-2">mdi-plus</VIcon>권한 그룹 추가
+        </WjMenuItem>
+        <WjMenuItem value="newOnChild" v-if="!!contextMenuActions.selectedContextMenuData.value">
+          <VIcon class="mr-2">mdi-plus</VIcon>"{{ contextMenuActions.selectedContextMenuData.value.authGrpNm }}"의 하위 그룹 추가
+        </WjMenuItem>
+        <WjMenuSeparator />
+        <WjMenuItem value="expandAll"><VIcon class="mr-2">mdi-arrow-expand-all</VIcon>모두 펼치기</WjMenuItem>
+        <WjMenuItem value="collapsedAll"><VIcon class="mr-2">mdi-arrow-collapse-all</VIcon>모두 접기</WjMenuItem>
+      </WjMenu>
+    </UItem>
+    <UItem class="card is-sub" ratio="8">
+      <Form
+        :ref="e => {
+          if (e) {
+            formActions.component.value = e as InstanceType<typeof Form>
+          }
+        }"
+        :systemCode="searchBarActions.selectedSystemCode.value"
+        @updated="authGrpId => treeActions.loadAuthGroups(authGrpId)"
+      />
+    </UItem>
+  </UBox>
 </div>
 </template>
 <script lang="ts" setup>

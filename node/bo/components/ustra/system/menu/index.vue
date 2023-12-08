@@ -1,72 +1,64 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet>
-          <UFieldRow>
-            <UField direction="col" required label="시스템">
-              <UCodeComboBox v-model="searchBar.selectedSystemCode.value" grpCd="SYS_CD" style="width: 300px" />
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
-  <div class="columns">
-    <UBox direction="row" height="688px">
-      <!-- 좌측 트리 -->
-      <UItem baseSize="500" class="gap-right">
-        <UBox class="card is-sub">
-          <UItem class="card-body">
-            <WjTreeView
-                style="width: 100%; height: 100%"
-                displayMemberPath="mnuNm"
-                childItemsPath="items"
-                :autoCollapse="false"
-                :itemsSource="tree.menus.value"
-                :loadedItems="s => tree.onLoadedItems(s)"
-                :itemClicked="e => form.load(e.selectedItem.mnuId)"
-                :initialized="
-                  e => {
-                    tree.treeView.value = e
-                    e.hostElement.addEventListener('contextmenu', e => {
-                      e.preventDefault()
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search" ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField required label="시스템" >
+            <UCodeComboBox v-model="searchBar.selectedSystemCode.value" grpCd="SYS_CD" style="width: 300px" />
+          </UField>
+          <UField blank></UField>
+          <UField blank></UField>
+          <UField blank></UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
 
-                      if (contextMenu.ref) {
-                        contextMenu.show(e)
-                      }
-                    })
-                  }
-                "
-              ></WjTreeView>
-              <WjMenu style="display: none; min-width: 200px" :itemClicked="e => contextMenu.onClick()" :initialized="e => (contextMenu.ref = e)">
-                <WjMenuItem value="newOnTop" v-if="!contextMenu.treeData.value"><VIcon class="mr-2">mdi-plus</VIcon>메뉴 추가</WjMenuItem>
-                <WjMenuItem value="newOnChild" v-if="!!contextMenu.treeData.value"
-                  ><VIcon class="mr-2">mdi-plus</VIcon>"{{ contextMenu.treeData.value.mnuNm }}"의 하위 메뉴 추가</WjMenuItem
-                >
-                <WjMenuSeparator />
-                <WjMenuItem value="expandAll"><VIcon class="mr-2">mdi-arrow-expand-all</VIcon>모두 펼치기</WjMenuItem>
-                <WjMenuItem value="collapsedAll"><VIcon class="mr-2">mdi-arrow-collapse-all</VIcon>모두 접기</WjMenuItem>
-              </WjMenu>
-          </UItem>
-        </UBox>        
-      </UItem>
+  
+  <UBox class="columns" direction="row">
+    <!-- 좌측 영역 -->
+    <UItem class="card is-sub" ratio="4">
+      <WjTreeView
+        style="width: 100%; height: 100%"
+        displayMemberPath="mnuNm"
+        childItemsPath="items"
+        :autoCollapse="false"
+        :itemsSource="tree.menus.value"
+        :loadedItems="s => tree.onLoadedItems(s)"
+        :itemClicked="e => form.load(e.selectedItem.mnuId)"
+        :initialized="
+          e => {
+            tree.treeView.value = e
+            e.hostElement.addEventListener('contextmenu', e => {
+              e.preventDefault()
 
-      <!-- 우측 영역 -->
-      <UItem ratio="1" class="gap-left">
-        <UBox class="card is-sub">
-          <UItem class="card-body">
-            <Form
-              :ref="e => (form.ref.value = e as InstanceType<typeof Form>)"
-              :systemCode="searchBar.selectedSystemCode.value"
-              @updated="mnuId => tree.loadMenus(mnuId)"
-            />
-          </UItem>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+              if (contextMenu.ref) {
+                contextMenu.show(e)
+              }
+            })
+          }
+        "
+      ></WjTreeView>
+      <WjMenu style="display: none; min-width: 200px" :itemClicked="e => contextMenu.onClick()" :initialized="e => (contextMenu.ref = e)">
+        <WjMenuItem value="newOnTop" v-if="!contextMenu.treeData.value"><VIcon class="mr-2">mdi-plus</VIcon>메뉴 추가</WjMenuItem>
+        <WjMenuItem value="newOnChild" v-if="!!contextMenu.treeData.value"
+          ><VIcon class="mr-2">mdi-plus</VIcon>"{{ contextMenu.treeData.value.mnuNm }}"의 하위 메뉴 추가</WjMenuItem
+        >
+        <WjMenuSeparator />
+        <WjMenuItem value="expandAll"><VIcon class="mr-2">mdi-arrow-expand-all</VIcon>모두 펼치기</WjMenuItem>
+        <WjMenuItem value="collapsedAll"><VIcon class="mr-2">mdi-arrow-collapse-all</VIcon>모두 접기</WjMenuItem>
+      </WjMenu>
+    </UItem>
+    <!-- 우측 영역 -->
+    <UItem class="card is-sub" ratio="8">
+      <Form
+        :ref="e => (form.ref.value = e as InstanceType<typeof Form>)"
+        :systemCode="searchBar.selectedSystemCode.value"
+        @updated="mnuId => tree.loadMenus(mnuId)"
+      />
+    </UItem>
+  </UBox>
 </div>
 </template>
 <script lang="ts" setup>

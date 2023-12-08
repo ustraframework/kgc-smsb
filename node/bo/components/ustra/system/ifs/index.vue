@@ -1,25 +1,18 @@
 <template>
-    <div class="columns has-gap">
-      <UBox class="card is-sub">
-        <UItem class="card-body">
-          <UBox direction="col">
-            <UItem :ratio="1">
-              <WjTabPanel class="menu-tab-panel">
-                <WjTab>
-                  <a>인바운드</a>
-                  <IfPage :tabType="tabType[0]" />
-                </WjTab>
-                <WjTab>
-                  <a>아웃바운드</a>
-                  <IfPage :tabType="tabType[1]" />
-                </WjTab>
-              </WjTabPanel>
-            </UItem>
-          </UBox>
-        </UItem>
-      </UBox>
-    </div>
-  
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub" ratio="1" >
+      <WjTabPanel class="menu-tab-panel">
+        <WjTab>
+          <a>인바운드</a>
+          <IfPage :tabType="tabType[0]" />
+        </WjTab>
+        <WjTab>
+          <a>아웃바운드</a>
+          <IfPage :tabType="tabType[1]" />
+        </WjTab>
+      </WjTabPanel>
+    </UItem>
+  </UBox>
 </template>
 
 <script lang="ts" setup>

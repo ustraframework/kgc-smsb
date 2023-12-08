@@ -1,140 +1,127 @@
 <template>
 <div>
-  <div class="columns">
-    <UBox direction="row">
-      <!-- 좌측 영역 -->
-      <UItem baseSize="500" class="gap-right">
-        <UBox class="card is-sub">
-          <UItem class="card-body">
-            <UBox>
-              <WjFlexGrid
-                :initialized="ctl => (listActions.gridControl.value = ctl)"
-                :itemsSource="listActions.fileGroups.value"
-                style="height: 580px"
-                :isReadOnly="true"
-              >
-                <WjFlexGridColumn header="아이디" binding="fileGrpId" />
-                <WjFlexGridColumn header="그룹명" binding="fileGrpNm" width="*" />
-                <WjFlexGridColumn header="사용여부" binding="useYn" :cellTemplate="ctx => `${ctx.value === 'Y' ? '사용' : '미사용'}`" align="center" />
-              </WjFlexGrid>
-            </UBox>
-          </UItem>
-        </UBox>        
-      </UItem>
+  <UBox class="columns" direction="row" height="630">
+    <!-- 좌측 영역 -->
+    <UItem class="card is-sub" ratio="4">
+      <WjFlexGrid
+        :initialized="ctl => (listActions.gridControl.value = ctl)"
+        :itemsSource="listActions.fileGroups.value"
+        style="height: 580px"
+        :isReadOnly="true"
+      >
+        <WjFlexGridColumn header="아이디" binding="fileGrpId" />
+        <WjFlexGridColumn header="그룹명" binding="fileGrpNm" width="*" />
+        <WjFlexGridColumn header="사용여부" binding="useYn" :cellTemplate="ctx => `${ctx.value === 'Y' ? '사용' : '미사용'}`" align="center" />
+      </WjFlexGrid>
+    </UItem>
+    
+    <!-- 우측 영역 -->
+    <UItem class="card is-sub" ratio="8">
+      <UBox class="table-title-wrap">
+        <UButtonBox right top>
+          <UButton text="신규" :width="80" @click="() => formActions.init(true)" />
+          <UButton text="삭제" v-if="!formActions.isNew.value" :width="80" @click="() => formActions.remove()" />
+          <UButton text="저장" type="primary" :width="80" @click="() => formActions.save()" />
+        </UButtonBox>
+      </UBox>
+      
+      <UValidationGroup :ref="r => (formActions.validationGroup.value = r as InstanceType<typeof UValidationGroup>)">
+        <UFieldSet>
+          <UFieldRow>
+            <UField required label="아이디">
+              <WjInputMask
+                v-model="formActions.inputData.fileGrpId"
+                :isDisabled="!formActions.isNew.value"
+                :validation="{
+                  rules: [
+                    {
+                      type: 'custom',
+                      delay: 200,
+                      handler: async v => {
+                        if (!v) {
+                          return '필수 입력입니다.'
+                        }
+                        if (await fileGroupService.getFileGroup(v)) {
+                          return '이미 사용 중인 아이디입니다.'
+                        }
 
+                        return true
+                      },
+                    },
+                  ],
+                }"
+              />
+            </UField>
+          </UFieldRow>
 
-      <!-- 우측 영역 -->
-      <UItem ratio="1" class="gap-left">
-        <UBox class="card is-sub">
-          <UItem class="card-body">
-            <UBox class="table-title-wrap">
-              <UButtonBox right top>
-                <UButton text="신규" :width="80" @click="() => formActions.init(true)" />
-                <UButton text="삭제" v-if="!formActions.isNew.value" :width="80" @click="() => formActions.remove()" />
-                <UButton text="저장" type="primary" :width="80" @click="() => formActions.save()" />
-              </UButtonBox>
-            </UBox>
-            
-            <UValidationGroup :ref="r => (formActions.validationGroup.value = r as InstanceType<typeof UValidationGroup>)">
-              <UFieldSet>
-                <UFieldRow>
-                  <UField required label="아이디">
-                    <WjInputMask
-                      v-model="formActions.inputData.fileGrpId"
-                      :isDisabled="!formActions.isNew.value"
-                      :validation="{
-                        rules: [
-                          {
-                            type: 'custom',
-                            delay: 200,
-                            handler: async v => {
-                              if (!v) {
-                                return '필수 입력입니다.'
-                              }
-                              if (await fileGroupService.getFileGroup(v)) {
-                                return '이미 사용 중인 아이디입니다.'
-                              }
+          <UFieldRow>
+            <UField required label="그룹명">
+              <WjInputMask v-model="formActions.inputData.fileGrpNm" />
+            </UField>
+          </UFieldRow>
 
-                              return true
-                            },
-                          },
-                        ],
-                      }"
-                    />
-                  </UField>
-                </UFieldRow>
+          <UFieldRow>
+            <UField required label="저장경로">
+              <WjInputMask v-model="formActions.inputData.svPath" />
+            </UField>
+          </UFieldRow>
 
-                <UFieldRow>
-                  <UField required label="그룹명">
-                    <WjInputMask v-model="formActions.inputData.fileGrpNm" />
-                  </UField>
-                </UFieldRow>
+          <UFieldRow>
+            <UField required label="최대용량">
+              <WjInputNumber v-model="formActions.inputData.maxSz" />
+            </UField>
+          </UFieldRow>
 
-                <UFieldRow>
-                  <UField required label="저장경로">
-                    <WjInputMask v-model="formActions.inputData.svPath" />
-                  </UField>
-                </UFieldRow>
+          <UFieldRow>
+            <UField label="확장자제한">
+              <WjInputMask v-model="formActions.inputData.extenLmt" :isRequired="false" />
+              <UMessage type="info">
+                미 입력시 모든 유형에 대해 업로드가 가능합니다.<br />
+                확장자 또는 Mime type별로 제한을 설정하는 경우, comma로 구분하여 입력해주세요. <br />
+                ex) .doc,.docx,application/msword,image/*
+              </UMessage>
+            </UField>
+          </UFieldRow>
 
-                <UFieldRow>
-                  <UField required label="최대용량">
-                    <WjInputNumber v-model="formActions.inputData.maxSz" />
-                  </UField>
-                </UFieldRow>
+          <UFieldRow>
+            <UField required label="파일구조">
+              <UCodeComboBox grpCd="DIR_STRUCT_CD" v-model="formActions.inputData.dirStructCd" />
+            </UField>
+          </UFieldRow>
 
-                <UFieldRow>
-                  <UField label="확장자제한">
-                    <WjInputMask v-model="formActions.inputData.extenLmt" :isRequired="false" />
-                    <UMessage type="info">
-                      미 입력시 모든 유형에 대해 업로드가 가능합니다.<br />
-                      확장자 또는 Mime type별로 제한을 설정하는 경우, comma로 구분하여 입력해주세요. <br />
-                      ex) .doc,.docx,application/msword,image/*
-                    </UMessage>
-                  </UField>
-                </UFieldRow>
+          <UFieldRow>
+            <UField required label="파일명 저장방식">
+              <UCodeComboBox grpCd="FILE_NM_SV_METH_CD" v-model="formActions.inputData.fileNmSvMethCd" />
+            </UField>
+          </UFieldRow>
 
-                <UFieldRow>
-                  <UField required label="파일구조">
-                    <UCodeComboBox grpCd="DIR_STRUCT_CD" v-model="formActions.inputData.dirStructCd" />
-                  </UField>
-                </UFieldRow>
+          <UFieldRow>
+            <UField label="웹 기본 url">
+              <WjInputMask v-model="formActions.inputData.webDefUrl" :isRequired="false" />
+            </UField>
+          </UFieldRow>
 
-                <UFieldRow>
-                  <UField required label="파일명 저장방식">
-                    <UCodeComboBox grpCd="FILE_NM_SV_METH_CD" v-model="formActions.inputData.fileNmSvMethCd" />
-                  </UField>
-                </UFieldRow>
+          <UFieldRow>
+            <UField required label="파일 암호화">
+              <UCodeComboBox grpCd="FILE_CRYT_METH_CD" v-model="formActions.inputData.fileCrytMethCd" />
+            </UField>
+          </UFieldRow>
 
-                <UFieldRow>
-                  <UField label="웹 기본 url">
-                    <WjInputMask v-model="formActions.inputData.webDefUrl" :isRequired="false" />
-                  </UField>
-                </UFieldRow>
-
-                <UFieldRow>
-                  <UField required label="파일 암호화">
-                    <UCodeComboBox grpCd="FILE_CRYT_METH_CD" v-model="formActions.inputData.fileCrytMethCd" />
-                  </UField>
-                </UFieldRow>
-
-                <UFieldRow>
-                  <UField required label="사용여부">
-                    <URadioGroupBox
-                      v-model="formActions.inputData.useYn"
-                      :itemsSource="[
-                        { value: 'Y', text: '사용' },
-                        { value: 'N', text: '미사용' },
-                      ]"
-                    />
-                  </UField>
-                </UFieldRow>
-              </UFieldSet>
-            </UValidationGroup>
-          </UItem>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+          <UFieldRow>
+            <UField required label="사용여부">
+              <URadioGroupBox
+                v-model="formActions.inputData.useYn"
+                :itemsSource="[
+                  { value: 'Y', text: '사용' },
+                  { value: 'N', text: '미사용' },
+                ]"
+              />
+            </UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UValidationGroup>
+    </UItem>
+  </UBox>
 </div> 
 </template>
 <script lang="ts" setup>
