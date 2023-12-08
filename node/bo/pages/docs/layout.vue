@@ -1,7 +1,7 @@
 <template>
   <!-- 검색영역 - 본문제목 있는 경우 -->
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub is-search"  ratio="1" >
+    <UItem class="card is-sub is-search" ratio="1" >
       <UBox class="card-header">
         <h1 class="page-title">
           <span>본문 제목</span>
@@ -26,7 +26,7 @@
 
   <!-- 검색영역 - 본문제목 없는 경우 -->
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub is-search"  ratio="1" >
+    <UItem class="card is-sub is-search" ratio="1" >
       <UFieldSet class="is-search">
         <UFieldRow :ratio="[1, 1, 1, '170px']">
           <UField label="검색영역" ><UTextBox></UTextBox></UField>
@@ -44,7 +44,7 @@
   <!-- // 검색영역 - 본문제목 없는 경우 --> 
 
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub"  ratio="1" >
+    <UItem class="card is-sub" ratio="1" >
       <UBox class="table-title-wrap">
         <h2 class="table-title">
           <span>col12</span>

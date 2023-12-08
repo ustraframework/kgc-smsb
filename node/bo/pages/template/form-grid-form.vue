@@ -1,37 +1,43 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="회원번호/명" required>
-              <UBox>
-                <UTextBox type="icon"/>
-                <UTextBox/>
-              </UBox>
-            </UField>
-            <UField blank />
-            <UField blank />
-            <UField blank>
-              <div class="search-btn">
-                <UButton text="조회" type="is-search"/>
-              </div>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+  <!-- 검색영역 -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search" ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="회원번호/명" required>
+            <UBox>
+              <UTextBox type="icon"/>
+              <UTextBox/>
+            </UBox>
+          </UField>
+          <UField blank />
+          <UField blank />
+          <UField blank>
+            <div class="search-btn">
+              <UButton text="조회" type="is-search"/>
+            </div>
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
+  <!-- // 검색영역 -->
 
-  <!-- ------------------------------------------------------------------ -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub" ratio="1" >
       <UItem class="card-body">
         <UBox class="table-title-wrap">
           <h2 class="table-title">
             <span>회원정보</span>
           </h2>
+          
+          <UButtonBox class="table-buttons">
+            <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+            <UButton text="엑셀 다운로드" icon="excel" />
+            <UButton text="취소" type="is-outline" />
+            <UButton text="저장" type="is-filled" />
+          </UButtonBox>
         </UBox>
 
         <UFieldSet>
@@ -53,84 +59,94 @@
           </UFieldRow>
         </UFieldSet>
       </UItem>
-    </UBox>
-  </div>
-  <!-- ------------------------------------------------------------------ -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <h2 class="table-title">
-            <span>포인트지급 정보</span>
-            <span class="data-count">총<span>2</span>건</span>
-          </h2>
-        </UBox>
+    </UItem>
+  </UBox>
 
-        <UBox height="345px">
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="지급일자" binding="col1" width="*" />
-            <WjFlexGridColumn header="지급방법" binding="col1" width="*" />
-            <WjFlexGridColumn header="지급사유" binding="col1" width="*" />
-            <WjFlexGridColumn header="비고(고객노출용)" binding="col1" width="*" />
-            <WjFlexGridColumn header="유효기간" binding="col1" width="*" />
-            <WjFlexGridColumn header="추가포인트" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
-  <!-- ------------------------------------------------------------------ -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <h2 class="table-title">
-              <span>포인트지급 정보 상세</span>
-          </h2>
-        </UBox>
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub" ratio="1" >
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+          <span>포인트지급 정보</span>
+          <span class="data-count">총<span>2</span>건</span>
+        </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
+      </UBox>
 
-        <UBox>
-          <UFieldSet>
-            <UFieldRow>
-              <UField label="회원번호" required>
-                <UTextBox disabled/>
-              </UField>
-              <UField label="회원명" required>
-                <UTextBox disabled/>
-              </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="포인트유형구분" required>
-                <UWjComboBox :itemsSource="items" displayMemberPath="text" />
-              </UField>
-              <UField label="차감가능포인트">
-                <UTextBox disabled/>
-              </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="유효기간">
-                <UWjComboBox :itemsSource="items" displayMemberPath="text" />
-              </UField>
-              <UField label="적용포인트">
-                <UTextBox/>
-              </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="지급사유">
-                <UTextBox/>
-              </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="비고(고객노출용)" required>
-                <UTextBox/>
-              </UField>
-            </UFieldRow>
-          </UFieldSet>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+      <UBox height="345px">
+        <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="지급일자" binding="col1" width="*" />
+          <WjFlexGridColumn header="지급방법" binding="col1" width="*" />
+          <WjFlexGridColumn header="지급사유" binding="col1" width="*" />
+          <WjFlexGridColumn header="비고(고객노출용)" binding="col1" width="*" />
+          <WjFlexGridColumn header="유효기간" binding="col1" width="*" />
+          <WjFlexGridColumn header="추가포인트" binding="col1" width="*" />
+        </WjFlexGrid>
+      </UBox>
+    </UItem>
+  </UBox>
+
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub" ratio="1" >
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+            <span>포인트지급 정보 상세</span>
+        </h2>
+
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
+      </UBox>
+
+      <UBox>
+        <UFieldSet>
+          <UFieldRow>
+            <UField label="회원번호" required>
+              <UTextBox disabled/>
+            </UField>
+            <UField label="회원명" required>
+              <UTextBox disabled/>
+            </UField>
+          </UFieldRow>
+          <UFieldRow>
+            <UField label="포인트유형구분" required>
+              <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+            </UField>
+            <UField label="차감가능포인트">
+              <UTextBox disabled/>
+            </UField>
+          </UFieldRow>
+          <UFieldRow>
+            <UField label="유효기간">
+              <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+            </UField>
+            <UField label="적용포인트">
+              <UTextBox/>
+            </UField>
+          </UFieldRow>
+          <UFieldRow>
+            <UField label="지급사유">
+              <UTextBox/>
+            </UField>
+          </UFieldRow>
+          <UFieldRow>
+            <UField label="비고(고객노출용)" required>
+              <UTextBox/>
+            </UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UBox>
+    </UItem>
+  </UBox>
 </div>
 </template>
 
@@ -151,6 +167,7 @@ definePageMeta({
 auth: {
   required: false,
 },
+  layout: 'ustra-pub'
 })
 const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = usePaginationCollectionView((pageNo, orders) => {
   return useOnError(

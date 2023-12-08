@@ -1,9 +1,8 @@
 <template>
 <div>
   <!-- 검색영역 -->
-
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub is-search"  ratio="1" >
+    <UItem class="card is-sub is-search" ratio="1" >
       <UFieldSet class="is-search">
         <UFieldRow :ratio="[1, 1, 1, '170px']">
           <UField label="검색영역" ><UTextBox></UTextBox></UField>
@@ -21,7 +20,7 @@
   <!-- // 검색영역 -->
 
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub"  ratio="1" >
+    <UItem class="card is-sub" ratio="1" >
       <UBox class="table-title-wrap">
         <h2 class="table-title">
           <span>Sub title</span>
@@ -48,7 +47,7 @@
   </UBox>
 
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub"  ratio="1" >
+    <UItem class="card is-sub" ratio="1" >
       <UBox class="table-title-wrap">
         <h2 class="table-title">
           <span>Sub title</span>

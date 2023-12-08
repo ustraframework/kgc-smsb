@@ -2,7 +2,7 @@
 <div>
   <!-- 검색영역 -->
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub is-search"  ratio="1" >
+    <UItem class="card is-sub is-search" ratio="1" >
       <UFieldSet class="is-search">
         <UFieldRow :ratio="[1, 1, 1, '170px']">
           <UField label="검색영역" ><UTextBox></UTextBox></UField>
