@@ -1,6 +1,6 @@
 <template>
   <div class="docs__wrap">
-    <div class="columns has-gap">
+    <div class="columns">
       <div class="card is-sub">
         <div class="card-body">
           <h2 class="table-title"><span>컴포넌트 목록</span></h2>
@@ -41,7 +41,7 @@
     </div>
 
 
-    <div class="columns has-gap">
+    <div class="columns">
       <div class="card is-sub">
         <div class="card-body">
           <h2 class="table-title"><span>BO 페이지 목록</span></h2>
@@ -120,7 +120,7 @@ const items2 = ref([
   { col1: '콤보박스-일자', col2: '/docs/combobox-date' },
   { col1: '폼', col2: '/docs/form' },
   { col1: '인풋', col2: '/docs/input' },
-  { col1: '레이아웃-ustra', col2: '/docs/layout-ustra' },
+  // { col1: '레이아웃-ustra', col2: '/docs/layout-ustra' },
   { col1: '레이아웃', col2: '/docs/layout' },
   { col1: '팝업', col2: '/docs/popup' },
   { col1: '타이포그래피', col2: '/docs/typography' },
@@ -334,7 +334,7 @@ const items = ref([
 <style lang="scss" scoped>
 .docs__wrap {
   padding: 30px;
-  height: 100%;
+  height: calc(100% + 40px);
   overflow-y: auto;
   background-color: #f2f5f6;
 }
