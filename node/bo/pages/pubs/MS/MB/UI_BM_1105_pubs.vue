@@ -54,7 +54,7 @@
 
 
   <!-- -------------------------------- 회원 상세 정보 ------------------------------- -->
-  <UBox class="columns" direction="row">
+  <UBox class="columns" direction="row" height="355px">
     <UItem class="card is-sub"  ratio="1" >
       <UBox class="table-title-wrap">
         <h2 class="table-title">
@@ -62,23 +62,7 @@
         </h2>
       </UBox>
       
-      <UBox>
-        Contents
-      </UBox>
-    </UItem>
-  </UBox>
-
-  
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <h2 class="table-title">
-            <span>회원 상세 정보</span>
-          </h2>
-        </UBox>
-
-        <UFieldSet>
+      <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
             <UField label="회원번호"><UTextBox disabled /></UField>
@@ -112,9 +96,8 @@
             </UField>
           </UFieldRow>
         </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+    </UItem>
+  </UBox>
 </div>
 </template>
 
