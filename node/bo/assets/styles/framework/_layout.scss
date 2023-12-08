@@ -1290,15 +1290,20 @@ body {
 
 .columns {
   display: flex;
+  margin: 20px 0;
 
   &:last-child {
+    margin-bottom: 0;
     > .card {
-      margin-bottom: 0;
     }
   }
 
+  &.has-gap {
+    margin-bottom: 0;
+  }
+
   > .card {
-    margin: 0 10px 20px;
+    margin: 0 10px;
 
     &.u-box{
       display: block;
@@ -1317,13 +1322,6 @@ body {
       width: calc(50% - (10px * 2));
     }
 
-  }
-
-  &.has-gap {
-    margin: 0 -10px;
-    // &:last-child {
-    //   padding-bottom: 40px;
-    // }
   }
 
   *.is-wrapped {
@@ -1360,7 +1358,7 @@ body {
 .card {
   width: 100%;
   border-radius: 13px;
-  background-color: #fff;
+  background-color: fff;
   //box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 0px 16px 0px #00000026;
 
@@ -1369,7 +1367,6 @@ body {
     padding: 20px 20px 30px;
 
     &.is-search {
-      margin-bottom: 20px;
       // margin-bottom: 10px; ustra 사용시 이걸로 변경
       padding: 20px;
 
@@ -1401,7 +1398,7 @@ body {
 
   &.is-title {
     padding: 20px;
-    margin-bottom: 20px
+    // margin-bottom: 20px
   }
 
   .card-header{
