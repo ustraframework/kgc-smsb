@@ -32,14 +32,12 @@
         </UItem>
       </UBox>
       
-      <UBox>
-        <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-          <WjFlexGridColumn header="채널" binding="col1" width="*" />
-          <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-        </WjFlexGrid>
-      </UBox>
+      <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <WjFlexGridColumn header="No" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+        <WjFlexGridColumn header="채널" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+      </WjFlexGrid>
     </UItem>
     
     <!-- 우측 영역 -->
@@ -49,6 +47,12 @@
         <h2 class="table-title">
           <span>Sub title</span>
         </h2>
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
       </UBox>
 
       <UFieldSet>
@@ -81,14 +85,12 @@
         </h2>
       </UBox>
       
-      <UBox>
-        <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-          <WjFlexGridColumn header="채널" binding="col1" width="*" />
-          <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-        </WjFlexGrid>
-      </UBox>
+      <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <WjFlexGridColumn header="No" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+        <WjFlexGridColumn header="채널" binding="col1" width="*" />
+        <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+      </WjFlexGrid>
     </UItem>
   </UBox>
 </div>

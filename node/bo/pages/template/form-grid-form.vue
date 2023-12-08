@@ -77,18 +77,16 @@
           <UButton text="저장" type="is-filled" />
         </UButtonBox>
       </UBox>
-
-      <UBox height="345px">
-        <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="지급일자" binding="col1" width="*" />
-          <WjFlexGridColumn header="지급방법" binding="col1" width="*" />
-          <WjFlexGridColumn header="지급사유" binding="col1" width="*" />
-          <WjFlexGridColumn header="비고(고객노출용)" binding="col1" width="*" />
-          <WjFlexGridColumn header="유효기간" binding="col1" width="*" />
-          <WjFlexGridColumn header="추가포인트" binding="col1" width="*" />
-        </WjFlexGrid>
-      </UBox>
+      
+      <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <WjFlexGridColumn header="No" binding="col1" width="*" />
+        <WjFlexGridColumn header="지급일자" binding="col1" width="*" />
+        <WjFlexGridColumn header="지급방법" binding="col1" width="*" />
+        <WjFlexGridColumn header="지급사유" binding="col1" width="*" />
+        <WjFlexGridColumn header="비고(고객노출용)" binding="col1" width="*" />
+        <WjFlexGridColumn header="유효기간" binding="col1" width="*" />
+        <WjFlexGridColumn header="추가포인트" binding="col1" width="*" />
+      </WjFlexGrid>
     </UItem>
   </UBox>
 
@@ -107,44 +105,42 @@
         </UButtonBox>
       </UBox>
 
-      <UBox>
-        <UFieldSet>
-          <UFieldRow>
-            <UField label="회원번호" required>
-              <UTextBox disabled/>
-            </UField>
-            <UField label="회원명" required>
-              <UTextBox disabled/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="포인트유형구분" required>
-              <UWjComboBox :itemsSource="items" displayMemberPath="text" />
-            </UField>
-            <UField label="차감가능포인트">
-              <UTextBox disabled/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="유효기간">
-              <UWjComboBox :itemsSource="items" displayMemberPath="text" />
-            </UField>
-            <UField label="적용포인트">
-              <UTextBox/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="지급사유">
-              <UTextBox/>
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="비고(고객노출용)" required>
-              <UTextBox/>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UBox>
+      <UFieldSet>
+        <UFieldRow>
+          <UField label="회원번호" required>
+            <UTextBox disabled/>
+          </UField>
+          <UField label="회원명" required>
+            <UTextBox disabled/>
+          </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="포인트유형구분" required>
+            <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+          </UField>
+          <UField label="차감가능포인트">
+            <UTextBox disabled/>
+          </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="유효기간">
+            <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+          </UField>
+          <UField label="적용포인트">
+            <UTextBox/>
+          </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="지급사유">
+            <UTextBox/>
+          </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="비고(고객노출용)" required>
+            <UTextBox/>
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
     </UItem>
   </UBox>
 </div>
