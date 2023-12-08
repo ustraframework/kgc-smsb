@@ -11,33 +11,32 @@
   <UPopup v-model="showPopup" :width="1000" :height="310" title="임직원 검색">
     <UBox direction="col">
       <UItem :ratio="3" class="pop-contents">
-        <div class="columns is-shuffle">
-          <div class="field-grid">
-            <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
+        <UBox class="columns is-shuffle" direction="row">
+          <UItem class="field-grid" ratio="1">
+            <WjFlexGrid :itemsSource="itemsSourceGrid">
               <WjFlexGridColumn header="No" binding="col1" width="*" />
               <WjFlexGridColumn header="소속" binding="col1" width="*" />
               <WjFlexGridColumn header="사번" binding="col1" width="*" />
               <WjFlexGridColumn header="성명" binding="col1" width="*" />
               <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
             </WjFlexGrid>
-          </div>
+          </UItem>
           
-          <div class="buttons">
+          <UItem class="buttons">
             <UButton icon="arr-left" />
             <UButton icon="arr-right" />
-          </div>
+          </UItem>
 
-          <div class="field-grid">
-            <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
+          <UItem class="field-grid" ratio="1">
+            <WjFlexGrid :itemsSource="itemsSourceGrid">
               <WjFlexGridColumn header="No" binding="col1" width="*" />
               <WjFlexGridColumn header="소속" binding="col1" width="*" />
               <WjFlexGridColumn header="사번" binding="col1" width="*" />
               <WjFlexGridColumn header="성명" binding="col1" width="*" />
               <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
             </WjFlexGrid>
-          </div>
-        </div>
-
+          </UItem>
+        </UBox>
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>

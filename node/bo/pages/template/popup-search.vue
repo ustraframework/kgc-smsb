@@ -25,15 +25,13 @@
           </UFieldSet>
         </UBox>
         
-        <UBox height="250px">
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="소속" binding="col1" width="*" />
-            <WjFlexGridColumn header="사번" binding="col1" width="*" />
-            <WjFlexGridColumn header="성명" binding="col1" width="*" />
-            <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
+        <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="소속" binding="col1" width="*" />
+          <WjFlexGridColumn header="사번" binding="col1" width="*" />
+          <WjFlexGridColumn header="성명" binding="col1" width="*" />
+          <WjFlexGridColumn header="직위/직책" binding="col1" width="*" />
+        </WjFlexGrid>
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>

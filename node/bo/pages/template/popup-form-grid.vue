@@ -48,16 +48,15 @@
           </UButtonBox>
         </UBox>
         
-        <UBox height="170px">
-          <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="채널" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-            <WjFlexGridColumn header="컬럼라벨" binding="col1" width="*" />
-            <WjFlexGridColumn header="변경전데이터" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
+       
+        <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+          <WjFlexGridColumn header="채널" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+          <WjFlexGridColumn header="컬럼라벨" binding="col1" width="*" />
+          <WjFlexGridColumn header="변경전데이터" binding="col1" width="*" />
+        </WjFlexGrid>
       </UItem>
 
       <!-- footer 버튼 영역 -->
