@@ -21,6 +21,7 @@
 
   
   <UBox class="columns" direction="row" height="530">
+    <!-- 좌측 영역 -->
     <UItem class="card is-sub" ratio="4">
       <UBox class="table-title-wrap" direction="row">
         <UItem itemDirection="row" :ratio="1">
@@ -40,7 +41,10 @@
         </WjFlexGrid>
       </UBox>
     </UItem>
+    
+    <!-- 우측 영역 -->
     <UItem class="card is-sub" ratio="8">
+      <!-- UBox1 -->
       <UBox class="table-title-wrap">
         <h2 class="table-title">
           <span>Sub title</span>
@@ -70,6 +74,7 @@
         </UFieldRow>
       </UFieldSet>
 
+      <!-- UBox2 -->
       <UBox class="table-title-wrap">
         <h2 class="table-title">
           <span>Sub title</span>
