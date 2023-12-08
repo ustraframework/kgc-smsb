@@ -2,7 +2,7 @@
 <div>
   <!-- 검색영역 -->
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub is-search" ratio="1" >
+    <UItem class="card is-sub is-search"  ratio="1" >
       <UFieldSet class="is-search">
         <UFieldRow :ratio="[1, 1, 1, '170px']">
           <UField label="검색영역" ><UTextBox></UTextBox></UField>
@@ -19,9 +19,8 @@
   </UBox>
   <!-- // 검색영역 -->
   
-  
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub" ratio="1" >
+    <UItem class="card is-sub"  ratio="1" >
       <UBox class="table-title-wrap">
         <h2 class="table-title">
           <span>Sub title</span>
@@ -51,25 +50,29 @@
       </UFieldSet>
     </UItem>
   </UBox>
-
   <UBox class="columns" direction="row">
-    <UItem class="card is-sub" ratio="1" >
+    <UItem class="card is-sub"  ratio="1" >
       <UBox class="table-title-wrap">
         <h2 class="table-title">
           <span>Sub title</span>
         </h2>
+        
+        <UButtonBox class="table-buttons">
+          <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
+          <UButton text="엑셀 다운로드" icon="excel" />
+          <UButton text="취소" type="is-outline" />
+          <UButton text="저장" type="is-filled" />
+        </UButtonBox>
       </UBox>
       
-      <UBox>
-        <WjFlexGrid class="column-grid" :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="포인트 지급일" binding="col1" width="*" />
-          <WjFlexGridColumn header="포인트 유형" binding="col1" width="*" />
-          <WjFlexGridColumn header="포인트" binding="col1" width="*" />
-          <WjFlexGridColumn header="내용" binding="col1" width="*" />
-          <WjFlexGridColumn header="소멸 예정일" binding="col1" width="*" />
-        </WjFlexGrid>
-      </UBox>
+      <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <WjFlexGridColumn header="No" binding="col1" width="*" />
+        <WjFlexGridColumn header="포인트 지급일" binding="col1" width="*" />
+        <WjFlexGridColumn header="포인트 유형" binding="col1" width="*" />
+        <WjFlexGridColumn header="포인트" binding="col1" width="*" />
+        <WjFlexGridColumn header="내용" binding="col1" width="*" />
+        <WjFlexGridColumn header="소멸 예정일" binding="col1" width="*" />
+      </WjFlexGrid>
     </UItem>
   </UBox>
 </div>

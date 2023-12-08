@@ -31,14 +31,12 @@
           </UItem>
         </UBox>
         
-        <UBox>
-          <WjFlexGrid :itemsSource="itemsSourceGrid">
-            <WjFlexGridColumn header="No" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-            <WjFlexGridColumn header="채널" binding="col1" width="*" />
-            <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-          </WjFlexGrid>
-        </UBox>
+        <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+          <WjFlexGridColumn header="채널" binding="col1" width="*" />
+          <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+        </WjFlexGrid>
       </UItem>
       <!-- 우측 영역 -->
       <UItem class="card is-sub" ratio="8">

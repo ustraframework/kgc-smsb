@@ -439,7 +439,6 @@
             </WjFlexGrid>
           </div>
         </WjTab>
-
       </WjTabPanel>
     </UItem>
   </UBox>
