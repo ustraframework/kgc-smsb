@@ -1299,6 +1299,7 @@ body {
   }
 
   &.has-gap {
+    margin-top: 0;
     margin-bottom: 0;
   }
 
@@ -1311,6 +1312,11 @@ body {
 
     .card-body {
       min-height: 200px;
+    }
+
+    .u-box {    
+      min-height: auto !important;
+      height: auto !important;
     }
   }
 
@@ -1358,7 +1364,7 @@ body {
 .card {
   width: 100%;
   border-radius: 13px;
-  background-color: fff;
+  background-color: #fff;
   //box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 0px 16px 0px #00000026;
 
