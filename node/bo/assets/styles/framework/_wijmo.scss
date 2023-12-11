@@ -1704,6 +1704,18 @@
   display: none !important;
 }
 
+.u-box {
+  .wj-control {
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
+  }
+}
+
+.u-field-slot {
+  gap: 5px !important;
+}
+
 // mdi
 .mdi {
   border-top: 0px;

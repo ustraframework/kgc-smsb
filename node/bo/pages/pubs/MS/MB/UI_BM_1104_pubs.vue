@@ -51,8 +51,10 @@
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow :ratio="[1, 2]">
           <UField label="이메일" item-direction="row">
-            <UTextBox></UTextBox>
-            <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+            <UBox>
+              <UTextBox></UTextBox>
+              <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+            </UBox>
           </UField>
           <UField label="단골매장">
             <UBox>
@@ -88,7 +90,11 @@
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow :ratio="[2, 1]">
-          <UField label="가맹점" item-direction="row"> <UTextBox type="icon" /><UTextBox /> </UField>
+          <UField label="가맹점" item-direction="row"> 
+            <UBox>
+              <UTextBox type="icon" /><UTextBox />
+            </UBox>
+          </UField>
           <UField></UField>
         </UFieldRow>
         <!-- ------------------------------------------------------------------ -->
