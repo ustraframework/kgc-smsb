@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     //'/api/**': { proxy: 'http://localhost:11051/api/**' },
-    '/api/**': { proxy: 'http://192.168.190.142:11051/api/**' },
+    '/api/**': { proxy: 'http://192.168.190.143:11051/api/**' },
   },
   ustra: {
     i18n: {

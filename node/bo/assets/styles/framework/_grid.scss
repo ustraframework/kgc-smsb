@@ -4,6 +4,8 @@
 //   }
 // }
 
+// 2023-12-11 UI개발팀
+
 .column-grid{
   contain: inline-size;
 }
@@ -14,3 +16,163 @@
     contain: inline-size;
   }
 }
+
+@mixin wj-flexgrid-mixin {
+  border: 0;
+  border-top: 1px solid $is-primary;
+  border-bottom: 1px solid $gray60;
+  border-right: 1px solid $gray60;
+  border-radius: 0;
+  &:hover,
+  &:active,
+  &:focus {
+    border: 0;
+    border-top: 1px solid $is-primary;
+    border-bottom: 1px solid $gray60;
+    border-right: 1px solid $gray60;
+  }
+  .wj-cell {
+    height: 40px;
+    border: 0;
+    border-top: 1px solid $gray60;
+    border-left: 1px solid $gray60;
+    color: $is-black;
+    font-size: 14px;
+
+    &.wj-header {
+      color: $gray220;
+      background: $gray20;
+      font-size: pxToRem(13);
+      font-weight: 600;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    &.wj-alt {
+      background-color: $is-white;
+    }
+    label {
+      input[type='checkbox'] {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 13px;
+        height: 13px;
+        margin-right: 0;
+        background: #fff;
+        border: 1px solid #767676;
+        border-radius: 2px;
+        -webkit-appearance: none;
+        appearance: none;
+        &:hover,
+        &:active,
+        &:focus {
+          border: 1px solid $vPrimary1;
+        }
+        &:checked {
+          background: $vPrimary3 url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_checkbox_on.png) no-repeat center center;
+          border: 1px solid $vPrimary3;
+        }
+        &:disabled {
+          border: 1px solid $vLighten5;
+          background: $vLighten9;
+          &:checked {
+            background: $vLighten5 url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_checkbox_on.png) no-repeat center center;
+            border: 1px solid $vLighten5;
+          }
+        }
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        &:before {
+          border: 1px solid $vPrimary1;
+        }
+      }
+    }
+  }
+  .wj-cells {
+    .wj-row {
+      .wj-cell {
+        &.wj-state-selected,
+        &.wj-state-multi-selected {
+          // background: $vLighten9;
+          //background: $pointColorSkyblue;
+          //color: #fff;
+          border: 1px solid $point4;
+          background-color: $is-white;
+        }
+      }
+      &:hover {
+        .wj-cell {
+          &:not(.wj-state-selected) {
+            &:not(.wj-state-multi-selected) {
+              //background: #f4f7fd;
+              //background: #93A9B726;
+              background: $is-white;
+              
+            }
+          }
+        }
+      }
+      &.empty-text{
+        background: $is-white;
+        color: $gray180;
+      }
+    }
+  }
+
+  .wj-rowheaders{
+    .wj-header{
+      background-color: $is-white;
+    }
+  }
+
+  .wj-topleft,
+  .wj-colheaders{
+    .wj-header{
+      height: 42px !important;
+    }
+  }
+
+  // div[wj-part="tl"],
+  // div[wj-part="ch"] {
+  //   border-bottom: 1px solid $gray60;
+  // }
+
+  div[wj-part="rh"] {
+    background-color: $is-white;
+  }
+}
+
+.wj-flexgrid {
+  // max-height: 500px;
+  &.wj-control {
+    @include wj-flexgrid-mixin; // 검토 후 삭제예정 (wj-control, wj-content 클래스가 항상 같이들어가는지 확인되면 삭제)
+    &.wj-content {
+      @include wj-flexgrid-mixin;
+      contain: layout;
+    }
+  }
+
+  // to vertial center
+  & .wj-cell {
+    display: flex;
+    align-items: center;
+  }
+  & .wj-cell.wj-align-right {
+    justify-content: flex-end;
+  }
+  & .wj-cell.wj-align-center {
+    justify-content: center;
+  }
+  & .wj-cell.wj-header,
+  & .wj-cell.wj-header.wj-align-center,
+  & .wj-cell.wj-header.wj-align-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+

@@ -1,17 +1,17 @@
 <template>
   <WjFlexGrid
     :isReadOnly="true"
-    style="height: calc(100% - 300px)"
+    style="height: calc(100% - 300px); min-height: 300px;"
     :itemsSource="ifs"
     selectionMode="Row"
     :initialized="grid.initialize"
     headersVisibility="Column"
   >
-    <WjFlexGridColumn header="I/F 아이디" binding="ifId" />
-    <WjFlexGridColumn header="I/F 버전" binding="ifVer" />
-    <WjFlexGridColumn header="I/F명" binding="ifNm" />
-    <WjFlexGridColumn header="url" binding="url" />
-    <WjFlexGridColumn header="사용여부" binding="useYn" />
+    <WjFlexGridColumn header="I/F 아이디" binding="ifId" width="*"/>
+    <WjFlexGridColumn header="I/F 버전" binding="ifVer" width="*"/>
+    <WjFlexGridColumn header="I/F명" binding="ifNm" width="*"/>
+    <WjFlexGridColumn header="url" binding="url" width="*"/>
+    <WjFlexGridColumn header="사용여부" binding="useYn" width="*"/>
   </WjFlexGrid>
 </template>
 

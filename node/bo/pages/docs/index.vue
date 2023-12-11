@@ -124,6 +124,7 @@ const items2 = ref([
   { col1: '레이아웃', col2: '/docs/layout' },
   { col1: '팝업', col2: '/docs/popup' },
   { col1: '타이포그래피', col2: '/docs/typography' },
+  { col1: '그리드', col2: '/docs/grid' },
 ])
 
 // BO 템플릿 목록 그리드 데이터

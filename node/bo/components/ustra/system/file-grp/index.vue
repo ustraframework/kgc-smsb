@@ -18,7 +18,7 @@
     <!-- 우측 영역 -->
     <UItem class="card is-sub" ratio="8">
       <UBox class="table-title-wrap">
-        <UButtonBox right top>
+        <UButtonBox class="table-buttons">
           <UButton text="신규" :width="80" @click="() => formActions.init(true)" />
           <UButton text="삭제" v-if="!formActions.isNew.value" :width="80" @click="() => formActions.remove()" />
           <UButton text="저장" type="primary" :width="80" @click="() => formActions.save()" />
