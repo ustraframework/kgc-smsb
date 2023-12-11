@@ -85,11 +85,13 @@
               </UFieldRow>
 
               <UFieldRow>
-                <UField blank>
-                  <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '사용' }]" v-model="inputData.useYn"> </UCheckGroupBox>
-                  <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '노출' }]" v-model="inputData.dpYn"> </UCheckGroupBox>
-                  <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '아이피 제한' }]" v-model="inputData.ipLmtYn">
-                  </UCheckGroupBox>
+                <UField blank >
+                  <UBox direction="row" style="padding-left: 10px;">
+                    <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '사용' }]" v-model="inputData.useYn"> </UCheckGroupBox>
+                    <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '노출' }]" v-model="inputData.dpYn"> </UCheckGroupBox>
+                    <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '아이피 제한' }]" v-model="inputData.ipLmtYn">
+                    </UCheckGroupBox>
+                  </UBox>
                 </UField>
               </UFieldRow>
 

@@ -177,19 +177,19 @@
 
             <UFieldRow>
               <UField label="전화번호">
-                <UPhoneNoBox v-model="formActions.inputData.phNo" />
+                <UPhoneNoBox v-model="formActions.inputData.phNo" style="width: 100%;"/>
               </UField>
             </UFieldRow>
 
             <UFieldRow>
               <UField label="핸드폰번호">
-                <UPhoneNoBox v-model="formActions.inputData.cphNo" />
+                <UPhoneNoBox v-model="formActions.inputData.cphNo" style="width: 100%;"/>
               </UField>
             </UFieldRow>
 
             <UFieldRow>
               <UField label="팩스번호">
-                <UPhoneNoBox v-model="formActions.inputData.faxNo" />
+                <UPhoneNoBox v-model="formActions.inputData.faxNo" style="width: 100%;"/>
               </UField>
             </UFieldRow>
 

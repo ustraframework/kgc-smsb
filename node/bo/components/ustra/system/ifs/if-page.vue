@@ -9,48 +9,46 @@
         </UButtonBox>
       </UBox>
 
-      <UButtonBar>
-        <UFieldSet>
-          <UFieldRow>
-            <UField v-if="tabType === 'IN'" label="시스템 코드" totalWidth="400">
-              <UCodeComboBox grpCd="SYS_CD" v-model="searchActions.criteria.sysCd" />
-            </UField>
-            <UField v-else label="채널 코드" totalWidth="400">
-              <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.chnlOutCd" />
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField v-if="tabType === 'IN'" label="채널 코드" totalWidth="400">
-              <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.chnlCd" displayNullText="전체" />
-            </UField>
-            <UField label="I/F 아이디" totalWidth="400">
-              <WjInputMask v-model="searchActions.criteria.ifId" />
-            </UField>
-            <UField label="I/F 버젼" totalWidth="400">
-              <WjInputMask v-model="searchActions.criteria.ifVer" />
-            </UField>
-            <UField label="사용여부" totalWidth="400">
-              <WjComboBox
-                v-model="searchActions.criteria.useYn"
-                :itemsSource="ynList"
-                displayMemberPath="name"
-                selectedValuePath="code"
-                :width="300"
-              />
-            </UField>
-          </UFieldRow>
-          <UFieldRow>
-            <UField label="I/F 명" totalWidth="400">
-              <WjInputMask v-model="searchActions.criteria.ifNm" />
-            </UField>
-            <UField label="url" totalWidth="400">
-              <WjInputMask v-model="searchActions.criteria.url" />
-            </UField>
-            <UButtonBox right top>
-            </UButtonBox>
-          </UFieldRow>
-        </UFieldSet>
-      </UButtonBar>
+      <UFieldSet>
+        <UFieldRow :ratio="[1,1]">
+          <UField v-if="tabType === 'IN'" label="시스템 코드">
+            <UCodeComboBox grpCd="SYS_CD" v-model="searchActions.criteria.sysCd" />
+          </UField>
+          <UField v-else label="채널 코드">
+            <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.chnlOutCd" />
+          </UField>
+          <UField blank />
+        </UFieldRow>
+        <UFieldRow>
+          <UField v-if="tabType === 'IN'" label="채널 코드" totalWidth="400">
+            <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.chnlCd" displayNullText="전체" />
+          </UField>
+          <UField label="I/F 아이디" totalWidth="400">
+            <WjInputMask v-model="searchActions.criteria.ifId" />
+          </UField>
+          <UField label="I/F 버젼" totalWidth="400">
+            <WjInputMask v-model="searchActions.criteria.ifVer" />
+          </UField>
+          <UField label="사용여부" totalWidth="400">
+            <WjComboBox
+              v-model="searchActions.criteria.useYn"
+              :itemsSource="ynList"
+              displayMemberPath="name"
+              selectedValuePath="code"
+              :width="300"
+            />
+          </UField>
+        </UFieldRow>
+        <UFieldRow :ratio="[1,1,2]">
+          <UField label="I/F 명">
+            <WjInputMask v-model="searchActions.criteria.ifNm" />
+          </UField>
+          <UField label="url">
+            <WjInputMask v-model="searchActions.criteria.url" />
+          </UField>
+          <UField blank />
+        </UFieldRow>
+      </UFieldSet>
     </UItem>
 
     <UItem ratio="1" style="margin-top: 30px">

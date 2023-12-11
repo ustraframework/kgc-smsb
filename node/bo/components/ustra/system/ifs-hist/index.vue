@@ -16,7 +16,7 @@
           </UField>
           <UField blank>
             <div class="search-btn">
-              <UButton text="엑셀다운로드" icon="xlsxfile" type="default" @click="gridAction.excelDownload" />
+              <UButton text="엑셀다운로드" icon="excel" type="default" @click="gridAction.excelDownload" />
               <UButton class="gray ico_reset"><span class="blind">초기화</span></UButton>
               <UButton text="조회" type="is-search" @click="searchAction.loadSearchedData"/>
             </div>

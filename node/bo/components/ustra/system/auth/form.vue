@@ -2,9 +2,9 @@
   <UBox direction="col">
     <UItem :ratio="1">
       <UBox class="table-title-wrap">
-        <UButtonBox>
+        <UButtonBox style="padding-right: 0;">
           <UButton text="권한불러오기" @click="() => $ustra.global.alert('준비 중 입니다.')" />
-          <UButton text="저장" type="primary" :width="80" @click="() => save()" />
+          <UButton text="저장" type="is-filled"  @click="() => save()" />
         </UButtonBox>
       </UBox>
 
@@ -16,7 +16,7 @@
             </UField>
           </UFieldRow>
           <WjFlexGrid
-            style="height: 500px; margin-top: 10px;"
+            style="height: 500px; margin-top: 10px; margin-left: 0px;"
             :itemsSource="inputData.menus"
             childItemsPath="items"
             :initialized="grid.initialize"
@@ -25,7 +25,7 @@
           >
             <WjFlexGridColumn binding="mnuNm" header="메뉴" :width="200" />
             <WjFlexGridColumn binding="mnuNm" header="기능" width="*">
-              <wj-flex-grid-cell-template cellType="Cell" v-slot="cell">
+              <wj-flex-grid-cell-template cellType="Cell" v-slot="cell" >
                 <div>
                   <UCheckGroupBox
                     v-if="cell.item.functionItemsSource && cell.item.functionItemsSource.length > 0"

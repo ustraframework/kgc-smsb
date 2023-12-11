@@ -1,13 +1,15 @@
 <template>
-  <UFieldSet label="소속 사용자" class="mt-2">
-    <UFieldRow v-if="canAssignUserInAuthorityGroup">
-      <UButtonBar>
-        <UButtonBox right>
-          <UButton icon="mdi-folder-plus" @click="showUserPopup = true"></UButton>
-          <UButton icon="mdi-folder-minus" :disabled="grid.checkSelection.rows.value.length < 1" @click="grid.checkSelection.removeRows()"></UButton>
-        </UButtonBox>
-      </UButtonBar>
-    </UFieldRow>
+  <UBox class="table-title-wrap mt-4">
+      <h2 class="table-title">
+        <span>소속 사용자</span>
+      </h2>
+      
+      <UButtonBox class="table-buttons" v-if="canAssignUserInAuthorityGroup">
+        <UButton icon="mdi-folder-plus" @click="showUserPopup = true"></UButton>
+        <UButton icon="mdi-folder-minus" :disabled="grid.checkSelection.rows.value.length < 1" @click="grid.checkSelection.removeRows()"></UButton>
+      </UButtonBox>
+  </UBox> 
+  <UFieldSet>
     <UFieldRow>
       <WjFlexGrid style="height: 200px" :initialized="grid.initialize" :itemsSource="modelValue">
         <WjFlexGridColumn header="아이디" binding="usrId" />
