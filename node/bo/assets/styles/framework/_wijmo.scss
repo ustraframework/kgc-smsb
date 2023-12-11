@@ -256,14 +256,20 @@
 
 // 탭영역
 .wj-tabpanel {
+  display: flex !important;
+  flex-wrap: nowrap;
   &:not(.is-menu) {
     > div {
       .wj-tabheaders {
+        white-space: nowrap;
+        border-bottom: 1px solid $is-primary;
         .wj-tabheader {
           position: relative;
           margin-left: -1px;
           padding: 10px 20px;
+          color: $gray220;
           font-size: pxToRem(14);
+          font-weight: 500;
           border: 1px solid #dbdbdb;
           border-bottom: 0;
           border-radius: 4px 4px 0 0;
@@ -289,7 +295,8 @@
         }
       }
       .wj-tabpanes {
-        border-top: 1px solid $vDarken1;
+        // border-top: 1px solid $vDarken1;
+        margin-top: 20px;
       }
     }
   }
