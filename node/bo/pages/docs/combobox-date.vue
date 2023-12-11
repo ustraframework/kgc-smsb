@@ -24,6 +24,8 @@
       <div class="column is-half">
         <h1 class="mb-4">Date</h1>
         <UDateBox v-model="test"/>
+        <br>
+        <UDatePeriodBox v-model="dateArr1" />
       </div>
     </div>
 
