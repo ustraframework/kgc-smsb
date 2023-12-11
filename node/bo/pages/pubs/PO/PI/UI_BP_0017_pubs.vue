@@ -136,21 +136,6 @@
       </UFieldSet>
     </UItem>
   </UBox>
-
-
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <h2 class="table-title">
-              <span>상세내역</span>
-          </h2>
-        </UBox>
-        
-
-      </UItem>
-    </UBox>
-  </div>
 </div>
 </template>
 
@@ -171,6 +156,7 @@ definePageMeta({
 auth: {
   required: false,
 },
+layout: 'ustra-pub'
 })
 const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = usePaginationCollectionView((pageNo, orders) => {
   return useOnError(
