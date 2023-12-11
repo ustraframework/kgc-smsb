@@ -124,6 +124,7 @@ const items2 = ref([
   // { col1: '레이아웃-ustra', col2: '/docs/layout-ustra' },
   { col1: '레이아웃', col2: '/docs/layout' },
   { col1: '팝업', col2: '/docs/popup' },
+  { col1: '알럿', col2: '/docs/alert' },
   { col1: '타이포그래피', col2: '/docs/typography' },
 ])
 
