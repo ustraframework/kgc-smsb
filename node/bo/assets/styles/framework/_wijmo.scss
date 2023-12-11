@@ -256,14 +256,20 @@
 
 // 탭영역
 .wj-tabpanel {
+  display: flex !important;
+  flex-wrap: nowrap;
   &:not(.is-menu) {
     > div {
       .wj-tabheaders {
+        white-space: nowrap;
+        border-bottom: 1px solid $is-primary;
         .wj-tabheader {
           position: relative;
           margin-left: -1px;
           padding: 10px 20px;
+          color: $gray220;
           font-size: pxToRem(14);
+          font-weight: 500;
           border: 1px solid #dbdbdb;
           border-bottom: 0;
           border-radius: 4px 4px 0 0;
@@ -289,7 +295,8 @@
         }
       }
       .wj-tabpanes {
-        border-top: 1px solid $vDarken1;
+        // border-top: 1px solid $vDarken1;
+        margin-top: 20px;
       }
     }
   }
@@ -1366,8 +1373,8 @@
 // ====== 달력 ======
 .u-date-box,
 .u-date-period-box,
-.wj-cell
-{
+.wj-cell{
+
   width: 100%;
   .wj-template{
     .wj-input{
@@ -1416,6 +1423,142 @@
           }
         }
       }
+    }
+  }
+}
+
+.wj-calendar {
+  .wj-calendar-outer {
+    border-top: 1px solid $is-primary;
+    padding: 0 0 58px !important;
+
+    .wj-calendar-header {
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+
+      .wj-month-select {
+        margin: 0;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 21px;
+        color: $is-primary;
+      }
+
+      button {
+        &:hover {
+          background: none !important;
+        }
+      }
+      button[wj-part="btn-prev"]{
+        position: absolute;
+        top: 9px;
+        left: 0;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        .wj-glyph-left{
+          top: 0;
+          left: 0;
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          border: none;
+          background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_3931)'%3E%3Cpath d='M16.0005 18L11.7935 13.793L16.0005 9.58601' stroke='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_3931'%3E%3Crect width='28' height='28' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center;
+        }
+      }
+
+      button[wj-part="btn-next"]{
+        position: absolute;
+        top: 9px;
+        right: 0;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        border: none;
+        .wj-glyph-right{
+          top: 0;
+          right: 0;
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          border: none;
+          background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_3932)'%3E%3Cpath d='M11.793 9.58594L15.9999 13.7929L11.793 17.9999' stroke='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_3932'%3E%3Crect width='28' height='28' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center;
+        }
+      }
+
+      button[wj-part="btn-today"]{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 58px;
+        border-top: 1px solid $gray80;
+
+        &:hover {
+          background: none;
+          .wj-glyph-circle {
+            border: 1px solid $is-primary;
+          }
+        }
+
+        .wj-glyph-circle {
+          border: none;    
+          width: calc(100% - 30px);
+          height: 30px;
+          color: $is-primary;
+          line-height: 28px;
+          border: 1px solid $gray100;
+          border-radius: 4px;
+
+          &::before {
+            content: '오늘';
+            color: $is-primary;
+          }
+        }
+      }
+    }
+    .wj-calendar-year {
+      .wj-header {
+        color: $is-primary;
+        font-weight: 600;
+        font-size: 14px;
+        background: none;
+      }
+      > tr {
+        td {
+          &:hover {
+            background: $gray60 !important;
+          }
+        }
+      }
+    }
+    .wj-calendar-month{
+      > tr {
+        &.wj-header {
+          background: none;
+        }
+        > td {
+          width: 40px;
+          height: 40px;
+          padding: 0 !important;
+          color: $is-primary;
+          font-size: 14px;
+          font-weight: 500;
+          &:first-child {
+            color: $point1 !important;
+          }
+          &:hover {
+            background: $gray60 !important;
+          }
+        }
+      }
+    }
+    .wj-state-selected, 
+    .wj-state-last-selected {
+      color: $is-white !important;
+      border-radius: 3px;
+      background: $is-primary;
     }
   }
 }

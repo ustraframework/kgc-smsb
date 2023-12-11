@@ -120,9 +120,11 @@ const items2 = ref([
   { col1: '콤보박스-일자', col2: '/docs/combobox-date' },
   { col1: '폼', col2: '/docs/form' },
   { col1: '인풋', col2: '/docs/input' },
+  { col1: '탭', col2: '/docs/tab' },
   // { col1: '레이아웃-ustra', col2: '/docs/layout-ustra' },
   { col1: '레이아웃', col2: '/docs/layout' },
   { col1: '팝업', col2: '/docs/popup' },
+  { col1: '알럿', col2: '/docs/alert' },
   { col1: '타이포그래피', col2: '/docs/typography' },
   { col1: '그리드', col2: '/docs/grid' },
 ])
