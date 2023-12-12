@@ -153,6 +153,35 @@
     </template>
   </VCard>
 
+  <VCard title="3. Form"></VCard>
+  <VCard>
+    <template #text>
+      <UFieldSet>
+      <!-- ------------------------------------------------------------------ -->
+      <UFieldRow>
+        <UField label="label"><UTextBox></UTextBox></UField>
+        <UField label="label"><UTextBox></UTextBox></UField>
+      </UFieldRow>
+      <!-- ------------------------------------------------------------------ -->
+      <UFieldRow>
+        <UField label="label"><UTextBox></UTextBox></UField>
+        <UField label="label"><UTextBox></UTextBox></UField>
+      </UFieldRow>
+      <!-- ------------------------------------------------------------------ -->
+      <UFieldRow>
+        <UField label="label">
+          <UBox>
+            <UTextBox type="icon" width="50" />
+            <UTextBox/>
+          </UBox>
+        </UField>
+        <UField label="label"><UTextBox></UTextBox></UField>
+      </UFieldRow>
+      <!-- ------------------------------------------------------------------ -->
+    </UFieldSet>
+      <UMarkdownViewer :content="doc3" />
+    </template>
+  </VCard>
 </template>
 <script lang="ts" setup>
 import { WjFlexGrid, WjFlexGridColumn, UMarkdownViewer, WjComboBox } from '#ustra/nuxt-wijmo/components'
@@ -167,6 +196,9 @@ import doc1_2 from './md/pub-layout-1-2.md'
 // @ts-ignore
 import doc2 from './md/pub-layout-2.md';
 import doc2_1 from './md/pub-layout-2-1.md';
+
+// @ts-ignore
+import doc3 from './md/pub-layout-3.md';
 
 
 const data = []
