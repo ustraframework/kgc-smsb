@@ -4,7 +4,7 @@
   <UBox class="columns" direction="row">
     <UItem class="card is-sub is-search" ratio="1" >
       <UFieldSet class="is-search">
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
+        <UFieldRow :ratio="['550px', 1, 1, '170px']">
           <UField label="회원번호/명" required>
             <UBox>
               <UTextBox type="icon"/>

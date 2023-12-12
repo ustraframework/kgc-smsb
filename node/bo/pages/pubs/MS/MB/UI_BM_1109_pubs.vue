@@ -3,7 +3,7 @@
   <UBox class="columns" direction="row">
     <UItem class="card is-sub is-search" ratio="1" >
       <UFieldSet class="is-search">
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
+        <UFieldRow :ratio="[1, '500px', 1, '170px']">
           <UField label="항목구분" required>
             <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
           </UField>
@@ -17,7 +17,7 @@
             </div>
           </UField>
         </UFieldRow>
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
+        <UFieldRow :ratio="[1, '500px', 1, '170px']">
           <UField label="회원유형" required>
             <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
           </UField>

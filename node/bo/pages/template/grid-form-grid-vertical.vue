@@ -20,7 +20,7 @@
   <!-- // 검색영역 --> 
 
   
-  <UBox class="columns" direction="row" height="530">
+  <UBox class="columns" direction="row" height="570">
     <!-- 좌측 영역 -->
     <UItem class="card is-sub" ratio="4">
       <UBox class="table-title-wrap" direction="row">

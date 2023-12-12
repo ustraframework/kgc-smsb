@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="1000" :height="310" title="임직원 검색">
+  <UPopup v-model="showPopup" :width="1000" :height="350" title="임직원 검색">
     <UBox direction="col">
       <UItem :ratio="3" class="pop-contents">
         <UBox class="columns is-shuffle" direction="row">
