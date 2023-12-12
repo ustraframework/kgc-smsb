@@ -1,22 +1,17 @@
-제목이 포함된 컨텐츠 영역의 템플릿은 다음과 같다
+column 영역의 본문 타이틀을 지정해야 하는 경우,
+UItem-card 하위에 UBox를 추가하여 card-header 클래스를 입력한 후 h1태그에 'page-title'클래스 하위에
+입력할 타이틀을 추가해주면 됩니다.
+
+
+
 ```html
 <UBox class="columns" direction="row">
-  <!-- 좌측 영역 -->
-  <UItem class="card is-sub" ratio="4">
-    <UBox class="table-title-wrap" direction="row">
-      <UItem itemDirection="row" :ratio="1">
-        <h2 class="table-title">
-          <span>Sub title</span>
-          <span class="data-count">총<span>24</span>건</span>
-        </h2>
-      </UItem>
+  <UItem class="card is-sub is-search" ratio="1" >
+    <UBox class="card-header">
+      <h1 class="page-title">
+        <span>본문 제목</span>
+      </h1>
     </UBox>
-
-    <WjFlexGrid :itemsSource="customers">
-      <WjFlexGridColumn header="ID" binding="id" width="*" />
-      <WjFlexGridColumn header="이름" binding="name" width="*" />
-      <WjFlexGridColumn header="주소" binding="address" width="*" />
-    </WjFlexGrid>
   </UItem>
 </UBox>
 ```
