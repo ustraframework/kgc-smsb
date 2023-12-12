@@ -12,6 +12,7 @@ import com.gsitm.ustra.java.management.models.UstraUserModel;
 
 import kr.co.kgc.smsb.bo.sample.model.SampleProcInutModel;
 import kr.co.kgc.smsb.bo.sample.model.SampleProcOutModel;
+import kr.co.kgc.smsb.bo.sample.repository.SampleProcRepository;
 
 @Service
 public class SampleProcService {
@@ -28,6 +29,11 @@ public class SampleProcService {
 		return result.getData();
 	}
 
+	/**
+	 * 서비스 내에서 프로시저 실행 - 프로시저 코드를 재사용하지 않는 경우 Service에서 바로 실행
+	 * @param in
+	 * @return
+	 */
 	public SampleProcOutModel sampleProcList(SampleProcInutModel in) {
 		ProcedureCallResult<SampleProcOutModel> result = oracleProcedureManager.call(
 				ProcedureCallOption.returnObjectBuilder("SP_SAMPLE_CASE2", in, SampleProcOutModel.class)
@@ -40,4 +46,13 @@ public class SampleProcService {
 		return result.getData();
 	}
 
+	/**
+	 * Repository 클래스를 만들고 해당 Repository 에서 프로시저 실행 - 프로시저 코드를 재사용 하는 경우 Repository 생성후 사용
+	 * @param in
+	 * @return
+	 */
+	@Autowired private SampleProcRepository sampleProcRepository;
+	public SampleProcOutModel sampleProcListByRepo(SampleProcInutModel in) {
+		return sampleProcRepository.sampleProcList(in);
+	}
 }

@@ -21,7 +21,7 @@
   "scripts": {
     "clean": "nuxt cleanup",
     "dev": "cross-env CONFIG_ENV=local nuxt dev --force -p 11061",
-    "generate": "cross-env CONFIG_ENV=dev nuxt clean && nuxt generate",
+    "generate": "cross-env CONFIG_ENV=dev nuxt cleanup && nuxt generate",
     "prepare": "nuxt prepare",
     "boot": "yarn install && node ./node_modules/@ustra/core/boot",
     "preinstall": "cd ../common && yarn install",

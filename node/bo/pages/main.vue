@@ -11,6 +11,6 @@ definePageMeta({
   auth: {
     required: true,
   },
-
+  layout: 'ustra',
 })
 </script>

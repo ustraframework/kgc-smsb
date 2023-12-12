@@ -17,7 +17,7 @@
               </UField>
               <UField blank>
                 <div class="search-btn">
-                  <UButton text="조회" type="is-search" @click="() => listActions.load()" />
+                  <UButton text="조회" type="is-search" @click="() => listActions.load()" v-if="useFunctionAuthCheck('search')" />
                 </div>
               </UField>
             </UFieldRow>
@@ -38,7 +38,6 @@
     <div class="columns has-gap">
       <UBox class="card is-sub">
         <UItem class="card-body">
-
           <!-- hader 영역 -->
           <UBox class="table-title-wrap" direction="row">
             <UItem itemDirection="row" :ratio="1">
@@ -52,12 +51,18 @@
             <UButtonBox class="table-buttons">
               <UButton text="신규" type="is-outline" @click="() => listActions.init()" />
               <UButton text="삭제" type="is-outline" @click="() => detailActions.remove()" />
-              <UButton text="저장" type="is-filled" @click="() => detailActions.save()" />
+              <UButton text="저장" type="is-filled" @click="() => detailActions.save()" v-if="useFunctionAuthCheck('save')" />
+              <UButton text="엑셀다운로드" type="is-filled" @click="() => listActions.exportExcel()" />
             </UButtonBox>
           </UBox>
 
           <!-- grid 영역 -->
-          <WjFlexGrid class="column-grid" :itemsSource="listActions.chlTms.value" :initialized="listActions.grid.initialize" style="min-height: 250px; max-height: 250px">
+          <WjFlexGrid
+            class="column-grid"
+            :itemsSource="listActions.chlTms.value"
+            :initialized="listActions.grid.initialize"
+            style="min-height: 250px; max-height: 250px"
+          >
             <WjFlexGridColumn header="No" :width="60" align="center" :cellTemplate="ctx => ctx.row.index + 1" />
             <WjFlexGridColumn
               header="채널"
@@ -169,10 +174,10 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { WjFlexGrid, WjFlexGridColumn, WjComboBox } from '#ustra/nuxt-wijmo/components'
-import { wijmoInput } from '#ustra/nuxt-wijmo'
+import { WjFlexGrid, WjFlexGridColumn } from '#ustra/nuxt-wijmo/components'
 import { useChlTmMgntService, Criteria, ChlTm } from '~/services/bi/tm/chl-tm-mng-service'
 import { UValidationGroup } from '#ustra/nuxt-wijmo/components'
+import { SelectionMode } from '@grapecity/wijmo.grid'
 
 // 서비스 정의
 const chlTmMgntService = useChlTmMgntService()
@@ -234,16 +239,24 @@ const listActions = (() => {
    */
   const grid = useWijmoFlexGrid<ChlTm>({
     autoSelection: false,
+    selection: {
+      mode: SelectionMode.Row,
+    },
     onCellClick: function (col, row, data) {
       detailActions.detail(data)
     },
   })
+
+  function exportExcel() {
+    grid.export.toExcel('DownloadExcel.xlsx')
+  }
 
   return {
     chlTms,
     load,
     grid,
     init,
+    exportExcel,
   }
 })()
 
