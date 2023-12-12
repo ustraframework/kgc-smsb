@@ -256,9 +256,11 @@
 
 // 탭영역
 .wj-tabpanel {
-  // 이슬 물어보기
   display: flex !important;
   flex-wrap: nowrap;
+  > div[wj-part="root"] {
+    width: 100%;
+  }
   &:not(.is-menu) {
     > div {
       .wj-tabheaders {
@@ -1282,6 +1284,11 @@
     .v-input__control{
       .v-field{
         .v-field__field{
+          label {
+            +.wj-textarea {
+              margin-left: 0;
+            }
+          }
           .wj-textarea{
             font-size: 14px;
             line-height: 20px;
