@@ -1,4 +1,4 @@
-Popup은 Wijmo의 UPopup 컴포넌트를 사용하여 마크업을 진행합니다.
+Popup은 Wijmo의 UPopup 컴포넌트를 기반으로 작성했습니다.
 1. Popup의 width, height 값은 ```<UPopup width="" height=""/>``` 컴포넌트의 속성값으로 조정합니다.
    -> 팝업의 타이틀도 ```<UPopup title=""/>``` UPopup의 타이틀 속성으로 추가합니다.
 2. ```<UPopup/>```하위에 "UBox" 컴포넌트를 추가한 후 direction 속성을 col로 부여합니다.
