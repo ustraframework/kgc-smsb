@@ -536,7 +536,8 @@
         }
 
         div:last-child {
-          height: 100%;
+          width: 100%;    
+          height: calc(100% - 15px);
 
           .tabpanes{
             height: calc(100% - 40px);
@@ -551,7 +552,7 @@
 
     .wj-tabpanes {
       border-top: none;   
-      margin: 0 -13px;
+      // margin: 0 -13px;
       padding: 0 9px;
 
       &::-webkit-scrollbar-track {
