@@ -1949,7 +1949,7 @@
         background-image: url("data:image/svg+xml,%3Csvg width='36' height='20' viewBox='0 0 36 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.5 10L3.5 15L3.5 5L8.5 10Z' fill='%23666666'/%3E%3Cpath d='M25.6046 4.45613L24.012 3.02788C23.6355 2.68966 23.1248 2.5 22.5921 2.5H18.3661C17.6115 2.5 17 3.0488 17 3.72596V7.98077H24.0618H35V6.04087C35 5.3637 34.3885 4.8149 33.6339 4.8149H26.5705C26.2081 4.8149 25.861 4.68582 25.6046 4.45613Z' fill='%23151515'/%3E%3Cpath d='M33.6339 17.5001H18.3661C17.6115 17.5001 17 16.9546 17 16.2815V7.75716C17 7.08407 17.6115 6.53857 18.3661 6.53857H33.6339C34.3885 6.53857 35 7.08407 35 7.75716V16.2815C35 16.9546 34.3885 17.5001 33.6339 17.5001Z' fill='%23CCCCCC'/%3E%3C/svg%3E%0A");
         background-repeat: no-repeat;
         background-position: left center;
-        transform: rotate(0);
+        transform: rotate(0) !important;
         opacity: 1;
         vertical-align: middle;
       }
