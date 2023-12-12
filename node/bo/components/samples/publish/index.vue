@@ -137,6 +137,7 @@
             <UButtonBox class="table-buttons">
               <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 200px !important" />
               <UButton text="엑셀 다운로드" icon="excel" />
+              <UButton text="초기화" />
               <UButton text="취소" type="is-outline" />
               <UButton text="저장" type="is-filled" />
             </UButtonBox>
@@ -150,6 +151,67 @@
         </UItem>
       </UBox>
       <UMarkdownViewer :content="doc2_1" />
+    </template>
+  </VCard>
+
+  <VCard title="4. Popup"></VCard>
+  <VCard>
+    <template #text>
+      <div class="columns has-gap mb-12">
+      <div class="column is-half">
+          <UButton text="팝업 열기" @click="() => (showPopup = true)"></UButton>
+        </div>
+      </div>
+
+      <UPopup v-model="showPopup" :width="1100" :height="600" title="팝업 예제">
+        <UBox direction="col">
+          <UItem :ratio="1" class="pop-contents">
+            <UBox class="pop-search" style="margin-bottom: 10px;">
+              <UFieldSet class="is-search">
+                <UFieldRow :ratio="[1, 1, '170px']">
+                  <UField label="지사" >
+                    <UWjComboBox :itemsSource="items" displayMemberPath="text" />
+                  </UField>
+                  <UField label="매장코드/명">
+                    <UTextBox type="icon"></UTextBox>
+                  </UField>
+                  <UField blank>
+                    <div class="search-btn">
+                      <UButton text="조회" type="is-search"/>
+                    </div>
+                  </UField>
+                </UFieldRow>
+                <UFieldRow :ratio="[1, 1, '170px']">
+                  <UField label="고객번호/명" required>
+                    <UTextBox />
+                  </UField>
+                  <UField label="핸드폰번호">
+                    <UTextBox />
+                  </UField>
+                </UFieldRow>
+              </UFieldSet>
+            </UBox>
+
+            <UBox class="table-title-wrap">
+              <h2 class="table-title">
+                <span class="data-count">총<span>9</span>건</span>
+              </h2>
+            </UBox>
+
+            <WjFlexGrid :itemsSource="itemsSourceGrid">
+              <WjFlexGridColumn header="No" binding="col1" width="*" />
+              <WjFlexGridColumn header="고객번호" binding="col1" width="*" />
+            </WjFlexGrid>
+          </UItem>
+          <UItem class="pop-btn">
+            <UButtonBox right top>
+              <UButton text="닫기" type="is-outline"/>
+              <UButton text="적용" type="is-filled"/>
+            </UButtonBox>
+          </UItem>
+        </UBox>
+      </UPopup>
+      <UMarkdownViewer :content="doc4" />
     </template>
   </VCard>
 
@@ -167,6 +229,7 @@ import doc1_2 from './md/pub-layout-1-2.md'
 // @ts-ignore
 import doc2 from './md/pub-layout-2.md';
 import doc2_1 from './md/pub-layout-2-1.md';
+import doc4 from './md/pub-layout-4.md'
 
 
 const data = []
@@ -205,6 +268,9 @@ const itemsSourceGrid = ref([
   { col1: '텍스트2' }, 
   { col1: '텍스트3' },
 ]);
+
+
+const showPopup = ref(false);
 </script>
 
 <style>
