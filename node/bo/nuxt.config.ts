@@ -45,6 +45,7 @@ export default defineNuxtConfig({
               title: 'KGC 영업마케팅',
               icon: 'mdi-group',
               items: [
+                { title: '퍼블리싱', componentPath: '~/components/samples/publish/index.vue' },
                 { title: '서비스 생성 예제', componentPath: '~/components/samples/service/index.vue' },
                 { title: 'Dialog', icon: 'mdi-alert-octagram-outline', componentPath: '~/components/samples/dialog/index.vue' },
                 { title: '[Grid]수정가능한 열 설정', componentPath: '~/components/samples/grid-header/index.vue' },

@@ -1,11 +1,11 @@
 <template>
+  <UBox class="table-title-wrap mt-2">
+    <UButtonBox class="table-buttons">
+      <UButton v-if="!isNew" text="삭제" :width="80" @click="() => remove()" />
+      <UButton text="저장" type="is-filled" :width="80" @click="() => save()" />
+    </UButtonBox>
+  </UBox>
   <WjTabPanel class="menu-tab-panel">
-    <UBox class="table-title-wrap mt-2">
-      <UButtonBox class="table-buttons">
-        <UButton v-if="!isNew" text="삭제" :width="80" @click="() => remove()" />
-        <UButton text="저장" type="is-filled" :width="80" @click="() => save()" />
-      </UButtonBox>
-    </UBox>
     <WjTab>
       <a>메뉴 정보</a>
       <UBox direction="col" style="padding-top: 8px">
@@ -85,11 +85,13 @@
               </UFieldRow>
 
               <UFieldRow>
-                <UField blank>
-                  <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '사용' }]" v-model="inputData.useYn"> </UCheckGroupBox>
-                  <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '노출' }]" v-model="inputData.dpYn"> </UCheckGroupBox>
-                  <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '아이피 제한' }]" v-model="inputData.ipLmtYn">
-                  </UCheckGroupBox>
+                <UField blank >
+                  <UBox direction="row" style="padding-left: 10px;">
+                    <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '사용' }]" v-model="inputData.useYn"> </UCheckGroupBox>
+                    <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '노출' }]" v-model="inputData.dpYn"> </UCheckGroupBox>
+                    <UCheckGroupBox :items-source="[{ trueValue: 'Y', falseValue: 'N', text: '아이피 제한' }]" v-model="inputData.ipLmtYn">
+                    </UCheckGroupBox>
+                  </UBox>
                 </UField>
               </UFieldRow>
 

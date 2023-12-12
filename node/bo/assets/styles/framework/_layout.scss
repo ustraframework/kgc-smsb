@@ -6,7 +6,7 @@
   .v-application {
     height: 100% !important;
     display: block;
-    overflow: auto;
+    //overflow: auto;
   }
   .v-application__wrap {
     display: block;
@@ -536,7 +536,8 @@
         }
 
         div:last-child {
-          height: 100%;
+          width: 100%;    
+          height: calc(100% - 15px);
 
           .tabpanes{
             height: calc(100% - 40px);
@@ -551,7 +552,7 @@
 
     .wj-tabpanes {
       border-top: none;   
-      margin: 0 -13px;
+      // margin: 0 -13px;
       padding: 0 9px;
 
       &::-webkit-scrollbar-track {
@@ -1216,8 +1217,8 @@
 */
 
 html {
-  overflow: hidden !important;
-  
+  //overflow: hidden !important;
+  overflow: auto !important;
 }
 
 a {
@@ -1290,15 +1291,21 @@ body {
 
 .columns {
   display: flex;
+  margin: 20px 0;
 
   &:last-child {
+    margin-bottom: 0;
     > .card {
-      margin-bottom: 0;
     }
   }
 
+  &.has-gap {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   > .card {
-    margin: 0 10px 20px;
+    margin: 0 10px;
 
     &.u-box{
       display: block;
@@ -1306,6 +1313,11 @@ body {
 
     .card-body {
       min-height: 200px;
+    }
+
+    .u-box {    
+      min-height: auto !important;
+      height: auto !important;
     }
   }
 
@@ -1319,13 +1331,6 @@ body {
 
   }
 
-  &.has-gap {
-    margin: 0 -10px;
-    // &:last-child {
-    //   padding-bottom: 40px;
-    // }
-  }
-
   *.is-wrapped {
     flex-wrap: wrap;
   }
@@ -1335,6 +1340,12 @@ body {
   }
 
   &.is-shuffle {
+    margin-top: 0 !important;
+    > .u-item {
+      &:last-child {
+        padding-top: 0 !important;
+      }
+    }
     .field-grid {
       //width: calc((100% / 2) - 52px);
       width: calc((100% / 2) - 32px);
@@ -1345,7 +1356,7 @@ body {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 0 20px;
+      margin: 0 25px;
 
       .u-button {
         margin: 0;
@@ -1369,7 +1380,6 @@ body {
     padding: 20px 20px 30px;
 
     &.is-search {
-      margin-bottom: 20px;
       // margin-bottom: 10px; ustra 사용시 이걸로 변경
       padding: 20px;
 
@@ -1401,7 +1411,7 @@ body {
 
   &.is-title {
     padding: 20px;
-    margin-bottom: 20px
+    // margin-bottom: 20px
   }
 
   .card-header{
@@ -1450,7 +1460,7 @@ body {
 
 // layout 
 .v-main {
-  padding: 40px 40px 40px 336px  !important;
+  padding: 40px 40px 80px 336px  !important;
   background-color: $blue_gray100;
   height: calc(100% - 55px);
   box-sizing: border-box;

@@ -1,33 +1,27 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body" style="height: 750px">
-        <UBox direction="col">
-          <UItem :ratio="1">
-            <WjTabPanel class="menu-tab-panel">
-              <WjTab>
-                <a>배치 작업</a>
-                <BatchTask />
-              </WjTab>
-              <WjTab>
-                <a>배치 작업 내역</a>
-                <BatchHist />
-              </WjTab>
-              <WjTab>
-                <a>배치 매니저</a>
-                <BatchManager />
-              </WjTab>
-              <WjTab>
-                <a>배치 워커</a>
-                <BatchWorker />
-              </WjTab>
-            </WjTabPanel>
-          </UItem>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub" ratio="1" >
+      <WjTabPanel class="menu-tab-panel">
+        <WjTab>
+          <a>배치 작업</a>
+          <BatchTask />
+        </WjTab>
+        <WjTab>
+          <a>배치 작업 내역</a>
+          <BatchHist />
+        </WjTab>
+        <WjTab>
+          <a>배치 매니저</a>
+          <BatchManager />
+        </WjTab>
+        <WjTab>
+          <a>배치 워커</a>
+          <BatchWorker />
+        </WjTab>
+      </WjTabPanel>
+    </UItem>
+  </UBox>
 </div>
 </template>
 <script lang="ts" setup>

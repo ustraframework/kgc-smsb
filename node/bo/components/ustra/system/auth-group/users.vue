@@ -1,19 +1,21 @@
 <template>
-  <UFieldSet label="소속 사용자" class="mt-2">
-    <UFieldRow v-if="canAssignUserInAuthorityGroup">
-      <UButtonBar>
-        <UButtonBox right>
-          <UButton icon="mdi-folder-plus" @click="showUserPopup = true"></UButton>
-          <UButton icon="mdi-folder-minus" :disabled="grid.checkSelection.rows.value.length < 1" @click="grid.checkSelection.removeRows()"></UButton>
-        </UButtonBox>
-      </UButtonBar>
-    </UFieldRow>
+  <UBox class="table-title-wrap mt-4">
+      <h2 class="table-title">
+        <span>소속 사용자</span>
+      </h2>
+      
+      <UButtonBox class="table-buttons" v-if="canAssignUserInAuthorityGroup">
+        <UButton icon="mdi-folder-plus" @click="showUserPopup = true"></UButton>
+        <UButton icon="mdi-folder-minus" :disabled="grid.checkSelection.rows.value.length < 1" @click="grid.checkSelection.removeRows()"></UButton>
+      </UButtonBox>
+  </UBox> 
+  <UFieldSet>
     <UFieldRow>
       <WjFlexGrid style="height: 200px" :initialized="grid.initialize" :itemsSource="modelValue">
-        <WjFlexGridColumn header="아이디" binding="usrId" />
-        <WjFlexGridColumn header="이름" binding="usrNm" />
-        <WjFlexGridColumn header="회사명" binding="orgCd" :cellTemplate="ctx => useUstraCodeValue('ORG_CD', ctx.value)" />
-        <WjFlexGridColumn header="부서명" binding="deptCd" :cellTemplate="ctx => useUstraUserDeptName(ctx.item)" />
+        <WjFlexGridColumn header="아이디" binding="usrId" width="*"/>
+        <WjFlexGridColumn header="이름" binding="usrNm" width="*"/>
+        <WjFlexGridColumn header="회사명" binding="orgCd" :cellTemplate="ctx => useUstraCodeValue('ORG_CD', ctx.value)" width="*"/>
+        <WjFlexGridColumn header="부서명" binding="deptCd" :cellTemplate="ctx => useUstraUserDeptName(ctx.item)" width="*"/>
         <WjFlexGridColumn
           header="상태"
           binding="usrSttCd"
@@ -26,7 +28,7 @@
           binding="useDvCd"
           :cellTemplate="ctx => useUstraCodeValue('USE_DV_CD', ctx.value)"
           align="center"
-          :width="120"
+          width="*"
         />
       </WjFlexGrid>
     </UFieldRow>

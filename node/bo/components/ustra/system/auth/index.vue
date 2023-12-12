@@ -1,41 +1,38 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField required label="시스템" >
-              <UCodeComboBox v-model="selectedSystemCode" grpCd="SYS_CD" style="width: 300px" />
-            </UField>
-            <UField blank></UField>
-            <UField blank></UField>
-            <UField blank></UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+  <!-- 검색영역 -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search" ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField required label="시스템" >
+            <UCodeComboBox v-model="selectedSystemCode" grpCd="SYS_CD" style="width: 300px" />
+          </UField>
+          <UField blank></UField>
+          <UField blank></UField>
+          <UField blank></UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
+  <!-- // 검색영역 -->
 
-  <div class="columns has-gap">
-    <UBox class="card is-sub" direction="col">
-      <UItem class="card-body" :ratio="1" style="height: 780px">
-        
-        <WjTabPanel v-if="canHasAuthorityByUser" class="menu-tab-panel">
-          <WjTab>
-            <a>그룹별 권한 설정</a>
-            <Group :systemCode="selectedSystemCode" />
-          </WjTab>
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub" ratio="1" >
+      <WjTabPanel v-if="canHasAuthorityByUser" class="menu-tab-panel">
+        <WjTab>
+          <a>그룹별 권한 설정</a>
+          <Group :systemCode="selectedSystemCode" />
+        </WjTab>
 
-          <WjTab>
-            <a>사용자별 권한 설정</a>
-            <User :systemCode="selectedSystemCode" />
-          </WjTab>
-        </WjTabPanel>
-        <Group v-else :systemCode="selectedSystemCode" />
-      </UItem>
-    </UBox>
-  </div>
+        <WjTab>
+          <a>사용자별 권한 설정</a>
+          <User :systemCode="selectedSystemCode" />
+        </WjTab>
+      </WjTabPanel>
+      <Group v-else :systemCode="selectedSystemCode" />
+    </UItem>
+  </UBox>
 </div>
 </template>
 <script lang="ts" setup>

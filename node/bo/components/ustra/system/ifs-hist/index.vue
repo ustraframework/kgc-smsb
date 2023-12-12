@@ -1,127 +1,94 @@
 <template>
 <div>
   <!-- 검색영역 -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '300px']">
-            <UField label="프로세스 아이디">
-              <UTextBox type="text" v-model="searchAction.searchParam.procId"/>
-            </UField>
-            <UField label="요청 아이디">
-              <UTextBox type="text" v-model="searchAction.searchParam.reqId" />
-            </UField>
-            <UField label="인터페이스 아이디">
-              <UTextBox type="text" v-model="searchAction.searchParam.ifId"/>
-            </UField>
-            <UField blank>
-              <div class="search-btn">
-                <UButton text="엑셀다운로드" icon="xlsxfile" type="default" @click="gridAction.excelDownload" />
-                <UButton class="gray ico_reset"><span class="blind">초기화</span></UButton>
-                <UButton text="조회" type="is-search" @click="searchAction.loadSearchedData"/>
-              </div>
-            </UField>
-          </UFieldRow>
-          <UFieldRow :ratio="[1, 1, 1, '300px']">
-            <UField label="URL">
-              <UTextBox type="text" v-model="searchAction.searchParam.url"/>
-            </UField>
-            <UField direction="row" label="채널 코드">
-              <UCodeComboBox grpCd="CHNL_CD" v-model="searchAction.searchParam.chnlCd" :displayNullText="'전체'" />
-            </UField>
-            <UField direction="row" label="성공 여부">
-              <WjComboBox
-                v-model="searchAction.searchParam.succYn"
-                :itemsSource="searchAction.succYnItems"
-                displayMemberPath="text"
-                selectedValuePath="value"
-              />
-            </UField>
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search" ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '300px']">
+          <UField label="프로세스 아이디">
+            <UTextBox type="text" v-model="searchAction.searchParam.procId"/>
+          </UField>
+          <UField label="요청 아이디">
+            <UTextBox type="text" v-model="searchAction.searchParam.reqId" />
+          </UField>
+          <UField label="인터페이스 아이디">
+            <UTextBox type="text" v-model="searchAction.searchParam.ifId"/>
+          </UField>
+          <UField blank>
+            <div class="search-btn">
+              <UButton text="엑셀다운로드" icon="excel" type="default" @click="gridAction.excelDownload" />
+              <UButton class="gray ico_reset"><span class="blind">초기화</span></UButton>
+              <UButton text="조회" type="is-search" @click="searchAction.loadSearchedData"/>
+            </div>
+          </UField>
+        </UFieldRow>
+        <UFieldRow :ratio="[1, 1, 1, '300px']">
+          <UField label="URL">
+            <UTextBox type="text" v-model="searchAction.searchParam.url"/>
+          </UField>
+          <UField direction="row" label="채널 코드">
+            <UCodeComboBox grpCd="CHNL_CD" v-model="searchAction.searchParam.chnlCd" :displayNullText="'전체'" />
+          </UField>
+          <UField direction="row" label="성공 여부">
+            <WjComboBox
+              v-model="searchAction.searchParam.succYn"
+              :itemsSource="searchAction.succYnItems"
+              displayMemberPath="text"
+              selectedValuePath="value"
+            />
+          </UField>
+          <UField blank></UField>
+        </UFieldRow>
+        <UFieldRow :ratio="[1, 2, '300px']">
+          <UField direction="row" label="응답 코드 값">
+            <UTextBox type="text" v-model="searchAction.searchParam.resCdVal" />
+          </UField>
+          <UField label="기간">
+            <UDatePeriodBox
+              v-model:start="searchAction.searchParam.searchSrtDttm"
+              v-model:end="searchAction.searchParam.searchEndDttm"
+              mode="datetime"
+              displayFormat="yyyy-MM-dd HH:mm"
+              valueFormat="yyyyMMddHHmm"
+            />
             <UField blank></UField>
-          </UFieldRow>
-          <UFieldRow :ratio="[1, 2, '300px']">
-            <UField direction="row" label="응답 코드 값">
-              <UTextBox type="text" v-model="searchAction.searchParam.resCdVal" />
-            </UField>
-            <UField label="기간">
-              <UDatePeriodBox
-                v-model:start="searchAction.searchParam.searchSrtDttm"
-                v-model:end="searchAction.searchParam.searchEndDttm"
-                mode="datetime"
-                displayFormat="yyyy-MM-dd HH:mm"
-                valueFormat="yyyyMMddHHmm"
-              />
-              <UField blank></UField>
-              <UField blank></UField>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+            <UField blank></UField>
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
   <!-- // 검색영역 --> 
-
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox>
-          <WjFlexGrid style="height: 500px" :initialized="gridAction.histGrid.initialize">
-            <WjFlexGridColumn binding="procId" header="프로세스 아이디" width="*" />
-            <WjFlexGridColumn binding="reqId" header="요청아이디" width="*" />
-            <WjFlexGridColumn binding="reqNo" header="요청번호" width="*" />
-            <WjFlexGridColumn binding="ifId" header="I/F아이디" width="*" />
-            <WjFlexGridColumn binding="ifVer" header="I/F버전" width="*" />
-            <WjFlexGridColumn binding="ifNm" header="I/F명" width="*" />
-            <WjFlexGridColumn binding="sysCd" header="시스템코드" width="*" />
-            <WjFlexGridColumn binding="chnlCd" header="채널코드" width="*" />
-            <WjFlexGridColumn binding="url" header="url" width="*" />
-            <WjFlexGridColumn binding="httpMethCd" header="http메소드코드" width="*" />
-            <WjFlexGridColumn binding="succYn" header="성공여부" width="*" />
-            <WjFlexGridColumn binding="resCdVal" header="응답코드값" width="*" />
-            <WjFlexGridColumn binding="httpSttCdVal" header="http상태코드값" width="*" />
-            <WjFlexGridColumn binding="usrId" header="사용자아이디" width="*" />
-            <WjFlexGridColumn binding="usrKey" header="사용자키" width="*" />
-            <WjFlexGridColumn binding="regDttm" header="처리일시" width="*" :cellTemplate="ctx => $ustra.utils.formatting.datetime(ctx.value)" />
-          </WjFlexGrid>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
   
-  <div class="columns has-gap" v-if="formAction.isFormVisible.value">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox>
-          <UFieldSet>
-            <UFieldRow>
-              <UField label="요청 헤더 내용"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.reqHedCont" /> </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="요청 파라메터 내용"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.reqPrmCont" /> </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="요청 메시지"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.reqMsgCont" /> </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="응답 헤더 내용"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.resHedCont" /> </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="응답 메시지"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.resMsgCont" /> </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UField label="비고"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.rmk" /> </UField>
-            </UFieldRow>
-            <UFieldRow>
-              <UButtonBox :right="true">
-                <UButton text="확인" @click="formAction.close" />
-              </UButtonBox>
-            </UFieldRow>
-          </UFieldSet>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>     
+  <UBox class="columns" direction="row" v-if="formAction.isFormVisible.value">
+    <UItem class="card is-sub" ratio="1" >
+      <UFieldSet>
+        <UFieldRow>
+          <UField label="요청 헤더 내용"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.reqHedCont" /> </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="요청 파라메터 내용"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.reqPrmCont" /> </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="요청 메시지"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.reqMsgCont" /> </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="응답 헤더 내용"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.resHedCont" /> </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="응답 메시지"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.resMsgCont" /> </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UField label="비고"><UTextBox type="textarea" rows="2" noResize v-model="formAction.inputData.rmk" /> </UField>
+        </UFieldRow>
+        <UFieldRow>
+          <UButtonBox :right="true">
+            <UButton text="확인" @click="formAction.close" />
+          </UButtonBox>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
 </div>      
 </template>
 <script lang="ts" setup>

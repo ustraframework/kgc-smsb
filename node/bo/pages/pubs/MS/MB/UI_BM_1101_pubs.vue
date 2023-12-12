@@ -1,39 +1,43 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="회원번호/명"><UTextBox></UTextBox></UField>
-            <UField blank></UField>
-            <UField blank></UField>
-            <UField blank>
-              <div class="search-btn">
-                <UButton text="조회" type="is-search" />
-              </div>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
-  <!-- ------------------------------------------------------------------ -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <h2 class="table-title">
-            <span>상세내역</span>
-          </h2>
-          <UButtonBox class="table-buttons">
+  <!-- 검색영역 -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search"  ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UField label="회원번호/명">
+            <UTextBox />
+          </UField>
+          <UField blank></UField>
+          <UField blank></UField>
+          <UField blank>
+            <div class="search-btn">
+              <UButton text="조회" type="is-search"/>
+            </div>
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
+
+  <!-- -------------------------- 상세내역 ------------------------------- -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub"  ratio="1" >
+
+      <!-- 타이틀 영역 -->
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+          <span>상세내역</span>
+        </h2>
+        <UButtonBox class="table-buttons">
             <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 150px !important" />
             <UButton text="처리" type="is-outline" />
             <UButton text="취소" type="is-outline" />
             <UButton text="저장" type="is-filled" />
           </UButtonBox>
-        </UBox>
-        <UFieldSet>
+      </UBox>
+      <!-- Form 영역 -->
+      <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
             <UField label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text" /></UField>
@@ -59,7 +63,7 @@
           <UFieldRow>
             <UField label="단골매장">
               <UBox>
-                <UTextBox type="icon" />
+                <UTextBox type="icon" width="200" />
                 <UTextBox/>
               </UBox>
             </UField>
@@ -89,7 +93,7 @@
           <UFieldRow :ratio="[2, 1, 1]">
             <UField label="가맹점">
               <UBox>
-                <UTextBox type="icon" />
+                <UTextBox type="icon" width="200" />
                 <UTextBox/>
               </UBox>
             </UField>
@@ -172,23 +176,19 @@
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->
         </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+    </UItem>
+  </UBox>
 
-  <!-- ------------------------------------------------------------------ -->
-  <div class="columns has-gap">
-    <UBox class="card is-sub" style="height: 300px">
-      <UItem class="card-body">
-        <UBox class="table-title-wrap">
-          <UItem itemDirection="row" :ratio="1">
-            <h2 class="table-title">
-              <span>회원 이력 정보</span>
-            </h2>
-          </UItem>
-        </UBox>
-
-        <WjTabPanel :initialized="tabPanel.initialize" class="mt-5">
+  <!-- --------------------------- 회원 이력 정보 --------------------------------- -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub"  ratio="1" >
+      <UBox class="table-title-wrap">
+        <h2 class="table-title">
+          <span>회원 이력 정보</span>
+        </h2>
+      </UBox>
+      
+      <WjTabPanel :initialized="tabPanel.initialize" class="mt-5">
           <WjTab>
             <a>포인트</a>
             <div class="tab-grid">
@@ -323,19 +323,21 @@
 
           <WjTab>
             <a>회원등급</a>
-            <WjFlexGrid :itemsSource="itemsSourceGrid">
-              <WjFlexGridColumn header="No" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-              <WjFlexGridColumn header="채널" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원등급" binding="col1" width="*" />
-              <WjFlexGridColumn header="승급일시" binding="col1" width="*" />
-              <WjFlexGridColumn header="승급사유" binding="col1" width="*" />
-              <WjFlexGridColumn header="적용시작일시" binding="col1" width="*" />
-              <WjFlexGridColumn header="적용종료일시" binding="col1" width="*" />
-              <WjFlexGridColumn header="수정자" binding="col1" width="*" />
-              <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
-            </WjFlexGrid>
+            <div class="tab-grid">
+              <WjFlexGrid :itemsSource="itemsSourceGrid">
+                <WjFlexGridColumn header="No" binding="col1" width="*" />
+                <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+                <WjFlexGridColumn header="채널" binding="col1" width="*" />
+                <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+                <WjFlexGridColumn header="회원등급" binding="col1" width="*" />
+                <WjFlexGridColumn header="승급일시" binding="col1" width="*" />
+                <WjFlexGridColumn header="승급사유" binding="col1" width="*" />
+                <WjFlexGridColumn header="적용시작일시" binding="col1" width="*" />
+                <WjFlexGridColumn header="적용종료일시" binding="col1" width="*" />
+                <WjFlexGridColumn header="수정자" binding="col1" width="*" />
+                <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
+              </WjFlexGrid>
+            </div>
           </WjTab>
 
           <WjTab>
@@ -350,23 +352,6 @@
                 <WjFlexGridColumn header="상태변경일" binding="col1" width="*" />
                 <WjFlexGridColumn header="수정자" binding="col1" width="*" />
                 <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
-              </WjFlexGrid>
-            </div>
-          </WjTab>
-
-          <WjTab>
-            <a>인증</a>
-            <div class="tab-grid">
-              <WjFlexGrid :itemsSource="itemsSourceGrid">
-                <WjFlexGridColumn header="No" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-                <WjFlexGridColumn header="채널" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-                <WjFlexGridColumn header="접속단말" binding="col1" width="*" />
-                <WjFlexGridColumn header="인증채널" binding="col1" width="*" />
-                <WjFlexGridColumn header="인증상태" binding="col1" width="*" />
-                <WjFlexGridColumn header="인증 값" binding="col1" width="*" />
-                <WjFlexGridColumn header="인증일시" binding="col1" width="*" />
               </WjFlexGrid>
             </div>
           </WjTab>
@@ -456,9 +441,8 @@
             </div>
           </WjTab>
         </WjTabPanel>
-      </UItem>
-    </UBox>
-  </div>
+    </UItem>
+  </UBox>
 </div>
 </template>
 

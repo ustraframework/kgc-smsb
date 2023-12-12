@@ -256,14 +256,23 @@
 
 // 탭영역
 .wj-tabpanel {
+  display: flex !important;
+  flex-wrap: nowrap;
+  > div[wj-part="root"] {
+    width: 100%;
+  }
   &:not(.is-menu) {
     > div {
       .wj-tabheaders {
+        white-space: nowrap;
+        border-bottom: 1px solid $is-primary;
         .wj-tabheader {
           position: relative;
           margin-left: -1px;
           padding: 10px 20px;
+          color: $gray220;
           font-size: pxToRem(14);
+          font-weight: 500;
           border: 1px solid #dbdbdb;
           border-bottom: 0;
           border-radius: 4px 4px 0 0;
@@ -289,7 +298,8 @@
         }
       }
       .wj-tabpanes {
-        border-top: 1px solid $vDarken1;
+        // border-top: 1px solid $vDarken1;
+        margin-top: 20px;
       }
     }
   }
@@ -422,124 +432,6 @@
   }
 }
 
-@mixin wj-flexgrid-mixin {
-  border: 0;
-  border-top: 1px solid $vPrimary1;
-  border-bottom: 1px solid $vLighten5;
-  border-right: 1px solid $vLighten5;
-  border-radius: 0;
-  &:hover,
-  &:active,
-  &:focus {
-    border: 0;
-    border-top: 1px solid $vPrimary1;
-    border-bottom: 1px solid $vLighten5;
-    border-right: 1px solid $vLighten5;
-  }
-  .wj-cell {
-    border: 0;
-    border-top: 1px solid $vLighten5;
-    border-left: 1px solid $vLighten5;
-    color: $vDarken1;
-    &.wj-header {
-      background: #fafafa;
-      font-size: pxToRem(13);
-      font-weight: 600;
-      text-align: center;
-      vertical-align: middle;
-    }
-    label {
-      input[type='checkbox'] {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 13px;
-        height: 13px;
-        margin-right: 0;
-        background: #fff;
-        border: 1px solid #767676;
-        border-radius: 2px;
-        -webkit-appearance: none;
-        appearance: none;
-        &:hover,
-        &:active,
-        &:focus {
-          border: 1px solid $vPrimary1;
-        }
-        &:checked {
-          background: $vPrimary3 url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_checkbox_on.png) no-repeat center center;
-          border: 1px solid $vPrimary3;
-        }
-        &:disabled {
-          border: 1px solid $vLighten5;
-          background: $vLighten9;
-          &:checked {
-            background: $vLighten5 url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_checkbox_on.png) no-repeat center center;
-            border: 1px solid $vLighten5;
-          }
-        }
-      }
-      &:hover,
-      &:active,
-      &:focus {
-        &:before {
-          border: 1px solid $vPrimary1;
-        }
-      }
-    }
-  }
-  .wj-cells {
-    .wj-row {
-      .wj-cell {
-        &.wj-state-selected,
-        &.wj-state-multi-selected {
-          // background: $vLighten9;
-          background: $pointColorSkyblue;
-          color: #fff;
-        }
-      }
-      &:hover {
-        .wj-cell {
-          &:not(.wj-state-selected) {
-            &:not(.wj-state-multi-selected) {
-              background: #f4f7fd;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-.wj-flexgrid {
-  // max-height: 500px;
-  &.wj-control {
-    @include wj-flexgrid-mixin; // 검토 후 삭제예정 (wj-control, wj-content 클래스가 항상 같이들어가는지 확인되면 삭제)
-    &.wj-content {
-      @include wj-flexgrid-mixin;
-      contain: layout;
-    }
-  }
-
-  // to vertial center
-  & .wj-cell {
-    display: flex;
-    align-items: center;
-  }
-  & .wj-cell.wj-align-right {
-    justify-content: flex-end;
-  }
-  & .wj-cell.wj-align-center {
-    justify-content: center;
-  }
-  & .wj-cell.wj-header,
-  & .wj-cell.wj-header.wj-align-center,
-  & .wj-cell.wj-header.wj-align-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
 // 가로 테이블
 .v_table {
   width: 100%;
@@ -592,7 +484,7 @@
 .check_group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 13px;
   min-height: 30px;
 }
 
@@ -1392,6 +1284,11 @@
     .v-input__control{
       .v-field{
         .v-field__field{
+          label {
+            +.wj-textarea {
+              margin-left: 0;
+            }
+          }
           .wj-textarea{
             font-size: 14px;
             line-height: 20px;
@@ -1484,8 +1381,8 @@
 // ====== 달력 ======
 .u-date-box,
 .u-date-period-box,
-.wj-cell
-{
+.wj-cell{
+
   width: 100%;
   .wj-template{
     .wj-input{
@@ -1534,6 +1431,142 @@
           }
         }
       }
+    }
+  }
+}
+
+.wj-calendar {
+  .wj-calendar-outer {
+    border-top: 1px solid $is-primary;
+    padding: 0 0 58px !important;
+
+    .wj-calendar-header {
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+
+      .wj-month-select {
+        margin: 0;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 21px;
+        color: $is-primary;
+      }
+
+      button {
+        &:hover {
+          background: none !important;
+        }
+      }
+      button[wj-part="btn-prev"]{
+        position: absolute;
+        top: 9px;
+        left: 0;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        .wj-glyph-left{
+          top: 0;
+          left: 0;
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          border: none;
+          background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_3931)'%3E%3Cpath d='M16.0005 18L11.7935 13.793L16.0005 9.58601' stroke='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_3931'%3E%3Crect width='28' height='28' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center;
+        }
+      }
+
+      button[wj-part="btn-next"]{
+        position: absolute;
+        top: 9px;
+        right: 0;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        border: none;
+        .wj-glyph-right{
+          top: 0;
+          right: 0;
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          border: none;
+          background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_3932)'%3E%3Cpath d='M11.793 9.58594L15.9999 13.7929L11.793 17.9999' stroke='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_3932'%3E%3Crect width='28' height='28' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center;
+        }
+      }
+
+      button[wj-part="btn-today"]{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 58px;
+        border-top: 1px solid $gray80;
+
+        &:hover {
+          background: none;
+          .wj-glyph-circle {
+            border: 1px solid $is-primary;
+          }
+        }
+
+        .wj-glyph-circle {
+          border: none;    
+          width: calc(100% - 30px);
+          height: 30px;
+          color: $is-primary;
+          line-height: 28px;
+          border: 1px solid $gray100;
+          border-radius: 4px;
+
+          &::before {
+            content: '오늘';
+            color: $is-primary;
+          }
+        }
+      }
+    }
+    .wj-calendar-year {
+      .wj-header {
+        color: $is-primary;
+        font-weight: 600;
+        font-size: 14px;
+        background: none;
+      }
+      > tr {
+        td {
+          &:hover {
+            background: $gray60 !important;
+          }
+        }
+      }
+    }
+    .wj-calendar-month{
+      > tr {
+        &.wj-header {
+          background: none;
+        }
+        > td {
+          width: 40px;
+          height: 40px;
+          padding: 0 !important;
+          color: $is-primary;
+          font-size: 14px;
+          font-weight: 500;
+          &:first-child {
+            color: $point1 !important;
+          }
+          &:hover {
+            background: $gray60 !important;
+          }
+        }
+      }
+    }
+    .wj-state-selected, 
+    .wj-state-last-selected {
+      color: $is-white !important;
+      border-radius: 3px;
+      background: $is-primary;
     }
   }
 }
@@ -1704,6 +1737,23 @@
   display: none !important;
 }
 
+.u-box {
+  .wj-control {
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
+  }
+}
+
+.u-field-slot {
+  gap: 5px !important;
+
+ .wj-control {
+  width: 100%;
+ }
+
+}
+
 // mdi
 .mdi {
   border-top: 0px;
@@ -1752,7 +1802,7 @@
     width: 100% !important;
 
     .wj-input {
-      height: 32px;
+      height: 30px;
 
       .wj-form-control{
         font-size: pxToRem(14);
@@ -1873,6 +1923,54 @@
       &:hover {
         background: $blue_gray200 !important;
         transition-duration: unset !important;
+      }
+    }
+  }
+}
+
+// tree
+.wj-content {
+
+  &.wj-treeview {
+    border: none;
+
+    &:hover {
+      border: none;
+    }
+    .wj-node{    
+      padding: 8px 0;
+      color: $gray260;
+
+      &:before {
+        width: 36px;
+        height: 20px;
+        margin: 0 8px 0 0;
+        border: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='36' height='20' viewBox='0 0 36 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.5 10L3.5 15L3.5 5L8.5 10Z' fill='%23666666'/%3E%3Cpath d='M25.6046 4.45613L24.012 3.02788C23.6355 2.68966 23.1248 2.5 22.5921 2.5H18.3661C17.6115 2.5 17 3.0488 17 3.72596V7.98077H24.0618H35V6.04087C35 5.3637 34.3885 4.8149 33.6339 4.8149H26.5705C26.2081 4.8149 25.861 4.68582 25.6046 4.45613Z' fill='%23151515'/%3E%3Cpath d='M33.6339 17.5001H18.3661C17.6115 17.5001 17 16.9546 17 16.2815V7.75716C17 7.08407 17.6115 6.53857 18.3661 6.53857H33.6339C34.3885 6.53857 35 7.08407 35 7.75716V16.2815C35 16.9546 34.3885 17.5001 33.6339 17.5001Z' fill='%23CCCCCC'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: left center;
+        transform: rotate(0);
+        opacity: 1;
+        vertical-align: middle;
+      }
+      &.wj-state-selected {
+        color: $is-black;
+        background: none;
+        &:before {
+          background-image: url("data:image/svg+xml,%3Csvg width='36' height='20' viewBox='0 0 36 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 12.5L1 7.5L11 7.5L6 12.5Z' fill='%23151515'/%3E%3Cpath d='M26.5373 4.99897H31.7882C32.5268 4.99897 33.0741 5.53079 33.0741 6.24846V6.8732L24.7156 13.433L17.3918 16.3883C17.1421 16.0134 17 15.4777 17 14.9949V3.79968C17 3.08201 17.599 2.5 18.3375 2.5H22.6294C23.1493 2.5 23.648 2.69998 24.0167 3.05628L25.5937 4.61636C25.8444 4.85844 26.1838 4.99897 26.5373 4.99897Z' fill='%23151515'/%3E%3Cpath d='M33.66 6.87305H22.7135C22.226 6.87314 21.7505 7.01959 21.3519 7.29234C20.9533 7.56509 20.6513 7.95081 20.4869 8.39677C17.5351 16.6215 17.7788 16.0305 17.7042 16.1229C17.6726 16.1703 17.6295 16.2093 17.5787 16.2366C17.5279 16.2638 17.471 16.2784 17.4129 16.2791C17.3715 16.2786 17.3309 16.267 17.2959 16.2454C17.5156 16.6472 17.8499 16.9787 18.2588 17.2004C18.6677 17.422 19.1337 17.5243 19.6009 17.4949H31.1434C31.424 17.4936 31.6967 17.4047 31.9212 17.2412C32.1457 17.0777 32.3101 16.8484 32.3902 16.5872L34.9376 8.56859C35.0011 8.37346 35.0164 8.16648 34.9823 7.96452C34.9482 7.76255 34.8656 7.57126 34.7411 7.40612C34.6167 7.24098 34.454 7.10668 34.2662 7.01406C34.0783 6.92143 33.8706 6.87313 33.66 6.87305Z' fill='%23CCCCCC'/%3E%3C/svg%3E%0A");
+        }
+      }
+      &.wj-state-empty {
+        color: $gray260;
+        &:before {
+          width: 20px;
+          background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 2.29378C5 1.85539 5.38376 1.5 5.85714 1.5H17.1429C17.6162 1.5 18 1.85538 18 2.29377V14.5769L13.7724 18.4042C13.7047 18.4656 13.6129 18.5 13.5171 18.5H6.07143C5.35714 18.5 5 18.0785 5 17.6401V2.29378Z' fill='%23DBDBDB'/%3E%3Cpath d='M13.667 18.5002L18.0003 14.5771H14.5337C14.055 14.5771 13.667 14.9284 13.667 15.3618L13.667 18.5002Z' fill='%23666666'/%3E%3C/svg%3E%0A");
+          visibility: visible;
+        }
+        &.wj-state-selected {
+          color: $is-primary;
+          font-weight: 600;
+        }
       }
     }
   }

@@ -1,240 +1,229 @@
 <template>
 <div>
-  <div class="columns has-gap">
-    <UBox class="card is-sub is-search">
-      <UItem class="card-body">
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, '340px']">
-            <UField label="사용자 아이디/명" style="min-width: 150px !important;">
-              <WjInputMask v-model="searchActions.criteria.usrNm" />
-            </UField>
-            <UField label="상태">
-              <UCodeComboBox grpCd="USR_STT_CD" v-model="searchActions.criteria.usrSttCd" displayNullText="전체" />
-            </UField>
-            <UField blank>
-              <div class="search-btn">
-                <UButton text="신규" :width="80" :height="34" @click="() => formActions.init(true)" />
-                <UButton text="조회" type="is-search"  @click="() => listActions.load()" />
-              </div>
-            </UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-  </div>
+  <!-- 검색영역 -->
+  <UBox class="columns" direction="row">
+    <UItem class="card is-sub is-search" ratio="1" >
+      <UFieldSet class="is-search">
+        <UFieldRow :ratio="[1, 1, '340px']">
+          <UField label="사용자 아이디/명" style="min-width: 150px !important;">
+            <WjInputMask v-model="searchActions.criteria.usrNm" />
+          </UField>
+          <UField label="상태">
+            <UCodeComboBox grpCd="USR_STT_CD" v-model="searchActions.criteria.usrSttCd" displayNullText="전체" />
+          </UField>
+          <UField blank>
+            <div class="search-btn">
+              <UButton text="신규" :width="80" :height="34" @click="() => formActions.init(true)" />
+              <UButton text="조회" type="is-search"  @click="() => listActions.load()" />
+            </div>
+          </UField>
+        </UFieldRow>
+      </UFieldSet>
+    </UItem>
+  </UBox>
+  <!-- // 검색영역 -->
   
-  <div class="columns">
-    <UBox direction="row">
-      <!-- 좌측 영역 -->
-      <UItem baseSize="990" class="gap-right">
-        <UBox class="card is-sub" height="580px">
-          <UItem class="card-body">
-            <WjFlexGrid :isReadOnly="true" style="height:530px" :itemsSource="listActions.users.value" :initialized="listActions.grid.initialize">
-              <!-- <WjFlexGridColumn header="소속 그룹" binding="authGrp" /> -->
-              <WjFlexGridColumn header="아이디" binding="usrId" />
-              <WjFlexGridColumn header="이름" binding="usrNm" />
-              <WjFlexGridColumn header="회사명" binding="orgCd" :cellTemplate="ctx => useUstraCodeValue('ORG_CD', ctx.value)" />
-              <WjFlexGridColumn header="부서명" binding="deptCd" :cellTemplate="ctx => useUstraUserDeptName(ctx.item)" />
-              <WjFlexGridColumn
-                header="상태"
-                binding="usrSttCd"
-                :cellTemplate="ctx => useUstraCodeValue('USR_STT_CD', ctx.value)"
-                align="center"
-                :width="80"
-              />
-              <WjFlexGridColumn
-                header="구분"
-                binding="useDvCd"
-                :cellTemplate="ctx => useUstraCodeValue('USE_DV_CD', ctx.value)"
-                align="center"
-                :width="120"
-              />
-              <WjFlexGridColumn
-                header="승인완료"
-                binding="apvCmplYn"
-                :cellTemplate="ctx => (ctx.value === 'Y' ? '완료' : '미완료')"
-                align="center"
-                :width="80"
-              />
-              <WjFlexGridColumn
-                header="등록일"
-                binding="regDttm"
-                :cellTemplate="ctx => $ustra.utils.formatting.datetime(ctx.value)"
-                align="center"
-                :width="180"
-              />
-            </WjFlexGrid>
-          </UItem>
-        </UBox>        
-      </UItem>
+  <UBox class="columns" direction="row" height="870">
+    <!-- 좌측 영역 -->
+    <UItem class="card is-sub" ratio="8">
+      <WjFlexGrid :isReadOnly="true" style="height:530px" :itemsSource="listActions.users.value" :initialized="listActions.grid.initialize">
+        <!-- <WjFlexGridColumn header="소속 그룹" binding="authGrp" /> -->
+        <WjFlexGridColumn header="아이디" binding="usrId" />
+        <WjFlexGridColumn header="이름" binding="usrNm" />
+        <WjFlexGridColumn header="회사명" binding="orgCd" :cellTemplate="ctx => useUstraCodeValue('ORG_CD', ctx.value)" />
+        <WjFlexGridColumn header="부서명" binding="deptCd" :cellTemplate="ctx => useUstraUserDeptName(ctx.item)" />
+        <WjFlexGridColumn
+          header="상태"
+          binding="usrSttCd"
+          :cellTemplate="ctx => useUstraCodeValue('USR_STT_CD', ctx.value)"
+          align="center"
+          :width="80"
+        />
+        <WjFlexGridColumn
+          header="구분"
+          binding="useDvCd"
+          :cellTemplate="ctx => useUstraCodeValue('USE_DV_CD', ctx.value)"
+          align="center"
+          :width="120"
+        />
+        <WjFlexGridColumn
+          header="승인완료"
+          binding="apvCmplYn"
+          :cellTemplate="ctx => (ctx.value === 'Y' ? '완료' : '미완료')"
+          align="center"
+          :width="80"
+        />
+        <WjFlexGridColumn
+          header="등록일"
+          binding="regDttm"
+          :cellTemplate="ctx => $ustra.utils.formatting.datetime(ctx.value)"
+          align="center"
+          :width="180"
+        />
+      </WjFlexGrid>
+    </UItem>
+    <!-- 우측 영역 -->
+    <UItem class="card is-sub" ratio="4">
+      <UBox class="table-title-wrap">
+        <h2 class="table-title"></h2>
+        <UButtonBox class="table-buttons">
+          <UButton text="삭제" type="is-outline"
+            v-if="!formActions.isNew.value && authActions.hasApprovalStatus.value"
+            @click="() => formActions.remove()"
+          />
+          <UButton text="저장" type="is-filled" 
+            @click="() => formActions.save()"
+            v-if="formActions.isNew.value || (!formActions.isNew.value && authActions.hasApprovalStatus.value)"/>
+        </UButtonBox>
+        <ApprovalPopup
+            v-model="approvalActions.opened.value"
+            :ref="popup => {
+              approvalActions.popup.value = popup as InstanceType<typeof ApprovalPopup>
+            }"
+          ></ApprovalPopup>
+      </UBox>
 
-      <!-- 우측 영역 -->
-      <UItem ratio="1" class="gap-left">
-        <UBox class="card is-sub">
-          <UItem class="card-body">
-            <UBox class="table-title-wrap">
-              <h2 class="table-title"></h2>
-              <UButtonBox class="table-buttons">
-                <UButton text="삭제" type="is-outline"
-                  v-if="!formActions.isNew.value && authActions.hasApprovalStatus.value"
-                  @click="() => formActions.remove()"
-                />
-                <UButton text="저장" type="is-filled" 
-                  @click="() => formActions.save()"
-                  v-if="formActions.isNew.value || (!formActions.isNew.value && authActions.hasApprovalStatus.value)"/>
-              </UButtonBox>
-              <ApprovalPopup
-                  v-model="approvalActions.opened.value"
-                  :ref="popup => {
-                    approvalActions.popup.value = popup as InstanceType<typeof ApprovalPopup>
+      <UValidationGroup
+          :ref="ctl => {
+          formActions.validationGroup.value = ctl as InstanceType<typeof UValidationGroup>
+        }"
+        >
+          <UFieldSet>
+            <UFieldRow>
+              <UField label="아이디" required>
+                <WjInputMask
+                  v-model="formActions.inputData.usrId"
+                  :isDisabled="!formActions.isNew.value"
+                  :validation="{
+                    rules: [{ type: 'custom', handler: formActions.validateId, delay: 200 }],
                   }"
-                ></ApprovalPopup>
-            </UBox>
+                />
+              </UField>
+            </UFieldRow>
 
-            <UValidationGroup
-                :ref="ctl => {
-                formActions.validationGroup.value = ctl as InstanceType<typeof UValidationGroup>
-              }"
-              >
-                <UFieldSet>
-                  <UFieldRow>
-                    <UField label="아이디" required>
-                      <WjInputMask
-                        v-model="formActions.inputData.usrId"
-                        :isDisabled="!formActions.isNew.value"
-                        :validation="{
-                          rules: [{ type: 'custom', handler: formActions.validateId, delay: 200 }],
-                        }"
-                      />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="사번">
+                <WjInputMask :isRequired="false" v-model="formActions.inputData.empNo" />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="사번">
-                      <WjInputMask :isRequired="false" v-model="formActions.inputData.empNo" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="이름" required>
+                <WjInputMask v-model="formActions.inputData.usrNm" />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="이름" required>
-                      <WjInputMask v-model="formActions.inputData.usrNm" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="부서명">
+                <WjInputMask :isRequired="false" v-model="formActions.inputData.deptNm" />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="부서명">
-                      <WjInputMask :isRequired="false" v-model="formActions.inputData.deptNm" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="회사명">
+                <UCodeComboBox :isRequired="false" v-model="formActions.inputData.orgCd" grpCd="ORG_CD" displayNullText="없음." />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="회사명">
-                      <UCodeComboBox :isRequired="false" v-model="formActions.inputData.orgCd" grpCd="ORG_CD" displayNullText="없음." />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow :ratio="formActions.isNew.value || formActions.inputData.pwdResetYn === 'Y' ? [2, 1] : [1]">
+              <UField label="비밀번호" required v-if="formActions.isNew.value || formActions.inputData.pwdResetYn === 'Y'">
+                <WjInputMask :isReadOnly="true" :isRequired="false" v-model="formActions.inputData.pwd" />
+              </UField>
+              <UField :blank="formActions.isNew.value || formActions.inputData.pwdResetYn === 'Y'" label="비밀번호">
+                <UButtonBox :right="formActions.isNew.value || formActions.inputData.pwdResetYn === 'Y'">
+                  <UButton
+                    text="초기화"
+                    @click="
+                      () => {
+                        formActions.inputData.pwd = $ustra.utils.system.uuidBase62().substring(0, 8)
+                        formActions.inputData.pwdResetYn = 'Y'
+                      }
+                    "
+                  />
+                </UButtonBox>
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow :ratio="formActions.isNew.value || formActions.inputData.pwdResetYn === 'Y' ? [2, 1] : [1]">
-                    <UField label="비밀번호" required v-if="formActions.isNew.value || formActions.inputData.pwdResetYn === 'Y'">
-                      <WjInputMask :isReadOnly="true" :isRequired="false" v-model="formActions.inputData.pwd" />
-                    </UField>
-                    <UField :blank="formActions.isNew.value || formActions.inputData.pwdResetYn === 'Y'" label="비밀번호">
-                      <UButtonBox :right="formActions.isNew.value || formActions.inputData.pwdResetYn === 'Y'">
-                        <UButton
-                          text="초기화"
-                          @click="
-                            () => {
-                              formActions.inputData.pwd = $ustra.utils.system.uuidBase62().substring(0, 8)
-                              formActions.inputData.pwdResetYn = 'Y'
-                            }
-                          "
-                        />
-                      </UButtonBox>
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="구분" required>
+                <UCodeComboBox v-model="formActions.inputData.useDvCd" grpCd="USE_DV_CD" />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="구분" required>
-                      <UCodeComboBox v-model="formActions.inputData.useDvCd" grpCd="USE_DV_CD" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow v-if="authActions.canUpdateAuthWhenEditUser">
+              <UField label="권한그룹">
+                <WjMultiSelect
+                  :itemsSource="authActions.selectableAuthGroups.value"
+                  displayMemberPath="authGrpFullNm"
+                  selectedValuePath="authGrpId"
+                  :maxHeaderItems="100"
+                  :isAnimated="true"
+                  :isRequired="false"
+                />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow v-if="authActions.canUpdateAuthWhenEditUser">
-                    <UField label="권한그룹">
-                      <WjMultiSelect
-                        :itemsSource="authActions.selectableAuthGroups.value"
-                        displayMemberPath="authGrpFullNm"
-                        selectedValuePath="authGrpId"
-                        :maxHeaderItems="100"
-                        :isAnimated="true"
-                        :isRequired="false"
-                      />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="상태" required>
+                <UCodeComboBox v-model="formActions.inputData.usrSttCd" grpCd="USR_STT_CD" />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="상태" required>
-                      <UCodeComboBox v-model="formActions.inputData.usrSttCd" grpCd="USR_STT_CD" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="이메일" required>
+                <WjInputMask v-model="formActions.inputData.email" :validation="{ rules: ['email'] }" />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="이메일" required>
-                      <WjInputMask v-model="formActions.inputData.email" :validation="{ rules: ['email'] }" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="전화번호">
+                <UPhoneNoBox v-model="formActions.inputData.phNo" style="width: 100%;"/>
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="전화번호">
-                      <UPhoneNoBox v-model="formActions.inputData.phNo" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="핸드폰번호">
+                <UPhoneNoBox v-model="formActions.inputData.cphNo" style="width: 100%;"/>
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="핸드폰번호">
-                      <UPhoneNoBox v-model="formActions.inputData.cphNo" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="팩스번호">
+                <UPhoneNoBox v-model="formActions.inputData.faxNo" style="width: 100%;"/>
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="팩스번호">
-                      <UPhoneNoBox v-model="formActions.inputData.faxNo" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="사용기간">
+                <UDatePeriodBox v-model:start="formActions.inputData.useSrtDt" v-model:end="formActions.inputData.useEndDt" />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="사용기간">
-                      <UDatePeriodBox v-model:start="formActions.inputData.useSrtDt" v-model:end="formActions.inputData.useEndDt" />
-                    </UField>
-                  </UFieldRow>
+            <UFieldRow>
+              <UField label="아이피 제한">
+                <UCheckGroupBox
+                  itemAlign="left"
+                  :items-source="[{ trueValue: 'Y', falseValue: 'N', text: 'IP 접근 제한' }]"
+                  v-model="formActions.inputData.ipLmtYn"
+                >
+                </UCheckGroupBox>
+                <UIpAddressListBox
+                  v-model="formActions.inputData.ipInputList"
+                  :isRequired="true"
+                  v-if="formActions.inputData.ipLmtYn === 'Y'"
+                />
+              </UField>
+            </UFieldRow>
 
-                  <UFieldRow>
-                    <UField label="아이피 제한">
-                      <UCheckGroupBox
-                        itemAlign="left"
-                        :items-source="[{ trueValue: 'Y', falseValue: 'N', text: 'IP 접근 제한' }]"
-                        v-model="formActions.inputData.ipLmtYn"
-                      >
-                      </UCheckGroupBox>
-                      <UIpAddressListBox
-                        v-model="formActions.inputData.ipInputList"
-                        :isRequired="true"
-                        v-if="formActions.inputData.ipLmtYn === 'Y'"
-                      />
-                    </UField>
-                  </UFieldRow>
-
-                  <UFieldRow>
-                    <UField label="비고">
-                      <UTextBox type="textarea" v-model="formActions.inputData.rmk"> </UTextBox>
-                    </UField>
-                  </UFieldRow>
-                </UFieldSet>
-              </UValidationGroup>
-          </UItem>
-        </UBox>
-      </UItem>
-    </UBox>
-  </div>
+            <UFieldRow>
+              <UField label="비고">
+                <UTextBox type="textarea" v-model="formActions.inputData.rmk"> </UTextBox>
+              </UField>
+            </UFieldRow>
+          </UFieldSet>
+        </UValidationGroup>
+    </UItem>
+  </UBox>
 </div>
 </template>
 
