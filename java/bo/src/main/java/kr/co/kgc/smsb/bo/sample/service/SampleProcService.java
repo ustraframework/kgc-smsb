@@ -30,7 +30,7 @@ public class SampleProcService {
 	}
 
 	/**
-	 * 서비스 내에서 프로시저 실행
+	 * 서비스 내에서 프로시저 실행 - 프로시저 코드를 재사용하지 않는 경우 Service에서 바로 실행
 	 * @param in
 	 * @return
 	 */
@@ -47,7 +47,7 @@ public class SampleProcService {
 	}
 
 	/**
-	 * Repository 클래스를 만들고 해당 Repository 에서 프로시저 실행
+	 * Repository 클래스를 만들고 해당 Repository 에서 프로시저 실행 - 프로시저 코드를 재사용 하는 경우 Repository 생성후 사용
 	 * @param in
 	 * @return
 	 */
