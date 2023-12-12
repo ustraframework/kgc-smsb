@@ -58,7 +58,7 @@
           </UField>
           <UField label="단골매장">
             <UBox>
-              <UTextBox type="icon" />
+              <UTextBox type="icon" width="200" />
               <UTextBox/>
             </UBox>
           </UField>
@@ -67,7 +67,7 @@
         <UFieldRow>
           <UField label="주소">
             <UBox>
-              <UTextBox type="icon" />
+              <UTextBox type="icon" width="200" />
               <UTextBox/>
             </UBox>
           </UField>
@@ -92,7 +92,8 @@
         <UFieldRow :ratio="[2, 1]">
           <UField label="가맹점" item-direction="row"> 
             <UBox>
-              <UTextBox type="icon" /><UTextBox />
+              <UTextBox type="icon" width="200"/>
+              <UTextBox />
             </UBox>
           </UField>
           <UField></UField>

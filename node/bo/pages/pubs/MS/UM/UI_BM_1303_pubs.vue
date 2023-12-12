@@ -4,7 +4,7 @@
     <UBox class="columns" direction="row">
       <UItem class="card is-sub is-search" ratio="1" >
         <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UFieldRow :ratio="[2, 2, 1, '170px']">
               <UField required label="작업일자" >
                 <UDatePeriodBox v-model:start="start" v-model:end="end" />
               </UField>
@@ -18,7 +18,7 @@
                 </div>
               </UField>
             </UFieldRow>
-            <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UFieldRow :ratio="[2, 2, 1, '170px']">
               <UField required label="처리상태" >
                 <WjComboBox :itemsSource="items" selectedValuePath="value" displayMemberPath="text" />
               </UField>

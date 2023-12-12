@@ -4,13 +4,13 @@
   <UBox class="columns" direction="row">
     <UItem class="card is-sub is-search"  ratio="1" >
       <UFieldSet class="is-search">
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
+        <UFieldRow :ratio="[2, 2, 1, '170px']">
           <UField label="탈퇴일자" required>
               <UDatePeriodBox v-model:start="start" v-model:end="end" />
             </UField>
             <UField label="회원번호/명">
               <UBox>
-                <UTextBox type="icon"/>
+                <UTextBox type="icon" width="200"/>
                 <UTextBox disabled/>
               </UBox>
             </UField>

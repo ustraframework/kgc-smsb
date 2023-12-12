@@ -4,7 +4,7 @@
   <UBox class="columns" direction="row">
     <UItem class="card is-sub is-search" ratio="1" >
       <UFieldSet class="is-search">
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
+        <UFieldRow :ratio="[1, 1, 2, '170px']">
           <UField label="유형코드" ><UTextBox></UTextBox></UField>
           <UField label="유형코드명" ><UTextBox></UTextBox></UField>
           <UField label="적용기간">
@@ -59,7 +59,7 @@
         </h2>
       </UBox>
       
-      <UFieldSet>
+      <UFieldSet class="is-large">
         <!-- ------------------------------------------------------------------ -->
         <UFieldRow>
           <UField label="포인트유형코드"><UTextBox/></UField>
