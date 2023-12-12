@@ -1,176 +1,161 @@
 <template>
   <div>
     <!-- 검색조건 테이블 -->
-    <div class="columns has-gap">
-      <UBox class="card is-sub is-search">
-        <UItem class="card-body">
-          <UFieldSet class="is-search" @keyup.enter="listActions.load()">
-            <UFieldRow :ratio="[1, 1, 1, '170px']">
-              <UField label="채널">
-                <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.schChnlCd" displayNullText="전체" />
-              </UField>
-              <UField label="약관유형">
-                <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="searchActions.criteria.schTermPatrDvcd" displayNullText="전체" />
-              </UField>
-              <UField label="약관ID/명">
-                <UTextBox type="text" v-model="searchActions.criteria.schTermNm" style="width: 100%"></UTextBox>
-              </UField>
-              <UField blank>
-                <div class="search-btn">
-                  <UButton text="조회" type="is-search" @click="() => listActions.load()" v-if="useFunctionAuthCheck('search')" />
-                </div>
-              </UField>
-            </UFieldRow>
-            <UFieldRow :ratio="[1, 1, 1, '170px']">
-              <UField label="기준일자">
-                <UDateBox v-model="searchActions.criteria.schAplDt" mode="date" />
-              </UField>
-              <UField blank></UField>
-              <UField blank></UField>
-            </UFieldRow>
-          </UFieldSet>
-        </UItem>
-      </UBox>
-    </div>
+    <UBox class="columns" direction="row">
+      <UItem class="card is-sub is-search" ratio="1">
+        <UFieldSet class="is-search" @keyup.enter="listActions.load()">
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UField label="채널">
+              <UCodeComboBox grpCd="CHNL_CD" v-model="searchActions.criteria.schChnlCd" displayNullText="전체" />
+            </UField>
+            <UField label="약관유형">
+              <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="searchActions.criteria.schTermPatrDvcd" displayNullText="전체" />
+            </UField>
+            <UField label="약관ID/명">
+              <UTextBox type="text" v-model="searchActions.criteria.schTermNm" style="width: 100%"></UTextBox>
+            </UField>
+            <UField blank>
+              <div class="search-btn">
+                <UButton text="조회" type="is-search" @click="() => listActions.load()" v-if="useFunctionAuthCheck('search')" />
+              </div>
+            </UField>
+          </UFieldRow>
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
+            <UField label="기준일자">
+              <UDateBox v-model="searchActions.criteria.schAplDt" mode="date" />
+            </UField>
+            <UField blank></UField>
+            <UField blank></UField>
+          </UFieldRow>
+        </UFieldSet>
+      </UItem>
+    </UBox>
     <!-- // 검색조건 테이블 -->
 
     <!-- 본문 - 약관 목록 -->
-    <div class="columns has-gap">
-      <UBox class="card is-sub">
-        <UItem class="card-body">
-          <!-- hader 영역 -->
-          <UBox class="table-title-wrap" direction="row">
-            <UItem itemDirection="row" :ratio="1">
-              <h2 class="table-title">
-                <span>약관 목록</span>
-                <span class="data-count"
-                  >조회건수 <span>{{ listActions.chlTms.value.length }}</span> 건</span
-                >
-              </h2>
-            </UItem>
-            <UButtonBox class="table-buttons">
-              <UButton text="신규" type="is-outline" @click="() => listActions.init()" />
-              <UButton text="삭제" type="is-outline" @click="() => detailActions.remove()" />
-              <UButton text="저장" type="is-filled" @click="() => detailActions.save()" v-if="useFunctionAuthCheck('save')" />
-              <UButton text="엑셀다운로드" type="is-filled" @click="() => listActions.exportExcel()" />
-            </UButtonBox>
-          </UBox>
+    <UBox class="columns" direction="row">
+      <UItem class="card is-sub" ratio="1">
+        <!-- hader 영역 -->
+        <UBox class="table-title-wrap">
+          <h2 class="table-title">
+            <span>약관 목록</span>
+            <span class="data-count"
+              >조회건수<span>{{ listActions.chlTms.value.length }}</span
+              >건</span
+            >
+          </h2>
 
-          <!-- grid 영역 -->
-          <WjFlexGrid
-            class="column-grid"
-            :itemsSource="listActions.chlTms.value"
-            :initialized="listActions.grid.initialize"
-            style="min-height: 250px; max-height: 250px"
-          >
-            <WjFlexGridColumn header="No" :width="60" align="center" :cellTemplate="ctx => ctx.row.index + 1" />
-            <WjFlexGridColumn
-              header="채널"
-              binding="chnlCd"
-              width="*"
-              align="center"
-              :cellTemplate="ctx => useUstraCodeValue('CHNL_CD', ctx.value)"
-            />
-            <WjFlexGridColumn
-              header="약관유형"
-              binding="termPatrDvcd"
-              width="*"
-              align="center"
-              :cellTemplate="ctx => useUstraCodeValue('TERM_PATR_DV_CD', ctx.value)"
-            />
-            <WjFlexGridColumn header="약관ID" binding="termCd" width="*" align="center" />
-            <WjFlexGridColumn header="약관명" binding="termNm" width="*" align="center" />
-            <WjFlexGridColumn header="약관버전" binding="termVrsnNo" width="*" align="center" />
-            <WjFlexGridColumn
-              header="필수동의여부"
-              binding="esntAgrmTermYn"
-              width="*"
-              align="center"
-              :cellTemplate="ctx => useUstraCodeValue('ESNT_AGRM_TERM_YN_CD', ctx.value)"
-            />
-            <WjFlexGridColumn
-              header="적용시작일자"
-              binding="aplStDt"
-              width="*"
-              align="center"
-              :cellTemplate="ctx => $ustra.utils.formatting.date(ctx.value)"
-            />
-            <WjFlexGridColumn
-              header="적용종료일자"
-              binding="aplEdDt"
-              width="*"
-              align="center"
-              :cellTemplate="ctx => $ustra.utils.formatting.date(ctx.value)"
-            />
-            <WjFlexGridColumn header="약관내용" binding="termCntt" width="*" align="center" />
-          </WjFlexGrid>
-        </UItem>
-      </UBox>
-    </div>
+          <UButtonBox class="table-buttons">
+            <UButton text="신규" type="is-outline" @click="() => listActions.init()" />
+            <UButton text="삭제" type="is-outline" @click="() => detailActions.remove()" />
+            <UButton text="저장" type="is-filled" @click="() => detailActions.save()" v-if="useFunctionAuthCheck('save')" />
+            <UButton text="엑셀다운로드" type="is-filled" @click="() => listActions.exportExcel()" />
+          </UButtonBox>
+        </UBox>
+
+        <!-- grid 영역 -->
+        <WjFlexGrid
+          class="column-grid"
+          :itemsSource="listActions.chlTms.value"
+          :initialized="listActions.grid.initialize"
+          style="min-height: 250px; max-height: 250px"
+        >
+          <WjFlexGridColumn header="No" :width="60" align="center" :cellTemplate="ctx => ctx.row.index + 1" />
+          <WjFlexGridColumn header="채널" binding="chnlCd" width="*" align="center" :cellTemplate="ctx => useUstraCodeValue('CHNL_CD', ctx.value)" />
+          <WjFlexGridColumn
+            header="약관유형"
+            binding="termPatrDvcd"
+            width="*"
+            align="center"
+            :cellTemplate="ctx => useUstraCodeValue('TERM_PATR_DV_CD', ctx.value)"
+          />
+          <WjFlexGridColumn header="약관ID" binding="termCd" width="*" align="center" />
+          <WjFlexGridColumn header="약관명" binding="termNm" width="*" align="center" />
+          <WjFlexGridColumn header="약관버전" binding="termVrsnNo" width="*" align="center" />
+          <WjFlexGridColumn
+            header="필수동의여부"
+            binding="esntAgrmTermYn"
+            width="*"
+            align="center"
+            :cellTemplate="ctx => useUstraCodeValue('ESNT_AGRM_TERM_YN_CD', ctx.value)"
+          />
+          <WjFlexGridColumn
+            header="적용시작일자"
+            binding="aplStDt"
+            width="*"
+            align="center"
+            :cellTemplate="ctx => $ustra.utils.formatting.date(ctx.value)"
+          />
+          <WjFlexGridColumn
+            header="적용종료일자"
+            binding="aplEdDt"
+            width="*"
+            align="center"
+            :cellTemplate="ctx => $ustra.utils.formatting.date(ctx.value)"
+          />
+          <WjFlexGridColumn header="약관내용" binding="termCntt" width="*" align="center" />
+        </WjFlexGrid>
+      </UItem>
+    </UBox>
     <!-- //본문 - 약관 목록 끝 -->
 
     <!-- 본문 - 이용약관 상세정보 -->
-    <div class="columns has-gap">
-      <UBox class="card is-sub">
-        <UItem class="card-body">
-          <UBox class="table-title-wrap" direction="row">
-            <UItem itemDirection="row" :ratio="1">
-              <h2 class="table-title">
-                <span>이용약관 상세정보</span>
-              </h2>
-            </UItem>
-          </UBox>
+    <UBox class="columns" direction="row">
+      <UItem class="card is-sub" ratio="1">
+        <UBox class="table-title-wrap">
+          <h2 class="table-title">
+            <span>이용약관 상세정보</span>
+          </h2>
+        </UBox>
 
-          <UFieldSet>
-            <UValidationGroup ref="validationGroup">
-              <UFieldRow>
-                <UField left required label="채널" labelWidth="120">
-                  <UCodeComboBox grpCd="CHNL_CD" v-model="detailActions.chlTm.value.chnlCd" displayNullText="선택" />
-                </UField>
-                <UField left required label="약관유형" labelWidth="120">
-                  <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="detailActions.chlTm.value.termPatrDvcd" displayNullText="선택" />
-                </UField>
-                <UField left required label="약관ID" labelWidth="120">
-                  <UTextBox type="text" v-model="detailActions.chlTm.value.termCd" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
-                </UField>
-              </UFieldRow>
-              <UFieldRow>
-                <UField left required label="약관명" labelWidth="120">
-                  <UTextBox type="text" v-model="detailActions.chlTm.value.termNm" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
-                </UField>
-                <UField left required label="약관버전" labelWidth="120">
-                  <UTextBox type="text" v-model="detailActions.chlTm.value.termVrsnNo" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
-                </UField>
-                <UField left required label="필수동의여부" labelWidth="120">
-                  <UCodeComboBox grpCd="ESNT_AGRM_TERM_YN_CD" v-model="detailActions.chlTm.value.esntAgrmTermYn" displayNullText="선택" />
-                </UField>
-              </UFieldRow>
-              <UFieldRow>
-                <UField left required label="적용기간" labelWidth="120">
-                  <UDatePeriodBox
-                    v-model:start="detailActions.chlTm.value.aplStDt"
-                    v-model:end="detailActions.chlTm.value.aplEdDt"
-                    :isRequired="true"
-                  />
-                </UField>
-              </UFieldRow>
-              <UFieldRow>
-                <UField left required label="약관내용" labelWidth="120">
-                  <div>
-                    <UCkEditor5
-                      v-model="detailActions.chlTm.value.termCntt"
-                      :height="400"
-                      :initialized="detailActions.ckEditor.initialize"
-                      :validation="{ rules: ['required'] }"
-                    />
-                  </div>
-                </UField>
-              </UFieldRow>
-            </UValidationGroup>
-          </UFieldSet>
-        </UItem>
-      </UBox>
-    </div>
+        <UFieldSet>
+          <UValidationGroup ref="validationGroup">
+            <UFieldRow>
+              <UField left required label="채널" labelWidth="120">
+                <UCodeComboBox grpCd="CHNL_CD" v-model="detailActions.chlTm.value.chnlCd" displayNullText="선택" />
+              </UField>
+              <UField left required label="약관유형" labelWidth="120">
+                <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="detailActions.chlTm.value.termPatrDvcd" displayNullText="선택" />
+              </UField>
+              <UField left required label="약관ID" labelWidth="120">
+                <UTextBox type="text" v-model="detailActions.chlTm.value.termCd" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
+              </UField>
+            </UFieldRow>
+            <UFieldRow>
+              <UField left required label="약관명" labelWidth="120">
+                <UTextBox type="text" v-model="detailActions.chlTm.value.termNm" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
+              </UField>
+              <UField left required label="약관버전" labelWidth="120">
+                <UTextBox type="text" v-model="detailActions.chlTm.value.termVrsnNo" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
+              </UField>
+              <UField left required label="필수동의여부" labelWidth="120">
+                <UCodeComboBox grpCd="ESNT_AGRM_TERM_YN_CD" v-model="detailActions.chlTm.value.esntAgrmTermYn" displayNullText="선택" />
+              </UField>
+            </UFieldRow>
+            <UFieldRow>
+              <UField left required label="적용기간" labelWidth="120">
+                <UDatePeriodBox
+                  v-model:start="detailActions.chlTm.value.aplStDt"
+                  v-model:end="detailActions.chlTm.value.aplEdDt"
+                  :isRequired="true"
+                  width="400"
+                />
+              </UField>
+            </UFieldRow>
+            <UFieldRow>
+              <UField left required label="약관내용" labelWidth="120">
+                <UCkEditor5
+                  v-model="detailActions.chlTm.value.termCntt"
+                  :height="400"
+                  :initialized="detailActions.ckEditor.initialize"
+                  :validation="{ rules: ['required'] }"
+                />
+              </UField>
+            </UFieldRow>
+          </UValidationGroup>
+        </UFieldSet>
+      </UItem>
+    </UBox>
   </div>
 </template>
 <script lang="ts" setup>

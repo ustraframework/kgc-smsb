@@ -50,6 +50,7 @@ export default defineNuxtConfig({
                 { title: 'Dialog', icon: 'mdi-alert-octagram-outline', componentPath: '~/components/samples/dialog/index.vue' },
                 { title: '[Grid]수정가능한 열 설정', componentPath: '~/components/samples/grid-header/index.vue' },
                 { title: 'File', componentPath: '~/components/samples/file/index.vue' },
+                { title: '프로시져', componentPath: '~/components/samples/procedure/index.vue' },
               ],
             },
           ],
