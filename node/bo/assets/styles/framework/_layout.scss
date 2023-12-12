@@ -6,7 +6,7 @@
   .v-application {
     height: 100% !important;
     display: block;
-    overflow: auto;
+    //overflow: auto;
   }
   .v-application__wrap {
     display: block;
@@ -1216,8 +1216,8 @@
 */
 
 html {
-  overflow: hidden !important;
-  
+  //overflow: hidden !important;
+  overflow: auto !important;
 }
 
 a {

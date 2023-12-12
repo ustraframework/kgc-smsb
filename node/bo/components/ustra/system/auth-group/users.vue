@@ -12,10 +12,10 @@
   <UFieldSet>
     <UFieldRow>
       <WjFlexGrid style="height: 200px" :initialized="grid.initialize" :itemsSource="modelValue">
-        <WjFlexGridColumn header="아이디" binding="usrId" />
-        <WjFlexGridColumn header="이름" binding="usrNm" />
-        <WjFlexGridColumn header="회사명" binding="orgCd" :cellTemplate="ctx => useUstraCodeValue('ORG_CD', ctx.value)" />
-        <WjFlexGridColumn header="부서명" binding="deptCd" :cellTemplate="ctx => useUstraUserDeptName(ctx.item)" />
+        <WjFlexGridColumn header="아이디" binding="usrId" width="*"/>
+        <WjFlexGridColumn header="이름" binding="usrNm" width="*"/>
+        <WjFlexGridColumn header="회사명" binding="orgCd" :cellTemplate="ctx => useUstraCodeValue('ORG_CD', ctx.value)" width="*"/>
+        <WjFlexGridColumn header="부서명" binding="deptCd" :cellTemplate="ctx => useUstraUserDeptName(ctx.item)" width="*"/>
         <WjFlexGridColumn
           header="상태"
           binding="usrSttCd"
@@ -28,7 +28,7 @@
           binding="useDvCd"
           :cellTemplate="ctx => useUstraCodeValue('USE_DV_CD', ctx.value)"
           align="center"
-          :width="120"
+          width="*"
         />
       </WjFlexGrid>
     </UFieldRow>

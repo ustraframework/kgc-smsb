@@ -323,19 +323,21 @@
 
           <WjTab>
             <a>회원등급</a>
-            <WjFlexGrid :itemsSource="itemsSourceGrid">
-              <WjFlexGridColumn header="No" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-              <WjFlexGridColumn header="채널" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-              <WjFlexGridColumn header="회원등급" binding="col1" width="*" />
-              <WjFlexGridColumn header="승급일시" binding="col1" width="*" />
-              <WjFlexGridColumn header="승급사유" binding="col1" width="*" />
-              <WjFlexGridColumn header="적용시작일시" binding="col1" width="*" />
-              <WjFlexGridColumn header="적용종료일시" binding="col1" width="*" />
-              <WjFlexGridColumn header="수정자" binding="col1" width="*" />
-              <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
-            </WjFlexGrid>
+            <div class="tab-grid">
+              <WjFlexGrid :itemsSource="itemsSourceGrid">
+                <WjFlexGridColumn header="No" binding="col1" width="*" />
+                <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
+                <WjFlexGridColumn header="채널" binding="col1" width="*" />
+                <WjFlexGridColumn header="회원명" binding="col1" width="*" />
+                <WjFlexGridColumn header="회원등급" binding="col1" width="*" />
+                <WjFlexGridColumn header="승급일시" binding="col1" width="*" />
+                <WjFlexGridColumn header="승급사유" binding="col1" width="*" />
+                <WjFlexGridColumn header="적용시작일시" binding="col1" width="*" />
+                <WjFlexGridColumn header="적용종료일시" binding="col1" width="*" />
+                <WjFlexGridColumn header="수정자" binding="col1" width="*" />
+                <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
+              </WjFlexGrid>
+            </div>
           </WjTab>
 
           <WjTab>
@@ -350,23 +352,6 @@
                 <WjFlexGridColumn header="상태변경일" binding="col1" width="*" />
                 <WjFlexGridColumn header="수정자" binding="col1" width="*" />
                 <WjFlexGridColumn header="수정일시" binding="col1" width="*" />
-              </WjFlexGrid>
-            </div>
-          </WjTab>
-
-          <WjTab>
-            <a>인증</a>
-            <div class="tab-grid">
-              <WjFlexGrid :itemsSource="itemsSourceGrid">
-                <WjFlexGridColumn header="No" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
-                <WjFlexGridColumn header="채널" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-                <WjFlexGridColumn header="접속단말" binding="col1" width="*" />
-                <WjFlexGridColumn header="인증채널" binding="col1" width="*" />
-                <WjFlexGridColumn header="인증상태" binding="col1" width="*" />
-                <WjFlexGridColumn header="인증 값" binding="col1" width="*" />
-                <WjFlexGridColumn header="인증일시" binding="col1" width="*" />
               </WjFlexGrid>
             </div>
           </WjTab>
