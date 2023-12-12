@@ -49,6 +49,14 @@ public class SampleController {
 	}
 	
 	/**
+	 * 프로시저 조회 - Class
+	 */
+	@PostMapping("/get-proc-list-repo")
+	public SampleProcOutModel sampleProcListByRepo(@RequestBody SampleProcInutModel in) {
+		return sampleProcService.sampleProcListByRepo(in);
+	}
+	
+	/**
 	 * 페이징 조회 - 쿼리xml
 	 */
 	@Autowired private SamplePaginationService samplePaginationService;
