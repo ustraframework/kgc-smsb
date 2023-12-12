@@ -3,7 +3,7 @@
   <UBox class="columns" direction="row">
     <UItem class="card is-sub is-search" ratio="1" >
       <UFieldSet class="is-search">
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
+        <UFieldRow :ratio="[2, 2, 1, '170px']">
             <UField label="수행업무" required>
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
@@ -17,7 +17,7 @@
               </div>
             </UField>
           </UFieldRow>
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UFieldRow :ratio="[2, 2, 1, '170px']">
             <UField label="프로그램ID/명">
               <UBox>
                 <UTextBox type="icon"></UTextBox>

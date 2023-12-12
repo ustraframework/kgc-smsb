@@ -3,7 +3,7 @@
   <UBox class="columns" direction="row">
     <UItem class="card is-sub is-search" ratio="1" >
       <UFieldSet class="is-search">
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
+        <UFieldRow :ratio="['480px', 1, 1, '170px']">
           <UField required label="지사" >
             <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
           </UField>
@@ -22,7 +22,7 @@
             </div>
           </UField>
         </UFieldRow>
-        <UFieldRow :ratio="[1, 1, 1, '170px']">
+        <UFieldRow :ratio="['480px', 1, 1, '170px']">
           <UField required label="요청기간" >
             <UDatePeriodBox v-model="dateArr1" />
           </UField>

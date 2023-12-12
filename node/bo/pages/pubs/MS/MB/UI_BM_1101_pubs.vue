@@ -63,7 +63,7 @@
           <UFieldRow>
             <UField label="단골매장">
               <UBox>
-                <UTextBox type="icon" />
+                <UTextBox type="icon" width="200" />
                 <UTextBox/>
               </UBox>
             </UField>
@@ -93,7 +93,7 @@
           <UFieldRow :ratio="[2, 1, 1]">
             <UField label="가맹점">
               <UBox>
-                <UTextBox type="icon" />
+                <UTextBox type="icon" width="200" />
                 <UTextBox/>
               </UBox>
             </UField>
