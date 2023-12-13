@@ -363,7 +363,7 @@ export default {
 @import '@/assets/styles/framework/variable.scss';
 
 .mdi {
-  z-index: 9999;
+  z-index: 100;
   position: fixed;
   bottom: 0;
   left: 0;
