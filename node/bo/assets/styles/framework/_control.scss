@@ -186,3 +186,11 @@ input[type='file']::file-selector-button {
 ::-webkit-scrollbar-corner {
   background: #f2f5f6;
 }
+
+// date
+.u-date-period-box{
+  .u-date-period-box-divider{
+    display: flex;
+    align-items: center;
+  }
+}

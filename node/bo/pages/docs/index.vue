@@ -127,6 +127,7 @@ const items2 = ref([
   { col1: '알럿', col2: '/docs/alert' },
   { col1: '타이포그래피', col2: '/docs/typography' },
   { col1: '그리드', col2: '/docs/grid' },
+  { col1: 'Validation', col2: '/docs/validation' },
 ])
 
 // BO 템플릿 목록 그리드 데이터

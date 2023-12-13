@@ -97,11 +97,9 @@
       .wj-cell {
         &.wj-state-selected,
         &.wj-state-multi-selected {
-          // background: $vLighten9;
-          //background: $pointColorSkyblue;
-          //color: #fff;
-          border: 1px solid $point4;
-          background-color: $is-white;
+          //background: $vLighten9;
+          background: #93A9B726;
+          color: $is-black;
         }
       }
       &:hover {
@@ -111,7 +109,6 @@
               //background: #f4f7fd;
               //background: #93A9B726;
               background: $is-white;
-              
             }
           }
         }
