@@ -6,7 +6,7 @@ import com.gsitm.ustra.java.security.exception.UstraSecurityException;
 
 public enum SmsbPosResponseCode implements ResponseCode {
 
-	FAILURE_SSO_LOGIN("4001", "SSO ÀÎÁõÀ» ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+	FAILURE_SSO_LOGIN("4001", "SSO ì¸ì¦ì„ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
 	private String code;
 	private String message;
