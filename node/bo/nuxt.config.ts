@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     emitRouteChunkError: 'reload',
   },
   routeRules: {
+    '/api/**': { proxy: 'http://localhost:11051/api/**' },
   },
   ustra: {
     i18n: {
@@ -19,6 +20,15 @@ export default defineNuxtConfig({
         refreshTokenKey: 'X-SMSB-BO-RAUTH',
       },
     },
+    // server: {
+    //   middleware: {
+    //     proxy: {
+    //       proxies: {
+    //         '/api/': 'http://localhost:11051',
+    //       },
+    //     },
+    //   },
+    // },
     nuxt: {
       meta: {
         auth: {
