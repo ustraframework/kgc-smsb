@@ -23,7 +23,7 @@
       </ul>
     </div>
 
-    <div class="w-[650px] mt-[40px]">
+    <div class="w-full mt-[40px]">
       <div class="flex justify-between items-center pb-[6px] border-b-[2px] border-[#666666]">
         <h2 class="text-[20px] font-bold">매장검색</h2>
         <Button label="현위치" outlined class="location_btn">
@@ -41,18 +41,48 @@
           </template>
         </Button>
       </div>
+
+      <div class="w-full flex gap-[8px] mt-[20px]">
+        <Dropdown class="w-1/4" placeholder="시/도 선택"/>
+        <Dropdown class="w-1/4" placeholder="구/군 선택"/>
+        <span class="p-input-icon-right w-1/2">
+          <i class="pi pi-search" />
+          <InputText v-model="value" placeholder="강남" class="w-full"/>
+        </span>
+      </div>
     </div>
 
-    <div class="w-full flex gap-[8px] mt-[20px]">
-      <Dropdown class="w-1/4" placeholder="시/도 선택"/>
-      <Dropdown class="w-1/4" placeholder="구/군 선택"/>
-      <span class="p-input-icon-right w-1/2">
-        <i class="pi pi-search" />
-        <InputText v-model="value" placeholder="강남" class="w-full"/>
-      </span>
+    <div class="w-full mt-[40px]">
+      <h3 class="text-black text-[15px] font-medium">
+        총 <span class="text-[#D20F27]">4</span>개 매장
+      </h3>
+
+      <div class="mt-[20px] p-[32px] border-[1px] border-[#E7E7E7] rounded-[12px]">
+        <!-- card -->
+        <div class="market-card" v-for="id in 5" :key="id">
+          <div class="flex justify-between items-center mb-[20px]">
+            <span class="text-[16px] font-bold">정관장몰</span>
+            <Button label="매장 변경" severity="secondary" style="font-size: 14px;"/>
+          </div>
+          <ul class="market_list is-card">
+            <li class="mb-[12px]">
+              <img src="@/assets/images/svg/ico_map.svg"/>
+              <span>서울특별시 강남구 영동대로 416(대치동)케이티엔지타워</span>
+            </li>
+            <li class="mb-[12px]">
+              <img src="@/assets/images/svg/ico_call.svg"/>
+              <span>02-2189-3900</span>
+            </li>
+            <li>
+              <img src="@/assets/images/svg/ico_time.svg"/>
+              <span>09:00 ~ 18:00</span>
+            </li>
+          </ul>
+        </div>
+        <!-- /card -->
+      </div>
     </div>
 
-    
   </div>
 </template>
 
@@ -77,10 +107,29 @@
       font-size: 16px;
     }
   }
+
+  &.is-card {
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--j-gray200);
+
+    span {
+      font-size: 15px;
+      color: var(--j-gray500);
+    }
+  }
 }
+
 .location_btn{
   font-size: 14px; 
   padding:10px 16px; 
   border-color: #EDEDED;
+}
+
+.market-card{
+  margin-bottom: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 </style>
