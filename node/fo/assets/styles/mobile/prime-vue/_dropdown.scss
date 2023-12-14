@@ -18,6 +18,10 @@
       height: 48px;
       line-height: 48px;
     }
+
+    &.p-placeholder {
+      color: var(--j-gray300);
+    }
   }
 
   .p-dropdown-trigger-icon {
