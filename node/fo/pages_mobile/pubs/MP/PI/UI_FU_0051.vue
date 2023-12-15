@@ -43,7 +43,7 @@
         optionValue="value"
         class="flex"
       />
-      <div class="p-calendar-group">
+      <div class="p-calendar-group w-full">
         <Calendar v-model="startDate" placeholder="2023-01-01" dateFormat="yy-mm-dd"  />
         <span class="range">~</span>
         <Calendar v-model="endDate" placeholder="2023-01-01" dateFormat="yy-mm-dd" />
@@ -102,7 +102,7 @@ interface ListType {
   point: string;
 }
 
-const list: ListType[] = ref[
+const list: ListType[] = [
   { title: '케어나우', date: '2023-09-27 01:02', type: '활동 적립', pointType: 'plus', point: '+1,000' },
   { title: '정관장몰', date: '2023-09-27 01:02', type: '구매 사용', pointType: 'minus', point: '-100' },
   { title: '대치점', date: '2023-09-27 01:02', type: '영수증 적립', pointType: 'plus', point: '+10' },
