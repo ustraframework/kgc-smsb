@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[650px] mx-auto py-[60px] rounded-[16px] border border-[#ECF0F8]">
+  <div class="w-[650px] py-[60px] rounded-[16px] border border-[#ECF0F8]">
     <h2 class="mb-[12px] text-center text-3xl font-bold">비밀번호 변경</h2>
     <p class="mb-[40px] text-center text-base">새로운 비밀번호를 입력해주세요.</p>
     <form class="w-[320px] mx-auto">
