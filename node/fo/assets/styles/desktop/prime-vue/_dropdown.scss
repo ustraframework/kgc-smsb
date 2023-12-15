@@ -110,3 +110,16 @@
     padding: 6px 20px;
   }
 }
+
+.simple-dropdown {
+  border: 1px solid transparent;
+  color: #222222;
+
+  &.p-focus {
+    border-color: transparent;
+  }
+
+  .p-inputtext {
+    text-align: right;
+  }
+}
