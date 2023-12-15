@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col min-w-[1280px] h-full">
     <Header />
-    <main class="container !max-w-full bg-white flex flex-1 justify-center mt-[80px]">
+    <main class="container !max-w-full bg-white flex flex-1 justify-center my-[80px]">
       <Sidebar/>
-      <div class="px-[103px]">
+      <div class="flex flex-col px-[103px]">
         <slot></slot>
       </div>
     </main>
