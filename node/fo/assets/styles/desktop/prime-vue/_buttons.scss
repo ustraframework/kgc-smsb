@@ -9,6 +9,7 @@
   // label
   .p-button-label {
     font-weight: 500;
+    line-height: 1.6;
   }
 
   // actions
@@ -31,6 +32,7 @@
 
     .p-button-label {
       font-size: 13px;
+      line-height: 1.2;
     }
 
     .p-button-icon {
@@ -111,8 +113,9 @@
 
   // outline
   &.p-button-outlined {
+    padding-top: 8px;
+    padding-bottom: 8px;
     border: 1px solid var(--j-gray300);
-    font-size: 18px;
     color: var(--j-gray600);
     background-color: #fff;
 
@@ -146,6 +149,18 @@
         background-color: var(--j-bluegray200);
       }
     }
+
+    // size
+    &.p-button-sm {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    &.p-button-lg {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+  
   }
 
   // text
