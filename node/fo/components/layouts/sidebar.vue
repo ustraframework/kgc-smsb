@@ -1,5 +1,5 @@
 <template>
-  <div class="pr-[40px]">
+  <div class="pr-[80px]">
     <h1 class="text-[24px] text-[#000] font-bold">마이페이지</h1>
     <ul class="flex flex-col mt-[23px]">
       <li class="main_list">포인트조회</li>

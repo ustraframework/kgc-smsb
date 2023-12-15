@@ -90,8 +90,6 @@
 definePageMeta({
   layout: 'side',
 })
-
-
 </script>
 
 <style scoped>
