@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center w-[650px] ">
     <h1 class="text-[30px] font-medium mb-[30px]">단골매장 관리</h1>
-    <div class="w-[650px] bg-[#F4F6FA] p-[24px]">
+    <div class="w-full bg-[#F4F6FA] p-[24px] rounded-[12px]">
       <div class="flex justify-between items-center mb-[20px]">
         <h2 class="text-[18px] font-bold">정관장몰</h2>
         <Button label="매장 변경" outlined style="font-size: 14px;"/>
@@ -26,6 +26,9 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'side',
+})
 
 </script>
 
