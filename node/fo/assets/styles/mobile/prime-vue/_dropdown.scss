@@ -110,3 +110,23 @@
     padding: 6px 20px;
   }
 }
+
+
+.simple-dropdown {
+  border: 1px solid transparent;
+  color: #222222;
+
+  &.p-focus {
+    border-color: transparent;
+  }
+
+  .p-inputtext {
+    text-align: right;
+    font-size: 15px
+  }
+
+  .p-dropdown-trigger {
+    width: 20px;
+    margin-left: 4px;
+  }
+}

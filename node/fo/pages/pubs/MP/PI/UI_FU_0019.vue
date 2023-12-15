@@ -45,7 +45,7 @@
         optionValue="value"
         class=" w-[310px]"
       />
-      <div class="p-calendar-group">
+      <div class="p-calendar-group ml-[8px]">
         <Calendar v-model="startDate" placeholder="2023-01-01" dateFormat="yy-mm-dd"  />
         <span class="range">~</span>
         <Calendar v-model="endDate" placeholder="2023-01-01" dateFormat="yy-mm-dd" />

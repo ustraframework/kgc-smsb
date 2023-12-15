@@ -66,7 +66,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 
 interface ListType {
   title: string;
@@ -83,19 +82,6 @@ const list: ListType[] = [
   { title: '특별 포인트', date: '2023-11-30', type: '특별 포인트', pointType: 'minus', point: '-1,000' },
   { title: '특별 포인트', date: '2023-11-30', type: '유효기간 만료로 소멸', pointType: 'minus', point: '-1,000' },
 ]
-
-
-const selectOptions = ref([
-  { label: '3개월' , value: 3 },
-  { label: '6개월' , value: 6 },
-  { label: '9개월' , value: 9 },
-  { label: '직접입력' , value: 0 }
-])
-const selectedValue = ref(3)
-
-const startDate = ref()
-const endDate = ref()
-const dropdownValue = ref('전체')
 
 definePageMeta({
   layout: 'side',
