@@ -1,5 +1,10 @@
 export default defineNuxtConfig({
   ssr: false,
+  vite: {
+    optimizeDeps: {
+      exclude: ['@grapecity/wijmo', '@grapecity/wijmo.vue2.grid', 'lodash/toString', 'lodash/isEqual'],
+    },
+  },
   modules: ['@ustra/nuxt', '@kgc/smsb-common'],
   css: ['~/assets/styles/framework/index.scss', '~/assets/styles/management/index.scss'],
   experimental: {
