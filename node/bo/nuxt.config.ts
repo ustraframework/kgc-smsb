@@ -1,5 +1,10 @@
 export default defineNuxtConfig({
   ssr: false,
+  vite: {
+    optimizeDeps: {
+      exclude: ['@grapecity/wijmo', '@grapecity/wijmo.vue2.grid', 'lodash/toString', 'lodash/isEqual'],
+    },
+  },
   modules: ['@ustra/nuxt', '@kgc/smsb-common'],
   css: ['~/assets/styles/framework/index.scss', '~/assets/styles/management/index.scss'],
   experimental: {
@@ -20,6 +25,15 @@ export default defineNuxtConfig({
         refreshTokenKey: 'X-SMSB-BO-RAUTH',
       },
     },
+    // server: {
+    //   middleware: {
+    //     proxy: {
+    //       proxies: {
+    //         '/api/': 'http://localhost:11051',
+    //       },
+    //     },
+    //   },
+    // },
     nuxt: {
       meta: {
         auth: {
@@ -50,6 +64,7 @@ export default defineNuxtConfig({
                 { title: 'Dialog', icon: 'mdi-alert-octagram-outline', componentPath: '~/components/samples/dialog/index.vue' },
                 { title: '[Grid]수정가능한 열 설정', componentPath: '~/components/samples/grid-header/index.vue' },
                 { title: 'File', componentPath: '~/components/samples/file/index.vue' },
+                { title: '프로시져', componentPath: '~/components/samples/procedure/index.vue' },
               ],
             },
           ],

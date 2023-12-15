@@ -74,14 +74,14 @@
     <!-- // header -->
 
     <div class="content__layout">
- <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
- <UstraLayoutSideMenu
-      v-model="openSideMenu"
-      :navigationSelected="navigationSelected"
-      :navigations="sideNavigations"
-      :favorNavigations="favoritesNavigations"
-    />
-    <!-- <VAppBar id="tab_bar" height="38" elevation="0" v-if="useTabMenu && selectedTabIndex > -1">
+      <!-- <UstraLayoutHeader @changeNavState="openSideMenu = !openSideMenu" /> -->
+      <UstraLayoutSideMenu
+        v-model="openSideMenu"
+        :navigationSelected="navigationSelected"
+        :navigations="sideNavigations"
+        :favorNavigations="favoritesNavigations"
+      />
+      <!-- <VAppBar id="tab_bar" height="38" elevation="0" v-if="useTabMenu && selectedTabIndex > -1">
       <div id="tab">
         <div class="wrapper">
           <div class="bline"></div>
@@ -106,35 +106,35 @@
       </div>
     </VAppBar> -->
 
-    <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
-      <div class="content">
-        <div class="columns has-gap">
-          <UBox class="card is-title">
-            <h1 class="page-title">
-              <span>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }}</span>
-              <span class="favoriteWrap">
-                <UstraLayoutFavoritesButton />
-                <LayoutInfoButton />
-              </span>
-            </h1>
-            <UBox class="table-title-wrap">
-              <h2 class="table-title">
-                <span>{{ currentMenu?.mnuDesc }}</span>
-              </h2>
+      <VMain id="page_wrapper" :class="{ t_zero: openedTabNavigations.length < 1 }" v-if="useTabMenu && selectedTabIndex > -1">
+        <div class="content">
+          <div class="columns has-gap">
+            <UBox class="card is-title">
+              <h1 class="page-title">
+                <span>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }}</span>
+                <span class="favoriteWrap">
+                  <UstraLayoutFavoritesButton />
+                  <LayoutInfoButton />
+                </span>
+              </h1>
+              <UBox class="table-title-wrap">
+                <h2 class="table-title">
+                  <span v-html="currentMenu?.mnuDesc"></span>
+                </h2>
+              </UBox>
             </UBox>
-          </UBox>
-        </div>
+          </div>
 
-        <div>
-          <template v-for="(item, index) in openedTabNavigations" :key="item.id">
-            <component v-if="!!item.component" v-show="selectedTabIndex === index" :is="item.component" />
-          </template>
-        </div>
+          <div>
+            <template v-for="(item, index) in openedTabNavigations" :key="item.id">
+              <component v-if="!!item.component" v-show="selectedTabIndex === index" :is="item.component" />
+            </template>
+          </div>
 
-        <!-- 2023-11-29 UI개발 -->
-        <!-- <ContentsSample /> -->
+          <!-- 2023-11-29 UI개발 -->
+          <!-- <ContentsSample /> -->
 
-        <!-- <h2 id="page_title">
+          <!-- <h2 id="page_title">
           <b>{{ openedTabNavigations[selectedTabIndex] ? openedTabNavigations[selectedTabIndex].text : null }} {{ currentMenu?.mnuDesc }}</b>
           <span class="favoriteWrap">
             <UstraLayoutFavoritesButton />
@@ -148,11 +148,9 @@
             <component v-if="!!item.component" v-show="selectedTabIndex === index" :is="item.component" />
           </template>
         </div> -->
-      </div>
-    </VMain>
+        </div>
+      </VMain>
     </div>
-
-   
 
     <!-- 2023-11-29 UI개발 -->
     <!-- <Mdi /> -->
@@ -306,15 +304,14 @@ useHead({
 })
 
 onMounted(() => {
-  const body = document.querySelector('body');
-  const mdi = document.querySelector('.mdiShortCuts-hidden');
+  const body = document.querySelector('body')
+  const mdi = document.querySelector('.mdiShortCuts-hidden')
 
-  mdi.addEventListener('click',  () => {
-    body.classList.toggle('mdi-hidden');
-    console.log(body);
+  mdi.addEventListener('click', () => {
+    body.classList.toggle('mdi-hidden')
+    console.log(body)
   })
 })
-
 </script>
 <script lang="ts">
 export default {
