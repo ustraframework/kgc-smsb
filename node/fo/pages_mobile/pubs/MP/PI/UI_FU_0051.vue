@@ -44,9 +44,9 @@
         class="flex"
       />
       <div class="p-calendar-group w-full">
-        <Calendar v-model="startDate" placeholder="2023-01-01" dateFormat="yy-mm-dd"  />
+        <Calendar v-model="startDate" placeholder="2023-01-01" />
         <span class="range">~</span>
-        <Calendar v-model="endDate" placeholder="2023-01-01" dateFormat="yy-mm-dd" />
+        <Calendar v-model="endDate" placeholder="2023-01-01" />
       </div>
 
       <Button label="조회" />
@@ -92,6 +92,8 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from '#ustra/nuxt';
+import { defaultOptions } from 'primevue/config';
 import { ref } from "vue";
 
 interface ListType {
@@ -119,17 +121,30 @@ const selectOptions = ref([
 ])
 const selectedValue = ref(3)
 
-const startDate = ref()
-const endDate = ref()
+const startDate = ref('')
+const endDate = ref('')
 const dropdownValue = ref('전체')
 
+const i18n = {
+  dateFormat: 'yy-mm-dd',
+  dayNames: ['일요일','월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+  dayNamesMin: ['일','월', '화', '수', '목', '금', '토'],
+  monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+  monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+  showMonthAfterYear: true
+}
+
+onMounted(() => {
+  // Prime Vue Calendar 한국어 변경
+  Object.assign(defaultOptions.locale, i18n);
+})
 </script>
 
 <style scoped>
 .more_btn {
   margin-top: 20px;
   margin-bottom: 80px;
-  font-size: 15px;
+  font-size: 14px;
   text-align: center;
   width: 100%;
   background-color: #ECF0F8;
