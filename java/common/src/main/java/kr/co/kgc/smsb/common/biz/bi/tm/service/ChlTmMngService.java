@@ -19,6 +19,8 @@ public class ChlTmMngService {
 	public ChlTmMngProcModel get(ChlTmMngDto.Criteria in) {
 		ProcedureCallResult<ChlTmMngProcModel> result = oracleProcedureManager.call(
 				ProcedureCallOption.returnObjectBuilder("STP_UI_BM_2101_SEL_01", in, ChlTmMngProcModel.class)
+					.convertReturnKeyToCamelCase(false)
+					.convertParameterKeyToUnderScore(false)
 					.schemaName("KGC")
 					.datasourceName("rds1")
 					.resultRowMapper("ot_out_cursor", ChlTmMngDto.class)
