@@ -58,6 +58,7 @@ const { inputData, doLogin, appTitle, footerText, init, getRememberId } = useUst
 const passwordInput = ref<InstanceType<typeof WjInputMask>>()
 const validationGroup = ref<InstanceType<typeof UValidationGroup>>()
 const passwordEditPopup = ref<InstanceType<typeof UstraManagementPasswordEditPopup>>()
+// const router = useRouter()
 
 // checkbox value
 const rememberId = ref(false)
@@ -102,6 +103,17 @@ async function login() {
           }
 
           return false
+        },
+        onLoginSuccess: nextUrl => {
+          // FIXME: nuxt3.8.1 NuxtLayout 관련 오류 사항으로 임시 수정
+          console.log('process.dev', process.dev)
+          console.log('nextUrl', nextUrl)
+          // if (process.dev) {
+          //   // nextTick(() => router.push(nextUrl))
+          //   nextTick(() => navigateTo(nextUrl))
+          // } else {
+            window.location.href = nextUrl
+          // }
         },
       }),
     {
