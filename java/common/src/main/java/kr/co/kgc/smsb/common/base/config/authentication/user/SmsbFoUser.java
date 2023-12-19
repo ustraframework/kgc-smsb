@@ -34,27 +34,7 @@ public class SmsbFoUser extends SmsbUser {
 	}
 
 	/**
-	 * 개인정보 관리자 여부
+	 * 사용자 프로퍼티
 	 */
-	private boolean isPrivacyInfoManager = false;
-
-	/**
-	 * 부서 명
-	 */
-	private String deptNm;
-
-	/**
-	 * 공급사 코드
-	 */
-	private String suppcCd;
-
-	/**
-	 * 공급사 명
-	 */
-	private String suppcNm;
-
-	/**
-	 * 직급 명
-	 */
-	private String rankNm;
+	private String sample;
 }

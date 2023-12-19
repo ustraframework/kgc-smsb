@@ -38,8 +38,22 @@ ustra:  core:    process-info:      default-system-code: FO
     wrapper:
       exclude-request-url-patterns: /v2/api-docs
       exclude-response-url-patterns: /v2/api-docs
-      
-        
+
+smsb:
+  fo:
+    enc-key: YXOI83CtCtC7f8al
+    authentication:
+      allow-anoymous-authentication: true
+      system-name: fo
+      system-key: FO
+      token-key: X-SM-FO-TOKEN
+      refresh-token-key: X-SM-REF-FO-TOKEN
+      secret-key: za9to9233pb40v2n4j070m6sl7k6dla4
+      enable-refresh-token: true
+      access-valid-second: 60
+      refresh-valid-seconds: 1800
+      use-eviction-expired-token-schedule: true
+
 ---
 spring.config.activate.on-profile: dev
 
