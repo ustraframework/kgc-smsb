@@ -32,18 +32,10 @@
         </ul>
 
         <p class="flex items-center text-[#888] border-t border-[#E7E7E7] pt-[20px]">
-          <i class="mr-[3px]">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="white"/>
-              <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="#BDBDBD"/>
-              <rect x="7.25" y="7" width="1.5" height="5" rx="0.75" fill="#BDBDBD"/>
-              <rect x="7" y="4" width="2" height="2" rx="1" fill="#BDBDBD"/>
-            </svg>
-          </i>
+          <img src="@/assets/images/svg/ico_info.svg" class="mr-1" alt="정보" />
           기본정보 변경은 본인인증 완료시 최신 정보로 업데이트됩니다.
         </p>
       </div>
-
 
       <!-- title -->
       <div class="flex items-end pb-[6px] border-b-2 border-[#666]">
@@ -54,18 +46,18 @@
       <!-- contents -->
       <ul class="pt-[20px] mb-[60px]">
         <li class="flex items-start mb-[24px]">
-          <label class="flex-none w-[150px] leading-[50px] text-[14px] text-[#222]" for="signName">이름</label>
+          <label class="flex-none w-[150px] leading-[50px] text-[14px] text-[#222]" for="birthday">실제 생년월일</label>
           <div class="flex flex-wrap gap-5">
-            <InputText disabled v-model="signName" id="signName" class="flex-1" type="text" size="large" placeholder="데이트 피커 넣어야함" />
+            <Calendar class="flex-1" inputClass="!h-[50px]" inputId="birthday" v-model="birthday" placeholder="2023-01-01" />
             <div class="flex flex-none">
-                <div class="flex items-center">
-                  <RadioButton class="p-radiobutton-box-lg" v-model="birthInfo" inputId="birthInfo1" name="birthInfo" value="양력" />
-                  <label for="birthInfo1">양력</label>
-                </div>
-                <div class="flex items-center ml-[20px]">
-                  <RadioButton class="p-radiobutton-box-lg" v-model="birthInfo" inputId="birthInfo2" name="birthInfo" value="음력" />
-                  <label for="birthInfo2">음력</label>
-                </div>
+              <div class="flex items-center">
+                <RadioButton class="p-radiobutton-box-lg" v-model="birthInfo" inputId="birthInfo1" name="birthInfo" value="양력" />
+                <label for="birthInfo1">양력</label>
+              </div>
+              <div class="flex items-center ml-[20px]">
+                <RadioButton class="p-radiobutton-box-lg" v-model="birthInfo" inputId="birthInfo2" name="birthInfo" value="음력" />
+                <label for="birthInfo2">음력</label>
+              </div>
             </div>
             <ul class="w-full text-[13px] text-[#5361E7]">
               <li>&middot; 생년월일을 입력하시면 생일혜택을 드립니다.</li>
@@ -104,7 +96,7 @@
           <label class="flex-none w-[150px] text-[14px] text-[#222]" for="gender">SNS 계정 연동</label>
           <div class="flex w-full justify-between">
             <p class="flex items-center text-[15px]">
-              <img class="w-[32px] mr-2" src="@/assets/images/svg/kakao-sns.svg" alt="kakao">
+              <img class="w-[32px] mr-2" src="@/assets/images/svg/kakao-sns.svg" alt="kakao" />
               <!-- <img class="w-[32px] mr-2" src="@/assets/images/svg/naver-sns.svg" alt="naver"> -->
               <!-- <img class="w-[32px] mr-2" src="@/assets/images/svg/apple-sns.svg" alt="apple"> -->
               카카오 2023-09-06 14:42
@@ -126,7 +118,13 @@
         <li>
           <div class="flex items-center justify-between">
             <div class="flex items-center">
-              <Checkbox class="p-checkbox-box-lg" v-model="personAgree" inputId="personAgree" name="personAgree" value="혜택제공 및 분석을 위한 개인정보 수집 및 이용 동의" />
+              <Checkbox
+                class="p-checkbox-box-lg"
+                v-model="personAgree"
+                inputId="personAgree"
+                name="personAgree"
+                value="혜택제공 및 분석을 위한 개인정보 수집 및 이용 동의"
+              />
               <label for="personAgree"> 혜택제공 및 분석을 위한 개인정보 수집 및 이용 동의 </label>
             </div>
             <Button label="내용보기" text @click="personVisible = true" />
@@ -141,7 +139,7 @@
       <!-- //title -->
 
       <!-- contents -->
-      <ul class="mb-[60px]">
+      <ul>
         <li class="py-[20px] border-b border-[#E7E7E7]">
           <div class="flex items-center">
             <Checkbox class="p-checkbox-box-lg" v-model="agreeAll" inputId="agreeAll" name="agreeAll" value="전체동의" />
@@ -167,44 +165,69 @@
               <label for="agreePost"> 우편 </label>
             </div>
           </div>
-          <p class="text-[13px] text-[#5361E7] ml-[8px]"><span class="font-bold">&middot;</span> 마케팅 정보 수신에 동의하시면 다양한 혜택을 받아 보실 수 있습니다.</p>
+          <p class="text-[13px] text-[#5361E7] ml-[8px]">
+            <span class="font-bold">&middot;</span> 마케팅 정보 수신에 동의하시면 다양한 혜택을 받아 보실 수 있습니다.
+          </p>
         </li>
       </ul>
       <!-- //contents -->
 
-      <!-- 약관 팝업 -->
-      <Dialog v-model:visible="personVisible" modal header="약관" :style="{ width: '500px' }">
-        <div class="dialog-content-inner max-h-[456px]">
-          <h2 class="mb-1 font-bold text-[15px] text-black">타이틀</h2>
-          <p class="text-sm text-[#666]">약관내용</p>
-
-          <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
-          <p class="text-sm text-[#666]">약관내용약관내용</p>
-
-          <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
-          <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
-
-          <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
-          <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
-        </div>
-        <template #footer>
-          <div class="border-t border-[#E7E7E7] pt-[24px] pb-[30px] px-[30px]">
-            <Button class="block mx-auto" label="확인" @click="personVisible = false" />
-          </div>
-        </template>
-      </Dialog>
+      <div class="flex mt-[60px] gap-2">
+        <Button class="flex-1" label="취소" size="large" outlined />
+        <Button class="flex-1" label="수정" size="large" />
+      </div>
     </form>
+
+    <!-- 약관 팝업 -->
+    <Dialog v-model:visible="personVisible" modal header="약관" :style="{ width: '500px' }">
+      <div class="dialog-content-inner max-h-[456px]">
+        <h2 class="mb-1 font-bold text-[15px] text-black">타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+      </div>
+      <template #footer>
+        <div class="border-t border-[#E7E7E7] pt-[24px] pb-[30px] px-[30px]">
+          <Button class="block mx-auto" label="확인" @click="personVisible = false" />
+        </div>
+      </template>
+    </Dialog>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { onMounted } from '#ustra/nuxt';
+import { defaultOptions } from 'primevue/config';
 
 definePageMeta({
   layout: 'side',
 });
 
+// 캘린더
+const i18n = {
+  dateFormat: 'yy-mm-dd',
+  dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+  dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+  monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+  monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+  showMonthAfterYear: true,
+};
+
+onMounted(() => {
+  // Prime Vue Calendar 한국어 변경
+  Object.assign(defaultOptions.locale, i18n);
+});
+
 // input
+const birthday = ref('');
 const userEmail = ref('');
 const userAddress1 = ref('');
 const userAddress2 = ref('');
@@ -247,6 +270,4 @@ const personAgree = ref();
 const personVisible = ref(false);
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
