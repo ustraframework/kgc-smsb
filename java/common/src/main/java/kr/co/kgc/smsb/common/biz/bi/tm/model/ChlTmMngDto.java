@@ -69,6 +69,7 @@ public class ChlTmMngDto extends SmsbBaseModel {
 	/**
 	 * 요청구분(C/U)
 	 */
+	@MapField("in_req_gbn")
 	private String inReqGbn;
 	
 	

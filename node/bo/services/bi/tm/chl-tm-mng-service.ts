@@ -16,7 +16,7 @@ export interface ChlTm extends baseModels.BaseModel {
   /**
    * 약관_버전_번호
    */
-  termVrsnNo?: string
+  termVerNo?: string
   /**
    * 약관_유형_구분코드
    */

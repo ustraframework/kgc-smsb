@@ -34,6 +34,8 @@ public class ChlTmMngService {
 	public ChlTmMngProcModel save(ChlTmMngDto in) {
 		ProcedureCallResult<ChlTmMngProcModel> result = oracleProcedureManager.call(
 				ProcedureCallOption.returnObjectBuilder("STP_UI_BM_2101_IUD_01", in, ChlTmMngProcModel.class)
+					.convertReturnKeyToCamelCase(false)
+					.convertParameterKeyToUnderScore(false)	
 					.schemaName("KGC")
 					.datasourceName("rds1")
 					.build()
