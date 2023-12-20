@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.kgc.smsb.bo.sample.repository.AuthorityGroupUserRepository">
+
+	<select id="select" parameterType="java.util.Map" resultType="com.gsitm.ustra.java.management.models.UstraAuthorityGroupUserModel">
+		SELECT
+			B.${dtc.user.usrId} AS USR_ID,
+			B.${dtc.user.usrNm} AS USR_NM,
+			B.${dtc.user.deptNm} AS DEPT_NM,
+			B.${dtc.user.usrSttCd} AS USR_STT_CD,
+			B.${dtc.user.useDvCd} AS USE_DV_CD,
+			B.${dtc.user.orgCd} AS ORG_CD
+		FROM
+			${dtc.auth_u._table} A
+				INNER JOIN ${dtc.user._table} B
+					ON A.${dtc.auth_u.usrId} = B.${dtc.user.usrId}
+		WHERE 1 = 1
+		  AND A.${dtc.auth_u.authGrpId} = #{args0}
+		ORDER BY A.${dtc.auth_u.usrId}
+	</select>
+
+
+	<select id="selectUser" parameterType="java.util.Map" resultType="kr.co.kgc.smsb.bo.sample.model.AuthorityGroupUserModel">
+		SELECT
+			A.USR_ID,
+			A.AUTH_GRP_ID,
+			B.AUTH_GRP_NM
+		FROM
+			USTRA_AUTH_GRP_USR A
+				INNER JOIN USTRA_AUTH_GRP B
+					ON A.AUTH_GRP_ID = B.AUTH_GRP_ID
+		WHERE 1 = 1
+		  AND A.USR_ID = #{args0}
+		  AND B.DEL_YN = 'N'
+		  AND B.USE_YN = 'Y'
+	</select>
+
+	<insert id="insert" parameterType="java.util.Map">
+		INSERT INTO ${dtc.auth_u._table}(
+			${dtc.auth_u.authGrpId},
+			${dtc.auth_u.usrId},
+			${dtc.auth_g.regDttm},
+			${dtc.auth_g.regUsrId},
+			${dtc.auth_g.regUsrIp},
+			${dtc.auth_g.updDttm},
+			${dtc.auth_g.updUsrId},
+			${dtc.auth_g.updUsrIp}
+		)
+		VALUES(
+			#{authGrpId},
+			#{usrId},
+			CURRENT_TIMESTAMP,
+			#{regUsrId},
+			#{regUsrIp},
+			CURRENT_TIMESTAMP,
+			#{updUsrId},
+			#{updUsrIp}
+		)
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM ${dtc.auth_u._table}
+		WHERE
+			${dtc.auth_u.authGrpId} = #{args0}
+	</delete>
+
+
+
+	<delete id="deleteUser">
+		DELETE FROM ${dtc.auth_u._table}
+		WHERE
+			${dtc.auth_u.usrId} = #{args0}
+	</delete>
+
+	<delete id="deleteGroupUser">
+		DELETE FROM ${dtc.auth_u._table}
+		WHERE ${dtc.auth_u.authGrpId} = #{args0}
+		  AND ${dtc.auth_u.usrId} = #{args1}
+	</delete>
+</mapper>

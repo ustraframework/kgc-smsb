@@ -196,7 +196,6 @@
 
 // 그룹 버튼
 .group_btn_list {
-
   &.is-login {
     label {
       font-size: 15px !important;
@@ -258,7 +257,7 @@
 .wj-tabpanel {
   display: flex !important;
   flex-wrap: nowrap;
-  > div[wj-part="root"] {
+  > div[wj-part='root'] {
     width: 100%;
   }
   &:not(.is-menu) {
@@ -662,7 +661,6 @@
   color: #fff;
 }
 
-
 /*
 ========================================================
                         UI개발팀
@@ -852,7 +850,7 @@
       width: 18px;
       height: 18px;
     }
-    
+
     &:disabled {
       border-color: $gray120 !important;
       color: $gray120 !important;
@@ -976,7 +974,7 @@
 // ====== input ======
 .wj-content {
   opacity: 1 !important;
-  
+
   &.wj-control {
     border: 1px solid $gray120;
 
@@ -990,19 +988,18 @@
       border-color: $gray260;
     }
 
-    &.wj-inputmask
-    {
+    &.wj-inputmask {
       width: 100% !important;
       .wj-input {
         border-radius: 4px;
         height: 32px;
-      
+
         .wj-input-group {
           .wj-form-control {
             padding: 0 10px;
             font-size: pxToRem(14);
             color: $is-black;
-  
+
             &::placeholder {
               color: $gray180;
             }
@@ -1011,7 +1008,7 @@
             .wj-btn {
               height: 28px !important;
               min-height: 28px !important;
-  
+
               &.wj-btn-default {
                 &:hover {
                   background: #fff;
@@ -1028,8 +1025,6 @@
         }
       }
     }
-    
-
 
     &.is-large {
       .wj-input {
@@ -1047,7 +1042,7 @@
             padding: 0 40px 0 15px;
             font-weight: 400;
             font-size: pxToRem(15);
-            line-height: 20px; 
+            line-height: 20px;
 
             &::placeholder {
               font-size: pxToRem(16);
@@ -1128,12 +1123,12 @@
           .wj-input-group {
             .wj-form-control {
               color: $point1;
-              padding-right: 40px;        
+              padding-right: 40px;
             }
           }
         }
       }
-      
+
       &.wj-combobox:after {
         content: '';
         position: absolute;
@@ -1184,14 +1179,14 @@
   .wj-control {
     &.is-outline {
       + button {
-        &.btn_find{
+        &.btn_find {
           background: url(/assets/images/svg/ico_search_hover.svg) no-repeat center center;
         }
       }
     }
 
     // icon is-error
-    &.is-error{
+    &.is-error {
       border: 1px solid $point1;
     }
   }
@@ -1206,7 +1201,7 @@
         .wj-input {
           .wj-input-group {
             .wj-form-control {
-              padding-right: 40px;        
+              padding-right: 40px;
             }
           }
         }
@@ -1229,7 +1224,7 @@
       right: 0;
       // top: 0;
       top: 50%;
-      transform: translateY(-50%);
+      //transform: translateY(-50%);
       width: 24px;
       height: 24px;
       right: 5px;
@@ -1256,7 +1251,7 @@
     .wj-state-disabled {
       + button {
         cursor: default;
-        &.btn_find{
+        &.btn_find {
           background: url(/assets/images/svg/ico_search_disable.svg) no-repeat center center;
         }
       }
@@ -1264,7 +1259,7 @@
     .wj-state-readonly {
       + button {
         cursor: default;
-        &.btn_find{
+        &.btn_find {
           background: url(/assets/images/svg/ico_search_disable.svg) no-repeat center center;
         }
       }
@@ -1273,23 +1268,23 @@
 }
 
 // ====== textarea ======
-.u-text-box{
-  .v-field__overlay{
+.u-text-box {
+  .v-field__overlay {
     background-color: unset !important;
     opacity: unset !important;
     transition: unset !important;
   }
 
-  .v-textarea{
-    .v-input__control{
-      .v-field{
-        .v-field__field{
+  .v-textarea {
+    .v-input__control {
+      .v-field {
+        .v-field__field {
           label {
-            +.wj-textarea {
+            + .wj-textarea {
               margin-left: 0;
             }
           }
-          .wj-textarea{
+          .wj-textarea {
             font-size: 14px;
             line-height: 20px;
             color: $is-black;
@@ -1306,12 +1301,12 @@
       }
     }
 
-    &.v-input--disabled{
-      .v-input__control{
-        .v-field{
+    &.v-input--disabled {
+      .v-input__control {
+        .v-field {
           opacity: unset !important;
-          .v-field__field{
-            .wj-textarea{
+          .v-field__field {
+            .wj-textarea {
               border-color: $gray80;
               background-color: $gray60;
               color: $gray180;
@@ -1322,11 +1317,11 @@
     }
 
     &.v-input--readonly {
-      .v-input__control{
-        .v-field{
+      .v-input__control {
+        .v-field {
           opacity: unset !important;
-          .v-field__field{
-            .wj-textarea{
+          .v-field__field {
+            .wj-textarea {
               border-color: $gray80;
               background-color: $gray60;
               color: $is-black;
@@ -1338,11 +1333,11 @@
   }
 
   &.is-outline {
-    .v-textarea{
-      .v-input__control{
-        .v-field{
-          .v-field__field{
-            .wj-textarea{
+    .v-textarea {
+      .v-input__control {
+        .v-field {
+          .v-field__field {
+            .wj-textarea {
               border-color: $gray260;
             }
           }
@@ -1352,12 +1347,12 @@
   }
 
   &.is-error {
-    .v-textarea{
-      .v-input__control{
-        .v-field{
-          .v-field__field{
+    .v-textarea {
+      .v-input__control {
+        .v-field {
+          .v-field__field {
             position: relative;
-            .wj-textarea{
+            .wj-textarea {
               border-color: $point1;
               color: $point1;
             }
@@ -1381,37 +1376,36 @@
 // ====== 달력 ======
 .u-date-box,
 .u-date-period-box,
-.wj-cell{
-
+.wj-cell {
   width: 100%;
-  .wj-template{
-    .wj-input{
-      .wj-input-group{
-        .wj-form-control{
+  .wj-template {
+    .wj-input {
+      .wj-input-group {
+        .wj-form-control {
           padding: 0 10px;
           height: 32px;
           color: $is-black;
         }
 
-        .wj-input-group-btn{
-          .wj-btn{
+        .wj-input-group-btn {
+          .wj-btn {
             position: relative;
             background-color: $is-white;
             height: 100% !important;
             min-height: 100% !important;
             border-left: 0 !important;
 
-            .wj-glyph-calendar{
+            .wj-glyph-calendar {
               width: unset;
               height: unset;
               border: unset;
               top: unset;
-              
+
               &:after {
                 border: 0;
               }
             }
-  
+
             &:after {
               width: 18px;
               height: 18px;
@@ -1422,7 +1416,7 @@
               top: 50%;
               transform: translateY(-50%);
             }
-  
+
             &:hover,
             &:active,
             &:focus {
@@ -1458,25 +1452,26 @@
           background: none !important;
         }
       }
-      button[wj-part="btn-prev"]{
+      button[wj-part='btn-prev'] {
         position: absolute;
         top: 9px;
         left: 0;
         width: 28px;
         height: 28px;
         padding: 0;
-        .wj-glyph-left{
+        .wj-glyph-left {
           top: 0;
           left: 0;
           display: inline-block;
           width: 28px;
           height: 28px;
           border: none;
-          background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_3931)'%3E%3Cpath d='M16.0005 18L11.7935 13.793L16.0005 9.58601' stroke='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_3931'%3E%3Crect width='28' height='28' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center;
+          background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_3931)'%3E%3Cpath d='M16.0005 18L11.7935 13.793L16.0005 9.58601' stroke='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_3931'%3E%3Crect width='28' height='28' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A")
+            no-repeat center;
         }
       }
 
-      button[wj-part="btn-next"]{
+      button[wj-part='btn-next'] {
         position: absolute;
         top: 9px;
         right: 0;
@@ -1484,18 +1479,19 @@
         height: 28px;
         padding: 0;
         border: none;
-        .wj-glyph-right{
+        .wj-glyph-right {
           top: 0;
           right: 0;
           display: inline-block;
           width: 28px;
           height: 28px;
           border: none;
-          background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_3932)'%3E%3Cpath d='M11.793 9.58594L15.9999 13.7929L11.793 17.9999' stroke='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_3932'%3E%3Crect width='28' height='28' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat center;
+          background: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_3932)'%3E%3Cpath d='M11.793 9.58594L15.9999 13.7929L11.793 17.9999' stroke='%23808080'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_3932'%3E%3Crect width='28' height='28' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A")
+            no-repeat center;
         }
       }
 
-      button[wj-part="btn-today"]{
+      button[wj-part='btn-today'] {
         position: absolute;
         bottom: 0;
         right: 0;
@@ -1511,7 +1507,7 @@
         }
 
         .wj-glyph-circle {
-          border: none;    
+          border: none;
           width: calc(100% - 30px);
           height: 30px;
           color: $is-primary;
@@ -1541,7 +1537,7 @@
         }
       }
     }
-    .wj-calendar-month{
+    .wj-calendar-month {
       > tr {
         &.wj-header {
           background: none;
@@ -1562,7 +1558,7 @@
         }
       }
     }
-    .wj-state-selected, 
+    .wj-state-selected,
     .wj-state-last-selected {
       color: $is-white !important;
       border-radius: 3px;
@@ -1597,7 +1593,7 @@
     &.wj-content {
       border-radius: 0;
       border-width: 0 0 1px;
-      
+
       .wj-input {
         .wj-input-group {
           .wj-form-control {
@@ -1611,7 +1607,7 @@
         }
       }
     }
-  }  
+  }
 }
 
 .navbar-left {
@@ -1638,7 +1634,7 @@
       justify-content: flex-end;
       // background: linear-gradient(to left, white, 80%, transparent);
     }
-    .v-slide-group__next--disabled, 
+    .v-slide-group__next--disabled,
     .v-slide-group__prev--disabled {
       opacity: 1;
     }
@@ -1649,7 +1645,8 @@
         display: inline-block;
         width: 24px;
         height: 24px;
-        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 15L7 9.5L12 4' stroke='%23808080' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat left center;
+        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 15L7 9.5L12 4' stroke='%23808080' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
+          no-repeat left center;
       }
     }
     .mdi-chevron-right {
@@ -1659,7 +1656,8 @@
         display: inline-block;
         width: 24px;
         height: 24px;
-        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 15L13 9.5L8 4' stroke='%23808080' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat right center;
+        background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 15L13 9.5L8 4' stroke='%23808080' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
+          no-repeat right center;
       }
     }
   }
@@ -1692,8 +1690,8 @@
     // overflow-y: visible;
     border-radius: 0;
     .v-btn {
-      padding: 0 24px!important;
-    // overflow-y: visible;
+      padding: 0 24px !important;
+      // overflow-y: visible;
     }
   }
   .v-btn__overlay,
@@ -1712,8 +1710,8 @@
     width: calc(100% - 50px) !important;
   }
 
-  .wj-content{
-    &.wj-dropdown{
+  .wj-content {
+    &.wj-dropdown {
       width: calc(100% - 50px) !important;
     }
   }
@@ -1722,7 +1720,7 @@
     flex-direction: inherit !important;
     width: calc(100% - 50px);
 
-    > [class^="u-"] {
+    > [class^='u-'] {
       width: auto !important;
 
       &:not(:first-child) {
@@ -1732,7 +1730,7 @@
   }
 }
 
-// form 
+// form
 .v-field__outline {
   display: none !important;
 }
@@ -1750,10 +1748,9 @@
 .u-field-slot {
   gap: 5px !important;
 
- .wj-control {
-  width: 100%;
- }
-
+  .wj-control {
+    width: 100%;
+  }
 }
 
 // mdi
@@ -1789,38 +1786,38 @@
     }
   }
 
-  .v-tab__slider{
+  .v-tab__slider {
     height: 0px;
   }
 
-  .mdi-menu{
+  .mdi-menu {
     font-weight: 600 !important;
   }
 }
 
 // ==== 콤보박스 =====
 .wj-dropdown {
-  &.wj-combobox{
+  &.wj-combobox {
     width: 100% !important;
 
     .wj-input {
       height: 30px;
 
-      .wj-form-control{
+      .wj-form-control {
         font-size: pxToRem(14);
         color: $is-black;
-        padding-left : 10px;
+        padding-left: 10px;
       }
 
-      .wj-input-group-btn{
-        .wj-btn{
+      .wj-input-group-btn {
+        .wj-btn {
           position: relative;
           background-color: $is-white;
           height: 100% !important;
           min-height: 100% !important;
           border-left: 0 !important;
 
-          .wj-glyph-down{
+          .wj-glyph-down {
             border-top: unset;
             border-right: unset;
             border-left: unset;
@@ -1846,14 +1843,14 @@
       }
     }
 
-    &.wj-state-collapsed{
+    &.wj-state-collapsed {
       .wj-input {
-        .wj-input-group-btn{
-          .wj-btn{
+        .wj-input-group-btn {
+          .wj-btn {
             &:after {
               background: url(/assets/images/svg/ico_combo_arr_enable.svg) no-repeat center center;
             }
-  
+
             &:hover,
             &:active,
             &:focus {
@@ -1863,11 +1860,11 @@
             }
           }
         }
-  
+
         &:hover,
         &:active,
         &:focus {
-          .wj-btn{
+          .wj-btn {
             &:after {
               background: url(/assets/images/svg/ico_combo_arr_hover.svg) no-repeat center center;
             }
@@ -1880,15 +1877,15 @@
       border-color: $gray260;
     }
 
-    &.wj-state-disabled{
+    &.wj-state-disabled {
       // border-color: $gray80;
       // background: $gray80;
 
       border-color: $gray80;
       background: $gray60;
 
-      .wj-input-group-btn{
-        .wj-btn{
+      .wj-input-group-btn {
+        .wj-btn {
           background-color: $gray60;
           &:after {
             background: url(/assets/images/svg/ico_combo_arr_disable.svg) no-repeat center center;
@@ -1896,7 +1893,7 @@
         }
       }
     }
-  }  
+  }
 
   & + .u-button {
     margin-left: 10px;
@@ -1905,20 +1902,20 @@
 
 // ==== 콤보박스 리스트 =====
 .wj-content {
-  &.wj-dropdown-panel{
+  &.wj-dropdown-panel {
     padding: 0;
     top: 109px;
     border-top: 0;
     border-color: $gray260 !important;
     border-radius: 4px !important;
     box-shadow: unset;
-    
-    .wj-listbox-item{
+
+    .wj-listbox-item {
       padding: 6px 10px;
       font-size: pxToRem(14);
       color: $is-black;
 
-      &.wj-state-selected{
+      &.wj-state-selected {
         background: $blue_gray200 !important;
       }
 
@@ -1932,14 +1929,13 @@
 
 // tree
 .wj-content {
-
   &.wj-treeview {
     border: none;
 
     &:hover {
       border: none;
     }
-    .wj-node{    
+    .wj-node {
       padding: 8px 0;
       color: $gray260;
 
@@ -1986,7 +1982,8 @@
     &.wj-control {
       .wj-input-group {
         &:not(.wj-input-btn-visible) {
-          background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_2715)'%3E%3Cpath d='M12 18.5C15.5899 18.5 18.5 15.5899 18.5 12C18.5 8.41015 15.5899 5.5 12 5.5C8.41015 5.5 5.5 8.41015 5.5 12C5.5 15.5899 8.41015 18.5 12 18.5Z' fill='%23D40000'/%3E%3Cpath d='M12 9V13' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M12 14V15.5' stroke='white' stroke-width='1.5'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_2715'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") no-repeat right 4px center;
+          background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_2715)'%3E%3Cpath d='M12 18.5C15.5899 18.5 18.5 15.5899 18.5 12C18.5 8.41015 15.5899 5.5 12 5.5C8.41015 5.5 5.5 8.41015 5.5 12C5.5 15.5899 8.41015 18.5 12 18.5Z' fill='%23D40000'/%3E%3Cpath d='M12 9V13' stroke='white' stroke-width='1.5'/%3E%3Cpath d='M12 14V15.5' stroke='white' stroke-width='1.5'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_2715'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A")
+            no-repeat right 4px center;
         }
         .wj-form-control {
           border: none !important;
