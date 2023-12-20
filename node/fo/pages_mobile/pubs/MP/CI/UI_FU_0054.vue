@@ -1,13 +1,12 @@
 <template>
   <!-- 쿠폰 조회 -->
   <div class="flex flex-col items-center m-[20px]">
-    <div class="w-full flex bg-[#F4F6FA] py-[12px] px-[20px] rounded-xl justify-center ">
+    <div class="w-full flex bg-[#F4F6FA] py-[12px] px-[20px] rounded-xl justify-center">
       정관장 온오프라인에서 발행한 쿠폰을 조회하실 수 있습니다.
     </div>
 
     <div class="w-full mt-[24px]">
       <TabView class="default_tab" v-model:activeIndex="activeTab">
-
         <!-- 사용가능 쿠폰 -->
         <TabPanel header="사용가능 쿠폰">
           <div class="flex justify-between mb-[20px]">
@@ -25,7 +24,7 @@
           </div>
 
           <!-- 쿠폰 리스트 있을 경우 -->
-          <div v-if="availableList?.length > 0" class="coupon__list">
+          <div v-if="availableList?.length > 0" class="coupon__list grid grid-cols-1 md:grid-cols-2">
             <div v-for="(item, i) in availableList" :key="i" class="coupon__item">
               <div class="coupon__item-top">
                 <span>정관장몰</span>
@@ -41,7 +40,10 @@
               </p>
 
               <div class="coupon__item-bottom">
-                <span class="percent"> <strong class="mr-[2px]">{{ item.percent }}</strong>%</span>
+                <span class="percent">
+                  <strong class="mr-[2px]">{{ item.percent }}</strong
+                  >%</span
+                >
                 <div class="coupon__item-bottom-right">
                   <span>D-2</span>
                   <span class="date">{{ `${item.startDate} ~ ${item.endDate}` }}</span>
@@ -52,10 +54,9 @@
 
           <!-- 쿠폰 리스트 없을 경우 -->
           <div v-else class="empty__coupon">
-            <i ></i>
+            <i></i>
             <span>사용완료 또는 기간 만료된 쿠폰이 없습니다.</span>
           </div>
-
         </TabPanel>
 
         <!-- 사용완료/기간만료 쿠폰 -->
@@ -75,7 +76,7 @@
           </div>
 
           <!-- 쿠폰 리스트 있을 경우 -->
-          <div v-if="unavailableList?.length > 0" class="coupon__list">
+          <div v-if="unavailableList?.length > 0" class="coupon__list grid grid-cols-1 md:grid-cols-2">
             <div v-for="(item, i) in unavailableList" :key="i" class="coupon__item disabled">
               <div class="coupon__item-top">
                 <span>정관장몰</span>
@@ -91,7 +92,10 @@
               </p>
 
               <div class="coupon__item-bottom">
-                <span class="percent"> <strong class="mr-[2px]">{{ item.percent }}</strong>%</span>
+                <span class="percent">
+                  <strong class="mr-[2px]">{{ item.percent }}</strong
+                  >%</span
+                >
                 <div class="coupon__item-bottom-right">
                   <span class="location">{{ `사용처 : ${item.usedLocation}` }}</span>
                   <span class="date">{{ `${item.usedDate ? `사용완료 ${item.usedDate}` : `${item.startDate} ~ ${item.endDate}`}` }}</span>
@@ -102,7 +106,7 @@
 
           <!-- 쿠폰 리스트 없을 경우 -->
           <div v-else class="empty__coupon">
-            <i ></i>
+            <i></i>
             <span>사용완료 또는 기간 만료된 쿠폰이 없습니다.</span>
           </div>
         </TabPanel>
@@ -112,43 +116,102 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
-const activeTab = ref(0)
+const activeTab = ref(0);
 
 const availableList = [
   {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }, {
-    tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, startDate: '2023-09-01', endDate: '2023-09-01',
-    content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
-  }
-]
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+  {
+    tag: '12022',
+    title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰',
+    percent: 10,
+    startDate: '2023-09-01',
+    endDate: '2023-09-01',
+    content:
+      '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
+  },
+];
 
 const unavailableList = [
   // {
@@ -173,26 +236,24 @@ const unavailableList = [
   //   tag: '12022', title: '[기획전] 환절기 건강관리엔 정몰 할인쿠폰', percent: 10, usedLocation: '기간만료', startDate: '2023-09-01', endDate: '2023-09-01',
   //   content: '상품금액이 20,000원 이상일 때/최대할인금액 제한없음 \n ※ 1개의 상품에 1개의 쿠폰 사용 가능\n ※ 사용처 : 온라인전용\n ※ 구매수량제한 : 20개 이하\n ※ 정관장 상품을 제외한 상품에 사용가능',
   // }
-]
+];
 
 const selectType = [
-  { label: '온라인', value: 'online'},
-  { label: '오프라인', value: 'offline'},
-]
+  { label: '온라인', value: 'online' },
+  { label: '오프라인', value: 'offline' },
+];
 
 const selected = ref({
-  'available': 'online',
-  'unavailable': 'online'
-})
+  available: 'online',
+  unavailable: 'online',
+});
 
 const onClickSearchType = (tabType, searchType) => {
   selected.value[tabType] = searchType;
-}
-
+};
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
 .coupon__search {
   span {
     cursor: pointer;
@@ -219,14 +280,37 @@ const onClickSearchType = (tabType, searchType) => {
 }
 
 .coupon__list {
-  display:flex;
-  flex-wrap: wrap;
   gap: 16px;
   .coupon__item {
+    position: relative;
     padding: 20px;
-    background-image: url("data:image/svg+xml,%3Csvg width='317' height='255' viewBox='0 0 317 255' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='path-1-inside-1_1162_6826' fill='white'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 8C0 3.58172 3.58172 0 8 0H221.397C221.397 6.62742 226.804 12 233.473 12C240.143 12 245.549 6.62742 245.549 0H309C313.418 0 317 3.58172 317 8V247C317 251.418 313.418 255 309 255L246.556 255C246.556 248.373 241.149 243 234.479 243C227.81 243 222.403 248.373 222.403 255L8 255C3.58173 255 0 251.418 0 247V8Z'/%3E%3C/mask%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 8C0 3.58172 3.58172 0 8 0H221.397C221.397 6.62742 226.804 12 233.473 12C240.143 12 245.549 6.62742 245.549 0H309C313.418 0 317 3.58172 317 8V247C317 251.418 313.418 255 309 255L246.556 255C246.556 248.373 241.149 243 234.479 243C227.81 243 222.403 248.373 222.403 255L8 255C3.58173 255 0 251.418 0 247V8Z' fill='white'/%3E%3Cpath d='M221.397 0H222.397V-1H221.397V0ZM245.549 0V-1H244.549V0H245.549ZM309 255V254V255ZM246.556 255H245.556V256L246.556 256V255ZM222.403 255V256L223.403 256V255H222.403ZM8 255L8 254H8V255ZM8 -1C3.02944 -1 -1 3.02944 -1 8H1C1 4.13401 4.13401 1 8 1V-1ZM221.397 -1H8V1H221.397V-1ZM233.473 11C227.35 11 222.397 6.06918 222.397 0H220.397C220.397 7.18566 226.257 13 233.473 13V11ZM244.549 0C244.549 6.06918 239.596 11 233.473 11V13C240.689 13 246.549 7.18566 246.549 0H244.549ZM309 -1H245.549V1H309V-1ZM318 8C318 3.02944 313.971 -1 309 -1V1C312.866 1 316 4.13401 316 8H318ZM318 247V8H316V247H318ZM309 256C313.971 256 318 251.971 318 247H316C316 250.866 312.866 254 309 254V256ZM246.556 256L309 256V254L246.556 254V256ZM247.556 255C247.556 247.814 241.695 242 234.479 242V244C240.603 244 245.556 248.931 245.556 255H247.556ZM234.479 242C227.264 242 221.403 247.814 221.403 255H223.403C223.403 248.931 228.356 244 234.479 244V242ZM8 256L222.403 256V254L8 254L8 256ZM-1 247C-1 251.971 3.02944 256 8 256V254C4.13401 254 1 250.866 1 247H-1ZM-1 8V247H1V8H-1Z' fill='%23E7E7E7' mask='url(%23path-1-inside-1_1162_6826)'/%3E%3C/svg%3E%0A");
-    background-repeat: no-repeat;
-    width: 320px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      right: 72px;
+      width: 26px;
+      height: 13px;
+      border: 1px solid #d9d9d9;
+      background-color: #fff;
+    }
+
+    &::before {
+      top: -1px;
+      border-radius: 0 0 13px 13px;
+      border-top: 0;
+    }
+
+    &::after {
+      bottom: -1px;
+      border-radius: 13px 13px 0 0;
+      border: 1px solid #d9d9d9;
+      border-bottom: 0;
+      background-color: #fff;
+    }
 
     .coupon__item-top {
       display: flex;
@@ -270,7 +354,7 @@ const onClickSearchType = (tabType, searchType) => {
         display: flex;
         flex-direction: column;
         text-align: right;
-        
+
         :not(.date) {
           font-weight: 700;
           color: var(--j-primary01);
@@ -306,7 +390,7 @@ const onClickSearchType = (tabType, searchType) => {
   color: #888888;
   font-weight: 500;
   font-size: 16px;
-  
+
   i {
     width: 40px;
     height: 40px;
