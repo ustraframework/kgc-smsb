@@ -126,6 +126,9 @@ const save = ref('');
 // radio
 const ingredient = ref('');
 
+// useRouter().query 사용
+console.log('==== useRouter().query', useRouter().currentRoute.value.query);
+
 // 로그인 처리
 import { useAuthenticationService } from '~/services/authentication/authentication-service';
 const loginAction = (() => {
