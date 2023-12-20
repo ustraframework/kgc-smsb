@@ -1,0 +1,45 @@
+
+// 1 Depth Tab
+.default_tab {
+  // Tab Header
+  .p-tabview-nav-container {
+    color: white;
+
+    .p-tabview-header {
+      flex: 1;
+      padding: 18px 0;
+      border-bottom: 1px solid #E7E7E7;
+
+      &.p-highlight {
+        border-bottom: 2px solid black;
+        
+        .p-tabview-nav-link {
+            color: black;
+            font-weight: 700;
+        }
+      }
+
+      .p-tabview-nav-link  {
+        background-color: transparent;
+        color: #888888;
+        font-size: 16px;
+        text-align: center;
+        justify-content: center;
+        font-weight: 400;
+        line-height: 24px;
+        transition: all 0.25s;
+
+        &:hover {
+            color: black;
+        }
+      }
+    }
+  }
+
+  // Tab Content
+  .p-tabview-panels {
+      margin-top: 24px;
+      background-color: transparent;
+      color: black;
+  }
+}
