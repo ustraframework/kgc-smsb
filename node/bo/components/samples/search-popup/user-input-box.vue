@@ -102,7 +102,7 @@ const textBoxName = ref<string>('')
 
 // 팝업 관련
 const showPopup = ref(false)
-const userPopup = ref<InstanceType<typeof UUserPopup>>()
+const userPopup = ref<InstanceType<typeof UserPopup>>()
 
 // 내부 코드 값 변경 시 처리
 watch(selectedUser, v => {
