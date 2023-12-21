@@ -9,11 +9,10 @@
       <p class="mb-[16px] text-xl text-center">원하시는 <strong>아이디</strong>를 선택해주세요.</p>
       <ul class="mb-[40px] p-[16px] rounded-[8px] bg-[#F9FAFC] text-[#888]">
         <li class="relative pl-[20px]">
-          <span class="absolute top-0 left-[10px] font-bold leading-[1.2]">&middot;</span> ID 계정중 하나를 선택하시면, 나머지 한 개의 계정은
-          삭제됩니다.
+          <span class="absolute top-0 left-[10px] font-bold">&middot;</span> ID 계정중 하나를 선택하시면, 나머지 한 개의 계정은 삭제됩니다.
         </li>
         <li class="relative pl-[20px]">
-          <span class="absolute top-0 left-[10px] font-bold leading-[1.2]">&middot;</span> 새로운 아이디 생성을 하시면 기존에 있는 계정은 삭제됩니다.
+          <span class="absolute top-0 left-[10px] font-bold">&middot;</span> 새로운 아이디 생성을 하시면 기존에 있는 계정은 삭제됩니다.
         </li>
       </ul>
       <form>

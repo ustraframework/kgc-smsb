@@ -11,23 +11,23 @@
         <ul class="py-[20px] text-base">
           <li class="flex gap-[40px]">
             <p class="flex-none w-[74px] text-[#666]">이름</p>
-            <p class="text-black">홍*동</p>
+            <p class="text-black font-medium">홍*동</p>
           </li>
           <li class="flex gap-[40px] mt-[8px]">
             <p class="flex-none w-[74px] text-[#666]">아이디</p>
-            <p class="text-black">ab****</p>
+            <p class="text-black font-medium">ab****</p>
           </li>
           <li class="flex gap-[40px] mt-[8px]">
             <p class="flex-none w-[74px] text-[#666]">성별</p>
-            <p class="text-black">여</p>
+            <p class="text-black font-medium">여</p>
           </li>
           <li class="flex gap-[40px] mt-[8px]">
             <p class="flex-none w-[74px] text-[#666]">생년월일</p>
-            <p class="text-black">2001-10-10</p>
+            <p class="text-black font-medium">2001-10-10</p>
           </li>
           <li class="flex gap-[40px] mt-[8px]">
             <p class="flex-none w-[74px] text-[#666]">휴대폰번호</p>
-            <p class="text-black">010-1234-5678</p>
+            <p class="text-black font-medium">010-1234-5678</p>
           </li>
         </ul>
 
@@ -166,7 +166,7 @@
             </div>
           </div>
           <p class="text-[13px] text-[#5361E7] ml-[8px]">
-            <span class="font-bold">&middot;</span> 마케팅 정보 수신에 동의하시면 다양한 혜택을 받아 보실 수 있습니다.
+            <span class="font-bold">&middot;</span> 다양한 혜택 및 이벤트 정보를 받아 보실 수 있습니다.
           </p>
         </li>
       </ul>

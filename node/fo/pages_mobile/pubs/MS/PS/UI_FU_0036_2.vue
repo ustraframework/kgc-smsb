@@ -35,24 +35,15 @@
 
       <div class="mt-[40px] p-[16px] rounded-[8px] bg-[#F9FAFC]">
         <h3 class="flex items-center mb-[8px] text-[#888] font-medium">
-          <i class="mr-[3px]">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="white" />
-              <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="#BDBDBD" />
-              <rect x="7.25" y="7" width="1.5" height="5" rx="0.75" fill="#BDBDBD" />
-              <rect x="7" y="4" width="2" height="2" rx="1" fill="#BDBDBD" />
-            </svg>
-          </i>
+          <img src="@/assets/images/svg/ico_info.svg" class="mr-1" alt="정보" />
           유의사항
         </h3>
         <ul class="text-[#888]">
           <li class="relative pl-[20px]">
-            <span class="absolute top-0 left-[10px] font-bold leading-[1.2]">&middot;</span> 8자 이상 영문 대/소문자, 숫자, 특수문자 3가지 이상
-            조합하여 사용해주기 바랍니다.
+            <span class="absolute top-0 left-[10px] font-bold">&middot;</span> 8자 이상 영문 대/소문자, 숫자, 특수문자 3가지 이상 조합하여 사용해주기
+            바랍니다.
           </li>
-          <li class="relative pl-[20px]">
-            <span class="absolute top-0 left-[10px] font-bold leading-[1.2]">&middot;</span> 사용 가능한 특수문자 !@#$%^&*( ) )
-          </li>
+          <li class="relative pl-[20px]"><span class="absolute top-0 left-[10px] font-bold">&middot;</span> 사용 가능한 특수문자 !@#$%^&*( ) )</li>
         </ul>
       </div>
     </div>
