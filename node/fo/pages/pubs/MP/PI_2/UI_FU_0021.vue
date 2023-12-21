@@ -147,28 +147,20 @@ definePageMeta({
     .purchase__item-center {
       display: flex;
       flex-direction: column;
+      gap: 4px;
 
       &.expand span:first-child::after {
         transform:rotate(180deg);
-
       }
 
-      span:first-child {
-        margin-bottom: 4px;
-
-        &::after {
-          content: '';
-          background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 8L9.64645 13.6464C9.84171 13.8417 10.1583 13.8417 10.3536 13.6464L16 8' stroke='%23222222' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
-          background-repeat: no-repeat;
-          background-size: 20px;
-          background-position: top right;
-          width: 20px;
-          height: 16px;
-          display: inline-block;
-          float: right;
-          cursor: pointer;
-          transition: all 0.25s;
-        }
+      span:first-child::after {
+        content: '';
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 8L9.64645 13.6464C9.84171 13.8417 10.1583 13.8417 10.3536 13.6464L16 8' stroke='%23222222' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+        width: 20px;
+        height: 16px;
+        float: right;
+        cursor: pointer;
+        transition: all 0.25s;
       }
     }
 
