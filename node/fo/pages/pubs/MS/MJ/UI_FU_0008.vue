@@ -196,7 +196,9 @@
                 <label for="agreePost"> 우편 </label>
               </div>
             </div>
-            <p class="text-[13px] text-[#5361E7] ml-[8px]"><span class="font-bold">&middot;</span> 생일정보 입력하시면 혜택을 드립니다</p>
+            <p class="text-[13px] text-[#5361E7] ml-[8px]">
+              <span class="font-bold">&middot;</span> 다양한 혜택 및 이벤트 정보를 받아 보실 수 있습니다.
+            </p>
           </li>
         </ul>
         <!-- //contents -->
