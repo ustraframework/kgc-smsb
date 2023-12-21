@@ -28,7 +28,7 @@
       </span>
     </div>
 
-    <div class="purchase__list">
+    <div class="purchase__list" v-if="list?.length > 0">
       <div v-for="(item, i) in list" :key="i" class="purchase__item">
         <div class="purchase__item-top">
           <span class="title">{{ item.title }}</span>
@@ -52,8 +52,12 @@
             <span>{{ `${purchase.count}개` }}</span>
           </div>
         </div>
-
       </div>
+    </div>
+
+    <div v-else class="empty">
+      <i ></i>
+      <span>구매내역이 없습니다.</span>
     </div>
   </div>
 </template>
@@ -90,18 +94,18 @@ const endDate = ref('')
 const dropdownValue = ref('전체')
 
 const list = ref([
-  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
-  },
-  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
-  },
-  { title: '대치점', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}] 
-  },
-  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
-  },
+  // { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
+  //   list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  // },
+  // { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
+  //   list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  // },
+  // { title: '대치점', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
+  //   list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}] 
+  // },
+  // { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
+  //   list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  // },
 ])
 
 const onClickExpandButton = (i) => {
@@ -180,6 +184,24 @@ definePageMeta({
         justify-content: space-between;
       }
     }
+  }
+}
+
+.empty {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888888;
+  font-weight: 500;
+  font-size: 16px;
+  
+  i {
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1292_13378)'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23C8D1E2'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20 11C19.1716 11 18.5 11.6716 18.5 12.5V22.5C18.5 23.3284 19.1716 24 20 24C20.8284 24 21.5 23.3284 21.5 22.5V12.5C21.5 11.6716 20.8284 11 20 11ZM20 26C18.8954 26 18 26.8954 18 28C18 29.1046 18.8954 30 20 30C21.1046 30 22 29.1046 22 28C22 26.8954 21.1046 26 20 26Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1292_13378'%3E%3Crect width='40' height='40' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
   }
 }
 </style>
