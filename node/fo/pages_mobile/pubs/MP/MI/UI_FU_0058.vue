@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center m-[20px]">
     <div class="w-full bg-[#F4F6FA] p-[20px] rounded-[12px]">
       <div class="flex flex-col flex-wrap items-center justify-center gap-[16px]">
-        <span class="text-[15px]">나의 기념일을 등록해보세요. <br /> 최대 7개까지 가능합니다.</span>
+        <span class="text-[15px] text-center">나의 기념일을 등록해보세요. <br /> 최대 7개까지 가능합니다.</span>
         <Button label="기념일 등록"  @click="$router.push('/pubs/MP/MI/UI_FU_0059')" />
       </div>
     </div>

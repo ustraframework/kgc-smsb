@@ -5,11 +5,13 @@
   .range {
     margin: 0 8px;
   }
+
+  .p-calendar {
+    width: 50%;
+  }
 }
 
 .p-calendar {
-  width: 50%;
-    
   .p-inputtext {
     &::placeholder {
       font-size: 14px;
