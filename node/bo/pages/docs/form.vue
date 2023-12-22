@@ -8,7 +8,7 @@
         <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow>
-            <UField required label="회원유형"><UWjComboBox :itemsSource="members" displayMemberPath="text"/></UField>
+            <UField required label="label left" left><UWjComboBox :itemsSource="members" displayMemberPath="text"/></UField>
             <UField label="생년월일"><UDateBox mode="date"/></UField>
             <UField label="회원명"><UTextBox></UTextBox></UField>
           </UFieldRow>
