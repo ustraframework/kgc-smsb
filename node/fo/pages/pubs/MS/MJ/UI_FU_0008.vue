@@ -135,8 +135,8 @@
         <ul class="pt-[20px] mb-[60px]">
           <li class="flex items-start mb-[24px]">
             <label class="flex-none w-[150px] leading-[50px] text-[14px] text-[#222]" for="userEmail">이메일</label>
-            <div>
-              <div class="flex w-full gap-2">
+            <div class="w-full">
+              <div class="flex gap-2">
                 <InputText v-model="userEmail" id="userEmail" class="w-full" type="text" size="large" placeholder="이메일" />
                 <Dropdown inputClass="p-inputtext-lg" v-model="domein" :options="domeins" optionLabel="name" class="w-[160px] flex-none" />
               </div>
@@ -196,7 +196,9 @@
                 <label for="agreePost"> 우편 </label>
               </div>
             </div>
-            <p class="text-[13px] text-[#5361E7] ml-[8px]"><span class="font-bold">&middot;</span> 생일정보 입력하시면 혜택을 드립니다</p>
+            <p class="text-[13px] text-[#5361E7] ml-[8px]">
+              <span class="font-bold">&middot;</span> 다양한 혜택 및 이벤트 정보를 받아 보실 수 있습니다.
+            </p>
           </li>
         </ul>
         <!-- //contents -->

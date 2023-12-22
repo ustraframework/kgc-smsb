@@ -1,1 +1,59 @@
 @charset "utf-8";
+
+.v-dialog {
+  &.u-popup {
+    .v-card-text {
+      padding: 0 30px !important;
+    }
+    .v-card-actions {
+      .btn_wrap {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        button {
+          &:not(:last-child) {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+  &:not(.u-popup) {
+    .v-card-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .v-card-actions {
+      flex-direction: row-reverse;
+      justify-content: center;
+  
+      .v-spacer {
+        width: 1px !important;
+        flex-grow: 0;
+      }
+      button {
+        display: inline-block;
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; 
+        border-radius: 4px;
+        border: 1px solid #151515;
+        background: #151515;
+        &:not(:last-child) {
+          margin-left: 5px;
+        }
+        &.text-green-darken-1 {
+          color: #fff !important;
+        }
+        &.text-red-darken-1 {
+          color: #000 !important;
+          border: 1px solid #E1E1E1;
+          background: #fff;
+        }
+      }
+    }
+  }
+}

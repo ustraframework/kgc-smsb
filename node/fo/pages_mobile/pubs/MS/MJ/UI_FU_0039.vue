@@ -17,7 +17,7 @@
               <Checkbox class="non-rounded p-checkbox-box-lg" v-model="agree" inputId="agree1" name="agree" value="agree1" />
               <label class="!text-[15px] !ml-[8px]" for="agree1"> [필수] 통합 회원약관 </label>
             </div>
-            <Button class="flex-none" label="내용보기" text />
+            <Button class="flex-none" label="내용보기" text @click="agree1 = true" />
           </li>
           <li class="flex items-center justify-between px-[16px] h-[50px]">
             <div class="overflow-hidden text-ellipsis whitespace-nowrap">
@@ -54,6 +54,43 @@
       <Button class="flex-1" label="취소" size="large" outlined />
       <Button class="flex-1" label="다음" size="large" />
     </div>
+
+    <!-- 약관 팝업 -->
+    <Dialog v-model:visible="agree1" modal header="약관" :style="{ width: '100%', margin: '75px 20px' }">
+      <div class="dialog-content-inner">
+        <h2 class="mb-1 font-bold text-[15px] text-black">타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+
+        <h2 class="mt-5 mb-1 font-bold text-[15px] text-black">타이틀타이틀</h2>
+        <p class="text-sm text-[#666]">약관내용약관내용약관내용약관내용</p>
+      </div>
+      <template #footer>
+        <div class="border-t border-[#E7E7E7] py-[20px]">
+          <Button class="block mx-auto" label="확인" @click="agree1 = false" />
+        </div>
+      </template>
+    </Dialog>
   </div>
 </template>
 
@@ -78,6 +115,9 @@ const items = ref([
 // checkbox
 const agreeAll = ref(false);
 const agree = ref();
+
+// 약관 팝업
+const agree1 = ref(false);
 </script>
 
 <style lang="scss" scoped></style>
