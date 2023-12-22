@@ -3,7 +3,7 @@
     <h1 class="text-center font-medium text-3xl">회원탈퇴</h1>
     <form class="mt-[30px]">
       <div class="mb-[40px] p-[24px] rounded-[12px] bg-[#F4F6FA]">
-        <p class="mb-[20px]">
+        <p class="mb-[20px] text-black">
           회원 탈퇴 신청 전 유의사항을 확인하세요. <br />탈퇴하시면 현재 보유하고 계신 멤버십 포인트는
           <em class="text-[#D20F27]">즉시 자동 소멸</em>합니다. <em class="text-[#D20F27]">90일</em>간 다시 가입할 수 없습니다.
         </p>
@@ -47,31 +47,31 @@
         <li class="flex items-start mb-[8px] py-[16px] px-[24px] border border-[#E7E7E7] rounded-[8px]">
           <div class="flex items-center">
             <RadioButton class="p-radiobutton-box-lg" v-model="reason" inputId="reason1" name="reason1" value="이용 횟수 적음" />
-            <label for="reason1">이용 횟수 적음</label>
+            <label class="!text-base" for="reason1">이용 횟수 적음</label>
           </div>
         </li>
         <li class="flex items-start mb-[8px] py-[16px] px-[24px] border border-[#E7E7E7] rounded-[8px]">
           <div class="flex items-center">
             <RadioButton class="p-radiobutton-box-lg" v-model="reason" inputId="reason2" name="reason2" value="서비스를 이용하기 어려움" />
-            <label for="reason2">서비스를 이용하기 어려움</label>
+            <label class="!text-base" for="reason2">서비스를 이용하기 어려움</label>
           </div>
         </li>
         <li class="flex items-start mb-[8px] py-[16px] px-[24px] border border-[#E7E7E7] rounded-[8px]">
           <div class="flex items-center">
             <RadioButton class="p-radiobutton-box-lg" v-model="reason" inputId="reason3" name="reason3" value="서비스 불만족" />
-            <label for="reason3">서비스 불만족</label>
+            <label class="!text-base" for="reason3">서비스 불만족</label>
           </div>
         </li>
         <li class="flex items-start mb-[8px] py-[16px] px-[24px] border border-[#E7E7E7] rounded-[8px]">
           <div class="flex items-center">
             <RadioButton class="p-radiobutton-box-lg" v-model="reason" inputId="reason4" name="reason4" value="상품 금액의 불만족" />
-            <label for="reason4">상품 금액의 불만족</label>
+            <label class="!text-base" for="reason4">상품 금액의 불만족</label>
           </div>
         </li>
         <li class="flex items-start mb-[8px] py-[16px] px-[24px] border border-[#E7E7E7] rounded-[8px]">
           <div class="flex items-center">
             <RadioButton class="p-radiobutton-box-lg" v-model="reason" inputId="reason5" name="reason5" value="직접 입력" />
-            <label for="reason5">직접 입력</label>
+            <label class="!text-base" for="reason5">직접 입력</label>
           </div>
         </li>
         <li>
