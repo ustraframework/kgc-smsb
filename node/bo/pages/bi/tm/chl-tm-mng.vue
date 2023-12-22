@@ -16,7 +16,7 @@
             </UField>
             <UField blank>
               <div class="search-btn">
-                <UButton text="조회" type="is-search" @click="() => listActions.load()" v-if="useFunctionAuthCheck('search')" />
+                <UButton text="조회" type="is-search" @click="() => listActions.load()" />
               </div>
             </UField>
           </UFieldRow>
@@ -48,7 +48,7 @@
           <UButtonBox class="table-buttons">
             <UButton text="신규" type="is-outline" @click="() => listActions.init()" />
             <UButton text="삭제" type="is-outline" @click="() => detailActions.remove()" />
-            <UButton text="저장" type="is-filled" @click="() => detailActions.save()" v-if="useFunctionAuthCheck('save')" />
+            <UButton text="저장" type="is-filled" @click="() => detailActions.save()" />
             <UButton text="엑셀다운로드" type="is-filled" @click="() => listActions.exportExcel()" />
           </UButtonBox>
         </UBox>
@@ -71,7 +71,7 @@
           />
           <WjFlexGridColumn header="약관ID" binding="termCd" width="*" align="center" />
           <WjFlexGridColumn header="약관명" binding="termNm" width="*" align="center" />
-          <WjFlexGridColumn header="약관버전" binding="termVrsnNo" width="*" align="center" />
+          <WjFlexGridColumn header="약관버전" binding="termVerNo" width="*" align="center" />
           <WjFlexGridColumn
             header="필수동의여부"
             binding="esntAgrmTermYn"
@@ -112,7 +112,7 @@
           <UValidationGroup ref="validationGroup">
             <UFieldRow>
               <UField left required label="채널" labelWidth="120">
-                <UCodeComboBox grpCd="CHNL_CD" v-model="detailActions.chlTm.value.chnlCd" displayNullText="선택" />
+                <UCodeComboBox grpCd="CHNL_CD" v-model="detailActions.chlTm.value.chnlCd" displayNullText="선택" :readonly="true" />
               </UField>
               <UField left required label="약관유형" labelWidth="120">
                 <UCodeComboBox grpCd="TERM_PATR_DV_CD" v-model="detailActions.chlTm.value.termPatrDvcd" displayNullText="선택" />
@@ -126,7 +126,7 @@
                 <UTextBox type="text" v-model="detailActions.chlTm.value.termNm" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
               </UField>
               <UField left required label="약관버전" labelWidth="120">
-                <UTextBox type="text" v-model="detailActions.chlTm.value.termVrsnNo" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
+                <UTextBox type="text" v-model="detailActions.chlTm.value.termVerNo" :style="'width: 100%'" :validation="{ rules: ['required'] }" />
               </UField>
               <UField left required label="필수동의여부" labelWidth="120">
                 <UCodeComboBox grpCd="ESNT_AGRM_TERM_YN_CD" v-model="detailActions.chlTm.value.esntAgrmTermYn" displayNullText="선택" />
@@ -266,7 +266,7 @@ const detailActions = (() => {
       termCntt: '',
       termNm: null,
       termPatrDvcd: null,
-      termVrsnNo: null,
+      termVerNo: null,
       ioUiId: uiId,
     }
     await validationGroup.value.init(true)

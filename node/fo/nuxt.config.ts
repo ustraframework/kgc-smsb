@@ -32,9 +32,20 @@ export default defineNuxtConfig({
     app: {
       configDirPath: './config',
     },
+    auth: {
+      enabled: true,
+      loginPath: '/login',
+      failProcessType: 'none',
+      expiredProcessType: 'none',
+      jwt: {
+        useCookie: false,
+        accessTokenKey: 'X-SM-FO-TOKEN',
+        refreshTokenKey: 'X-SM-REF-FO-TOKEN',
+      },
+    },
     nuxt: {
       vuetify: {
-        enabled: false,
+        enabled: true,
         mdi: {
           enabled: true,
         },

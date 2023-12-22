@@ -7,18 +7,20 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gsitm.ustra.java.data.exception.UstraDataResponseCode;
 import com.gsitm.ustra.java.data.utils.procedure.ProcedureCallOption;
 import com.gsitm.ustra.java.data.utils.procedure.ProcedureCallResult;
-import com.gsitm.ustra.java.data.utils.procedure.UstraOracleProcedureManager;
 
+import kr.co.kgc.smsb.common.base.config.SmsbUstraCustomOracleProcedureManager;
 import kr.co.kgc.smsb.common.biz.bi.tm.model.ChlTmMngDto;
 import kr.co.kgc.smsb.common.biz.bi.tm.model.ChlTmMngProcModel;
 
 @Service
 public class ChlTmMngService {
-	@Autowired private UstraOracleProcedureManager oracleProcedureManager;
+	@Autowired private SmsbUstraCustomOracleProcedureManager oracleProcedureManager;
 
 	public ChlTmMngProcModel get(ChlTmMngDto.Criteria in) {
 		ProcedureCallResult<ChlTmMngProcModel> result = oracleProcedureManager.call(
 				ProcedureCallOption.returnObjectBuilder("STP_UI_BM_2101_SEL_01", in, ChlTmMngProcModel.class)
+					.convertReturnKeyToCamelCase(false)
+					.convertParameterKeyToUnderScore(false)
 					.schemaName("KGC")
 					.datasourceName("rds1")
 					.resultRowMapper("ot_out_cursor", ChlTmMngDto.class)
@@ -32,6 +34,8 @@ public class ChlTmMngService {
 	public ChlTmMngProcModel save(ChlTmMngDto in) {
 		ProcedureCallResult<ChlTmMngProcModel> result = oracleProcedureManager.call(
 				ProcedureCallOption.returnObjectBuilder("STP_UI_BM_2101_IUD_01", in, ChlTmMngProcModel.class)
+					.convertReturnKeyToCamelCase(false)
+					.convertParameterKeyToUnderScore(false)	
 					.schemaName("KGC")
 					.datasourceName("rds1")
 					.build()

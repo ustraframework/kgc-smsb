@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.kgc.smsb.bo.sample.repository.UserRepository">
+
+	<sql id="common_select">
+			REG_DTTM,
+			REG_USR_ID,
+			REG_USR_IP,
+			UPD_DTTM,
+			UPD_USR_ID,
+			UPD_USR_IP
+	</sql>
+
+	<select id="selects" parameterType="java.util.Map" resultType="kr.co.kgc.smsb.bo.sample.model.UserModel">
+		SELECT
+			A.USR_ID,
+			A.USR_NM,
+			A.DEPT_CD,
+			A.DEPT_NM,
+			A.PWD,
+			A.PWD_LST_UPD_DTTM,
+			A.EMAIL,
+			A.PH_NO,
+			A.CPH_NO,
+			A.FAX_NO,
+			A.USR_STT_CD,
+			A.USE_SRT_DT,
+			A.USE_END_DT,
+			A.USE_DV_CD,
+			A.LST_LOGIN_DTTM,
+			A.LOGIN_FAIL_CNT,
+			A.PWD_RESET_YN,
+			A.IP_LMT_YN,
+			A.IP_LIST,
+			A.EMP_NO,
+			A.RMK,
+			A.ORG_CD,
+			A.APV_CMPL_YN,
+			A.USR_APV_ID,
+			<include refid="common_select"/>
+		FROM
+			USTRA_USR A
+		<where>
+			<if test="usrId != null and usrId != '' " >
+					(
+					A.USR_ID  LIKE '%' || #{usrId} || '%'
+					or A.USR_NM LIKE '%' || #{usrId} || '%'
+					or A.DEPT_NM LIKE '%' || #{usrId} || '%'
+					)
+			</if>
+			<if test="usrSttCd != null and usrSttCd != '' " >
+			AND A.USR_STT_CD  = #{usrSttCd}
+			</if>
+			<if test="useDvCd != null and useDvCd != '' " >
+			AND A.USE_DV_CD  = #{useDvCd}
+			</if>
+			<if test="deptNm != null and deptNm != '' " >
+			AND (
+				A.DEPT_CD = #{deptNm} or A.DEPT_NM LIKE '%' || #{deptNm} || '%'
+			)
+			</if>
+			<if test="useDvCds != null">
+			AND A.USE_DV_CD IN
+				<foreach collection="useDvCds" item="cd" open="(" close=")" separator=",">
+					#{cd}
+				</foreach>
+			</if>
+			AND A.USR_STT_CD != '02'
+		</where>
+
+		<if test="sortColName != null">
+		ORDER BY A.${sortColName}
+		</if>
+	</select>
+
+	<select id="select" parameterType="java.util.Map" resultType="kr.co.kgc.smsb.bo.sample.model.UserModel">
+		SELECT
+			USR_ID,
+			USR_NM,
+			DEPT_CD,
+			DEPT_NM,
+			PWD,
+			PWD_LST_UPD_DTTM,
+			EMAIL,
+			PH_NO,
+			CPH_NO,
+			FAX_NO,
+			USR_STT_CD,
+			USE_SRT_DT,
+			USE_END_DT,
+			USE_DV_CD,
+			LST_LOGIN_DTTM,
+			LOGIN_FAIL_CNT,
+			PWD_RESET_YN,
+			IP_LMT_YN,
+			IP_LIST,
+			EMP_NO,
+			RMK,
+			ORG_CD,
+			APV_CMPL_YN,
+			USR_APV_ID,
+			<include refid="common_select"/>
+		FROM
+			USTRA_USR
+		WHERE
+			USR_ID = #{args0}
+	</select>
+
+
+	<insert id="insert" parameterType="java.util.Map">
+		INSERT INTO ${dtc.user._table}(
+			${dtc.user.usrId},
+			${dtc.user.usrNm},
+			${dtc.user.deptCd},
+			${dtc.user.deptNm},
+			<!--  ${dtc.user.pwd}, -->
+			${dtc.user.pwdLstUpdDttm},
+			${dtc.user.email},
+			${dtc.user.phNo},
+			${dtc.user.cphNo},
+			${dtc.user.faxNo},
+			${dtc.user.usrSttCd},
+			${dtc.user.useSrtDt},
+			${dtc.user.useEndDt},
+			${dtc.user.useDvCd},
+			${dtc.user.lstLoginDttm},
+			${dtc.user.loginFailCnt},
+			<!--  ${dtc.user.pwdResetYn}, -->
+			${dtc.user.ipLmtYn},
+			${dtc.user.ipList},
+			${dtc.user.empNo},
+			${dtc.user.rmk},
+			${dtc.user.orgCd},
+			${dtc.user.apvCmplYn},
+			${dtc.user.usrApvId},
+			${dtc.user.regDttm},
+			${dtc.user.regUsrId},
+			${dtc.user.regUsrIp},
+			${dtc.user.updDttm},
+			${dtc.user.updUsrId},
+			${dtc.user.updUsrIp}
+		)
+		VALUES(
+			#{usrId},
+			#{usrNm},
+			#{deptCd},
+			#{deptNm},
+			<!--  #{pwd}, -->
+			CURRENT_TIMESTAMP,
+			#{email},
+			#{phNo},
+			#{cphNo},
+			#{faxNo},
+			#{usrSttCd},
+			#{useSrtDt},
+			#{useEndDt},
+			#{useDvCd},
+			#{lstLoginDttm},
+			#{loginFailCnt},
+			<!--  #{pwdResetYn}, -->
+			#{ipLmtYn},
+			#{ipList},
+			#{empNo},
+			#{rmk},
+			#{orgCd},
+			#{apvCmplYn},
+			#{usrApvId},
+			CURRENT_TIMESTAMP,
+			#{regUsrId},
+			#{regUsrIp},
+			CURRENT_TIMESTAMP,
+			#{updUsrId},
+			#{updUsrIp}
+		)
+	</insert>
+
+	<update id="update" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.usrId} = #{usrId},
+			${dtc.user.usrNm} = #{usrNm},
+			${dtc.user.deptCd} = #{deptCd},
+			${dtc.user.deptNm} = #{deptNm},
+			<!--  ${dtc.user.pwd} = #{pwd}, -->
+			${dtc.user.email} = #{email},
+			${dtc.user.phNo} = #{phNo},
+			${dtc.user.cphNo} = #{cphNo},
+			${dtc.user.faxNo} =  #{faxNo},
+			${dtc.user.usrSttCd}  = #{usrSttCd},
+			${dtc.user.useSrtDt} = #{useSrtDt},
+			${dtc.user.useEndDt} = #{useEndDt},
+			${dtc.user.useDvCd} = #{useDvCd},
+			<!--  ${dtc.user.pwdResetYn} = #{pwdResetYn}, -->
+			${dtc.user.ipLmtYn} = #{ipLmtYn},
+			${dtc.user.ipList} = #{ipList},
+			${dtc.user.empNo} = #{empNo},
+			${dtc.user.rmk} = #{rmk},
+			${dtc.user.orgCd} = #{orgCd},
+			${dtc.user.apvCmplYn} = #{apvCmplYn},
+			${dtc.user.usrApvId} = #{usrApvId},
+			<if test="loginFailCnt != null">
+			${dtc.user.loginFailCnt} = #{loginFailCnt},
+			</if>
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{updUsrId},
+			${dtc.user.updUsrIp} = #{updUsrIp}
+		WHERE
+			${dtc.user.usrId} = #{usrId}
+	</update>
+
+	<update id="updatePrivate" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.deptNm} = #{deptNm},
+			${dtc.user.email} = #{email},
+			${dtc.user.phNo} = #{phNo},
+			${dtc.user.cphNo} = #{cphNo},
+			${dtc.user.faxNo} =  #{faxNo},
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{updUsrId},
+			${dtc.user.updUsrIp} = #{updUsrIp}
+		WHERE
+			${dtc.user.usrId} = #{usrId}
+	</update>
+
+	<update id="updatePassword" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.pwd} = #{pwd},
+			${dtc.user.pwdLstUpdDttm} = CURRENT_TIMESTAMP,
+			<choose>
+				<when test="pwdResetYn != null and pwdResetYn != '' ">
+				${dtc.user.pwdResetYn} = #{pwdResetYn},
+				</when>
+				<otherwise>
+				${dtc.user.pwdResetYn} = 'N',
+				</otherwise>
+			</choose>
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{updUsrId},
+			${dtc.user.updUsrIp} = #{updUsrIp}
+		WHERE
+			${dtc.user.usrId} = #{usrId}
+	</update>
+
+	<update id="updateSuccessLogin" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.lstLoginDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.loginFailCnt} = 0,
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{updUsrId},
+			${dtc.user.updUsrIp} = #{updUsrIp}
+		WHERE
+			${dtc.user.usrId} = #{usrId}
+	</update>
+
+	<update id="updateFailLogin" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			<if test="usrSttCd != null and usrSttCd != '' " >
+			${dtc.user.usrSttCd}  = #{usrSttCd},
+			</if>
+			${dtc.user.loginFailCnt} = ${dtc.user.loginFailCnt} + 1,
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{updUsrId},
+			${dtc.user.updUsrIp} = #{updUsrIp}
+		WHERE
+			${dtc.user.usrId} = #{usrId}
+	</update>
+
+	<update id="updateFailLoginWithoutCnt" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			<if test="usrSttCd != null and usrSttCd != '' " >
+			${dtc.user.usrSttCd}  = #{usrSttCd},
+			</if>
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{updUsrId},
+			${dtc.user.updUsrIp} = #{updUsrIp}
+		WHERE
+			${dtc.user.usrId} = #{usrId}
+	</update>
+
+	<delete id="delete" parameterType="java.util.Map">
+		DELETE FROM ${dtc.user._table}
+		WHERE ${dtc.user.usrId} = #{args0}
+	</delete>
+
+	<update id="updateUnlock" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.usrSttCd}  = '01',
+			${dtc.user.loginFailCnt} = 0,
+			${dtc.user.useEndDt} =
+				CASE WHEN ${dtc.user.useEndDt} IS NULL THEN NULL
+					 WHEN ${dtc.user.useEndDt} <![CDATA[>]]> #{args1} THEN ${dtc.user.useEndDt} ELSE #{args2}
+				END,
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{args3},
+			${dtc.user.updUsrIp} = #{args4}
+		WHERE
+			${dtc.user.usrId} = #{args0}
+	</update>
+
+	<update id="updateResetPassword" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.pwd}  = #{args1},
+			${dtc.user.usrSttCd}  = '01',
+			${dtc.user.pwdResetYn} = 'Y',
+			${dtc.user.loginFailCnt} = 0,
+			${dtc.user.useEndDt} =
+				CASE WHEN ${dtc.user.useEndDt} IS NULL THEN NULL
+					 WHEN ${dtc.user.useEndDt} <![CDATA[>]]> #{args2} THEN ${dtc.user.useEndDt} ELSE #{args3}
+				END,
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{args4},
+			${dtc.user.updUsrIp} = #{args5}
+		WHERE
+			${dtc.user.usrId} = #{args0}
+	</update>
+
+	<update id="updateResetExpire" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.usrSttCd}  = '01',
+			${dtc.user.loginFailCnt} = 0,
+			${dtc.user.useEndDt} =
+				CASE WHEN ${dtc.user.useEndDt} IS NULL THEN NULL
+					 WHEN ${dtc.user.useEndDt} <![CDATA[>]]> #{args1} THEN ${dtc.user.useEndDt} ELSE #{args2}
+				END,
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{args3}
+		WHERE
+			${dtc.user.updUsrIp} = #{args4}
+		 AND ${dtc.user.usrId} = #{args0}
+	</update>
+
+	<update id="updateUsrApv" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.usrApvId} = #{args1},
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{args2},
+			${dtc.user.updUsrIp} = #{args3}
+		WHERE
+			${dtc.user.usrId} = #{args0}
+	</update>
+
+	<select id="selectAuthGrpUsers" parameterType="java.util.Map" resultType="kr.co.kgc.smsb.bo.sample.model.UserModel">
+		SELECT * FROM (
+			SELECT
+				LISTAGG(B.AUTH_GRP_NM, ', ') WITHIN GROUP (ORDER BY B.AUTH_GRP_ID) AS AUTH_GRP,
+				D.USR_ID,
+				D.USR_NM,
+				D.DEPT_NM,
+				D.DEPT_CD,
+				D.ORG_CD,
+				D.USR_STT_CD,
+				D.USE_SRT_DT,
+				D.USE_END_DT,
+				D.USE_DV_CD,
+				D.APV_CMPL_YN
+			FROM
+				USTRA_AUTH_GRP_USR A
+			JOIN USTRA_AUTH_GRP B ON A.AUTH_GRP_ID = B.AUTH_GRP_ID
+			RIGHT JOIN USTRA_USR D ON A.USR_ID = D.USR_ID
+			GROUP BY D.USR_ID, D.USR_NM, D.DEPT_NM, D.DEPT_CD, D.ORG_CD, D.USR_STT_CD, D.USE_SRT_DT, D.USE_END_DT, D.USE_DV_CD, D.APV_CMPL_YN
+		) E
+		<where>
+			<if test="usrId != null and usrId != '' " >
+				(
+					E.USR_ID  LIKE '%' || #{usrId} || '%'
+				 	or E.USR_NM LIKE '%' || #{usrId} || '%'
+				)
+			</if>
+			<if test="usrSttCd != null and usrSttCd != '' " >
+			AND E.USR_STT_CD  = #{usrSttCd}
+			</if>
+			<if test='authGrpNoneYn != null and authGrpNoneYn != "" and "Y".equals(authGrpNoneYn) ' >
+			AND E.AUTH_GRP IS NULL
+			</if>
+			AND E.USR_STT_CD != '02'
+		</where>
+	</select>
+
+	<select id="selectUserApvId" parameterType="java.util.Map" resultType="com.gsitm.ustra.java.management.models.UstraUserModel">
+			SELECT
+				${dtc.user.usrId} AS USR_ID,
+				${dtc.user.usrNm} AS USR_NM,
+				${dtc.user.deptCd} AS DEPT_CD,
+				${dtc.user.deptNm} AS DEPT_NM,
+				${dtc.user.pwd} AS PWD,
+				${dtc.user.pwdLstUpdDttm} AS PWD_LST_UPD_DTTM,
+				${dtc.user.email} AS EMAIL,
+				${dtc.user.phNo} AS PH_NO,
+				${dtc.user.cphNo} AS CPH_NO,
+				${dtc.user.faxNo} AS FAX_NO,
+				${dtc.user.usrSttCd} AS USR_STT_CD,
+				${dtc.user.useSrtDt} AS USE_SRT_DT,
+				${dtc.user.useEndDt} AS USE_END_DT,
+				${dtc.user.useDvCd} AS USE_DV_CD,
+				${dtc.user.lstLoginDttm} AS LST_LOGIN_DTTM,
+				${dtc.user.loginFailCnt} AS LOGIN_FAIL_CNT,
+				${dtc.user.pwdResetYn} AS PWD_RESET_YN,
+				${dtc.user.ipLmtYn} AS IP_LMT_YN,
+				${dtc.user.ipList} AS IP_LIST,
+				${dtc.user.empNo} AS EMP_NO,
+				${dtc.user.rmk} AS RMK,
+				${dtc.user.orgCd} AS ORG_CD,
+				${dtc.user.apvCmplYn} AS APV_CMPL_YN,
+				${dtc.user.usrApvId} AS USR_APV_ID,
+				<include refid="common_select"/>
+			FROM
+				${dtc.user._table}
+			WHERE
+				${dtc.user.usrApvId} = #{args0}
+	</select>
+
+	<update id="updateUsrStt" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.usrSttCd}  = #{args1},
+			${dtc.user.loginFailCnt} = 0,
+			${dtc.user.useEndDt} =
+				CASE WHEN ${dtc.user.useEndDt} IS NULL THEN NULL
+					 WHEN ${dtc.user.useEndDt} <![CDATA[>]]> #{args2} THEN ${dtc.user.useEndDt} ELSE #{args3}
+				END,
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{args4},
+			${dtc.user.updUsrIp} = #{args5}
+		WHERE
+			${dtc.user.usrId} = #{args0}
+	</update>
+
+	<update id="updateUsrApvCmpl" parameterType="java.util.Map">
+		UPDATE ${dtc.user._table} SET
+			${dtc.user.apvCmplYn}  = #{args1},
+			${dtc.user.loginFailCnt} = 0,
+			${dtc.user.useEndDt} =
+				CASE WHEN ${dtc.user.useEndDt} IS NULL THEN NULL
+					 WHEN ${dtc.user.useEndDt} <![CDATA[>]]> #{args2} THEN ${dtc.user.useEndDt} ELSE #{args3}
+				END,
+			${dtc.user.updDttm} = CURRENT_TIMESTAMP,
+			${dtc.user.updUsrId} = #{args4},
+			${dtc.user.updUsrIp} = #{args5}
+		WHERE
+			${dtc.user.usrId} = #{args0}
+	</update>
+
+	<select id="selectUnLoginUserList" parameterType="java.util.Map" resultType="com.gsitm.ustra.java.management.models.UstraUserModel">
+		SELECT
+			${dtc.user.usrId} AS USR_ID,
+			${dtc.user.usrNm} AS USR_NM,
+			${dtc.user.deptCd} AS DEPT_CD,
+			${dtc.user.deptNm} AS DEPT_NM,
+			${dtc.user.usrSttCd} AS USR_STT_CD,
+			${dtc.user.useSrtDt} AS USE_SRT_DT,
+			${dtc.user.useEndDt} AS USE_END_DT,
+			${dtc.user.useDvCd} AS USE_DV_CD,
+			${dtc.user.lstLoginDttm} AS LST_LOGIN_DTTM,
+			${dtc.user.empNo} AS EMP_NO,
+			${dtc.user.orgCd} AS ORG_CD
+		FROM
+			${dtc.user._table}
+		<where>
+			<if test="args0 != null and !args0.equals('') and args0 gt 0" >
+				<if test="_databaseId == 'sqlserver'">
+					AND ${dtc.user.lstLoginDttm} <![CDATA[<]]> DATEADD(DD, -(#{args0}), GETDATE())
+				</if>
+				<if test="_databaseId == 'oracle'">
+					AND ${dtc.user.lstLoginDttm} <![CDATA[<]]> SYSDATE -(#{args0})
+				</if>
+				<if test="_databaseId == 'mysql'">
+					AND ${dtc.user.lstLoginDttm} <![CDATA[<]]> NOW() -(#{args0})
+				</if>
+			</if>
+			AND ${dtc.user.usrSttCd} = '01'
+		</where>
+	</select>
+
+</mapper>

@@ -1,6 +1,7 @@
 package kr.co.kgc.smsb.common.base.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,23 +56,23 @@ public class SmsbBaseModel {
 	/**
 	 * 등록일시
 	 */
-	private LocalDateTime regDttm;
+	private String regDttm;
 
 	/**
 	 * 수정 사용자 아이디
 	 */
 	@Masked(MaskingType.ID)
-	private String mdfUserId;
+	private String modUserId;
 
 	/**
 	 * 수정 사용자 아이피
 	 */
-	private String mdfUserIp;
+	private String modUserIp;
 
 	/**
 	 * 수정일시
 	 */
-	private LocalDateTime mdfDttm;
+	private String modDttm;
 
 
 	/**
@@ -85,7 +86,14 @@ public class SmsbBaseModel {
 	/**
 	 * SP 기본 입력, 화면 ID
 	 */
+	@MapField("io_ui_id")
 	private String ioUiId;
+	
+	/**
+	 * SP 기본 입력, 프로세스 ID
+	 */
+	@MapField("io_prcd_id")
+	private String ioPrcdId;
 
 	/**
 	 * 타 필드 유입 시 처리
@@ -111,9 +119,9 @@ public class SmsbBaseModel {
 		target.setRegDttm(this.getRegDttm());
 		target.setRegUserId(this.getRegUserId());
 		target.setRegUserIp(this.getRegUserIp());
-		target.setMdfDttm(this.getMdfDttm());
-		target.setMdfUserId(this.getMdfUserId());
-		target.setMdfUserIp(this.getMdfUserIp());
+		target.setModDttm(this.getModDttm());
+		target.setModUserId(this.getModUserId());
+		target.setModUserIp(this.getModUserIp());
 	}
 
 	/**
@@ -123,9 +131,9 @@ public class SmsbBaseModel {
 		this.setRegDttm(null);
 		this.setRegUserId(null);
 		this.setRegUserIp(null);
-		this.setMdfDttm(null);
-		this.setMdfUserId(null);
-		this.setMdfUserIp(null);
+		this.setModDttm(null);
+		this.setModUserId(null);
+		this.setModUserIp(null);
 	}
 
 	/**
@@ -134,16 +142,16 @@ public class SmsbBaseModel {
 	 */
 	public static Object applySystemDefaultFieldValue(SmsbBaseModel model) {
 
-		model.setRegDttm(LocalDateTime.now());
+		model.setRegDttm(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddhhmmss")));
 		model.setRegUserIp(UstraNetUtils.getLocalIp());
-		model.setMdfDttm(LocalDateTime.now());
-		model.setMdfUserIp(UstraNetUtils.getLocalIp());
+		model.setModDttm(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddhhmmss")));
+		model.setModUserIp(UstraNetUtils.getLocalIp());
 
 		UstraAuthenticationManager manager = ApplicationContextProvider.getBeanSafety(UstraAuthenticationManager.class);
 
 		if (manager != null && manager.getAuthentication() != null) {
 			model.setRegUserId(manager.getAuthentication().getName());
-			model.setMdfUserId(manager.getAuthentication().getName());
+			model.setModUserId(manager.getAuthentication().getName());
 		}
 
 		UstraManagementCoreProperties properties = ApplicationContextProvider.getBeanSafety(UstraManagementCoreProperties.class);
@@ -153,8 +161,8 @@ public class SmsbBaseModel {
 				model.setRegUserId(properties.getDefaultUserName());
 			}
 
-			if (StringUtils.isEmpty(model.getMdfUserId())) {
-				model.setMdfUserId(properties.getDefaultUserName());
+			if (StringUtils.isEmpty(model.getModUserId())) {
+				model.setModUserId(properties.getDefaultUserName());
 			}
 		}
 

@@ -5,12 +5,10 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.gsitm.ustra.java.data.utils.procedure.UstraOracleProcedureManager;
-
 @Configuration
 public class SmsbOracleProcedureManagerConfiguration {
 	@Bean
-	UstraOracleProcedureManager oracleProcedureManager(DataSource dataSource) {
-		return new UstraOracleProcedureManager(dataSource);
+	SmsbUstraCustomOracleProcedureManager oracleProcedureManager(DataSource dataSource) {
+		return new SmsbUstraCustomOracleProcedureManager(dataSource);
 	} 
 }

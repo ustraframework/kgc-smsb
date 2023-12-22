@@ -33,8 +33,8 @@ public class ChlTmMngDto extends SmsbBaseModel {
 	/**
 	 * 약관_버전_번호
 	 */
-	@MapField("in_term_vrsn_no")
-	private String termVrsnNo;
+	@MapField("in_term_ver_no")
+	private String termVerNo;
 	/**
 	 * 약관_유형_구분코드
 	 */
@@ -69,6 +69,7 @@ public class ChlTmMngDto extends SmsbBaseModel {
 	/**
 	 * 요청구분(C/U)
 	 */
+	@MapField("in_req_gbn")
 	private String inReqGbn;
 	
 	
