@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center w-[650px]">
     <h1 class="text-[30px] font-medium mb-[30px]">포인트 조회</h1>
 
-    <div class="w-[650px] bg-[#F4F6FA] p-[24px] rounded-xl">
+    <div class="w-[650px] bg-[#F4F6FA] p-[24px] rounded-[12px]">
       <div class="flex flex-col justify-center items-center mb-[20px] border-b border-[#E7E7E7] pb-4">
         <span class="text-[18px]">
           <strong>홍길동</strong>님의 가용포인트
@@ -52,9 +52,9 @@
       </div>
     </div>
 
-    <div class="w-full flex justify-between mt-[40px]">
+    <div class="w-full flex justify-between mt-[40px] items-center">
       <span class="text-[15px]">
-        최근 3개월 ∙ 전체
+        {{ `${selectedValue ? `최근 ${selectedValue}개월 ∙ `: ''}전체` }}
       </span>
 
       <Dropdown class="simple-dropdown w-1/4" v-model="dropdownValue" :options="['전체', 'selectA', 'selectB', 'selectC']">
@@ -66,7 +66,7 @@
       </Dropdown>
     </div>
 
-    <div class="w-full flex flex-col rounded-xl border border-[#E7E7E7] mt-5 px-8 py-2">
+    <div class="w-full flex flex-col rounded-[12px] border border-[#E7E7E7] mt-5 px-8 py-2">
       <div v-for="(item, i) in list" :key="i" class="flex justify-between py-6" :class="[i !== 0 ? ' border-t border-[#E7E7E7]' : '']">
         <div class="flex flex-col">
           <span class="text-[18px] font-bold">{{item.title}}</span>

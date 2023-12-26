@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center w-[650px]">
-    <h1 class="text-[30px] font-medium mb-[30px]">기념일 관리</h1>
+    <h1 class="text-[30px] font-medium mb-[30px]">기념일 등록</h1>
     <div class="w-full bg-[#F4F6FA] p-[16px] rounded-[12px]">
       <div class="flex items-center justify-center">
         <span class="text-[15px]">자녀는 최대 3명까지 가능하며 그 외에는 1명만 가능합니다.</span>
@@ -38,7 +38,7 @@
         </div>
         
         <div class="flex items-center">
-          <RadioButton class="p-radiobutton-box-lg ml-[20px]" v-model="dateType" inputId="birthInfo2" name="birthInfo2" value="birthInfo2" />
+          <RadioButton class="p-radiobutton-box-lg" v-model="dateType" inputId="birthInfo2" name="birthInfo2" value="birthInfo2" />
           <label for="birthInfo2">음력</label>
         </div>
       </div>
@@ -54,7 +54,7 @@
 
       <!-- 버튼 -->
       <div class="w-full flex gap-[8px]">
-        <Button class="w-2/4" size="large" label="취소" outlined />
+        <Button class="w-2/4" size="large" label="취소" outlined @click="$router.push('/pubs/MP/MI/UI_FU_0024')" />
         <Button class="w-2/4" size="large" label="확인" />
       </div>
     </div>
@@ -100,6 +100,10 @@ definePageMeta({
 </script>
 
 <style scoped>
+button {
+  color: #fff;
+}
+
 .anniversary__type {
   display: flex;
   flex-wrap: wrap;

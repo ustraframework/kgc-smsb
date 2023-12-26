@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center w-[650px]">
     <h1 class="text-[30px] font-medium mb-[30px]">소멸 포인트 조회</h1>
 
-    <div class="w-[650px] bg-[#F4F6FA] p-[24px] rounded-xl">
+    <div class="w-[650px] bg-[#F4F6FA] p-[24px] rounded-[12px]">
       <div class="flex flex-col justify-center items-center mb-[20px] border-b border-[#E7E7E7] pb-4">
         <span class="text-[18px]">
           당월 소멸 예정 포인트

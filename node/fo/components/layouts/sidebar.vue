@@ -3,16 +3,16 @@
     <h1 class="text-2xl text-black font-bold">마이페이지</h1>
     <ul class="flex flex-col mt-[15px]">
       <li class="main_item">
-        <router-link to="/">포인트 조회</router-link>
+        <router-link to="/pubs/MP/PI/UI_FU_0019">포인트 조회</router-link>
       </li>
       <li class="main_item">
-        <router-link to="/">쿠폰 조회</router-link>
+        <router-link to="/pubs/MP/CI/UI_FU_0018">쿠폰 조회</router-link>
       </li>
       <li class="main_item">
-        <router-link to="/">구매내역 조회</router-link>
+        <router-link to="/pubs/MP/PI_2/UI_FU_0021">구매내역 조회</router-link>
       </li>
       <li class="main_item">
-        <router-link to="/">포인트 선물</router-link>
+        <router-link to="/pubs/MP/PG/UI_FU_0020">포인트 선물</router-link>
       </li>
       <li class="main_item">
         <a href="#none">내정보 수정</a>
@@ -25,10 +25,10 @@
             <router-link to="/">비밀번호 변경</router-link>
           </li>
           <li class="sub_item">
-            <router-link to="/">기념일 관리</router-link>
+            <router-link to="/pubs/MP/MI/UI_FU_0024">기념일 관리</router-link>
           </li>
           <li class="sub_item">
-            <router-link to="/">단골매장 관리</router-link>
+            <router-link to="/pubs/MP/MI/UI_FU_0026">단골매장 관리</router-link>
           </li>
           <li class="sub_item">
             <router-link to="/">회원 탈퇴</router-link>

@@ -52,7 +52,7 @@
 
       <!-- 버튼 -->
       <div class="w-full flex gap-[8px]">
-        <Button class="w-2/4" size="large" label="취소" outlined />
+        <Button class="w-2/4" size="large" label="취소" outlined @click="$router.push('/pubs/MP/MI/UI_FU_0058')" />
         <Button class="w-2/4" size="large" label="확인" />
       </div>
     </div>
@@ -95,6 +95,9 @@ const isAgree = ref('');
 </script>
 
 <style scoped>
+button {
+  color: #ffffff;
+}
 .anniversary__type {
   display: flex;
   flex-wrap: wrap;

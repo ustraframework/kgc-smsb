@@ -18,8 +18,8 @@
               {{item.title }}
             </span>
             <span>
-              <i class="icon icon-edit" />
-              <i class="icon icon-delete" />
+              <i class="icon icon-edit" @click="$router.push('/pubs/MP/MI/UI_FU_0059')" />
+              <i class="icon icon-delete" @click="onClickDelete(item)" />
             </span>
           </div>
 
@@ -47,9 +47,17 @@ const list = ref([
   { title: '배우자 생일', gender: '남자', dateType: '양력', date: '1986-02-25' },
   { title: '자녀 생일', gender: '남자', dateType: '양력', date: '2019-05-16' },
 ])
+
+const onClickDelete = (item) => {
+  console.log('item: ', item);
+}
+
 </script>
 
 <style scoped>
+button {
+  color: #ffffff;
+}
 .anniversary__list {
   display: flex;
   flex-direction: column;

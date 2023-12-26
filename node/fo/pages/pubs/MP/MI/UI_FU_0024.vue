@@ -19,8 +19,8 @@
               {{item.title }}
             </span>
             <span>
-              <i class="icon icon-edit" />
-              <i class="icon icon-delete" />
+              <i class="icon icon-edit" @click="$router.push('/pubs/MP/MI/UI_FU_0025')" />
+              <i class="icon icon-delete" @click="onClickDelete(item)" />
             </span>
           </div>
 
@@ -49,12 +49,20 @@ const list = ref([
   { title: '자녀 생일', gender: '남자', dateType: '양력', date: '2019-05-16' },
 ])
 
+const onClickDelete = (item) => {
+  console.log('item: ', item);
+}
+
 definePageMeta({
   layout: 'side',
 })
 </script>
 
 <style scoped>
+button {
+  color: #fff;
+}
+
 .anniversary__list {
   display: flex;
   flex-wrap: wrap;
@@ -86,6 +94,7 @@ definePageMeta({
         width: 20px;
         height: 20px;
         display: inline-block;
+        cursor: pointer;
       }
       i.icon-edit {
         background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.8309 7.48034L11.5197 4.16916M2 17L4.80157 16.6887C5.14385 16.6507 5.31499 16.6317 5.47496 16.5799C5.61688 16.5339 5.75194 16.469 5.87648 16.3869C6.01684 16.2943 6.1386 16.1726 6.38213 15.9291L16.3142 5.99696C17.2286 5.0826 17.2286 3.60013 16.3142 2.68577C15.3999 1.77141 13.9174 1.77141 13.0031 2.68577L3.07094 12.6179C2.82742 12.8614 2.70566 12.9832 2.6131 13.1235C2.53098 13.2481 2.46606 13.3831 2.42012 13.525C2.36833 13.685 2.34932 13.8561 2.31128 14.1984L2 17Z' stroke='%23222222' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 17H17' stroke='%23222222' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
