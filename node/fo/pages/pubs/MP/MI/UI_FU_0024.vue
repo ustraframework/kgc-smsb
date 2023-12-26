@@ -19,9 +19,25 @@
               {{item.title }}
             </span>
             <span>
-              <i class="icon icon-edit" @click="$router.push('/pubs/MP/MI/UI_FU_0025')" />
-              <i class="icon icon-delete" @click="onClickDelete(item)" />
+              <i
+                class="icon icon-edit"
+                @click="$router.push({ path: '/pubs/MP/MI/UI_FU_0025', query: { id: item.id } })"
+              />
+              <i class="icon icon-delete" @click="isShowDelete = true" />
             </span>
+
+            <!-- 삭제 확인 팝업 -->
+            <Dialog v-model:visible="isShowDelete" modal :style="{ width: '500px' }">
+              <div class="dialog-content-inner max-h-[456px]">
+                <p class="mb-1 text-[18px] text-center text-black">기념일을 삭제하시겠습니까?</p>
+              </div>
+              <template #footer>
+                <div class="flex justify-center pt-[24px] pb-[30px] px-[30px] gap-[10px]">
+                  <Button label="확인" @click="handleDelete(i)" />
+                  <Button outlined label="취소" @click="isShowDelete = false" />
+                </div>
+              </template>
+            </Dialog>
           </div>
 
           <div class="anniversary__card-bottom">
@@ -42,15 +58,18 @@
 
 <script setup lang="ts">
 
-const list = ref([
-  { title: '결혼기념일', gender: '남자', dateType: '양력', date: '2023-11-30' },
-  { title: '부모생일', gender: '여자', dateType: '양력', date: '2010-04-20' },
-  { title: '배우자 생일', gender: '남자', dateType: '양력', date: '1986-02-25' },
-  { title: '자녀 생일', gender: '남자', dateType: '양력', date: '2019-05-16' },
-])
+const list = reactive([
+  { id: 1, title: '결혼기념일', gender: '남자', dateType: '양력', date: '2023-11-30' },
+  { id: 2, title: '부모생일', gender: '여자', dateType: '양력', date: '2010-04-20' },
+  // { id: 3, title: '배우자 생일', gender: '남자', dateType: '양력', date: '1986-02-25' },
+  // { id: 4, title: '자녀 생일', gender: '남자', dateType: '양력', date: '2019-05-16' },
+]);
 
-const onClickDelete = (item) => {
-  console.log('item: ', item);
+const isShowDelete = ref(false);
+
+const handleDelete = (index) => {
+  list.splice(index,1);
+  isShowDelete.value = false;
 }
 
 definePageMeta({
@@ -60,7 +79,7 @@ definePageMeta({
 
 <style scoped>
 button {
-  color: #fff;
+  color: var(--j-white);
 }
 
 .anniversary__list {
@@ -73,10 +92,11 @@ button {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border: 1px solid #E7E7E7;
+    border: 1px solid var(--j-gray200);
     border-radius: 8px;
     flex: 45%;
     gap: 20px;
+    max-width: 49%;
 
     .anniversary__card-top {
       display: flex;
@@ -119,7 +139,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #888888;
+  color: var(--j-gray400);
   font-weight: 500;
   font-size: 16px;
   

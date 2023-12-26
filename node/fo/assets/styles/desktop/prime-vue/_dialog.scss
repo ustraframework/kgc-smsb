@@ -5,6 +5,12 @@
   border-bottom: 1px solid #e7e7e7;
   color: #000;
   background-color: #fff;
+
+  // header title 존재하지 않을 경우
+  &:not(:has(.p-dialog-title)) {
+    border: none;
+    justify-content: flex-end;
+  }
 }
 
 .p-dialog-title {
