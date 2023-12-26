@@ -30,6 +30,6 @@ public class FoApplication extends ServletApplicationRunner {
 	}
 
 	private static void addProperties(SpringApplicationBuilder builder) {
-		builder.properties("spring.config.location=classpath:/common-config.yml");
+		builder.properties("spring.config.location=classpath:/common-config.yml,classpath:/fo-biz-config.yml");
 	}
 }
