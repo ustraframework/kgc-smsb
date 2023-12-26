@@ -31,4 +31,6 @@
 
 <script lang="ts" setup>
 const pizza = ref();
+console.log('snsId', useKgc().fo.store.system.props['snsId'])
+console.log('snsPw', useKgc().fo.store.system.props['snsPw'])
 </script>

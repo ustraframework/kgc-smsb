@@ -1,0 +1,6 @@
+smsb:
+  fo:
+    sample-prop: FoSampleProperty
+    sns:
+      sns-id: FO-SNS-ID
+      sns-pw: FO-SNS-PW

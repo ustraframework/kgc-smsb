@@ -1,3 +1,6 @@
 smsb:
   bo:
     sample-prop: SampleProperty
+    sns:
+      sns-id: BO-SNS-ID
+      sns-pw: BO-SNS-PW
