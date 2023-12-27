@@ -40,7 +40,7 @@
             :class="[{'p-invalid': type === 'error'}]"
             v-model="certNumber"
             inputId="integeronly"
-            placeholder="휴대폰 번호를 입력해주세요"
+            placeholder="인증번호를 입력해주세요"
             size="large"
           />
           <span v-if="type !== 'confirm'" class="timer">{{ timer }}</span>
