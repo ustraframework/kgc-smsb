@@ -49,11 +49,11 @@
       </div>
 
       <div class="w-full flex gap-[8px] mt-[20px]">
-        <Dropdown class="w-1/4" placeholder="시/도 선택" />
-        <Dropdown class="w-1/4" placeholder="구/군 선택" />
-        <span class="p-input-icon-right w-1/2">
-          <i class="pi pi-search" />
-          <InputText v-model="value" placeholder="강남" class="w-full" />
+        <Dropdown inputClass="p-inputtext-lg" class="flex-1" placeholder="시/도 선택" />
+        <Dropdown inputClass="p-inputtext-lg" class="flex-1" placeholder="구/군 선택" />
+        <span class="p-input-icon-right w-[334px]">
+          <button class="pi pi-search indent-[-999em]">검색</button>
+          <InputText v-model="value" size="large" placeholder="강남" class="w-full" />
         </span>
       </div>
     </div>
