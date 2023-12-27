@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   ssr: false,
   vite: {
     optimizeDeps: {
-      exclude: ['@grapecity/wijmo', '@grapecity/wijmo.vue2.grid', '@grapecity/wijmo.grid', 'lodash/toString', 'lodash/isEqual'],
+      exclude: ['@grapecity/wijmo', '@grapecity/wijmo.vue2.grid', 'lodash/toString', 'lodash/isEqual'],
     },
   },
   modules: ['@ustra/nuxt', '@kgc/smsb-common'],
@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     emitRouteChunkError: 'reload',
   },
   routeRules: {
-    '/api/**': { proxy: 'http://localhost:11051/api/**' }
+    //'/api/**': { proxy: 'http://localhost:11051/api/**' }
+    '/api/**': { proxy: 'http://192.168.41.221:11051/api/**' }
   },
   ustra: {
     i18n: {
