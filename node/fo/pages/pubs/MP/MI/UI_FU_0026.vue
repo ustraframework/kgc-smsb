@@ -4,7 +4,7 @@
     <div class="w-full bg-[#F4F6FA] p-[24px] rounded-[12px]">
       <div class="flex justify-between items-center mb-[20px]">
         <h2 class="text-[18px] font-bold">정관장몰</h2>
-        <Button label="매장 변경" outlined style="font-size: 14px;"/>
+        <Button label="매장 변경" outlined @click="showPopup = true" style="font-size: 14px;"/>
       </div>
 
       <ul class="market_list">
@@ -23,9 +23,15 @@
       </ul>
     </div>
   </div>
+
+  <Popup27 v-model="showPopup" />
 </template>
 
 <script setup lang="ts">
+import Popup27 from './UI_FU_0027.vue';
+
+const showPopup = ref(false);
+
 definePageMeta({
   layout: 'side',
 })
