@@ -46,7 +46,7 @@
         <WjMenuItem value="collapsedAll"><VIcon class="mr-2">mdi-arrow-collapse-all</VIcon>모두 접기</WjMenuItem>
       </WjMenu>
     </UItem>
-    <UItem class="card is-sub" ratio="8">
+    <UItem class="card is-sub" ratio="8" :disabled="formActions.disabled.value">
       <Form
         :ref="e => {
           if (e) {
