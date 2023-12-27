@@ -66,7 +66,7 @@
         <div class="market-card" v-for="id in 5" :key="id">
           <div class="flex justify-between items-center mb-[20px]">
             <span class="text-[16px] font-bold">정관장몰</span>
-            <Button label="매장 변경" severity="secondary" style="font-size: 14px" />
+            <Button label="매장 선택" severity="secondary" style="font-size: 14px" />
           </div>
           <ul class="market_list is-card">
             <li class="mb-[12px]">
