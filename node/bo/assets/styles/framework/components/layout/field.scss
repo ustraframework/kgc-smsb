@@ -85,6 +85,12 @@
     padding: 0;
     margin-bottom: 10px !important;
     gap: unset;
+
+    span {
+      display: inline-block;
+      line-height: 32px;
+      padding-right: 5px;
+    }
   }
 }
 
@@ -166,6 +172,17 @@
       .u-field-label {
         min-width: 230px !important;
       }
+    }
+  }
+}
+.u-field-set-slot {
+  .table-title-wrap {
+    +.mt-2 {
+      margin-top: 0 !important;
+    }
+    .u-button-box {
+      margin-bottom: 0 !important;
+      align-items: center;
     }
   }
 }
