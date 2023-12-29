@@ -1995,3 +1995,14 @@
     }
   }
 }
+
+// file upload
+.file-desc {
+  &:not(:only-child) {
+    display: inline-block;
+    margin-left: 10px;
+    padding-left: 20px;
+    color: #000 !important;
+    background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.99978 14.1109C11.3749 14.1109 14.1109 11.3749 14.1109 7.99978C14.1109 4.62471 11.3749 1.88867 7.99978 1.88867C4.62471 1.88867 1.88867 4.62471 1.88867 7.99978C1.88867 11.3749 4.62471 14.1109 7.99978 14.1109Z' fill='%239A9A9A'/%3E%3Cpath d='M8 4.80518V9.24962' stroke='white'/%3E%3Cpath d='M8 10.0576V11.1687' stroke='white'/%3E%3C/svg%3E%0A") no-repeat left center;
+  }
+}

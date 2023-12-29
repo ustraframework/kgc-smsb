@@ -11,7 +11,7 @@
             <UField required label="발송구분">
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
-            <UField label="발송방식">
+            <UField label="발송유형">
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
             <UField blank>
@@ -42,6 +42,7 @@
           
           <UButtonBox class="table-buttons">
             <UButton text="미리보기" type="is-outline" />
+            <UButton text="발송취소" type="is-outline" />
             <UButton text="발송처리" type="is-filled" />
           </UButtonBox>
         </UBox>
@@ -51,7 +52,7 @@
           <WjFlexGridColumn header="No" binding="col1" width="*" />
           <WjFlexGridColumn header="발송ID" binding="col1" width="*" />
           <WjFlexGridColumn header="발송명" binding="col1" width="*" />
-          <WjFlexGridColumn header="발송수단" binding="col1" width="*" />
+          <WjFlexGridColumn header="발송유형" binding="col1" width="*" />
           <WjFlexGridColumn header="발송구분" binding="col1" width="*" />
           <WjFlexGridColumn header="발송방식" binding="col1" width="*" />
           <WjFlexGridColumn header="발송일시" binding="col1" width="*" />
@@ -59,7 +60,12 @@
           <WjFlexGridColumn header="발송상태" binding="col1" width="*" />
           <WjFlexGridColumn header="대상건수" binding="col1" width="*" />
           <WjFlexGridColumn header="실패건수" binding="col1" width="*" />
-          <WjFlexGridColumn header="상세보기" binding="col1" width="*" />
+          <WjFlexGridColumn header="피로도건수" binding="col1" width="*" />
+          <WjFlexGridColumn header="관리내역" binding="col1" width="*" align="center">
+            <WjFlexGridCellTemplate cellType="Cell" >
+              <UButton text="상세보기" />
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
         </WjFlexGrid>
       </UItem>
     </UBox>

@@ -56,7 +56,11 @@
           <WjFlexGridColumn header="발송일시" binding="col1" width="*" />
           <WjFlexGridColumn header="발송상태" binding="col1" width="*" />
           <WjFlexGridColumn header="결과값" binding="col1" width="*" />
-          <WjFlexGridColumn header="상세보기" binding="col1" width="*" />
+          <WjFlexGridColumn header="상세보기" binding="col1" width="*" align="center">
+            <WjFlexGridCellTemplate cellType="Cell" >
+              <UButton text="상세보기" />
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
         </WjFlexGrid>
       </UItem>
     </UBox>
