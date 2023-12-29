@@ -12,7 +12,13 @@
     <UBox direction="col">
       <UItem :ratio="1" class="pop-contents">
         <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 198px;">
-          <WjFlexGridColumn header="선택" binding="col1" width="*" />
+          <WjFlexGridColumn header="선택" binding="col1" width="*" align="center">
+            <WjFlexGridCellTemplate cellType="Cell" >
+              <div style="margin-top: 10px;">
+                <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
+              </div>
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
           <WjFlexGridColumn header="No" binding="col1" width="*" />
           <WjFlexGridColumn header="파라미터명" binding="col1" width="*" />
           <WjFlexGridColumn header="필드명" binding="col1" width="*" />
@@ -32,7 +38,7 @@
 </template>
 
 <script setup>
-import { WjFlexGrid, WjFlexGridColumn } from '#ustra/nuxt-wijmo/components';
+import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate } from '#ustra/nuxt-wijmo/components';
 
 definePageMeta({
   layout: false,
