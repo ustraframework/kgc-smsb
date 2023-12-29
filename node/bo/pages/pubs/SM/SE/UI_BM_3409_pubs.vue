@@ -2,21 +2,46 @@
   <div class="docs__wrap">
     <div class="columns has-gap mb-12">
       <div class="column is-half">
-        <h1 class="mb-4">발송 대상자 추출 - 회원등급</h1>
+        <h1 class="mb-4">발송 대상자 등록</h1>
         <UButton text="팝업 열기" @click="() => (showPopup = true)"></UButton>
       </div>
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="1000" :height="350" title="발송 대상자 추출 - 회원등급">
+  <UPopup v-model="showPopup" :width="1000" :height="600" title="발송 대상자 추출 - 회원등급">
     <UBox direction="col">
       <UItem :ratio="3" class="pop-contents">
         <UBox class="columns is-shuffle" direction="row">
           <UItem class="field-grid" ratio="1">
-
-
             <WjTabPanel :initialized="tabPanel.initialize" class="mt-5">
-              
+              <WjTab>
+                <a>엑셀업로드</a>
+                <div class="tab-grid">
+                  <UButton text="등록" @click="() => uploadFile()" />
+                  <UButton text="샘플 파일" @click="() => createFormData()" />
+                  <span class="file-desc">엑셀파일만 가능하며, 파일 형식에 맞춰서 업로드 해주시기 바랍니다.</span>
+                  <USingleFileUploader ref="uploader" fileGroupId="menuIcon" v-model:fileId="fileId"  class="mt-3"/>
+                </div>
+              </WjTab>
+
+              <WjTab>
+                <a>제외 조건</a>
+                <div class="tab-grid">
+
+                  <UBox class="table-title-wrap">
+                    <UButtonBox class="table-buttons">
+                      <UButton text="저장" type="is-filled" />
+                    </UButtonBox>
+                  </UBox>
+
+                  <WjFlexGrid :itemsSource="itemsSourceGrid">
+                    <WjFlexGridColumn header="No" binding="col1" width="*" />
+                    <WjFlexGridColumn header="구분" binding="col1" width="*" />
+                    <WjFlexGridColumn header="적용여부" binding="col1" width="*" />
+                    <WjFlexGridColumn header="비고" binding="col1" width="*" />
+                  </WjFlexGrid>
+                </div>
+              </WjTab>
             </WjTabPanel>
           </UItem>
           
@@ -25,7 +50,6 @@
       <UItem class="pop-btn">
         <UButtonBox right top>
           <UButton text="닫기" type="secondary" :width="80" />
-          <UButton text="대상자 추출" type="primary" :width="80" />
         </UButtonBox>
       </UItem>
     </UBox>
@@ -43,6 +67,11 @@ isReadOnly: false,
 })  
 
 const tabPanel = useWijmoTabPanel()
+
+
+function createFormData() {
+  $ustra.logger.info('file upload result', Array.from(uploader.value.createFormData().entries()))
+}
 
 const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = usePaginationCollectionView((pageNo, orders) => {
   return useOnError(

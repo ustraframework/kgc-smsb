@@ -4,15 +4,18 @@
     <UBox class="columns" direction="row">
       <UItem class="card is-sub is-search"  ratio="1" >
         <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 2, 1, '170px']">
+          <UFieldRow :ratio="[1, '480px', 1, '170px']">
             <UField required label="채널">
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
             <UField required label="정산기간">
               <UDatePeriodBox v-model="dateArr1" />
             </UField>
-            <UField label="발송채널">
-              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+            <UField label="부서">
+              <UBox>
+                <UTextBox type="icon" />
+                <UTextBox/>
+              </UBox>
             </UField>
             <UField blank>
               <div class="search-btn">
@@ -20,13 +23,25 @@
               </div>
             </UField>
           </UFieldRow>
-          <UFieldRow :ratio="[1, 2, 1, '170px']">
+          <UFieldRow :ratio="[1, '480px', 1, '170px']">
             <UField label="확정여부">
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
             <UField label="전송여부">
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
+            <UField label="가맹점">
+              <UBox>
+                <UTextBox type="icon" />
+                <UTextBox/>
+              </UBox>
+            </UField>
+            <UField blank></UField>
+          </UFieldRow><UFieldRow :ratio="[1, '480px', 1, '170px']">
+            <UField label="발송채널">
+              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+            </UField>
+            <UField blank></UField>
             <UField blank></UField>
             <UField blank></UField>
           </UFieldRow>
@@ -43,15 +58,16 @@
           </h2>
           
           <UButtonBox class="table-buttons">
-            <span>처리업무</span> 
-            <UWjComboBox :itemsSource="pwd" displayMemberPath="text" style="width: 150px !important" />
-            <UButton text="처리" type="is-filled" />
+            <UButton text="확정취소" type="is-outline" />
+            <UButton text="확정" type="is-outline" />
+            <UButton text="전송" type="is-filled" />
           </UButtonBox>
         </UBox>
         
         <WjFlexGrid :itemsSource="itemsSourceGrid">
           <WjFlexGridColumn header="선택" binding="col1" width="*" />
           <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="채널" binding="col1" width="*" />
           <WjFlexGridColumn header="정산월" binding="col1" width="*" />
           <WjFlexGridColumn header="발송채널" binding="col1" width="*" />
           <WjFlexGridColumn header="발송유형" binding="col1" width="*" />
