@@ -32,7 +32,6 @@
           
           <UButtonBox class="table-buttons">
             <UButton text="신규" type="is-outline" />
-            <UButton text="삭제" type="is-outline" />
             <UButton text="저장" type="is-filled" />
           </UButtonBox>
         </UBox>
@@ -45,7 +44,11 @@
           <WjFlexGridColumn header="적용 종료일자" binding="col1" width="*" />
           <WjFlexGridColumn header="건별단가(원)" binding="col1" width="*" />
           <WjFlexGridColumn header="비고" binding="col1" width="*" />
-          <WjFlexGridColumn header="이력보기" binding="col1" width="*" />
+          <WjFlexGridColumn header="이력보기" binding="col1" width="*" align="center">
+            <WjFlexGridCellTemplate cellType="Cell" >
+              <UButton text="이력보기" />
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
         </WjFlexGrid>
       </UItem>
     </UBox>
@@ -60,8 +63,12 @@
         <UFieldSet>
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow :ratio="[1,1,1]">
-            <UField required label="발송채널"><UTextBox></UTextBox></UField>
-            <UField required label="발송유형"><UTextBox></UTextBox></UField>
+            <UField required label="발송채널">
+              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+            </UField>
+            <UField required label="발송유형">
+              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+            </UField>
             <UField required label="단가(원)"><UTextBox></UTextBox></UField>
           </UFieldRow>
           <!-- ------------------------------------------------------------------ -->

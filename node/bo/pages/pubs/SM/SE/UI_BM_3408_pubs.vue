@@ -188,10 +188,12 @@
                       <UButton icon="arr-down" type="is-outline"/>
                     </UButtonBox>
                     
-                    <WjFlexGrid :itemsSource="itemsSourceGrid" allowDragging="Rows" :initialized="grid.initialize" class="mt-2">
+                    <WjFlexGrid  :itemsSource="itemsSourceGrid" allowDragging="Rows" :initialized="grid.initialize" class="mt-2" >
                       <WjFlexGridColumn header="선택" binding="col1" width="*">
-                        <WjFlexGridCellTemplate cellType="Cell">
-                          <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
+                        <WjFlexGridCellTemplate cellType="Cell" >
+                          <div style="margin-top: 10px;">
+                            <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
+                          </div>
                         </WjFlexGridCellTemplate>
                       </WjFlexGridColumn>
 
@@ -281,7 +283,9 @@
                     <WjFlexGrid :itemsSource="itemsSourceGrid" allowDragging="Rows" :initialized="grid.initialize" class="mt-2" style="margin-top: 0;">
                       <WjFlexGridColumn header="선택" binding="col1" width="*">
                         <WjFlexGridCellTemplate cellType="Cell">
-                          <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
+                          <div style="margin-top: 10px;">
+                            <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
+                          </div>
                         </WjFlexGridCellTemplate>
                       </WjFlexGridColumn>
 
@@ -334,7 +338,7 @@
   import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
   
   const grid = useWijmoFlexGrid({
-  isReadOnly: false,
+  isReadOnly: true,
   })  
   
   const tabPanel = useWijmoTabPanel()

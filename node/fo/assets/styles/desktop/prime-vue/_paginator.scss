@@ -1,0 +1,29 @@
+.p-paginator{
+  font-size: 14px;
+  color: #222222;
+  background-color: #fff;
+
+  .p-paginator-first,
+  .p-paginator-last
+  {
+    display: none;
+  }
+
+  .p-paginator-pages .p-paginator-page {
+    min-width: 32px;
+    height: 32px;
+  }
+
+  .p-paginator-pages .p-paginator-page.p-highlight {
+    border: 1px solid #D20F27;
+    color: #D20F27;
+  }
+
+  .p-paginator-first,
+  .p-paginator-prev,
+  .p-paginator-next,
+  .p-paginator-last {
+    min-width: 32px;
+    height: 32px;
+  }
+}

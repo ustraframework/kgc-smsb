@@ -46,6 +46,11 @@ $base-text-button-padding: 30px;
     .u-button {
       height: 30px;
       padding: 4px 11px;
+
+      &.ico_arr{
+        height: 32px;
+        padding: 6px 4px;
+      }
     }
   }
 }
