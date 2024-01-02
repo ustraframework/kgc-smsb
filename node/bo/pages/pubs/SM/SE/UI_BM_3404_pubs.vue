@@ -2,7 +2,7 @@
   <div>
     <UBox class="columns" direction="row" height="1350">
       <!-- 좌측 영역 -->
-      <UItem class="card is-sub" ratio="4" style="height: 550px">
+      <UItem class="card is-sub" ratio="4" style="height: 570px">
         <UItem :ratio="1" class="pop-contents preview">
           <div class="img">
             <img src="@/assets/images/preview.png" alt="">
