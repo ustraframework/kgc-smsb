@@ -1,7 +1,7 @@
 <template>
   <!-- 쿠폰 조회 -->
   <div class="flex flex-col items-center m-[20px]">
-    <div class="w-full flex bg-[#F4F6FA] py-[12px] px-[20px] rounded-xl justify-center">
+    <div class="w-full flex bg-[#F4F6FA] py-[12px] px-[20px] rounded-[12px] justify-center">
       정관장 온오프라인에서 발행한 쿠폰을 조회하실 수 있습니다.
     </div>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center m-[20px]">
-    <div class="w-full bg-[#F4F6FA] p-[24px] rounded-xl">
+    <div class="w-full bg-[#F4F6FA] p-[24px] rounded-[12px]">
       <div class="flex flex-col justify-center items-center mb-[20px] border-b border-[#E7E7E7] pb-[20px]">
         <span class="text-[15px]">
           <strong>홍길동</strong>님의 가용포인트
@@ -141,6 +141,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+button {
+  color: #ffffff;
+}
 .more_btn {
   margin-top: 20px;
   margin-bottom: 80px;

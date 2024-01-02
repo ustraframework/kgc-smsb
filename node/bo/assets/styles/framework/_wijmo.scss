@@ -213,7 +213,8 @@
   display: flex;
   // flex-wrap: wrap;
   width: 100%;
-  background: #fff;
+  //background: #fff;
+  background: transparent;
   border: 1px solid #cbcbcb;
   border-radius: 4px;
   overflow: hidden;
@@ -299,6 +300,7 @@
       .wj-tabpanes {
         // border-top: 1px solid $vDarken1;
         margin-top: 20px;
+        border-top: none;
       }
     }
   }
@@ -1432,6 +1434,7 @@
 .wj-calendar {
   .wj-calendar-outer {
     border-top: 1px solid $is-primary;
+    border-bottom: 0;
     padding: 0 0 58px !important;
 
     .wj-calendar-header {
@@ -1498,6 +1501,7 @@
         width: 100%;
         height: 58px;
         border-top: 1px solid $gray80;
+        border-left: 0;
 
         &:hover {
           background: none;
@@ -1751,6 +1755,17 @@
   .wj-control {
     width: 100%;
   }
+  .group_btn_list {
+    > li {
+      text-align: left !important;
+    }
+  }
+
+  .ck-editor {
+    + .u-text-box {
+      margin-left: 0 !important;
+    }
+  }
 }
 
 // mdi
@@ -1992,4 +2007,61 @@
       }
     }
   }
+}
+
+// file upload
+.file-desc {
+  &:not(:only-child) {
+    display: inline-block;
+    margin-left: 10px;
+    padding-left: 20px;
+    color: #000 !important;
+    background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.99978 14.1109C11.3749 14.1109 14.1109 11.3749 14.1109 7.99978C14.1109 4.62471 11.3749 1.88867 7.99978 1.88867C4.62471 1.88867 1.88867 4.62471 1.88867 7.99978C1.88867 11.3749 4.62471 14.1109 7.99978 14.1109Z' fill='%239A9A9A'/%3E%3Cpath d='M8 4.80518V9.24962' stroke='white'/%3E%3Cpath d='M8 10.0576V11.1687' stroke='white'/%3E%3C/svg%3E%0A") no-repeat left center;
+  }
+}
+
+// preview
+.preview {
+  margin: 0 -20px;
+  padding: 0;
+  width: calc(100% + 40px) !important;
+  .img {
+    margin: 0 auto; 
+    text-align: center;
+    > img {
+      width: 280px; 
+      height:423px;
+      box-sizing: border-box;
+    }
+    > span {
+      display: block;
+      margin-top: 10px;
+      color: #8E8E8E;
+    }
+  }
+  .preview-form {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: auto !important;
+    margin-top: 35px;
+    padding: 6px 0;
+    // background-color: #f1f1f1;
+    > span {
+      display: inline-block;
+      padding-right: 10px;
+      vertical-align: middle;
+      line-height: 32px;
+    }
+    .u-button {
+      margin-left: 5px;
+    }
+  }
+}
+
+// 업로드
+.u-file-drop-box {
+  border: 0;
+  padding: 0;
+  border-left: 1px solid #F1F1F1;
 }

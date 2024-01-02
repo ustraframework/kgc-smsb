@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center m-[20px]">
-    <div class="w-full flex bg-[#F4F6FA] py-[12px] px-[20px] rounded-xl justify-center">
+    <div class="w-full flex bg-[#F4F6FA] py-[12px] px-[20px] rounded-[12px] justify-center">
       결제한 내역을 확인하실 수 있습니다. 자세한 내용은 해당 사이트에서 확인해주시기 바랍니다.
     </div>
 
@@ -115,6 +115,9 @@ const onClickExpandButton = (i) => {
 </script>
 
 <style scoped>
+button {
+  color: #ffffff;
+}
 .purchase__list {
   border: 1px solid #E7E7E7;
   border-radius: 12px;

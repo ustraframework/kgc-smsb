@@ -6,6 +6,7 @@
       border-left: 0 !important;
       padding: 13px 17px 12px 29px !important;
       color: $gray220;
+      justify-content: flex-start !important;
       
       &.col {
         background-color: $gray20;
@@ -85,6 +86,12 @@
     padding: 0;
     margin-bottom: 10px !important;
     gap: unset;
+
+    span {
+      display: inline-block;
+      line-height: 32px;
+      padding-right: 5px;
+    }
   }
 }
 
@@ -144,6 +151,7 @@
           // width: 130px !important;
           min-width: 150px !important;
           width: 150px !important;
+          justify-content: flex-end !important;
 
           color: $is-black;
           //font-weight: 600;
@@ -165,6 +173,17 @@
       .u-field-label {
         min-width: 230px !important;
       }
+    }
+  }
+}
+.u-field-set-slot {
+  .table-title-wrap {
+    +.mt-2 {
+      margin-top: 0 !important;
+    }
+    .u-button-box {
+      margin-bottom: 0 !important;
+      align-items: center;
     }
   }
 }

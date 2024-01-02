@@ -166,6 +166,7 @@
       </v-tabs>
 
       <div class="mdiShortCuts">
+        <button class="mdiShortCuts-close" @click="closeAllTab">MDI 전체 닫기</button>
         <button class="mdiShortCuts-hidden">MDI 숨김 버튼</button>
       </div>
     </v-card>
@@ -285,6 +286,16 @@ function navigationSelected(nav: Navigation) {
 
 function closeTab(index: number) {
   closeTabMenuByIndex(index)
+}
+
+const closeAllTab = () => {
+  for (let i = 0; i < openedTabNavigations.value.length; i++) {
+    if(openedTabNavigations.value[i].id !== 'home'){
+      closeTab(i);
+      i--;
+    }
+  }
+  selectedTabIndex.value = 0;
 }
 
 function openNewWindow(nav: Navigation) {
@@ -438,6 +449,25 @@ export default {
     &:hover {
       background-color: $gray60;
       background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='path-2-inside-1_134_6830' fill='white'%3E%3Cpath d='M6 11.5C6 10.3954 6.89543 9.5 8 9.5H22C23.1046 9.5 24 10.3954 24 11.5V14.5H6V11.5Z'/%3E%3C/mask%3E%3Cpath d='M4.5 11.5C4.5 9.567 6.067 8 8 8H22C23.933 8 25.5 9.567 25.5 11.5H22.5C22.5 11.2239 22.2761 11 22 11H8C7.72386 11 7.5 11.2239 7.5 11.5H4.5ZM24 14.5H6H24ZM4.5 14.5V11.5C4.5 9.567 6.067 8 8 8V11C7.72386 11 7.5 11.2239 7.5 11.5V14.5H4.5ZM22 8C23.933 8 25.5 9.567 25.5 11.5V14.5H22.5V11.5C22.5 11.2239 22.2761 11 22 11V8Z' fill='%23151515' mask='url(%23path-2-inside-1_134_6830)'/%3E%3Cpath d='M12 18L15 20.5L18 18' stroke='%23151515' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    }
+  }
+
+  .mdiShortCuts-close {
+    position: fixed;
+    bottom: 0;
+    right: 59px;
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
+    border-radius: 50%;
+    background-color: $is-white;
+    background-image: url(/assets/images/svg/ico_mdi_btn_closed.svg);
+    font-size: 0;
+    //   transition: all 0.3s;
+    border: none;
+    &:hover {
+      background-color: $gray60;
+      background-image: url(/assets/images/svg/ico_mdi_btn_closed_hover.svg);
     }
   }
 }

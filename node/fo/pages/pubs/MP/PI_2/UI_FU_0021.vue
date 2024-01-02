@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center w-[650px]">
     <h1 class="text-[30px] font-medium mb-[30px]">구매내역 조회</h1>
 
-    <div class="w-[650px] flex bg-[#F4F6FA] p-[16px] rounded-xl text-center justify-center">
+    <div class="w-[650px] flex bg-[#F4F6FA] p-[16px] rounded-[12px] text-center justify-center">
       결제한 내역을 확인하실 수 있습니다. 자세한 내용은 해당 사이트에서 확인해주시기 바랍니다.
     </div>
 
@@ -94,18 +94,18 @@ const endDate = ref('')
 const dropdownValue = ref('전체')
 
 const list = ref([
-  // { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-  //   list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
-  // },
-  // { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-  //   list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
-  // },
-  // { title: '대치점', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-  //   list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}] 
-  // },
-  // { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-  //   list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
-  // },
+  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
+    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  },
+  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
+    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  },
+  { title: '대치점', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
+    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}] 
+  },
+  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
+    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  },
 ])
 
 const onClickExpandButton = (i) => {

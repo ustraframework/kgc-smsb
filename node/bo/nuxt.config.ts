@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   ssr: false,
   vite: {
     optimizeDeps: {
-      exclude: ['@grapecity/wijmo', '@grapecity/wijmo.vue2.grid', '@grapecity/wijmo.grid', 'lodash/toString', 'lodash/isEqual'],
+      exclude: ['@grapecity/wijmo', '@grapecity/wijmo.vue2.grid', 'lodash/toString', 'lodash/isEqual'],
     },
   },
   modules: ['@ustra/nuxt', '@kgc/smsb-common'],

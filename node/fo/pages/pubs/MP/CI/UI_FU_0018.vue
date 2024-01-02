@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center w-[650px]">
     <h1 class="text-[30px] font-medium mb-[30px]">쿠폰 조회</h1>
 
-    <div class="w-[650px] flex bg-[#F4F6FA] p-[16px] rounded-xl text-center justify-center">
+    <div class="w-[650px] flex bg-[#F4F6FA] p-[16px] rounded-[12px] text-center justify-center">
       정관장 온오프라인에서 발행한 쿠폰을 조회하실 수 있습니다.
     </div>
 
