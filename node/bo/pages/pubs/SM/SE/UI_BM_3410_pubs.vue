@@ -20,12 +20,13 @@
               </div>
             </UField>
           </UFieldRow>
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
+          <UFieldRow :ratio="[1, 2, '170px']">
             <UField label="발송ID/명">
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
-            <UField required label="발송기간"><UDateBox mode="date" /></UField>
-            <UField blank></UField>
+            <UField required label="발송기간">
+              <UDatePeriodBox v-model:start="start" v-model:end="end" />
+            </UField>
             <UField blank></UField>
           </UFieldRow>
         </UFieldSet>
@@ -47,8 +48,14 @@
           </UButtonBox>
         </UBox>
         
-        <WjFlexGrid :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="선택" binding="col1" width="*" />
+        <WjFlexGrid :itemsSource="itemsSourceGrid" :isReadOnly="true">
+          <WjFlexGridColumn header="선택" binding="col1" width="*" align="center">
+            <WjFlexGridCellTemplate cellType="Cell">
+              <div style="margin-top: 10px;">
+                <UCheckGroupBox :items-source="[{ text: '' }]" style="width:16px; margin-right: 0;" />
+              </div>
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
           <WjFlexGridColumn header="No" binding="col1" width="*" />
           <WjFlexGridColumn header="발송ID" binding="col1" width="*" />
           <WjFlexGridColumn header="발송명" binding="col1" width="*" />
@@ -76,10 +83,6 @@
   import { WjTabPanel, WjTab } from '#ustra/nuxt-wijmo/components';
   import { useWijmoTabPanel } from '#ustra/nuxt-wijmo/composables/tab';
   import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
-  
-  const grid = useWijmoFlexGrid({
-  isReadOnly: false,
-  })  
   
   const tabPanel = useWijmoTabPanel()
   
@@ -120,6 +123,9 @@
   { col1: '텍스트2'},
   { col1: '텍스트3'},
   ]);
+
+  const start = ref('20220507')
+  const end = ref('20220508')
   
   </script>
   

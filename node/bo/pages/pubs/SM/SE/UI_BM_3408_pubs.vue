@@ -5,7 +5,10 @@
       <UItem class="card is-sub" ratio="4" style="height: 550px">
         <UItem :ratio="1" class="pop-contents preview">
           <div class="img">
-            <img src="" alt="" style="border: 1px solid red;">
+            <img src="@/assets/images/preview.png" alt="">
+          </div>
+          <div class="img_desc">
+            <span>기기에 따라 다르게 보일 수 있습니다.</span>
           </div>
           <UItem class="preview-form">
             <span>수신번호</span>
@@ -93,9 +96,6 @@
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
                   <UField label="첨부파일">
-                    <div class="buttons">
-                      <UButton text="Upload" @click="() => uploadFile()" />
-                    </div>
                     <UMultiFileUploader ref="uploader" fileGroupId="menuIcon" />
                   </UField>
                 </UFieldRow>
@@ -111,10 +111,10 @@
                     </UBox>
                     
                     <WjFlexGrid :itemsSource="itemsSourceGrid" allowDragging="Rows" :initialized="grid.initialize" class="mt-2" style="margin-top: 0;">
-                      <WjFlexGridColumn header="선택" binding="col1" width="*">
+                      <WjFlexGridColumn header="선택" binding="col1" width="*" align="center">
                         <WjFlexGridCellTemplate cellType="Cell">
                           <div style="margin-top: 10px;">
-                            <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
+                            <UCheckGroupBox :items-source="[{ text: '' }]" style="width:16px; margin-right: 0;" />
                           </div>
                         </WjFlexGridCellTemplate>
                       </WjFlexGridColumn>
@@ -136,7 +136,7 @@
           </WjTab>
 
           <WjTab>
-            <a>발송 일정</a>
+            <a>2 발송 일정</a>
             <div class="tab-grid">
               <UButtonBox class="table-buttons">
                 <UButton text="저장" type="is-filled" />
@@ -212,7 +212,7 @@
           </WjTab>
 
           <WjTab>
-            <a>발송 대상자</a>
+            <a>3 발송 대상자</a>
             <div class="tab-grid">
               <UButtonBox class="table-buttons">
                 <UButton text="추가" type="is-filled" />
@@ -321,5 +321,11 @@ const solarValue = ref('1')
   
   </script>
   <style lang="scss" scoped>
-  
+  .img_desc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #8e8e8e;
+  }
   </style>

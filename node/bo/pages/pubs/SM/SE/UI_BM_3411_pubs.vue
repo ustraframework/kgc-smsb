@@ -4,7 +4,7 @@
     <UBox class="columns" direction="row">
       <UItem class="card is-sub is-search"  ratio="1" >
         <UFieldSet class="is-search">
-          <UFieldRow :ratio="[2, 1, 1, '170px']">
+          <UFieldRow :ratio="[1, 1, 1, '170px']">
             <UField required label="채널">
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>
@@ -20,14 +20,13 @@
               </div>
             </UField>
           </UFieldRow>
-          <UFieldRow :ratio="[2, 1, 1, '170px']">
+          <UFieldRow :ratio="[2, 1, '170px']">
             <UField required label="발송기간">
               <UDatePeriodBox v-model="dateArr1" />
             </UField>
             <UField label="수신번호">
               <UTextBox />
             </UField>
-            <UField blank></UField>
             <UField blank></UField>
           </UFieldRow>
         </UFieldSet>

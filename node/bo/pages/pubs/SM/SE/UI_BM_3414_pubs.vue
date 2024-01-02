@@ -91,6 +91,11 @@ const itemsSourceGrid = ref([
   { col1: '텍스트2'},
   { col1: '텍스트3'},
 ]);
+
+const items = [
+  { value : '1' , text: 'item1'},
+  { value : '2' , text: 'item2'},
+  ]
 </script>
 
 <style lang="scss" scoped>

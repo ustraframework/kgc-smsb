@@ -2,13 +2,13 @@
   <div class="docs__wrap">
     <div class="columns has-gap mb-12">
       <div class="column is-half">
-        <h1 class="mb-4">파라미터(대체문자)</h1>
+        <h1 class="mb-4">사용변수 검색</h1>
         <UButton text="팝업 열기" @click="() => (showPopup = true)"></UButton>
       </div>
     </div>
   </div>
 
-  <UPopup v-model="showPopup" :width="1000" :height="390" title="파라미터(대체문자)">
+  <UPopup v-model="showPopup" :width="1000" :height="390" title="사용변수 검색">
     <UBox direction="col">
       <UItem :ratio="1" class="pop-contents">
         <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 198px;" :isReadOnly="true">

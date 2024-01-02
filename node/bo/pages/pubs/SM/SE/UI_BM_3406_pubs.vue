@@ -157,8 +157,8 @@
   ];
   
   const solarItems = reactive([
-  { value: '1', text: '양력' },
-  { value: '2', text: '음력' },
+  { value: 'y', text: '예' },
+  { value: 'n', text: '아니오' },
   ]);
   const solarValue = ref('1');
   

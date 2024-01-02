@@ -5,7 +5,9 @@
       <UItem class="card is-sub is-search" ratio="1" >
         <UFieldSet class="is-search">
           <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="채널" required><UTextBox></UTextBox></UField>
+            <UField label="채널" required>
+              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+            </UField>
             <UField label="카테고리" required>
               <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
             </UField>

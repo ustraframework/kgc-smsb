@@ -15,8 +15,8 @@
           <WjFlexGridColumn header="No" binding="col1" width="*" />
           <WjFlexGridColumn header="발송채널" binding="col1" width="*" />
           <WjFlexGridColumn header="발송유형" binding="col1" width="*" />
-          <WjFlexGridColumn header="적용 시작일자" binding="col1" width="*" />
-          <WjFlexGridColumn header="적용 종료일자" binding="col1" width="*" />
+          <WjFlexGridColumn header="적용 시작일" binding="col1" width="*" />
+          <WjFlexGridColumn header="적용 종료일" binding="col1" width="*" />
           <WjFlexGridColumn header="건별 단가(원)" binding="col1" width="*" />
           <WjFlexGridColumn header="비고" binding="col1" width="*" />
           <WjFlexGridColumn header="변경자" binding="col1" width="*" />
