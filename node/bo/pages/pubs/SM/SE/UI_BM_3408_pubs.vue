@@ -1,76 +1,33 @@
 <template>
   <div>
-    <!-- 검색영역 -->
-    <UBox class="columns" direction="row">
-      <UItem class="card is-sub is-search"  ratio="1" >
-        <UFieldSet class="is-search">
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="발송ID/명">
-            <UTextBox></UTextBox>
-            </UField>
-            <UField label="발송구분">
-              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-            </UField>
-            <UField label="발송방식">
-              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-            </UField>
-            <UField blank>
-              <div class="search-btn">
-                <UButton text="조회" type="is-search"/>
-              </div>
-            </UField>
-          </UFieldRow>
-          <UFieldRow :ratio="[1, 1, 1, '170px']">
-            <UField label="발송채널">
-              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-            </UField>
-            <UField label="발송유형" >
-              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-            </UField>
-            <UField label="사용여부" >
-              <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-            </UField>
-            <UField blank></UField>
-          </UFieldRow>
-        </UFieldSet>
-      </UItem>
-    </UBox>
-    <!-- // 검색영역 --> 
-  
     <UBox class="columns" direction="row" height="1500">
       <!-- 좌측 영역 -->
-      <UItem class="card is-sub" ratio="4">
-        <UBox class="table-title-wrap" direction="row">
-          <UItem itemDirection="row" :ratio="1">
-            <h2 class="table-title">
-              <span class="data-count">총<span>24</span>건</span>
-            </h2>
+      <UItem class="card is-sub" ratio="4" style="height: 600px">
+        <UItem :ratio="1" class="pop-contents preview">
+          <div class="img">
+            <img src="" alt="" style="border: 1px solid red;">
+          </div>
+          <UItem class="preview-form">
+            <span>수신번호</span>
+            <UTextBox></UTextBox>
+            <UButton text="테스트 등록하기" type="is-filled"></UButton>
           </UItem>
-        </UBox>
-        
-        <WjFlexGrid :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="발송ID" binding="col1" width="*" />
-          <WjFlexGridColumn header="발송명" binding="col1" width="*" />
-          <WjFlexGridColumn header="발송구분" binding="col1" width="*" />
-          <WjFlexGridColumn header="발송방식" binding="col1" width="*" />
-        </WjFlexGrid>
+        </UItem>
       </UItem>
       <!-- 우측 영역 -->
       <UItem class="card is-sub" ratio="8">
-
-        <UBox class="table-title-wrap" direction="row">
-          <UItem itemDirection="row" :ratio="1">
-            <UButtonBox class="table-buttons">
-              <UButton text="미리보기" type="is-outline" />
-              <UButton text="전송처리" type="is-outline" />
-            </UButtonBox>
-          </UItem>
-        </UBox>
         <WjTabPanel :initialized="tabPanel.initialize" class="mt-5">
           <WjTab>
-            <a>문자발송 내역</a>
+            <a>1 메시지 작성</a>
             <div class="tab-grid">
+              <UBox class="table-title-wrap" direction="row">
+                <UItem itemDirection="row" :ratio="1">
+                  <UButtonBox class="table-buttons">
+                    <UButton text="템플릿" type="is-outline" />
+                    <UButton text="신규" type="is-outline" />
+                  </UButtonBox>
+                </UItem>
+              </UBox>
               <UFieldSet>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow :ratio="[1,1]">
@@ -83,38 +40,38 @@
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow :ratio="[1,1]">
-                  <UField required label="발송구분">
-                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-                  </UField>
-                  <UField required label="발송방식">
-                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-                  </UField>
-                </UFieldRow>
-                <!-- ------------------------------------------------------------------ -->
-                <UFieldRow :ratio="[1,1]">
                   <UField required label="발송채널">
                     <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
                   </UField>
-                  <UField required label="발송유형">
-                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-                  </UField>
-                </UFieldRow>
-                <!-- ------------------------------------------------------------------ -->
-                <UFieldRow :ratio="[1,1]">
-                  <UField label="카카오톡ID">
-                    <UTextBox></UTextBox>
-                  </UField>
-                  <UField required label="사용여부">
+                  <UField required label="발송수단">
                     <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
                   </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow :ratio="[1,1]">
-                  <UField label="템플릿ID">
-                    <UTextBox type="icon"></UTextBox>
+                  <UField required label="발송유형">
+                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
                   </UField>
-                  <UField label="템플릿명">
+                  <UField required label="발송형태">
+                    <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
+                  </UField>
+                </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow :ratio="[1,1]">
+                  <UField label="발신프로필키">
                     <UTextBox></UTextBox>
+                  </UField>
+                  <UField label="템플릿코드">
+                    <UTextBox></UTextBox>
+                  </UField>
+                </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow :ratio="[1,1]">
+                  <UField required label="발송방식">
+                    <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
+                  </UField>
+                  <UField required label="사용여부">
+                    <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
                   </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
@@ -125,7 +82,7 @@
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
-                  <UField label="내용">
+                  <UField required label="내용">
                     <UCkEditor5 v-model="content" :height="300" :disabled="disabled" :initialized="ckEditor.initialize" /></UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
@@ -137,21 +94,39 @@
                     <UMultiFileUploader ref="uploader" fileGroupId="menuIcon" />
                   </UField>
                 </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow>
+                  <UField label="사용변수">
+                    <UBox class="table-title-wrap ">
+                      <UButtonBox class="table-buttons">
+                        <UButton text="추가" type="is-outline"/>
+                        <UButton text="삭제" type="is-outline"/>
+                        <UButton text="저장" type="is-filled"/>
+                      </UButtonBox>
+                    </UBox>
+                    
+                    <WjFlexGrid :itemsSource="itemsSourceGrid" allowDragging="Rows" :initialized="grid.initialize" class="mt-2" style="margin-top: 0;">
+                      <WjFlexGridColumn header="선택" binding="col1" width="*">
+                        <WjFlexGridCellTemplate cellType="Cell">
+                          <div style="margin-top: 10px;">
+                            <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
+                          </div>
+                        </WjFlexGridCellTemplate>
+                      </WjFlexGridColumn>
+                      <WjFlexGridColumn header="No" binding="col1" width="*"></WjFlexGridColumn>
+                      <WjFlexGridColumn header="변수명" binding="col1" width="*"></WjFlexGridColumn>
+                      <WjFlexGridColumn header="표현식" binding="col1" width="*"></WjFlexGridColumn>
+                      <WjFlexGridColumn header="형식" binding="col1" width="*"></WjFlexGridColumn>
+                      <WjFlexGridColumn header="기본값" binding="col1" width="*"></WjFlexGridColumn>
+                    </WjFlexGrid>
+                  </UField>
+                </UFieldRow>
               </UFieldSet>
-              
-              <UBox class="table-title-wrap" style="margin-top:20px">
-                <h2 class="table-title">
-                  <span>파라미터(대체문자) 설정</span>
-                </h2>
-              </UBox>
-              
-              <WjFlexGrid :itemsSource="itemsSourceGrid">
-                <WjFlexGridColumn header="No" binding="col1" width="*" />
-                <WjFlexGridColumn header="파라미터 필드" binding="col1" width="*" />
-                <WjFlexGridColumn header="표현식" binding="col1" width="*" />
-                <WjFlexGridColumn header="형식" binding="col1" width="*" />
-                <WjFlexGridColumn header="기본값" binding="col1" width="*" />
-              </WjFlexGrid>
+
+              <UButtonBox class="table-buttons">
+                <UButton text="저장" type="is-outline" />
+                <UButton text="다음" type="is-filled" />
+              </UButtonBox>
             </div>
           </WjTab>
 
@@ -163,12 +138,21 @@
               </UButtonBox>
               <UFieldSet>
                 <!-- ------------------------------------------------------------------ -->
-                <UFieldRow :ratio="[1,1]">
-                  <UField required label="일정ID">
-                    <UTextBox></UTextBox>
+                <UFieldRow>
+                  <UField required label="실행방식">
+                    <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
                   </UField>
-                  <UField required label="발송주기">
-                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+                </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow>
+                  <UField required label="실행주기">
+                    <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
+                  </UField>
+                </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow>
+                  <UField required label="실행기간">
+                    <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
                   </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->

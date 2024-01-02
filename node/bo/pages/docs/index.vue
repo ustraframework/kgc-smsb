@@ -151,6 +151,7 @@ const items3 = ref([
   { col1: 'popup-grid', col2: '/template/popup-grid', col3: 'popup-grid' },
   { col1: 'popup-search', col2: '/template/popup-search', col3: 'popup-search' },
   { col1: 'popup-shuffle', col2: '/template/popup-shuffle', col3: 'popup-shuffle' },
+  { col1: 'popup-tab', col2: '/template/popup-tab', col3: 'popup-tab' },
   { col1: 'tab', col2: '/template/tab', col3: 'tab' },
 ])
 
