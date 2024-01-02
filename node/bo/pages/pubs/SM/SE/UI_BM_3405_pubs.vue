@@ -11,17 +11,17 @@
   <UPopup v-model="showPopup" :width="1000" :height="390" title="파라미터(대체문자)">
     <UBox direction="col">
       <UItem :ratio="1" class="pop-contents">
-        <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 198px;">
+        <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 198px;" :isReadOnly="true">
           <WjFlexGridColumn header="선택" binding="col1" width="*" align="center">
             <WjFlexGridCellTemplate cellType="Cell" >
-              <div style="margin-top: 10px;">
+              <div style="width: 16px; height: 16px; margin-bottom: 8px;">
                 <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
               </div>
             </WjFlexGridCellTemplate>
           </WjFlexGridColumn>
           <WjFlexGridColumn header="No" binding="col1" width="*" />
-          <WjFlexGridColumn header="파라미터명" binding="col1" width="*" />
-          <WjFlexGridColumn header="필드명" binding="col1" width="*" />
+          <WjFlexGridColumn header="변수명" binding="col1" width="*" />
+          <WjFlexGridColumn header="변수ID" binding="col1" width="*" />
           <WjFlexGridColumn header="표현식" binding="col1" width="*" />
           <WjFlexGridColumn header="형식" binding="col1" width="*" />
           <WjFlexGridColumn header="설명" binding="col1" width="*" />

@@ -32,12 +32,11 @@
           
           <UButtonBox class="table-buttons">
             <UButton text="신규" type="is-outline" />
-            <UButton text="삭제" type="is-outline" />
             <UButton text="저장" type="is-filled" />
           </UButtonBox>
         </UBox>
         
-        <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <WjFlexGrid :itemsSource="itemsSourceGrid" :isReadOnly="true">
           <WjFlexGridColumnGroup header="No" binding="col1" width="*" />
           <WjFlexGridColumnGroup header="채널" binding="col1" width="*" />
           <WjFlexGridColumnGroup header="발송유형" binding="col1" width="*" />
@@ -55,7 +54,11 @@
           </WjFlexGridColumnGroup>
           <WjFlexGridColumnGroup header="사용여부" binding="col1" width="*" />
           <WjFlexGridColumnGroup header="비고" binding="col1" width="*" />
-          <WjFlexGridColumnGroup header="이력보기" binding="col1" width="*" />
+          <WjFlexGridColumnGroup header="이력보기" binding="col1" :width="120" align="center">
+            <WjFlexGridCellTemplate cellType="Cell" >
+              <UButton text="이력보기" />
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumnGroup>
         </WjFlexGrid>
       </UItem>
     </UBox>
@@ -102,7 +105,16 @@
           <!-- ------------------------------------------------------------------ -->
           <UFieldRow :ratio="[2,1]">
             <UField required label="발송가능시간">
-              <UDatePeriodBox mode="datetime" />
+              <div class="time_wrap">
+
+                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+                <div class="empty"> : </div>
+                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+                <div class="empty-dash"> ~ </div>
+                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+                <div class="empty"> : </div>
+                <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
+              </div>
             </UField>
             <UField required label="사용여부">
               <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
@@ -170,5 +182,17 @@
   </script>
   
   <style lang="scss" scoped>
-  
+  .time_wrap{
+    display: flex;
+    align-items: center;
+
+    .empty{
+      margin: 0 5px;
+    }
+
+    .empty-dash{
+      margin: 0 10px;
+    }
+
+  }
   </style>

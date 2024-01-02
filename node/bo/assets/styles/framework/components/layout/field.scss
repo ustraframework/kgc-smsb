@@ -6,6 +6,7 @@
       border-left: 0 !important;
       padding: 13px 17px 12px 29px !important;
       color: $gray220;
+      justify-content: flex-start !important;
       
       &.col {
         background-color: $gray20;
@@ -150,7 +151,7 @@
           // width: 130px !important;
           min-width: 150px !important;
           width: 150px !important;
-          justify-content: flex-start;
+          justify-content: flex-end;
 
           color: $is-black;
           //font-weight: 600;

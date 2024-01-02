@@ -244,7 +244,7 @@ const items = ref([
 
   { col1: '회원', col2: '발송관리', col3: '방송 채널(시스템)관리', col4: 'UI_BM_3401', col5: '/pubs/SM/SE/UI_BM_3401_pubs', col6: 'grid-form', col7: 'O' },
   { col1: '회원', col2: '발송관리', col3: '방송 채널(시스템)관리 - 이력보기', col4: 'UI_BM_3402', col5: '/pubs/SM/SE/UI_BM_3402_pubs', col6: 'popup-grid', col7: 'O' },
-  { col1: '회원', col2: '발송관리', col3: '방송 템플릿 관리', col4: 'UI_BM_3403', col5: '/pubs/SM/SE/UI_BM_3403_pubs', col6: 'grid-form-grid-vertical', col7: 'O' },
+  { col1: '회원', col2: '발송관리', col3: '방송 템플릿 관리', col4: 'UI_BM_3403', col5: '/pubs/SM/SE/UI_BM_3403_pubs', col6: 'grid', col7: 'O' },
   { col1: '회원', col2: '발송관리', col3: '방송 템플릿 관리 - 미리보기', col4: 'UI_BM_3404', col5: '/pubs/SM/SE/UI_BM_3404_pubs', col6: '퍼블리싱에서 처리', col7: 'O' },
   { col1: '회원', col2: '발송관리', col3: '방송 템플릿 관리 - 파라미터(대체문자) 선택', col4: 'UI_BM_3405', col5: '/pubs/SM/SE/UI_BM_3405_pubs', col6: 'popup-grid', col7: 'O' },
   { col1: '회원', col2: '발송관리', col3: '회원 피로도 기준 관리', col4: 'UI_BM_3406', col5: '/pubs/SM/SE/UI_BM_3406_pubs', col6: 'grid-form', col7: 'X' },
@@ -263,6 +263,7 @@ const items = ref([
   { col1: '회원', col2: '발송관리', col3: '메시지 발송 정산', col4: 'UI_BM_3413', col5: '/pubs/SM/SE/UI_BM_3413_pubs', col6: 'grid', col7: 'O' },
   { col1: '회원', col2: '발송관리', col3: '발솜 템플릿 조회', col4: 'UI_BM_3414', col5: '/pubs/SM/SE/UI_BM_3414_pubs', col6: 'popup-grid', col7: 'O' },
   { col1: '회원', col2: '발송관리', col3: '부서 검색', col4: 'UI_BM_3415', col5: '/pubs/SM/SE/UI_BM_3415_pubs', col6: 'popup-grid', col7: 'O' },
+  { col1: '회원', col2: '발송관리', col3: '발송관리', col4: 'UI_BM_3416', col5: '/pubs/SM/SE/UI_BM_3416_pubs', col6: 'grid', col7: 'O' },
 
   { col1: '회원', col2: '게시판(프론트)', col3: '공지사항', col4: 'UI_BM_4101', col5: '', col6: 'board-vertical', col7: 'X' },
   { col1: '회원', col2: '게시판(프론트)', col3: 'FAQ', col4: 'UI_BM_4102', col5: '', col6: 'grid-form', col7: 'X' },
