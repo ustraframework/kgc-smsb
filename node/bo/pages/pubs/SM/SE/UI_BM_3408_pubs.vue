@@ -1,8 +1,8 @@
 <template>
   <div>
-    <UBox class="columns" direction="row" height="1500">
+    <UBox class="columns" direction="row" height="1450">
       <!-- 좌측 영역 -->
-      <UItem class="card is-sub" ratio="4" style="height: 600px">
+      <UItem class="card is-sub" ratio="4" style="height: 550px">
         <UItem :ratio="1" class="pop-contents preview">
           <div class="img">
             <img src="" alt="" style="border: 1px solid red;">
@@ -77,13 +77,18 @@
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow :ratio="[1]">
                   <UField required label="제목">
-                    <UTextBox></UTextBox>
+                    <UBox>
+                      <UTextBox style="width: 100px"/>
+                      <UTextBox></UTextBox>
+                    </UBox>
                   </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
                   <UField required label="내용">
-                    <UCkEditor5 v-model="content" :height="300" :disabled="disabled" :initialized="ckEditor.initialize" /></UField>
+                    <UCkEditor5 v-model="content" :height="300" :disabled="disabled" :initialized="ckEditor.initialize" />  
+                    <UTextBox></UTextBox>
+                  </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
@@ -152,74 +157,57 @@
                 <!-- ------------------------------------------------------------------ -->
                 <UFieldRow>
                   <UField required label="실행기간">
-                    <URadioGroupBox v-model="solarValue" :itemsSource="solarItems" />
+                    <UDatePeriodBox v-model="dateArr1" />
                   </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
-                <UFieldRow :ratio="[1,1]">
-                  <UField label="일정방식">
-                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-                  </UField>
-                  <UField label="시작일시">
-                    <UDateBox mode="date" />
+                <UFieldRow>
+                  <UField label="월">
+                    <UCheckGroupBox :items-source="[{ text: 'Item1'}]" v-model="checked"> </UCheckGroupBox>
                   </UField>
                 </UFieldRow>
                 <!-- ------------------------------------------------------------------ -->
-                <UFieldRow :ratio="[2]">
-                  <UField label="발송일정">
-                    <UButtonBox class="table-buttons">
-                      <UButton icon="arr-up" type="is-outline"/>
-                      <UButton icon="arr-down" type="is-outline"/>
-                    </UButtonBox>
-                    
+                <UFieldRow>
+                  <UField label="요일">
+                    <UCheckGroupBox :items-source="[{ text: 'Item1' }]" v-model="checked"> </UCheckGroupBox>
+                  </UField>
+                </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow>
+                  <UField label="일">
+                    <UCheckGroupBox :items-source="[{ text: 'Item1' }]" v-model="checked"> </UCheckGroupBox>
+                  </UField>
+                </UFieldRow>
+                <!-- ------------------------------------------------------------------ -->
+                <UFieldRow>
+                  <UField required label="시간">                    
                     <WjFlexGrid  :itemsSource="itemsSourceGrid" allowDragging="Rows" :initialized="grid.initialize" class="mt-2" >
-                      <WjFlexGridColumn header="선택" binding="col1" width="*">
-                        <WjFlexGridCellTemplate cellType="Cell" >
-                          <div style="margin-top: 10px;">
-                            <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
-                          </div>
-                        </WjFlexGridCellTemplate>
-                      </WjFlexGridColumn>
-
-                      <WjFlexGridColumn binding="col1" header="월" width="*">
-                        <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                          <UCodeComboBox v-model="cell.value" />
-                        </WjFlexGridCellTemplate>
-                      </WjFlexGridColumn>
-
-                      <WjFlexGridColumn header="주" binding="col1" width="*">
-                        <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                          <UCodeComboBox v-model="cell.value" />
-                        </WjFlexGridCellTemplate>
-                      </WjFlexGridColumn>
-
-                      <WjFlexGridColumn header="일" binding="col1" width="*">
-                        <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
-                          <UCodeComboBox v-model="cell.value" />
-                        </WjFlexGridCellTemplate>
-                      </WjFlexGridColumn>
-
+                      <WjFlexGridColumn header="No" binding="col1" width="*"></WjFlexGridColumn>
                       <WjFlexGridColumn header="시" binding="col1" width="*">
                         <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
                           <UCodeComboBox v-model="cell.value" />
                         </WjFlexGridCellTemplate>
                       </WjFlexGridColumn>
-
                       <WjFlexGridColumn header="분" binding="col1" width="*">
                         <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
                           <UCodeComboBox v-model="cell.value" />
                         </WjFlexGridCellTemplate>
                       </WjFlexGridColumn>
-
-                      <WjFlexGridColumn header="비고" binding="col1" width="*">
+                      <WjFlexGridColumn header="사용여부" binding="col1" width="*">
                         <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
                           <UCodeComboBox v-model="cell.value" />
                         </WjFlexGridCellTemplate>
                       </WjFlexGridColumn>
+                      <WjFlexGridColumn header="비고" binding="col1" width="*"></WjFlexGridColumn>
                     </WjFlexGrid>
                   </UField>
                 </UFieldRow>
               </UFieldSet>
+
+              <UButtonBox class="table-buttons">
+                <UButton text="저장" type="is-outline" />
+                <UButton text="다음" type="is-filled" />
+              </UButtonBox>
             </div>
           </WjTab>
 
@@ -227,65 +215,22 @@
             <a>발송 대상자</a>
             <div class="tab-grid">
               <UButtonBox class="table-buttons">
-                <UButton text="저장" type="is-filled" />
+                <UButton text="추가" type="is-filled" />
               </UButtonBox>
-              <UFieldSet>
-                <!-- ------------------------------------------------------------------ -->
-                <UFieldRow :ratio="[1,1]">
-                  <UField required label="대상ID">
-                    <UTextBox></UTextBox>
-                  </UField>
-                  <UField required label="추출일시">
-                    <UDateBox v-model="inputValue3" mode="datetime" />
-                  </UField>
-                </UFieldRow>
-                <!-- ------------------------------------------------------------------ -->
-                <UFieldRow :ratio="[1,1]">
-                  <UField required label="대상조건">
-                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-                  </UField>
-                  <UField label="타겟팅그룹">
-                    <UWjComboBox :itemsSource="items" displayMemberPath="text"/>
-                  </UField>
-                </UFieldRow>
-                <!-- ------------------------------------------------------------------ -->
-                <UFieldRow :ratio="[2]">
-                  <UField label="대상자">
-                    <UBox class="table-title-wrap ">
-                      <h2 class="table-title">
-                        <span class="data-count"><span>20</span>건 / <span>100</span>건</span>
-                      </h2>
-                      
-                      <UButtonBox class="table-buttons">
-                        <UButton text="엑셀업로드" type="is-outline" icon="excel"/>
-                        <UButton text="대상선정" type="is-outline" />
-                        <UButton text="삭제" type="is-outline" />
-                        <UButton text="추가" type="is-filled" />
-                      </UButtonBox>
-                    </UBox>
-                    
-                    <WjFlexGrid :itemsSource="itemsSourceGrid" allowDragging="Rows" :initialized="grid.initialize" class="mt-2" style="margin-top: 0;">
-                      <WjFlexGridColumn header="선택" binding="col1" width="*">
-                        <WjFlexGridCellTemplate cellType="Cell">
-                          <div style="margin-top: 10px;">
-                            <UCheckGroupBox :items-source="[{ text: '' }]"></UCheckGroupBox>
-                          </div>
-                        </WjFlexGridCellTemplate>
-                      </WjFlexGridColumn>
+              
+              <WjFlexGrid :itemsSource="itemsSourceGrid" style="height: 438px;">
+                <WjFlexGridColumn header="총 대상자" binding="col1" width="*" />
+                <WjFlexGridColumn header="추출 건수" binding="col1" width="*" />
+                <WjFlexGridColumn header="수기 등록 건수" binding="col1" width="*" />
+                <WjFlexGridColumn header="제외 대상건수" binding="col1" width="*" />
+                <WjFlexGridColumn header="마케팅 미수신 대상 건수" binding="col1" width="*" />
+                <WjFlexGridColumn header="피로도 대상건수" binding="col1" width="*" />
+              </WjFlexGrid>
 
-                      <WjFlexGridColumn binding="col1" header="회원번호" width="*"></WjFlexGridColumn>
-
-                      <WjFlexGridColumn header="회원명" binding="col1" width="*"></WjFlexGridColumn>
-
-                      <WjFlexGridColumn header="핸드폰" binding="col1" width="*"></WjFlexGridColumn>
-
-                      <WjFlexGridColumn header="피로도" binding="col1" width="*"></WjFlexGridColumn>
-
-                      <WjFlexGridColumn header="파라미터값" binding="col1" width="*"></WjFlexGridColumn>
-                    </WjFlexGrid>
-                  </UField>
-                </UFieldRow>
-              </UFieldSet>
+              <UButtonBox class="table-buttons">
+                <UButton text="발송 등록" type="is-outline" />
+                <UButton text="즉시 발송" type="is-filled" />
+              </UButtonBox>
             </div>
           </WjTab>
         </WjTabPanel>

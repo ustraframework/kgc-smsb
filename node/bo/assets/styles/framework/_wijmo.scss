@@ -1753,6 +1753,17 @@
   .wj-control {
     width: 100%;
   }
+  .group_btn_list {
+    > li {
+      text-align: left !important;
+    }
+  }
+
+  .ck-editor {
+    + .u-text-box {
+      margin-left: 0 !important;
+    }
+  }
 }
 
 // mdi
