@@ -31,6 +31,11 @@ public class SampleController {
 	public String getProp() {
 		return this.boConfigProperties.getSampleProp();
 	}
+
+	@GetMapping("/get-props")
+	public BoConfigProperties getProps() {
+		return this.boConfigProperties;
+	}
 	
 	/**
 	 * 프로시저 조회 - Map

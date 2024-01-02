@@ -16,4 +16,12 @@ public class SmsbFoConfigProperties {
 	private String sampleProp;
 	
 	private UstraJwtAuthenticationProperties authentication;
+
+	private SnsInfo sns;
+}
+
+@Data
+class SnsInfo {
+	private String snsId;
+	private String snsPw;
 }

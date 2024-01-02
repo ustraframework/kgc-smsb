@@ -12,4 +12,11 @@ public class BoConfigProperties {
 	public static final String PREFIX = "smsb.bo";
 
 	private String sampleProp;
+
+	private SNS sns;
+}
+@Data
+class SNS {
+	private String snsId;
+	private String snsPw;
 }
