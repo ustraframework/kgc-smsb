@@ -18,7 +18,7 @@
                 <a>대상자 관리</a>
                 <div class="tab-grid">
                   <UBox class="pop-search" style="margin-bottom: 10px;">
-                    <UFieldSet class="is-search">
+                    <UFieldSet class="is-search">앷
                       <UFieldRow :ratio="[1, 1, '170px']">
                         <UField label="발송ID" >
                           <UTextBox />
