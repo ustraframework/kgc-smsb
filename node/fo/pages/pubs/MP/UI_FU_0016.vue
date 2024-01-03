@@ -333,9 +333,9 @@ definePageMeta({
 ::v-deep(.p-steps) {
   .p-steps-list {
     &::before {
-      height: 5px;
       margin-top: -17px;
       border-color: #E7E7E7;
+      border-top: 5px solid var(--j-gray200);
     }
 
     &::after {
@@ -346,7 +346,7 @@ definePageMeta({
       right: 0;
       position: absolute;
       margin-top: -17px;
-      border-top: 7px solid #D20F27;
+      border-top: 5px solid #D20F27;
       border-radius: 999px;
     }
 
