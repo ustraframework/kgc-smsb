@@ -4,27 +4,12 @@
 
 <mapper namespace="kr.co.kgc.smsb.bo.sample.repository.SysDbmsQryHistRepository">
 
-<!--	<select id="selectKey" parameterType="java.util.Map" resultType="int">-->
-<!--		<if test="_databaseId == 'sqlserver'">-->
-<!--			SELECT NEXT VALUE FOR ${dtc.query_h._sequence}-->
-<!--		</if>-->
-<!--		<if test="_databaseId == 'oracle'">-->
-<!--			SELECT ${dtc.query_h._sequence}.NEXTVAL FROM DUAL-->
-<!--		</if>-->
-<!--		<if test="_databaseId == 'postgresql'">-->
-<!--			SELECT nextval(#{dtc.query_h._sequence})-->
-<!--		</if>-->
-<!--		<if test="_databaseId == 'mysql'">-->
-<!--			SELECT MAX(${dtc.query_h.dbmsQryHistId}) + 1 FROM ${dtc.query_h._table}-->
-<!--		</if>-->
-<!--	</select>-->
-
 	<insert id="insert" parameterType="java.util.Map">
 		<selectKey keyProperty="dbmsQryHistId" resultType="integer" order="BEFORE">
 			SELECT SQ_USTRA_DBMS_QRY_HIST_01.NEXTVAL FROM DUAL
 		</selectKey>
 
-		INSERT INTO ${dtc.query_h._table}(
+		INSERT INTO USTRA_DBMS_QRY_HIST (
 			DBMS_QRY_HIST_ID,
 			PROC_ID,
 			REQ_ID,
