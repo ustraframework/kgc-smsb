@@ -1,6 +1,10 @@
 .p-dialog {
   margin: 20px;
   border-radius: 12px;
+
+  &.p-dialog-maximized {
+    margin: 0;
+  }
 }
 
 // header

@@ -130,26 +130,4 @@ const onClickGift = () => {
   margin-top: 24px;
   width: 100%;
 }
-
-.warning__list {
-  color: #888;
-  line-height: 22.4px;
-  padding-left: 8.5px;
-
-  li {
-    display: flex;
-    align-items: flex-start;
-
-    .dot {
-      border-radius: 100%;
-      display: inline-block;
-      width: 4px;
-      height: 4px;
-      background-color: black;
-      margin-top: 10px;
-      margin-right: 8px;
-      padding: 2px;
-    }
-  }
-}
 </style>

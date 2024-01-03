@@ -90,14 +90,28 @@
       </li>
       <li class="flex flex-col">
         <label class="py-[9px] text-sm" for="gender">SNS 계정 연동</label>
-        <div class="p-[20px] border border-[#E7E7E7] rounded-[4px]">
-          <p class="flex items-center justify-center text-[15px] mb-[16px]">
-            <img class="w-[32px] mr-2" src="@/assets/images/svg/kakao-sns.svg" alt="kakao" />
-            <!-- <img class="w-[32px] mr-2" src="@/assets/images/svg/naver-sns.svg" alt="naver"> -->
-            <!-- <img class="w-[32px] mr-2" src="@/assets/images/svg/apple-sns.svg" alt="apple"> -->
-            카카오 2023-09-06 14:42
-          </p>
-          <button type="button" class="w-full h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+        <div class="flex flex-col gap-2">
+          <div class="p-[20px] border border-[#E7E7E7] rounded-[4px]">
+            <p class="flex items-center justify-center text-[15px] mb-[16px]">
+              <img class="w-[32px] mr-2" src="@/assets/images/svg/kakao-sns.svg" alt="kakao" />
+              카카오 2023-09-06 14:42
+            </p>
+            <button type="button" class="w-full h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+          </div>
+          <div class="p-[20px] border border-[#E7E7E7] rounded-[4px]">
+            <p class="flex items-center justify-center text-[15px] mb-[16px]">
+              <img class="w-[32px] mr-2" src="@/assets/images/svg/naver-sns.svg" alt="naver" />
+              네이버 2023-09-06 14:42
+            </p>
+            <button type="button" class="w-full h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+          </div>
+          <div class="p-[20px] border border-[#E7E7E7] rounded-[4px]">
+            <p class="flex items-center justify-center text-[15px] mb-[16px]">
+              <img class="w-[32px] mr-2" src="@/assets/images/svg/apple-sns.svg" alt="apple" />
+              애플 2023-09-06 14:42
+            </p>
+            <button type="button" class="w-full h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+          </div>
         </div>
       </li>
     </ul>
