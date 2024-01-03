@@ -12,27 +12,22 @@
           <img src="@/assets/images/svg/ico_info.svg" class="mr-1" alt="정보" />
           유의사항
         </p>
-        <ul class="text-[#888]">
-          <li class="relative pl-[20px]">
-            <span class="absolute top-0 left-[10px] font-bold">&middot;</span> 한국인삼공사 통합회원 탈퇴 시 온라인/오프라인에서 적립되었던
-            포인트/쿠폰 등은 즉시 삭제 처리되며 환급되지 않습니다.(재가입시 복원 불가)
+        <ul class="warning__list">
+          <li>
+            <span class="dot"></span> 한국인삼공사 통합회원 탈퇴 시 온라인/오프라인에서 적립되었던 포인트/쿠폰 등은 즉시 삭제 처리되며 환급되지
+            않습니다.(재가입시 복원 불가)
           </li>
-          <li class="relative pl-[20px]">
-            <span class="absolute top-0 left-[10px] font-bold">&middot;</span> 회원탈퇴 후 90일간 재가입이 불가능 하며, 금일 탈퇴할 경우
-            <span class="text-black">2024년 03월 01일</span> 부터 재가입이 가능합니다.
+          <li>
+            <span class="dot"></span> 회원탈퇴 후 90일간 재가입이 불가능 하며, 금일 탈퇴할 경우 <span class="text-black">2024년 03월 01일</span> 부터
+            재가입이 가능합니다.
           </li>
-          <li class="relative pl-[20px]">
-            <span class="absolute top-0 left-[10px] font-bold">&middot;</span> 진행중인 구매내역이 있을 경우 회원 탈퇴가 불가능하며, 구매 확정 후 탈퇴
-            하실 수 있습니다.
+          <li><span class="dot"></span> 진행중인 구매내역이 있을 경우 회원 탈퇴가 불가능하며, 구매 확정 후 탈퇴 하실 수 있습니다.</li>
+          <li>
+            <span class="dot"></span> 소비자보호에 관한 법률 제6조(거래기록의 보전 등) 및 동법 시행령 제6조에 의거, 계약 또는 청약철회 등에 관한
+            기록은 5년, 대금결제 및 재화 등의 공급에 기록은 5년, 소비자의 불만 또는 분쟁처리에 관한 기록은 3년 동안 보관됩니다. 동 개인정보는 법률에
+            의한 경우가 아니고 서는 보유 되어지는 이외의 다른 목적으로는 이용되지 않습니다.
           </li>
-          <li class="relative pl-[20px]">
-            <span class="absolute top-0 left-[10px] font-bold">&middot;</span> 소비자보호에 관한 법률 제6조(거래기록의 보전 등) 및 동법 시행령 제6조에
-            의거, 계약 또는 청약철회 등에 관한 기록은 5년, 대금결제 및 재화 등의 공급에 기록은 5년, 소비자의 불만 또는 분쟁처리에 관한 기록은 3년 동안
-            보관됩니다. 동 개인정보는 법률에 의한 경우가 아니고 서는 보유 되어지는 이외의 다른 목적으로는 이용되지 않습니다.
-          </li>
-          <li class="relative pl-[20px]">
-            <span class="absolute top-0 left-[10px] font-bold">&middot;</span> 연결된 SNS 계정은 탈퇴 즉시 자동 연결 해제 됩니다.
-          </li>
+          <li><span class="dot"></span> 연결된 SNS 계정은 탈퇴 즉시 자동 연결 해제 됩니다.</li>
         </ul>
       </div>
 

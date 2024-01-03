@@ -3,12 +3,8 @@
     <!-- <h1 class="text-[30px] font-medium mb-[30px]">포인트 선물</h1> -->
 
     <div class="w-full flex flex-col items-center gap-[4px] bg-[#F4F6FA] p-[20px] rounded-[12px]">
-      <span class="text-[15px] font-medium">
-        선물 가능한 포인트
-      </span>
-      <span class="text-[30px] text-[#D20F27]">
-        <strong class="mr-0.5">1,000</strong>P
-      </span>
+      <span class="text-[15px] font-medium"> 선물 가능한 포인트 </span>
+      <span class="text-[30px] text-[#D20F27]"> <strong class="mr-0.5">1,000</strong>P </span>
     </div>
 
     <div class="w-full mt-[40px]">
@@ -56,23 +52,23 @@
       <ul class="warning__list">
         <li class="text-black">
           <span class="dot"></span>
-          <span>정관장 멤버스 본인인증을 완료한 회원에게만 선물하기가 가능합니다. (본인인증을 하지 않은 회원은 불가합니다)</span>
+          정관장 멤버스 본인인증을 완료한 회원에게만 선물하기가 가능합니다. (본인인증을 하지 않은 회원은 불가합니다)
         </li>
         <li>
           <span class="dot"></span>
-          <span>선물 받은 포인트의 유효기간은 6개월입니다.</span>
+          선물 받은 포인트의 유효기간은 6개월입니다.
         </li>
         <li>
           <span class="dot"></span>
-          <span>선물하기 완료 후 취소처리는 불가합니다.</span>
+          선물하기 완료 후 취소처리는 불가합니다.
         </li>
         <li>
           <span class="dot"></span>
-          <span>1일 1회 선물하기 및 선물받기 가능합니다.</span>
+          1일 1회 선물하기 및 선물받기 가능합니다.
         </li>
         <li>
           <span class="dot"></span>
-          <span>선물 받은 포인트는 연장이 불가하며, 재선물이 되지 않습니다. </span>
+          선물 받은 포인트는 연장이 불가하며, 재선물이 되지 않습니다.
         </li>
       </ul>
     </div>
@@ -87,14 +83,13 @@
     </div>
     <template #footer>
       <div class="flex justify-center pt-[24px] pb-[30px] px-[30px] gap-[10px]">
-        <Button label="확인" @click="isShowPopup=false" />
+        <Button label="확인" @click="isShowPopup = false" />
       </div>
     </template>
   </Dialog>
 </template>
 
 <script setup lang="ts">
-
 const isShowBottom = ref(false);
 const isShowPopup = ref(false);
 
@@ -103,13 +98,13 @@ const phoneNumber = ref('');
 const point = ref('');
 
 const onClickSearch = () => {
-  if(name.value) isShowBottom.value = true;
+  if (name.value) isShowBottom.value = true;
   else isShowBottom.value = false;
-}
+};
 
 const onClickGift = () => {
   isShowPopup.value = true;
-}
+};
 </script>
 
 <style scoped>
@@ -126,7 +121,7 @@ const onClickGift = () => {
   padding: 34px 42.5px;
   margin-top: 40px;
   border-radius: 8px;
-  border: 1px solid #C8D1E2;
+  border: 1px solid #c8d1e2;
   font-size: 16px;
 }
 

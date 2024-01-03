@@ -3,13 +3,13 @@
   border-radius: 4px;
   font-weight: 500;
   font-size: 14px;
-  color: white;
   background-color: var(--j-primary03);
 
   // label
   .p-button-label {
     font-weight: 500;
     line-height: 1.6;
+    color: white;
   }
 
   // actions
@@ -88,7 +88,6 @@
 
   // secondary
   &.p-button-secondary {
-    color: var(--j-bluegray700);
     background-color: var(--j-bluegray300);
 
     // actions
@@ -109,6 +108,10 @@
         color: var(--j-bluegray500);
       }
     }
+
+    .p-button-label {
+      color: var(--j-bluegray700);
+    }
   }
 
   // outline
@@ -116,8 +119,12 @@
     padding-top: 8px;
     padding-bottom: 8px;
     border: 1px solid var(--j-gray300);
-    color: var(--j-gray600);
+    // color: var(--j-gray600);
     background-color: #fff;
+
+    .p-button-label {
+      color: var(--j-gray600);
+    }
 
     &:hover,
     &:focus {
@@ -127,8 +134,12 @@
 
     &:disabled {
       border-color: var(--j-gray200);
-      color: var(--j-gray300);
+      // color: var(--j-gray300);
       background-color: var(--j-gray100);
+
+      .p-button-label {
+        color: var(--j-gray300);
+      }
     }
 
     &.is-certify {
@@ -137,8 +148,11 @@
       border-color: var(--j-primary01);
       font-weight: 700;
       font-size: 18px;
-      color: var(--j-primary01);
       background-color: #fff;
+
+      .p-button-label {
+        color: var(--j-primary01);
+      }
 
       &:hover {
         background-color: var(--j-bluegray200);
@@ -146,8 +160,11 @@
 
       &:disabled {
         border-color: var(--j-bluegray400);
-        color: var(--j-bluegray500);
         background-color: var(--j-bluegray200);
+
+        .p-button-label {
+          color: var(--j-bluegray500);
+        }
       }
     }
 
@@ -166,17 +183,24 @@
   // text
   &.p-button-text {
     padding: 0;
-    text-decoration: underline;
-    color: var(--j-bluegray600);
     background-color: transparent;
+
+    .p-button-label {
+      text-decoration: underline;
+      color: var(--j-bluegray600);
+    }
 
     &:hover,
     &:focus {
-      color: var(--j-bluegray700);
+      .p-button-label {
+        color: var(--j-bluegray700);
+      }
     }
 
     &:disabled {
-      color: var(--j-gray300);
+      .p-button-label {
+        color: var(--j-gray300);
+      }
     }
   }
 
@@ -194,10 +218,10 @@
   &.is-kakao,
   &.is-phone {
     padding: 10px 16px;
-    color: #000;
 
     .p-button-label {
       font-weight: 400;
+      color: #000;
     }
   }
 }
