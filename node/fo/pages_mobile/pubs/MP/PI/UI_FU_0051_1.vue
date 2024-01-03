@@ -68,6 +68,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'sub',
+});
+
 interface ListType {
   title: string;
   date: string;

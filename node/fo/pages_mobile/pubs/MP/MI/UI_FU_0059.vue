@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center m-[20px]">
-    <h1 class="text-[30px] font-medium mb-[30px]">{{`기념일 ${isEdit ? '수정' : '등록'}`}}</h1>
+    <h1 class="text-[30px] font-medium mb-[30px]">{{ `기념일 ${isEdit ? '수정' : '등록'}` }}</h1>
     <div class="w-full bg-[#F4F6FA] px-[20px] py-[12px] rounded-[12px]">
       <div class="flex items-center justify-center">
         <span>자녀는 최대 3명까지 가능하며 그 외에는 1명만 가능합니다.</span>
@@ -12,7 +12,7 @@
       <div class="anniversary__type pb-[40px] border-b border-[#E7E7E7]">
         <div v-for="(type, i) in types" :key="i" class="anniversary__type-item" :class="[anniversaryType === type.value ? 'selected' : '']">
           <RadioButton class="p-radiobutton-box-lg" v-model="anniversaryType" :inputId="type.value" :name="type.value" :value="type.value" />
-          <label :for="type.value">{{type.label}}</label>
+          <label :for="type.value">{{ type.label }}</label>
         </div>
       </div>
 
@@ -22,7 +22,7 @@
           <RadioButton class="p-radiobutton-box-lg" v-model="gender" inputId="male" name="male" value="male" />
           <label for="male">남자</label>
         </div>
-        
+
         <div class="flex items-center">
           <RadioButton class="p-radiobutton-box-lg ml-[20px]" v-model="gender" inputId="female" name="female" value="female" />
           <label for="female">여자</label>
@@ -31,11 +31,11 @@
 
       <!-- 날짜 -->
       <div class="w-full flex flex-col items-center pb-[40px] border-b border-[#E7E7E7] gap-[20px]">
-        <Calendar class="w-full" v-model="date" placeholder="2023-01-01" />
+        <Calendar class="w-full" inputClass="!h-[50px]" v-model="date" placeholder="2023-01-01" />
         <div class="w-full flex items-center">
           <RadioButton class="p-radiobutton-box-lg" v-model="dateType" inputId="birthInfo1" name="birthInfo1" value="birthInfo1" />
           <label for="birthInfo1">양력</label>
-          
+
           <RadioButton class="p-radiobutton-box-lg ml-[20px]" v-model="dateType" inputId="birthInfo2" name="birthInfo2" value="birthInfo2" />
           <label for="birthInfo2">음력</label>
         </div>
@@ -56,7 +56,7 @@
         <Button class="w-2/4" size="large" label="확인" @click="onClickConfirm()" />
       </div>
     </div>
-    
+
     <!-- 약관 팝업 -->
     <Dialog v-model:visible="isShowAgree" modal header="약관" :style="{ width: '500px' }">
       <div class="dialog-content-inner max-h-[456px]">
@@ -83,20 +83,16 @@
       </div>
       <template #footer>
         <div class="border-t border-[#E7E7E7] pt-[24px] pb-[30px] px-[30px]">
-          <Button class="block mx-auto" label="확인" @click="isShowAgree=false" />
+          <Button class="block mx-auto" label="확인" @click="isShowAgree = false" />
         </div>
       </template>
     </Dialog>
 
     <!-- 등록 완료 팝업 -->
-    <Dialog
-      v-model:visible="isShowConfirm"
-      modal
-      :style="{ width: '500px' }"
-    >
+    <Dialog v-model:visible="isShowConfirm" modal :style="{ width: '500px' }">
       <div class="dialog-content-inner max-h-[456px]">
         <p class="text-center text-[18px] text-black">
-          {{ `기념일을 정상적으로 ${isEdit ? '수정' : '등록'}했습니다.`}}
+          {{ `기념일을 정상적으로 ${isEdit ? '수정' : '등록'}했습니다.` }}
         </p>
       </div>
       <template #footer>
@@ -111,6 +107,10 @@
 <script setup lang="ts">
 import { onMounted } from '#ustra/nuxt';
 import { defaultOptions } from 'primevue/config';
+
+definePageMeta({
+  layout: 'sub',
+});
 
 // false: 등록, true: 수정
 const isEdit = ref(false);
@@ -136,10 +136,10 @@ onMounted(() => {
 
 const anniversaryType = ref('parent');
 const types = ref([
-  { label: '부모생일', value: 'parent'},
-  { label: '자녀생일', value: 'children'},
-  { label: '배우자생일', value: 'spouse'},
-  { label: '결혼기념일', value: 'marriage'},
+  { label: '부모생일', value: 'parent' },
+  { label: '자녀생일', value: 'children' },
+  { label: '배우자생일', value: 'spouse' },
+  { label: '결혼기념일', value: 'marriage' },
 ]);
 
 const gender = ref('male');
@@ -150,9 +150,8 @@ const isShowAgree = ref(false);
 const isShowConfirm = ref(false);
 
 const onClickConfirm = () => {
-  isShowConfirm.value = true
-}
-
+  isShowConfirm.value = true;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -173,9 +172,8 @@ button {
     color: var(--j-gray700);
 
     &.selected {
-    border-color: var(--j-primary01);
-  }
+      border-color: var(--j-primary01);
+    }
   }
 }
-
 </style>

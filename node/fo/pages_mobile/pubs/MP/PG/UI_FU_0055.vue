@@ -90,6 +90,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'sub',
+});
+
 const isShowBottom = ref(false);
 const isShowPopup = ref(false);
 

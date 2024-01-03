@@ -118,6 +118,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+definePageMeta({
+  layout: 'sub',
+});
+
 const activeTab = ref(0);
 
 const availableList = [

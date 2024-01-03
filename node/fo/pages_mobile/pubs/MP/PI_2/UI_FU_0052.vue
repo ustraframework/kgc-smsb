@@ -5,13 +5,7 @@
     </div>
 
     <div class="w-full flex flex-col mt-[24px] gap-[16px]">
-      <SelectButton
-        v-model="selectedValue"
-        :options="selectOptions"
-        optionLabel="label"
-        optionValue="value"
-        class="flex"
-      />
+      <SelectButton v-model="selectedValue" :options="selectOptions" optionLabel="label" optionValue="value" class="flex" />
       <div class="p-calendar-group w-full">
         <Calendar v-model="startDate" placeholder="2023-01-01" />
         <span class="range">~</span>
@@ -24,7 +18,7 @@
     <div class="w-full flex justify-between mt-[40px]">
       <span className="text-[15px] font-medium"> {{ `총 ${list.length}건` }}</span>
       <span class="text-[15px]">
-        {{ `${selectedValue ? `최근 ${selectedValue}개월` : ''}`}}
+        {{ `${selectedValue ? `최근 ${selectedValue}개월` : ''}` }}
       </span>
     </div>
 
@@ -56,7 +50,7 @@
     </div>
 
     <div v-else class="empty">
-      <i ></i>
+      <i></i>
       <span>구매 내역이 없습니다.</span>
     </div>
   </div>
@@ -64,54 +58,93 @@
 
 <script setup lang="ts">
 import { defaultOptions } from 'primevue/config';
-import { ref } from "vue";
+import { ref } from 'vue';
+
+definePageMeta({
+  layout: 'sub',
+});
 
 const i18n = {
   dateFormat: 'yy-mm-dd',
-  dayNames: ['일요일','월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-  dayNamesMin: ['일','월', '화', '수', '목', '금', '토'],
+  dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+  dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
   monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
   monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-  showMonthAfterYear: true
-}
+  showMonthAfterYear: true,
+};
 
 onMounted(() => {
   // Prime Vue Calendar 한국어 변경
   Object.assign(defaultOptions.locale, i18n);
-})
+});
 
 const selectOptions = ref([
-  { label: '3개월' , value: 3 },
-  { label: '6개월' , value: 6 },
-  { label: '9개월' , value: 9 },
-  { label: '직접입력' , value: 0 }
-])
+  { label: '3개월', value: 3 },
+  { label: '6개월', value: 6 },
+  { label: '9개월', value: 9 },
+  { label: '직접입력', value: 0 },
+]);
 
-const selectedValue = ref(3)
+const selectedValue = ref(3);
 
-const startDate = ref('')
-const endDate = ref('')
-const dropdownValue = ref('전체')
+const startDate = ref('');
+const endDate = ref('');
+const dropdownValue = ref('전체');
 
 const list = ref([
-  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  {
+    title: '정관장몰',
+    date: '2023.11.05 10:00',
+    orderNumber: '3211234566',
+    pay: '446,000',
+    isOpen: false,
+    list: [
+      { name: '홍삼정 240g(80일분, 특별포장)', count: 1 },
+      { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1 },
+      { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1 },
+    ],
   },
-  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  {
+    title: '정관장몰',
+    date: '2023.11.05 10:00',
+    orderNumber: '3211234566',
+    pay: '446,000',
+    isOpen: false,
+    list: [
+      { name: '홍삼정 240g(80일분, 특별포장)', count: 1 },
+      { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1 },
+      { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1 },
+    ],
   },
-  { title: '대치점', date: '2023.11.05 10:00', pay: '446,000', isOpen: false,
-    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}] 
+  {
+    title: '대치점',
+    date: '2023.11.05 10:00',
+    pay: '446,000',
+    isOpen: false,
+    list: [
+      { name: '홍삼정 240g(80일분, 특별포장)', count: 1 },
+      { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1 },
+      { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1 },
+    ],
   },
-  { title: '정관장몰', date: '2023.11.05 10:00', orderNumber: '3211234566', pay: '446,000', isOpen: false,
-    list: [ { name: '홍삼정 240g(80일분, 특별포장)', count: 1}, { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1},  { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1}]
+  {
+    title: '정관장몰',
+    date: '2023.11.05 10:00',
+    orderNumber: '3211234566',
+    pay: '446,000',
+    isOpen: false,
+    list: [
+      { name: '홍삼정 240g(80일분, 특별포장)', count: 1 },
+      { name: '홍삼톤 리미티드 50ml*30포(30일분)', count: 1 },
+      { name: '홍이장군 키즈랩 프로바이오틱스 30포(1개월)', count: 1 },
+    ],
   },
-])
+]);
 
-const onClickExpandButton = (i) => {
+const onClickExpandButton = i => {
   const _isOpen = list.value[i].isOpen;
   list.value[i].isOpen = !_isOpen;
-}
+};
 </script>
 
 <style scoped>
@@ -119,7 +152,7 @@ button {
   color: #ffffff;
 }
 .purchase__list {
-  border: 1px solid #E7E7E7;
+  border: 1px solid #e7e7e7;
   border-radius: 12px;
   padding: 0 20px;
   margin-top: 20px;
@@ -130,7 +163,7 @@ button {
     padding: 20px 0;
 
     &:not(:last-child) {
-      border-bottom: 1px solid #E7E7E7;
+      border-bottom: 1px solid #e7e7e7;
     }
 
     .purchase__item-top {
@@ -156,7 +189,7 @@ button {
       gap: 4px;
 
       &.expand span:first-child::after {
-        transform:rotate(180deg);
+        transform: rotate(180deg);
       }
 
       span:first-child::after {
@@ -174,7 +207,7 @@ button {
       display: flex;
       flex-direction: column;
       gap: 4px;
-      background-color: #F9FAFC;
+      background-color: #f9fafc;
       border-radius: 12px;
       padding: 20px;
       font-size: 15px;
@@ -197,7 +230,7 @@ button {
   color: #888888;
   font-weight: 500;
   font-size: 16px;
-  
+
   i {
     width: 40px;
     height: 40px;

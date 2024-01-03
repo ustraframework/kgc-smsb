@@ -90,6 +90,9 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'sub',
+});
 </script>
 
 <style lang="scss" scoped>
