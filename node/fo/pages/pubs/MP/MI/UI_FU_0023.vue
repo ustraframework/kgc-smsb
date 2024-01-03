@@ -80,7 +80,7 @@
           <div class="flex flex-col w-full">
             <div class="flex gap-2">
               <InputText v-model="userAddress1" id="userAddress" class="flex-1" type="text" size="large" placeholder="주소를 검색하세요." />
-              <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] text-[#758EBC] bg-[#ECF0F8]">주소검색</button>
+              <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">주소검색</button>
             </div>
             <InputText
               v-model="userAddress2"
@@ -92,16 +92,30 @@
             />
           </div>
         </li>
-        <li class="flex items-center">
-          <label class="flex-none w-[150px] text-[14px] text-[#222]" for="gender">SNS 계정 연동</label>
-          <div class="flex w-full justify-between">
-            <p class="flex items-center text-[15px]">
-              <img class="w-[32px] mr-2" src="@/assets/images/svg/kakao-sns.svg" alt="kakao" />
-              <!-- <img class="w-[32px] mr-2" src="@/assets/images/svg/naver-sns.svg" alt="naver"> -->
-              <!-- <img class="w-[32px] mr-2" src="@/assets/images/svg/apple-sns.svg" alt="apple"> -->
-              카카오 2023-09-06 14:42
-            </p>
-            <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+        <li class="flex items-start">
+          <label class="flex-none w-[150px] leading-[68px] text-[14px] text-[#222]" for="gender">SNS 계정 연동</label>
+          <div class="sns-box">
+            <div class="sns-box__item">
+              <p class="flex items-center text-[15px]">
+                <img class="w-[32px] mr-2" src="@/assets/images/svg/kakao-sns.svg" alt="kakao" />
+                카카오 2023-09-06 14:42
+              </p>
+              <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+            </div>
+            <div class="sns-box__item">
+              <p class="flex items-center text-[15px]">
+                <img class="w-[32px] mr-2" src="@/assets/images/svg/naver-sns.svg" alt="naver" />
+                네이버 2023-09-06 14:42
+              </p>
+              <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+            </div>
+            <div class="sns-box__item">
+              <p class="flex items-center text-[15px]">
+                <img class="w-[32px] mr-2" src="@/assets/images/svg/apple-sns.svg" alt="apple" />
+                애플 2023-09-06 14:42
+              </p>
+              <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+            </div>
           </div>
         </li>
       </ul>
@@ -270,4 +284,19 @@ const personAgree = ref();
 const personVisible = ref(false);
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.sns-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.sns-box__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 8px 8px 15px;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+}
+</style>

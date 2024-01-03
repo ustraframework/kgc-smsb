@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[624px] mx-auto my-[93px] pt-[60px] pb-[30px] rounded-[16px] border border-[#ECF0F8]">
+  <div class="w-[624px] m-auto pt-[60px] pb-[30px] rounded-[16px] border border-[#ECF0F8]">
     <h2 class="mb-[12px] text-center text-3xl font-bold">비밀번호 재설정</h2>
     <p class="mb-[40px] text-center text-base">새로운 비밀번호를 입력해주세요.</p>
     <form class="w-[320px] mx-auto">
@@ -37,9 +37,9 @@
         <img src="@/assets/images/svg/ico_info.svg" class="mr-1" alt="정보" />
         유의사항
       </h3>
-      <ul class="pl-[10px] text-[#888]">
-        <li>&middot; 8자 이상 영문 대/소문자, 숫자, 특수문자 3가지 이상 조합하여 사용해주기 바랍니다.</li>
-        <li>&middot; 사용 가능한 특수문자 !@#$%^&*( ) )</li>
+      <ul class="warning__list">
+        <li><span class="dot"></span> 8자 이상 영문 대/소문자, 숫자, 특수문자 3가지 이상 조합하여 사용해주기 바랍니다.</li>
+        <li><span class="dot"></span> 사용 가능한 특수문자 !@#$%^&*( ) )</li>
       </ul>
     </div>
   </div>

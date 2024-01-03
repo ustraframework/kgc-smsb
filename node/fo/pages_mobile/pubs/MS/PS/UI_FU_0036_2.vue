@@ -38,12 +38,9 @@
           <img src="@/assets/images/svg/ico_info.svg" class="mr-1" alt="정보" />
           유의사항
         </h3>
-        <ul class="text-[#888]">
-          <li class="relative pl-[20px]">
-            <span class="absolute top-0 left-[10px] font-bold">&middot;</span> 8자 이상 영문 대/소문자, 숫자, 특수문자 3가지 이상 조합하여 사용해주기
-            바랍니다.
-          </li>
-          <li class="relative pl-[20px]"><span class="absolute top-0 left-[10px] font-bold">&middot;</span> 사용 가능한 특수문자 !@#$%^&*( ) )</li>
+        <ul class="warning__list">
+          <li><span class="dot"></span> 8자 이상 영문 대/소문자, 숫자, 특수문자 3가지 이상 조합하여 사용해주기 바랍니다.</li>
+          <li><span class="dot"></span> 사용 가능한 특수문자 !@#$%^&*( ) )</li>
         </ul>
       </div>
     </div>

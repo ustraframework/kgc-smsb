@@ -74,7 +74,7 @@
         <div class="flex flex-col w-full">
           <div class="flex gap-2">
             <InputText v-model="userAddress1" id="userAddress" class="flex-1" type="text" size="large" placeholder="주소를 검색하세요." />
-            <button type="button" class="flex-none h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] text-[#758EBC] bg-[#ECF0F8]">
+            <button type="button" class="flex-none h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">
               주소검색
             </button>
           </div>
@@ -97,7 +97,7 @@
             <!-- <img class="w-[32px] mr-2" src="@/assets/images/svg/apple-sns.svg" alt="apple"> -->
             카카오 2023-09-06 14:42
           </p>
-          <button type="button" class="w-full h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
+          <button type="button" class="w-full h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">연결해제</button>
         </div>
       </li>
     </ul>

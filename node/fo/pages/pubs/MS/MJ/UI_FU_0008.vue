@@ -74,7 +74,7 @@
             <div class="flex flex-col w-full">
               <div class="flex gap-2">
                 <InputText v-model="userId" id="userId" class="flex-1" type="text" size="large" placeholder="아이디" />
-                <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] text-[#758EBC] bg-[#ECF0F8]">중복 확인</button>
+                <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">중복 확인</button>
               </div>
               <!-- positive -->
               <!-- <p class="mt-[5px] text-[13px] text-[#5361E7]">비밀번호가 일치 합니다</p> -->
@@ -148,7 +148,7 @@
             <div class="flex flex-col w-full">
               <div class="flex gap-2">
                 <InputText v-model="userAddress" id="userAddress" class="flex-1" type="text" size="large" placeholder="주소를 검색하세요." />
-                <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] text-[#758EBC] bg-[#ECF0F8]">주소검색</button>
+                <button type="button" class="h-[50px] px-[30px] rounded-[4px] font-bold text-[15px] !text-[#758EBC] bg-[#ECF0F8]">주소검색</button>
               </div>
               <InputText
                 v-model="userEmail"
