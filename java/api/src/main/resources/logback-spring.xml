@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<springProfile name="local">
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<filter class="kr.co.kgc.smsb.api.config.SmsbApiLogbackFilter"/>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					%d{HH:mm:ss.SSS} - %X{dd.trace_id} %X{dd.span_id} - [%t] %-5level %logger{36}:%L - %msg%n
+				</Pattern>
+			</layout>
+		</appender>
+
+		<root level="INFO">
+			<appender-ref ref="CONSOLE"/>
+		</root>
+
+		<logger name="com.gsitm.ustra.java" level="DEBUG" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="kr.co.kgc" level="DEBUG" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="org.springframework.jdbc.core.JdbcTemplate" level="DEBUG" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="org.springframework.security.web.access.ExceptionTranslationFilter" level="DEBUG" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.resultsettable" level="DEBUG" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.resultset" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.sqlonly" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.audit" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="log4jdbc.log4j2" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+	</springProfile>
+
+	<springProfile name="dev, stg">
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					%d{HH:mm:ss.SSS} - %X{dd.trace_id} %X{dd.span_id} - [%t] %-5level %logger{36}:%L - %msg%n
+				</Pattern>
+			</layout>
+		</appender>
+
+		<root level="INFO">
+			<appender-ref ref="CONSOLE"/>
+		</root>
+
+		<logger name="kr.co.kgc" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="org.springframework" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="org.springframework.jdbc.core.JdbcTemplate" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.sqltiming" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.resultsettable" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.audit" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.resultset" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.sqlonly" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+	</springProfile>
+
+	<springProfile name="prd">
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<Pattern>
+					%d{HH:mm:ss.SSS} - %X{dd.trace_id} %X{dd.span_id} - [%t] %-5level %logger{36}:%L - %msg%n
+				</Pattern>
+			</layout>
+		</appender>
+
+		<root level="INFO">
+			<appender-ref ref="CONSOLE"/>
+		</root>
+
+		<logger name="kr.co.kgc" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="org.springframework" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="org.springframework.jdbc.core.JdbcTemplate" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.sqltiming" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.resultsettable" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.audit" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.resultset" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+
+		<logger name="jdbc.sqlonly" level="ERROR" additivity="false">
+			<appender-ref ref="CONSOLE"/>
+		</logger>
+	</springProfile>
+</configuration>
