@@ -492,32 +492,81 @@
 // 페이징
 .paging_wrap {
   margin-top: 20px;
+  margin-bottom: 30px;
   .paging_list {
     display: flex;
     justify-content: center;
     button {
-      min-width: 30px;
+      height: 32px;
+      min-width: 32px;
       padding: 0 5px;
-      height: 30px;
       border: 1px solid transparent;
+
       &.active {
-        border: 1px solid $vLighten2;
-        border-radius: 4px;
-        color: $vPrimary4;
+        border: 0;
+        background: #151515;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 3px;
+        &:hover {
+          background-color: #151515;
+        }
       }
       &.prev {
-        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_paging.png) no-repeat center center;
-        transform: rotate(180deg);
+        background: url(@/assets/images/svg/ico_prev_normal.svg) no-repeat center center;
+        border: 1px solid #CCCCCC;
+        border-radius: 3px;
+        margin-right: 20px;
       }
       &.next {
-        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_paging.png) no-repeat center center;
+        background: url(@/assets/images/svg/ico_prev_normal.svg) no-repeat center center;
+        transform: rotate(180deg);
+        border: 1px solid #CCCCCC;
+        border-radius: 3px;
+        margin-left: 20px;
       }
       &.start {
-        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_paging_double.png) no-repeat center center;
-        transform: rotate(180deg);
+        background: url(@/assets/images/svg/ico_prev_first_normal.svg) no-repeat center center;
+        border: 1px solid #CCCCCC;
+        border-radius: 3px;
+        margin-right: 3px;
       }
       &.end {
-        background: url(@ustra/nuxt-wijmo/src/management/layouts/assets/img/icon_btn_paging_double.png) no-repeat center center;
+        background: url(@/assets/images/svg/ico_prev_first_normal.svg) no-repeat center center;
+        transform: rotate(180deg);
+        border: 1px solid #CCCCCC;
+        border-radius: 3px;
+        margin-left: 3px;
+      }
+      &:hover {
+        background-color: #F2F5F6;
+
+        &.prev {
+          background: url(@/assets/images/svg/ico_prev_hover.svg) no-repeat center center;
+          border: 1px solid #151515;
+          border-radius: 3px;
+          margin-right: 20px;
+        }
+        &.next {
+          background: url(@/assets/images/svg/ico_prev_hover.svg) no-repeat center center;
+          transform: rotate(180deg);
+          border: 1px solid #151515;
+          border-radius: 3px;
+          margin-left: 20px;
+        }
+        &.start {
+          background: url(@/assets/images/svg/ico_prev_first_hover.svg) no-repeat center center;
+          border: 1px solid #151515;
+          border-radius: 3px;
+          margin-right: 3px;
+        }
+        &.end {
+          background: url(@/assets/images/svg/ico_prev_first_hover.svg) no-repeat center center;
+          transform: rotate(180deg);
+          border: 1px solid #151515;
+          border-radius: 3px;
+          margin-left: 3px;
+        }
       }
     }
   }
