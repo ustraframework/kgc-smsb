@@ -52,7 +52,7 @@
 import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
 
 const grid = useWijmoFlexGrid({
-isReadOnly: false,
+  isReadOnly: false,
 })  
 
 const { collectionView, loadPageData, pageSize, totalRecords, currentPageNo } = usePaginationCollectionView((pageNo, orders) => {

@@ -58,8 +58,14 @@
           </UButtonBox>
         </UBox>
         
-        <WjFlexGrid :itemsSource="itemsSourceGrid">
-          <WjFlexGridColumn header="선택" binding="col1" width="*" />
+        <WjFlexGrid :itemsSource="itemsSourceGrid" :isReadOnly="true">
+          <WjFlexGridColumn header="선택" binding="col1" width="*" align="center">
+            <WjFlexGridCellTemplate cellType="Cell">
+              <div style="margin-top: 10px;">
+                <UCheckGroupBox :items-source="[{ text: '' }]" style="width:16px; margin-right: 0;" />
+              </div>
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
           <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
           <WjFlexGridColumn header="회원명" binding="col1" width="*" />
           <WjFlexGridColumn header="회원 유형" binding="col1" width="*" />
@@ -71,8 +77,16 @@
           <WjFlexGridColumn header="산정기간 (From)" binding="col1" width="*" />
           <WjFlexGridColumn header="산정기간 (To)" binding="col1" width="*" />
           <WjFlexGridColumn header="작업일시" binding="col1" width="*" />
-          <WjFlexGridColumn header="구매이력" binding="col1" width="*" />
-          <WjFlexGridColumn header="이력보기" binding="col1" width="*" />
+          <WjFlexGridColumn header="구매이력" binding="col1" width="*">
+            <WjFlexGridCellTemplate cellType="Cell" >
+              <UButton text="이력보기" />
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
+          <WjFlexGridColumn header="이력보기" binding="col1" width="*">
+            <WjFlexGridCellTemplate cellType="Cell" >
+              <UButton text="이력보기" />
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
         </WjFlexGrid>
       </UItem>
     </UBox>
@@ -90,7 +104,7 @@
           </UButtonBox>
         </UBox>
         
-        <WjFlexGrid :itemsSource="itemsSourceGrid">
+        <WjFlexGrid :itemsSource="itemsSourceGrid" :isReadOnly="true">
           <WjFlexGridColumn header="순번" binding="col1" width="*" />
           <WjFlexGridColumn header="처리단계" binding="col1" width="*" />
           <WjFlexGridColumn header="조직코드" binding="col1" width="*" />
@@ -108,12 +122,8 @@
   
   <script setup>
   import { WjComboBox } from '#ustra/nuxt-wijmo/components'
-  import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components';
-  
-  const grid = useWijmoFlexGrid({
-  isReadOnly: false,
-  })  
-  
+  import { WjFlexGrid, WjFlexGridColumn, WjFlexGridCellTemplate, WjInputDate } from '#ustra/nuxt-wijmo/components'; 
+
   const items = [
     { value: '01', text: '항목1' },
     { value: '02', text: '항목2' },

@@ -84,7 +84,7 @@
             <UField required label="구매일수">
               <UBox>
                 <UTextBox></UTextBox> 
-                <span class="desc">개 이상</span>
+                <span class="desc">일 이상</span>
               </UBox>
             </UField>
             <UField required label="뿌리삼">
