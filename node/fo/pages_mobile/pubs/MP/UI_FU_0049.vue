@@ -101,15 +101,14 @@
       <Popup_0050 v-model="showPopup" />
 
       <div class="buttons">
-        <div class="coupon">
+        <div class="coupon icon_arrow large">
           <span>
             보유 쿠폰 <br />
             <strong>3장</strong>
           </span>
-          
         </div>
 
-        <div class="store">
+        <div class="store icon_arrow large">
           <span>
             단골매장 <br />
             <strong>정관장 압구정점</strong>
@@ -119,6 +118,16 @@
     </div>
     <!-- ============== -->
   </div>
+
+  <!-- == Footer Menu List == -->
+  <div class="menu__list">
+    <div class="menu icon_arrow large">회원정보 변경</div>
+    <div class="menu icon_arrow large">비밀번호 변경</div>
+    <div class="menu icon_arrow large">기념일 관리</div>
+    <div class="menu icon_arrow large">단골매장 관리</div>
+    <div class="menu icon_arrow large">회원탈퇴</div>
+  </div>
+  <!-- ====================== -->
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
@@ -287,16 +296,6 @@ const progressList = ref([
     display: flex;
     align-items: center;
 
-    &::after {
-      content: '';
-      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2.5L13.8444 9.85409C13.9286 9.93311 13.9286 10.0669 13.8444 10.1459L6 17.5' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
-      background-repeat: no-repeat;
-      width: 20px;
-      height: 20px;
-      background-position: right center;
-      flex: 1;
-    }
-
     strong {
       font-size: 16px;
       margin-top: 2px;
@@ -357,6 +356,26 @@ const progressList = ref([
   }
 }
 
+.menu__list {
+  padding: 0 20px 10px 20px;
+  margin-bottom: 45px;
+  font-size: 16px;
+  border-top: 10px solid #F4F6FA;
+  border-bottom: 10px solid #F4F6FA;
+
+  .menu {
+    cursor: pointer;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--j-gray100);
+    }
+  }
+}
+
 /* 공통 아이콘 */
 .icon_arrow {
   &::after {
@@ -371,6 +390,14 @@ const progressList = ref([
 
   &.primary::after {
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 14.5L10 9.5L5 4.5' stroke='%23F46144'/%3E%3C/svg%3E%0A");
+  }
+
+  &.large::after {
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2.5L13.8444 9.85409C13.9286 9.93311 13.9286 10.0669 13.8444 10.1459L6 17.5' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+    background-position: right center;
+    flex: 1;
   }
 }
 </style>
