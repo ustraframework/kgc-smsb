@@ -12,4 +12,10 @@ public class SmsbPosConfigProperties {
 	public static final String PREFIX = "smsb.pos";
 
 	private String sampleProp;
+	private SnsInfo snsInfo;
+}
+@Data
+class SnsInfo {
+	private String url;
+	private String secretKey;
 }

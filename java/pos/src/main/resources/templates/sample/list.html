@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- css -->
+<link rel="stylesheet" href="/main.css" type="text/css">
+<body>
+<p th:text="${message}"></p>
+
+<p>
+Property Example
+<div>url: <span th:text="${prop.getSnsInfo().getUrl()}"></span></div>
+<div>secretKey: <span th:text="${prop.getSnsInfo().getSecretKey()}"></span></div>
+</p>
+
+<p>
+List Sample
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>부서</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.usrId}"></td>
+            <td th:text="${user.getUsrNm()}"></td>
+            <td th:text="${user.getDeptNm()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</p>
+
+<!-- js -->
+<script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.kgc.smsb.pos.sample.repository.SampleRepository">
+
+	<sql id="common_select">
+			REG_DTTM,
+			REG_USR_ID,
+			REG_USR_IP,
+			UPD_DTTM,
+			UPD_USR_ID,
+			UPD_USR_IP
+	</sql>
+
+	<select id="selects" parameterType="java.util.Map" resultType="com.gsitm.ustra.java.management.models.UstraUserModel">
+		SELECT
+			A.USR_ID,
+			A.USR_NM,
+			A.DEPT_CD,
+			A.DEPT_NM,
+			A.PWD,
+			A.PWD_LST_UPD_DTTM,
+			A.EMAIL,
+			A.PH_NO,
+			A.CPH_NO,
+			A.FAX_NO,
+			A.USR_STT_CD,
+			A.USE_SRT_DT,
+			A.USE_END_DT,
+			A.USE_DV_CD,
+			A.LST_LOGIN_DTTM,
+			A.LOGIN_FAIL_CNT,
+			A.PWD_RESET_YN,
+			A.IP_LMT_YN,
+			A.IP_LIST,
+			A.EMP_NO,
+			A.RMK,
+			A.ORG_CD,
+			A.APV_CMPL_YN,
+			A.USR_APV_ID,
+			<include refid="common_select"/>
+		FROM
+			USTRA_USR A
+		<where>
+			<if test="usrId != null and usrId != '' " >
+					(
+					A.USR_ID  LIKE '%' || #{usrId} || '%'
+					or A.USR_NM LIKE '%' || #{usrId} || '%'
+					or A.DEPT_NM LIKE '%' || #{usrId} || '%'
+					)
+			</if>
+			<if test="usrSttCd != null and usrSttCd != '' " >
+			AND A.USR_STT_CD  = #{usrSttCd}
+			</if>
+			<if test="useDvCd != null and useDvCd != '' " >
+			AND A.USE_DV_CD  = #{useDvCd}
+			</if>
+			<if test="deptNm != null and deptNm != '' " >
+			AND (
+				A.DEPT_CD = #{deptNm} or A.DEPT_NM LIKE '%' || #{deptNm} || '%'
+			)
+			</if>
+			<if test="useDvCds != null">
+			AND A.USE_DV_CD IN
+				<foreach collection="useDvCds" item="cd" open="(" close=")" separator=",">
+					#{cd}
+				</foreach>
+			</if>
+			AND A.USR_STT_CD != '02'
+		</where>
+
+		<if test="sortColName != null">
+		ORDER BY A.${sortColName}
+		</if>
+	</select>
+
+
+</mapper>
