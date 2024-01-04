@@ -15,7 +15,12 @@
           <UFieldRow>
             <UField label="양/음력"><URadioGroupBox v-model="solarValue" :itemsSource="solarItems" /></UField>
             <UField label="단골매장"><UTextBox type="icon"/></UField>
-            <UField label="ID"><UTextBox></UTextBox></UField>
+            <UField label="구매일수">
+              <UBox>
+                <UTextBox></UTextBox> 
+                <span class="desc">개 이상</span>
+              </UBox>
+            </UField>
           </UFieldRow>
           <UFieldRow>
             <UField label="회원통합여부"><URadioGroupBox v-model="radioValue" :itemsSource="radioItems" /></UField>

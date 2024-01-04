@@ -110,6 +110,12 @@
       }
     }
   }
+  + span.desc {
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+    white-space: nowrap;
+  }
 }
 
 // 디스크립션 텍스트

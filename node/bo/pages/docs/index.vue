@@ -186,10 +186,10 @@ const items = ref([
   { col1: '회원', col2: '승인관리', col3: '회원통합처리', col4: 'UI_BM_1208', col5: '', col6: 'grid-form', col7: 'X' },
   { col1: '회원', col2: '승인관리', col3: '회원검색', col4: 'UI_BM_1209', col5: '', col6: 'popup-search', col7: 'X' },
 
-  { col1: '회원', col2: '부정회원관리', col3: '부정적립 의심회원 기준관리', col4: 'UI_BM_1301', col5: '', col6: 'grid-form', col7: 'X' },
-  { col1: '회원', col2: '부정회원관리', col3: '리셀러 기준관리', col4: 'UI_BM_1302', col5: '', col6: 'grid-form', col7: 'X' },
+  { col1: '회원', col2: '부정회원관리', col3: '부정적립 의심회원 기준관리', col4: 'UI_BM_1301', col5: '/pubs/MS/UM/UI_BM_1301_pubs', col6: 'grid-form', col7: 'O' },
+  { col1: '회원', col2: '부정회원관리', col3: '리셀러 기준관리', col4: 'UI_BM_1302', col5: '/pubs/MS/UM/UI_BM_1302_pubs', col6: 'grid-form', col7: 'O' },
   { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원관리', col4: 'UI_BM_1303', col5: '/pubs/MS/UM/UI_BM_1303_pubs', col6: 'grid-grid', col7: 'O' },
-  { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원 처리 내역', col4: 'UI_BM_1304', col5: '', col6: 'popup-form', col7: 'X' },
+  { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원 처리 내역', col4: 'UI_BM_1304', col5: '/pubs/MS/UM/UI_BM_1304_pubs', col6: 'popup-form', col7: 'O' },
   { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원 검토 요청', col4: 'UI_BM_1305', col5: '', col6: 'popup-form', col7: 'X' },
   { col1: '회원', col2: '부정회원관리', col3: '부정적립 회원관리 이력', col4: 'UI_BM_1306', col5: '', col6: 'popup-grid', col7: 'X' },
   { col1: '회원', col2: '부정회원관리', col3: '부정관리-구매 이력 팝업', col4: 'UI_BM_2308', col5: '', col6: 'popup-grid', col7: 'X' },
