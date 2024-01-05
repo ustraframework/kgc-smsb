@@ -769,12 +769,18 @@
     }
   }
   &.is-filled {
-    border-color: $is-primary;
-    background-color: $is-primary;
+    // border-color: $is-primary;
+    // background-color: $is-primary;
+    border-color: #5f0000;
+    background-color: #5f0000;
     color: $is-white;
 
+    &:hover,
+    &:active,
     &:hover {
-      background: $gray280;
+      //background: $gray280;
+      background-color: #d20f27;
+      border-color: #d20f27;
     }
 
     &:disabled {
@@ -797,9 +803,9 @@
   }
   &.is-search {
     padding: 0 15px;
-    border: none;
-    border-color: $is-primary;
-    background-color: $is-primary;
+    border: 1px solid #5f0000;
+    // background-color: $is-primary;
+    background-color: #5f0000;
     color: $is-white;
 
     &:before {
@@ -822,6 +828,12 @@
       &:before {
         background: url(/assets/images/svg/ico_search.svg) no-repeat center center;
       }
+    }
+
+    &:hover {
+      //background: $gray280;
+      background-color: #d20f27;
+      border-color: #d20f27;
     }
   }
   &.is-question {
@@ -865,19 +877,22 @@
   }
 
   &.primary {
-    background-color: #26313b;
-    color: white;
-    border-color: #26313b;
+    border-color: #5f0000;
+    background-color: #5f0000;
+    color: $is-white;
+
     &:hover,
     &:active,
-    &:focus {
-      border-color: #333;
-      background-color: #333;
-      color: white;
+    &:hover {
+      //background: $gray280;
+      background-color: #d20f27;
+      border-color: #d20f27;
     }
+
     &:disabled {
-      background: $vLighten5;
-      border: 1px solid $vLighten5;
+      border-color: $gray80;
+      background-color: $gray80;
+      color: $is-white;
     }
   }
   &.gray {

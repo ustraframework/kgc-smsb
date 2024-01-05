@@ -11,7 +11,7 @@
               <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
                 <div>
                   <UButtonBox v-if="cell.item.col2">
-                    <UButton small type="primary" text="링크" :width="80" @click="openLink(cell.item.col2)" />
+                    <UButton small type="is-filled" text="링크" :width="80" @click="openLink(cell.item.col2)" />
                   </UButtonBox>
                 </div>
               </WjFlexGridCellTemplate>
@@ -30,7 +30,7 @@
               <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
                 <div>
                   <UButtonBox v-if="cell.item.col2">
-                    <UButton small type="primary" text="링크" :width="80" @click="openLink(cell.item.col2)" />
+                    <UButton small type="is-filled" text="링크" :width="80" @click="openLink(cell.item.col2)" />
                   </UButtonBox>
                 </div>
               </WjFlexGridCellTemplate>
@@ -55,7 +55,7 @@
               <WjFlexGridCellTemplate cellType="Cell" v-slot="cell">
                 <div>
                   <UButtonBox v-if="cell.item.col5">
-                    <UButton small type="primary" text="링크" :width="80" @click="openLink(cell.item.col5)" />
+                    <UButton small type="is-filled" text="링크" :width="80" @click="openLink(cell.item.col5)" />
                   </UButtonBox>
                 </div>
               </WjFlexGridCellTemplate>

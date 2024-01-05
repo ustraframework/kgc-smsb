@@ -1738,9 +1738,17 @@ header {
     .mdi-dots-vertical {
         width: 25px;
         height: 25px;
-        background-color: $is-primary;
+        //background-color: $is-primary;
+        background-color: #5f0000;
         border-radius: 50%;
         transform: rotate(90deg);
+        
+        &:hover,
+        &:active,
+        &:hover {
+          //background: $gray280;
+          background-color: #d20f27;
+        }
     }
   }
 }

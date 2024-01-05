@@ -48,7 +48,8 @@ const mdiVisible = ref(true)
       border-right: 1px solid $gray80;
     }
     &.is-active {
-      background-color: $is-primary;
+      //background-color: $is-primary;
+      background-color: #5f0000;
       .mdi-menu {
         color: $is-white;
         font-weight: 600;

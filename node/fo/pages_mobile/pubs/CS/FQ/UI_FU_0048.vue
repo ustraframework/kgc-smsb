@@ -6,19 +6,46 @@
     </span>
 
     <div class="qa-select w-full flex mt-[40px]">
-      <!-- <TabMenu :model="items" /> -->
-      <SelectButton
-        v-model="selectedValue"
-        :options="selectOptions"
-        optionLabel="label"
-        optionValue="value"
-        class=" w-full"
-      />
+      <div class="qa-btn_list">
+        <SelectButton
+          v-model="selectedValue"
+          :options="selectOptions"
+          optionLabel="label"
+          optionValue="value"
+          class=" w-full"
+        />
+      </div>
     </div>
+
+    <div class="qa-list">
+      <div class="qa-item" v-for="(item, i) in items" :key="item.id">
+        <div class="qa-top">
+          <div class="qa-title">
+            <h2>{{ item.title }}</h2>
+          </div>
+          <div class="qa-item-expand">
+            <button @click="onClickExpandButton(i)">
+              <img class="expand-icon" :class="item.isOpen ? 'active' : ''" src="@/assets/images/svg/ico_down_arrow.svg"/>
+            </button>
+          </div>
+        </div>
+        <div class="qa-desc" v-if="item.isOpen">
+          <p>
+            {{ item.desc }}
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script setup>
+definePageMeta({
+  layout: 'sub',
+  title: '자주하는 질문'
+})
+
 
 const value1 = ref(null);
 
@@ -29,6 +56,20 @@ const selectOptions = ref([
   { label: '멤버십/포인트' , value: 'point' },
   { label: '사이트이용/기타' , value: 'etc' }
 ])
+
+const items = ref([
+  {id: 1 , title: '회원탈퇴는 어떻게 하나요?', desc: '회원탈퇴 창에서 합니다.' , isOpen: false},
+  {id: 2 , title: '아이디와 비밀번호를 잊어 버렸어요.', desc: '로그인 화면에서 아이디 찾기/비밀번호 찾기를 통해 확인 가능합니다.', isOpen: false},
+  {id: 3 , title: '아이디를 변경할 수 있나요?', desc: 'afawefawef', isOpen: false},
+  {id: 4 , title: '영수증 적립은 어떻게 할 수 있나요?', desc: 'awefawefawef', isOpen: false},
+  {id: 5 , title: '쿠폰을 사용하려고 하는데 사용이 안돼요. 어떻게 해야하나요?', desc: 'awefawefawef', isOpen: false},
+  {id: 6 , title: '멤버십 혜택은 무엇인가요?', desc: 'awefawefawefa', isOpen: false},
+]);
+
+const onClickExpandButton = (i) => {
+  const _isOpen = items.value[i].isOpen;
+  items.value[i].isOpen = !_isOpen;
+}
 
 </script>
 
@@ -47,9 +88,17 @@ const selectOptions = ref([
 }
 
 .qa-select{
+  overflow-y: hidden;
   .p-selectbutton{
+    width: max-content;
     border: 0;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
     :deep(.p-button){
       border: 1px solid #E7E7E7;
       border-radius: 4px;
@@ -58,7 +107,71 @@ const selectOptions = ref([
         margin-right: 8px;
       }
     }
-  }  
+  }
+}
+
+.qa-list {
+  border: 1px solid #E7E7E7;
+  border-radius: 12px;
+  padding: 8px 32px;
+  margin-top: 20px;
+  width: 100%;
+
+  .qa-item{
+    &:not(:last-child) {
+      .qa-top{
+        border-bottom: 1px solid #E7E7E7;
+      }
+    }
+
+    &:last-child {
+      .qa-desc {
+        border-top: 1px solid #E7E7E7;
+      }
+    }
+
+    .qa-top {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .qa-title{
+        max-width: calc(100% - 40px);
+
+        h2{
+          font-weight: 500;
+          font-size: 16px;
+          color: #000;
+        }
+      }
+
+      .qa-item-expand{
+        display: flex;
+        width: 20px;
+        align-items: center;
+
+        .expand-icon {
+          width: 20px;
+          height: 20px;
+          transition: all 0.25s;
+
+          &.active{
+            transform:rotate(180deg);
+            transition: all 0.25s;
+          }
+        }
+      }
+    }
+
+    .qa-desc{
+      padding: 24px;
+      font-size: 16px;
+      background-color: #F9FAFC;
+      color: #000;
+      border-bottom: 1px solid #E7E7E7;
+    }
+  }
 }
 
 </style>

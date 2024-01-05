@@ -29,13 +29,6 @@
           </p>
         </div>
       </div>
-
-      <!-- <div class="purchase__item-expand" v-if="item.isOpen">
-        <div v-for="(purchase, i) in item.list" class="purchase__item-expand-item">
-          <span>{{ purchase.name }}</span>
-          <span>{{ `${purchase.count}개` }}</span>
-        </div>
-      </div> -->
     </div>
     <Paginator class="mt-[20px]" :pageLinkSize="10" :rows="10" :totalRecords="120"></Paginator>
   </div>
@@ -86,22 +79,6 @@ const onClickExpandButton = (i) => {
   padding-right: 2.8rem;
   font-size: 15px;
 }
-
-.qa-select{
-  .p-selectbutton{
-    border: 0;
-
-    :deep(.p-button){
-      border: 1px solid #E7E7E7;
-      border-radius: 4px;
-
-      &:not(:last-child) {
-        margin-right: 8px;
-      }
-    }
-  }  
-}
-
 .qa-list {
   border: 1px solid #E7E7E7;
   border-radius: 12px;

@@ -5,7 +5,7 @@
       <Steps class="w-full" v-model:activeStep="active" :model="items" />
     </div>
 
-    <div class="pt-[40px] px-[20px] pb-[24px0">
+    <div class="pt-[40px] px-[20px] pb-[24px]">
       <p class="mb-[16px] text-xl text-center">원하시는 <strong>아이디</strong>를 선택해주세요.</p>
       <ul class="mb-[40px] p-[16px] rounded-[8px] bg-[#F9FAFC] text-[#888]">
         <li class="relative pl-[20px]">
