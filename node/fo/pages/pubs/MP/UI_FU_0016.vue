@@ -76,7 +76,7 @@
 
 
     <span
-      class="w-[650px] mt-[24px] pb-[40px] text-[15px] icon_arrow border-b border-[#E7E7E7] cursor-pointer"
+      class="w-[650px] mt-[24px] mb-[40px] text-[15px] icon_arrow cursor-pointer"
       @click="showPopup = true"
     >
       등급 혜택 안내
@@ -84,16 +84,15 @@
 
     <Popup_0017 v-model="showPopup" />
 
-    <div class="buttons">
-      <div class="coupon">
+    <div class="buttons border-t border-[#E7E7E7]">
+      <div class="coupon" @click="$router.push('/pubs/MP/CI/UI_FU_0018')">
         <span>
           보유 쿠폰 <br />
           <strong>3장</strong>
         </span>
-        
       </div>
 
-      <div class="store">
+      <div class="store" @click="$router.push('/pubs/MP/MI/UI_FU_0026')">
         <span>
           단골매장 <br />
           <strong>정관장 압구정점</strong>
@@ -275,7 +274,7 @@ definePageMeta({
 .buttons {
   display: flex;
   gap: 16px;
-  margin-top: 40px;
+  padding-top: 40px;
   width: 650px;
 
   > * {
@@ -285,6 +284,7 @@ definePageMeta({
     flex: 1;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     &::after {
       content: '';
