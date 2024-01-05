@@ -42,8 +42,8 @@
 
         <div class="purchase__item-expand" v-if="item.isOpen">
           <div v-for="(purchase, i) in item.list" class="purchase__item-expand-item">
-            <span>{{ purchase.name }}</span>
-            <span>{{ `${purchase.count}개` }}</span>
+            <span class="w-[200px]">{{ purchase.name }}</span>
+            <span class="text-right">{{ `${purchase.count}개` }}</span>
           </div>
         </div>
       </div>
@@ -62,6 +62,7 @@ import { ref } from 'vue';
 
 definePageMeta({
   layout: 'sub',
+  title: '구매내역 조회'
 });
 
 const i18n = {
@@ -150,6 +151,12 @@ const onClickExpandButton = i => {
 <style scoped>
 button {
   color: #ffffff;
+}
+
+::v-deep(.p-selectbutton) {
+  .p-button {
+    padding: 9px 0;
+  }
 }
 .purchase__list {
   border: 1px solid #e7e7e7;

@@ -120,6 +120,7 @@ import { ref } from 'vue';
 
 definePageMeta({
   layout: 'sub',
+  title: '쿠폰 조회'
 });
 
 const activeTab = ref(0);

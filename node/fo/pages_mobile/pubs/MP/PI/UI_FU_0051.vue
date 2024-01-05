@@ -90,7 +90,9 @@ import { ref } from 'vue';
 
 definePageMeta({
   layout: 'sub',
+  title: '포인트 조회'
 });
+
 
 interface ListType {
   title: string;
@@ -141,7 +143,7 @@ button {
 }
 .more_btn {
   margin-top: 20px;
-  margin-bottom: 80px;
+  margin-bottom: 28px;
   font-size: 14px;
   text-align: center;
   width: 100%;

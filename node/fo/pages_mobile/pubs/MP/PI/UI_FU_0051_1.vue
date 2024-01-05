@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="w-full mt-[24px]">
+    <div class="w-full mt-[24px] mb-[54px]">
       <TabView class="default_tab" v-model:activeIndex="activeTab">
         <!-- 통합 포인트 -->
         <TabPanel header="통합 포인트">
@@ -70,6 +70,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'sub',
+  title: '소멸 예정 포인트'
 });
 
 interface ListType {

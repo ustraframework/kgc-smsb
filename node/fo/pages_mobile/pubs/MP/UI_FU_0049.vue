@@ -181,6 +181,10 @@ const progressList = ref([
   },
 ]);
 
+definePageMeta({
+  layout: 'sub',
+  title: '마이페이지'
+});
 
 </script>
 
