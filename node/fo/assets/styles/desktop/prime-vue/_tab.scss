@@ -33,7 +33,7 @@
         transition: all 0.25s;
 
         &:hover {
-            color:  var(--j-black);
+          color:  var(--j-black);
         }
       }
     }
@@ -41,9 +41,9 @@
 
   // Tab Content
   .p-tabview-panels {
-      margin-top: 40px;
-      background-color: transparent;
-      color: var(--j-black);
+    margin-top: 40px;
+    background-color: transparent;
+    color: var(--j-black);
   }
 }
 
@@ -96,5 +96,15 @@
     .p-tabview-panel {
       width: 100%;
     }
+  }
+}
+
+// FO 마이페이지 소개 탭
+.industry_custom_tab {
+  width: 100%;
+
+  .p-tabview-nav-container {
+    width: 1180px;
+    margin: 0 auto;
   }
 }
