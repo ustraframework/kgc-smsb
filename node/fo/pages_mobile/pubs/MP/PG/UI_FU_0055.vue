@@ -44,7 +44,7 @@
     </template>
 
     <!-- 유의사항 -->
-    <div class="w-full mt-[40px] p-[16px] rounded-[8px] bg-[#F9FAFC]">
+    <div class="w-full mt-[40px] mb-[17px] p-[16px] rounded-[8px] bg-[#F9FAFC]">
       <h3 class="flex items-center mb-[8px] text-[#888] font-medium">
         <img src="@/assets/images/svg/ico_info.svg" class="mr-1" alt="정보" />
         유의사항
@@ -92,6 +92,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'sub',
+  title: '포인트 선물'
 });
 
 const isShowBottom = ref(false);

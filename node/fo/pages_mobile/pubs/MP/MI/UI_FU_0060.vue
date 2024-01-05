@@ -32,6 +32,8 @@ import Popup61 from './UI_FU_0061.vue';
 
 definePageMeta({
   layout: 'sub',
+  title: '단골매장 관리',
+  footer: 'none'
 });
 
 const showPopup = ref(false);
@@ -47,6 +49,8 @@ const showPopup = ref(false);
       width: 20px;
       height: 20px;
       margin-right: 8px;
+      align-self: flex-start;
+      margin-top: 2px;
     }
 
     span {

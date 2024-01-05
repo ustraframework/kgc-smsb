@@ -58,6 +58,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'sub',
+  title: '기념일 관리'
 });
 
 const isShowDelete = ref(false);

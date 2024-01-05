@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col items-center m-[20px]">
-    <h1 class="text-[30px] font-medium mb-[30px]">{{ `기념일 ${isEdit ? '수정' : '등록'}` }}</h1>
     <div class="w-full bg-[#F4F6FA] px-[20px] py-[12px] rounded-[12px]">
       <div class="flex items-center justify-center">
         <span>자녀는 최대 3명까지 가능하며 그 외에는 1명만 가능합니다.</span>
@@ -108,13 +107,17 @@
 import { onMounted } from '#ustra/nuxt';
 import { defaultOptions } from 'primevue/config';
 
-definePageMeta({
-  layout: 'sub',
-});
-
 // false: 등록, true: 수정
 const isEdit = ref(false);
 const routerValue = useRouter().currentRoute.value;
+const route = useRoute();
+
+definePageMeta({
+  layout: 'sub',
+  footer: 'none'
+  // title: (function(value = false) { return  })(isEdit!.value || false),
+});
+
 
 // 캘린더
 const i18n = {
@@ -132,6 +135,9 @@ onMounted(() => {
 
   // 등록, 수정 확인
   isEdit.value = !!routerValue.query.id;
+
+  // definePageMeta > title 동적으로 변경
+  route.meta.title = `기념일 ${isEdit.value ? '수정' : '등록'}`;
 });
 
 const anniversaryType = ref('parent');
