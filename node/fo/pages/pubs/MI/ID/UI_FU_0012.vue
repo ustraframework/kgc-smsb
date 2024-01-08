@@ -73,11 +73,11 @@ const activeTab = ref(0);
   background-color: var(--j-bluegray300);
   border-radius: 16px;
   padding: 30px 30px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
   height: 350px;
+  width: 380px;
 
   h3 {
     font-weight: 500;
@@ -90,34 +90,38 @@ const activeTab = ref(0);
     color: var(--j-gray500);
     font-size: 16px;
     white-space: pre-line;
+    line-height: 22.4px;
   }
   
   &.level::after {
     content: '';
-    height: 100%;
-    position: relative;
-    top: 25px;
-    left: 10px;
+    height: 187px;
+    width: 215px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
     background-image: url('@/assets/images/intro/level-benefit.png');
     background-position: right bottom;
   }
 
   &.point1::after {
     content: '';
-    height: 100%;
-    position: relative;
-    top: 15px;
-    left: 12px;
+    height: 158px;
+    width: 240px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
     background-image: url('@/assets/images/intro/point-acml.png');
     background-position: right bottom;
   }
 
   &.point2::after {
     content: '';
-    height: 100%;
-    position: relative;
-    top: 15px;
-    left: 10px;
+    height: 173px;
+    width: 220px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
     background-image: url('@/assets/images/intro/point-use.png');
     background-position: right bottom;
   }

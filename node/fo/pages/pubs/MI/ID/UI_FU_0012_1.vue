@@ -170,7 +170,7 @@ const rankLIst = {
         color: var(--j-gray300);
 
         &.p-highlight {
-          border-bottom: 2px solid var(--j-primary01) ;
+          border-bottom: 3px solid var(--j-primary01) ;
     
           .p-tabview-nav-link {
             color: #E29323;

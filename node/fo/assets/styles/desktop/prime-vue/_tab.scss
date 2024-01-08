@@ -13,11 +13,11 @@
       border-bottom: 1px solid var(--j-gray200);
 
       &.p-highlight {
-        border-bottom: 2px solid  var(--j-black);
+        border-bottom: 2px solid var(--j-black);
         background-color: unset;
         
         .p-tabview-nav-link {
-          color: black;
+          color: var(--j-black);
           font-weight: 700;
         }
       }
@@ -33,7 +33,7 @@
         transition: all 0.25s;
 
         &:hover {
-          color:  var(--j-black);
+          color: var(--j-black);
         }
       }
     }

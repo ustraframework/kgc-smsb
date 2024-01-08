@@ -58,3 +58,19 @@
     padding-right: 2.5rem;
   }
 }
+
+.p-inputtext.completed {
+  background-color: var(--j-bluegray300);
+  border-radius: 999px;
+  height: 48px;
+
+  &:hover,
+  &:focus {
+    border-color: var(--j-bluegray500);
+  }
+
+  &::placeholder {
+    font-size: 15px;
+  }
+}
+

@@ -60,8 +60,8 @@
                 회원에게 원하는 만큼 포인트 선물을 할 수 있어요! <br />
               </p>
 
-              <span class="arrow"> 내 포인트 확인하기 </span>
-              <span class="arrow"> 포인트 선물하기 </span>
+              <span class="arrow" @click="$router.push('/pubs/MP/PI/UI_FU_0019')"> 내 포인트 확인하기 </span>
+              <span class="arrow" @click="$router.push('/pubs/MP/PG/UI_FU_0020')"> 포인트 선물하기 </span>
             </div>
             <img width="326" src="@/assets/images/svg/ico_point_present.svg" alt="포인트 선물하기 이미지" />
           </div>
@@ -167,6 +167,7 @@ const activeTab = ref(3);
       font-size: 16px;
       font-weight: 500;
       position: relative;
+      cursor: pointer;
 
       & + .arrow {
         margin-top: 16px;
