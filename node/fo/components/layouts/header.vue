@@ -1,6 +1,6 @@
 <template>
   <header class="header flex-none w-full bg-transparent h-[100px] px-[120px]">
-    <div class="flex justify-space-around min-w-[1280px] h-full">
+    <div class="flex justify-between min-w-[1280px] h-full">
       <router-link class="mt-[37px]" to="/">
         <img src="@/assets/images/svg/logo.svg" alt="JUNG KWAN JANG Members" />
       </router-link>

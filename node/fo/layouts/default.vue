@@ -10,6 +10,5 @@
 <script lang="ts" setup>
 import Header from '@/components/layouts/header.vue';
 import Footer from '@/components/layouts/footer.vue';
-import Sidebar from '@/components/layouts/sidebar.vue';
 </script>
 <style lang="scss"></style>
