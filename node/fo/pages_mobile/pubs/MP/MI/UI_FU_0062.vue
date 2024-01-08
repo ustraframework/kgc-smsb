@@ -90,6 +90,11 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'sub',
+  title: '단골매장 관리',
+  footer: 'none'
+});
 </script>
 
 <style lang="scss" scoped>

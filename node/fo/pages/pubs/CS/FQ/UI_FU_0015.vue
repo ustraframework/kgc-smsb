@@ -36,13 +36,6 @@
           </p>
         </div>
       </div>
-
-      <!-- <div class="purchase__item-expand" v-if="item.isOpen">
-        <div v-for="(purchase, i) in item.list" class="purchase__item-expand-item">
-          <span>{{ purchase.name }}</span>
-          <span>{{ `${purchase.count}개` }}</span>
-        </div>
-      </div> -->
     </div>
     <Paginator class="mt-[20px]" :pageLinkSize="10" :rows="10" :totalRecords="120"></Paginator>
   </div>

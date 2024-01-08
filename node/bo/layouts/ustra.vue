@@ -290,12 +290,12 @@ function closeTab(index: number) {
 
 const closeAllTab = () => {
   for (let i = 0; i < openedTabNavigations.value.length; i++) {
-    if(openedTabNavigations.value[i].id !== 'home'){
-      closeTab(i);
-      i--;
+    if (openedTabNavigations.value[i].id !== 'home') {
+      closeTab(i)
+      i--
     }
   }
-  selectedTabIndex.value = 0;
+  selectedTabIndex.value = 0
 }
 
 function openNewWindow(nav: Navigation) {
@@ -396,6 +396,7 @@ export default {
     }
     &.is-active {
       background-color: $is-primary;
+      // background-color: #5f0000;
       .mdi-menu {
         color: $is-white;
         font-weight: 600;
@@ -575,6 +576,7 @@ export default {
       .v-btn {
         &::before {
           background-color: $gray160;
+          // background-color: #d20f27;
           transition: 0.2s ease-out;
         }
       }
@@ -584,6 +586,7 @@ export default {
       .v-btn {
         &::before {
           background-color: $is-primary;
+          // background-color: #5f0000;
           border-radius: 0px 0px 20px 20px;
         }
       }

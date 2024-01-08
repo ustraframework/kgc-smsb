@@ -110,6 +110,12 @@
       }
     }
   }
+  + span.desc {
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+    white-space: nowrap;
+  }
 }
 
 // 디스크립션 텍스트
@@ -514,32 +520,32 @@
       }
       &.prev {
         background: url(@/assets/images/svg/ico_prev_normal.svg) no-repeat center center;
-        border: 1px solid #CCCCCC;
+        border: 1px solid #cccccc;
         border-radius: 3px;
         margin-right: 20px;
       }
       &.next {
         background: url(@/assets/images/svg/ico_prev_normal.svg) no-repeat center center;
         transform: rotate(180deg);
-        border: 1px solid #CCCCCC;
+        border: 1px solid #cccccc;
         border-radius: 3px;
         margin-left: 20px;
       }
       &.start {
         background: url(@/assets/images/svg/ico_prev_first_normal.svg) no-repeat center center;
-        border: 1px solid #CCCCCC;
+        border: 1px solid #cccccc;
         border-radius: 3px;
         margin-right: 3px;
       }
       &.end {
         background: url(@/assets/images/svg/ico_prev_first_normal.svg) no-repeat center center;
         transform: rotate(180deg);
-        border: 1px solid #CCCCCC;
+        border: 1px solid #cccccc;
         border-radius: 3px;
         margin-left: 3px;
       }
       &:hover {
-        background-color: #F2F5F6;
+        background-color: #f2f5f6;
 
         &.prev {
           background: url(@/assets/images/svg/ico_prev_hover.svg) no-repeat center center;
@@ -765,10 +771,16 @@
   &.is-filled {
     border-color: $is-primary;
     background-color: $is-primary;
+    // border-color: #5f0000;
+    // background-color: #5f0000;
     color: $is-white;
 
+    &:hover,
+    &:active,
     &:hover {
       background: $gray280;
+      // background-color: #d20f27;
+      // border-color: #d20f27;
     }
 
     &:disabled {
@@ -791,9 +803,9 @@
   }
   &.is-search {
     padding: 0 15px;
-    border: none;
-    border-color: $is-primary;
     background-color: $is-primary;
+    // background-color: #5f0000;
+    // border: 1px solid #5f0000;
     color: $is-white;
 
     &:before {
@@ -816,6 +828,12 @@
       &:before {
         background: url(/assets/images/svg/ico_search.svg) no-repeat center center;
       }
+    }
+
+    &:hover {
+      background: $gray280;
+      // background-color: #d20f27;
+      // border-color: #d20f27;
     }
   }
   &.is-question {
@@ -859,19 +877,24 @@
   }
 
   &.primary {
-    background-color: #26313b;
-    color: white;
-    border-color: #26313b;
+    border-color: $is-primary;
+    background-color: $is-primary;
+    // border-color: #5f0000;
+    // background-color: #5f0000;
+    color: $is-white;
+
     &:hover,
     &:active,
-    &:focus {
-      border-color: #333;
-      background-color: #333;
-      color: white;
+    &:hover {
+      background: $gray280;
+      // background-color: #d20f27;
+      // border-color: #d20f27;
     }
+
     &:disabled {
-      background: $vLighten5;
-      border: 1px solid $vLighten5;
+      border-color: $gray80;
+      background-color: $gray80;
+      color: $is-white;
     }
   }
   &.gray {
@@ -2065,7 +2088,8 @@
     margin-left: 10px;
     padding-left: 20px;
     color: #000 !important;
-    background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.99978 14.1109C11.3749 14.1109 14.1109 11.3749 14.1109 7.99978C14.1109 4.62471 11.3749 1.88867 7.99978 1.88867C4.62471 1.88867 1.88867 4.62471 1.88867 7.99978C1.88867 11.3749 4.62471 14.1109 7.99978 14.1109Z' fill='%239A9A9A'/%3E%3Cpath d='M8 4.80518V9.24962' stroke='white'/%3E%3Cpath d='M8 10.0576V11.1687' stroke='white'/%3E%3C/svg%3E%0A") no-repeat left center;
+    background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.99978 14.1109C11.3749 14.1109 14.1109 11.3749 14.1109 7.99978C14.1109 4.62471 11.3749 1.88867 7.99978 1.88867C4.62471 1.88867 1.88867 4.62471 1.88867 7.99978C1.88867 11.3749 4.62471 14.1109 7.99978 14.1109Z' fill='%239A9A9A'/%3E%3Cpath d='M8 4.80518V9.24962' stroke='white'/%3E%3Cpath d='M8 10.0576V11.1687' stroke='white'/%3E%3C/svg%3E%0A")
+      no-repeat left center;
   }
 }
 
@@ -2075,17 +2099,17 @@
   padding: 0;
   width: calc(100% + 40px) !important;
   .img {
-    margin: 0 auto; 
+    margin: 0 auto;
     text-align: center;
     > img {
-      width: 280px; 
-      height:423px;
+      width: 280px;
+      height: 423px;
       box-sizing: border-box;
     }
     > span {
       display: block;
       margin-top: 10px;
-      color: #8E8E8E;
+      color: #8e8e8e;
     }
   }
   .preview-form {
@@ -2112,5 +2136,5 @@
 .u-file-drop-box {
   border: 0;
   padding: 0;
-  border-left: 1px solid #F1F1F1;
+  border-left: 1px solid #f1f1f1;
 }

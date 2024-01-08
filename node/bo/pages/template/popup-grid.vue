@@ -23,7 +23,7 @@
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>
-          <UButton text="저장" type="primary"/>
+          <UButton text="저장" type="is-filled"/>
         </UButtonBox>
       </UItem>
     </UBox>

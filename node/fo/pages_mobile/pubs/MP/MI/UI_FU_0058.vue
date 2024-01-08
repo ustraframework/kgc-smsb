@@ -2,8 +2,11 @@
   <div class="flex flex-col items-center m-[20px]">
     <div class="w-full bg-[#F4F6FA] p-[20px] rounded-[12px]">
       <div class="flex flex-col flex-wrap items-center justify-center gap-[16px]">
-        <span class="text-[15px] text-center">나의 기념일을 등록해보세요. <br /> 최대 7개까지 가능합니다.</span>
-        <Button label="기념일 등록"  @click="$router.push('/pubs/MP/MI/UI_FU_0059')" />
+        <span class="text-[15px] text-center"
+          >나의 기념일을 등록해보세요. <br />
+          최대 7개까지 가능합니다.</span
+        >
+        <Button label="기념일 등록" @click="$router.push('/pubs/MP/MI/UI_FU_0059')" />
       </div>
     </div>
 
@@ -12,16 +15,13 @@
       <span className="text-[15px] font-medium">{{ `총 ${list?.length || 0}건` }}</span>
 
       <div class="anniversary__list">
-        <div class="anniversary__card" v-for="(item, i) in list" :key="i" >
+        <div class="anniversary__card" v-for="(item, i) in list" :key="i">
           <div class="anniversary__card-top">
             <span class="title">
-              {{item.title }}
+              {{ item.title }}
             </span>
             <span>
-              <i
-                class="icon icon-edit"
-                @click="$router.push({ path: '/pubs/MP/MI/UI_FU_0059', query: { id: item.id } })"
-              />
+              <i class="icon icon-edit" @click="$router.push({ path: '/pubs/MP/MI/UI_FU_0059', query: { id: item.id } })" />
               <i class="icon icon-delete" @click="isShowDelete = true" />
             </span>
 
@@ -40,24 +40,26 @@
           </div>
 
           <div class="anniversary__card-bottom">
-            <span>{{item.gender }}</span>
+            <span>{{ item.gender }}</span>
             <span>{{ `[${item.dateType}] ${item.date}` }}</span>
           </div>
         </div>
       </div>
     </div>
-    
+
     <!-- 기념일 리스트 없을 경우 -->
     <div v-else class="empty">
-      <i ></i>
+      <i></i>
       <span>등록된 기념일이 없습니다.</span>
     </div>
   </div>
-
-  
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'sub',
+  title: '기념일 관리'
+});
 
 const isShowDelete = ref(false);
 
@@ -66,13 +68,12 @@ const list = reactive([
   { id: 2, title: '부모생일', gender: '여자', dateType: '양력', date: '2010-04-20' },
   { id: 3, title: '배우자 생일', gender: '남자', dateType: '양력', date: '1986-02-25' },
   { id: 4, title: '자녀 생일', gender: '남자', dateType: '양력', date: '2019-05-16' },
-])
+]);
 
-const handleDelete = (index) => {
-  list.splice(index,1);
+const handleDelete = index => {
+  list.splice(index, 1);
   isShowDelete.value = false;
-}
-
+};
 </script>
 
 <style scoped>
@@ -99,7 +100,7 @@ button {
       justify-content: space-between;
 
       .title {
-        background-color: #FFF5EF;
+        background-color: #fff5ef;
         border-radius: 4px;
         padding: 6px 8px;
         font-size: 13px;
@@ -138,7 +139,7 @@ button {
   color: var(--j-gray400);
   font-weight: 500;
   font-size: 16px;
-  
+
   i {
     width: 40px;
     height: 40px;

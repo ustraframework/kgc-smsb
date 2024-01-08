@@ -459,6 +459,7 @@ export default {
       .v-btn {
         &::before {
           background-color: $gray160;
+          // background-color: #d20f27;
           transition: 0.2s ease-out;
         }
       }
@@ -468,6 +469,7 @@ export default {
       .v-btn {
         &::before {
           background-color: $is-primary;
+          // background-color: #5f0000;
           border-radius: 0px 0px 20px 20px;
         }
       }

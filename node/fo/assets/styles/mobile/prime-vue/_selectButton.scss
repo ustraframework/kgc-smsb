@@ -1,18 +1,18 @@
 .p-selectbutton {
   font-weight: 500;
   font-size: 14px;
-  border: 1px solid #E7E7E7;
+  border: 1px solid #e7e7e7;
   border-radius: 4px;
-  
+
   .p-button {
     padding: 9px 16px;
     background-color: white;
-    color: #666666;
+
     border-radius: 0;
     flex: 1;
 
     &:not(:last-child) {
-      border-right: 1px solid #E7E7E7;
+      border-right: 1px solid #e7e7e7;
     }
 
     &:first-child {
@@ -24,26 +24,35 @@
       border-bottom-right-radius: 4px;
     }
 
+    .p-button-label {
+      color: #666;
+    }
+
     // actions
     &:hover {
       background-color: var(--j-primary03);
-      color: white;
+
+      .p-button-label {
+        color: white;
+      }
     }
 
     &:focus {
       box-shadow: none;
       background-color: var(--j-primary03);
     }
-  
+
     &:disabled {
       background-color: var(--j-primary03);
     }
-  
   }
 
-  .p-button[aria-checked='true']  {
+  .p-button[aria-checked='true'] {
     background-color: var(--j-primary03);
-    color: white;
+
+    .p-button-label {
+      color: white;
+    }
   }
 
   // label

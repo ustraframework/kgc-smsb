@@ -118,6 +118,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+definePageMeta({
+  layout: 'sub',
+  title: '쿠폰 조회',
+  footer: 'none'
+});
+
 const activeTab = ref(0);
 
 const availableList = [

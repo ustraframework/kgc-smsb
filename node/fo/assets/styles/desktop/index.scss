@@ -19,6 +19,7 @@
 @import 'root';
 @import 'layout';
 @import 'buttons';
+@import 'warningList';
 @import './prime-vue/buttons';
 @import './prime-vue/icons';
 @import './prime-vue/input';
@@ -33,7 +34,6 @@
 @import './prime-vue/datePicker';
 @import './prime-vue/tab';
 @import './prime-vue/paginator';
-
 
 // Pages
 @import './pages/sign';

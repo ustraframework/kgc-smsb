@@ -1,6 +1,6 @@
 <template>
-  <div class="my-[137px]">
-    <div class="w-[624px] mx-auto border border-[#ECF0F8] rounded-2xl text-center overflow-hidden">
+  <div class="m-auto">
+    <div class="w-[624px] border border-[#ECF0F8] rounded-2xl text-center overflow-hidden">
       <div class="py-[60px]">
         <h1 class="text-3xl font-bold mb-[12px]">정관장 멤버스 회원 가입</h1>
         <p class="text-base mb-[40px]"><strong>회원가입</strong>을 위해 인증을 선택해주세요.</p>

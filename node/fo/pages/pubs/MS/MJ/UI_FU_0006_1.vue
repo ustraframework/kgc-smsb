@@ -5,7 +5,7 @@
       <Steps class="w-[340px] mx-auto" v-model:activeStep="active" :model="items" />
     </div>
     <div class="w-[550px] mx-auto pt-[80px] pb-[65px]">
-      <p class="text-xl text-center mb-[30px]">정관장 멤버스 통합ONE ID를 위한 <strong>서비스 약관동의</strong>를 선택해주세요.</p>
+      <p class="text-xl text-center mb-[30px] tracking-[-0.3px]">정관장 멤버스 통합ONE ID를 위한 <strong>서비스 약관동의</strong>를 선택해주세요.</p>
 
       <div>
         <div :class="{ '!border-[#D20F27]': agreeAl1 }" class="flex items-center px-[24px] py-[16px] mb-[16px] border rounded-lg border-[#E7E7E7]">

@@ -24,12 +24,12 @@ export const useSystemStore = defineInitStore(
     return { ...states };
   },
   async (store, { $ustra }) => {
-    const service = useInitialDataService($ustra.nuxtApp);
+    // const service = useInitialDataService($ustra.nuxtApp);
 
-    if (!store.loadedData) {
-      const initData = await service.getInitData();
-      store.props = initData.sns;
-      store.loadedData = true;
-    }
+    // if (!store.loadedData) {
+    //   const initData = await service.getInitData();
+    //   store.props = initData.sns;
+    //   store.loadedData = true;
+    // }
   },
 );
