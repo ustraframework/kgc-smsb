@@ -19,6 +19,10 @@
 import { ref, watchEffect } from 'vue';
 import { useElementBounding, useScroll, watchThrottled } from '@vueuse/core';
 
+definePageMeta({
+  layout: 'main',
+});
+
 const visual = ref(null);
 const image = ref(null);
 const { y: winScoll } = useScroll(document);

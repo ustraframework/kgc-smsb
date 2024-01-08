@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     emitRouteChunkError: 'reload',
   },
   routeRules: {
-    '/api/**': { proxy: 'http://localhost:11051/api/**' },
+    //'/api/**': { proxy: 'http://localhost:11051/api/**' }
+    '/api/**': { proxy: 'http://192.168.41.221:11051/api/**' },
   },
   ustra: {
     i18n: {

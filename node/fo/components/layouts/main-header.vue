@@ -1,8 +1,9 @@
 <template>
-  <header class="header flex-none w-full bg-transparent h-[100px] px-[120px]">
+  <header :class="{ '!bg-[#FFF]': headerActive }" class="header flex-none w-full bg-transparent h-[100px] px-[120px]">
     <div class="flex justify-space-around min-w-[1280px] h-full">
       <router-link class="mt-[37px]" to="/">
-        <img src="@/assets/images/svg/logo.svg" alt="JUNG KWAN JANG Members" />
+        <img v-if="!headerActive" src="@/assets/images/svg/logo-white.svg" alt="JUNG KWAN JANG Members" />
+        <img v-else src="@/assets/images/svg/logo.svg" alt="JUNG KWAN JANG Members" />
       </router-link>
 
       <nav class="gnb">
@@ -27,6 +28,24 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useScroll, watchThrottled } from '@vueuse/core';
+
+const { y: winScoll } = useScroll(document);
+const headerActive = ref(false);
+
+watchThrottled(
+  () => winScoll.value,
+  newValue => {
+    if (winScoll.value > 0) {
+      headerActive.value = true;
+      document.querySelector('.header').classList.add('active');
+    } else {
+      headerActive.value = false;
+      document.querySelector('.header').classList.remove('active');
+    }
+  },
+  { throttle: 200 },
+);
 </script>
 
 <style lang="scss" scoped>
@@ -57,7 +76,7 @@ import { ref } from 'vue';
     font-weight: 700;
     font-size: 17px;
     text-align: center;
-    color: #000;
+    color: white;
   }
 }
 
@@ -67,11 +86,22 @@ import { ref } from 'vue';
   height: 100%;
   > a {
     position: relative;
-    color: #000;
+    color: white;
 
     &:not(:first-child) {
       margin-left: 8px;
       padding-left: 8px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 10px;
+        background-color: #e7e7e7;
+      }
     }
   }
 }
