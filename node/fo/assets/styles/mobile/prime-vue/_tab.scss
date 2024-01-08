@@ -1,27 +1,30 @@
 
 // 1 Depth Tab
-.default_tab {
+.default_tab,
+.fill_tab .default_tab  {
   // Tab Header
   .p-tabview-nav-container {
-    color: white;
+    color: var(--j-white);
 
     .p-tabview-header {
       flex: 1;
       padding: 18px 0;
-      border-bottom: 1px solid #E7E7E7;
+      border: none;
+      border-bottom: 1px solid var(--j-gray200);
 
       &.p-highlight {
-        border-bottom: 2px solid black;
-        
+        border-bottom: 2px solid  var(--j-black);
+        background-color: unset;
+
         .p-tabview-nav-link {
-            color: black;
-            font-weight: 700;
+          color:  var(--j-black);
+          font-weight: 700;
         }
       }
 
       .p-tabview-nav-link  {
         background-color: transparent;
-        color: #888888;
+        color: var(--j-gray400);
         font-size: 16px;
         text-align: center;
         justify-content: center;
@@ -30,7 +33,7 @@
         transition: all 0.25s;
 
         &:hover {
-            color: black;
+            color: var(--j-black);
         }
       }
     }
@@ -40,6 +43,92 @@
   .p-tabview-panels {
       margin-top: 24px;
       background-color: transparent;
-      color: black;
+      color: var(--j-black);
+  }
+}
+
+.fill_tab {
+  // Tab Header
+  .p-tabview-nav-container {
+    color: var(--j-white);
+
+    .p-tabview-header {
+      flex: 1;
+      padding: 18px 0;
+      border: 1px solid var(--j-gray200);
+
+      &.p-highlight {
+        background-color: var(--j-primary03);
+        border-color: var(--j-primary03);
+        
+        .p-tabview-nav-link {
+          color: var(--j-white);
+          font-weight: 700;
+        }
+      }
+
+      .p-tabview-nav-link  {
+        background-color: transparent;
+        color: var(--j-gray400);
+        font-size: 16px;
+        text-align: center;
+        justify-content: center;
+        font-weight: 400;
+        line-height: 24px;
+        transition: all 0.25s;
+      }
+      &:not(.p-highlight) {
+        .p-tabview-nav-link:hover {
+          color: var(--j-black);
+        }
+      }
+    }
+  }
+
+  // Tab Content
+  .p-tabview-panels {
+    margin-top: 40px;
+    background-color: transparent;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .p-tabview-panel {
+      width: 100%;
+    }
+  }
+}
+
+// FO 마이페이지 소개 탭
+.industry_custom_tab {
+  width: 100%;
+
+  .p-tabview-nav-container {
+    margin: 0 20px;
+
+    .p-tabview-nav {
+      flex-wrap: wrap;
+
+      .p-tabview-header {
+        flex-basis: 50%;
+
+        &:not(.p-highlight):nth-child(2n-1) {
+          border-right: none;
+        }
+
+        &:not(:first-child, :nth-child(2)) {
+          border-top: none;
+        }
+      }
+    }
+  }
+
+  .default_tab .p-tabview-nav-container {
+    margin: 0;
+    
+    .p-tabview-nav {
+      flex-wrap: nowrap;
+    }
   }
 }
