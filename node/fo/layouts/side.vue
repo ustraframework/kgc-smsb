@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-w-[1280px] h-full">
     <Header />
-    <main class="container !max-w-full flex flex-1 justify-center my-[80px]">
+    <main class="container !max-w-full flex flex-1 justify-center my-[80px] pt-[100px]">
       <Sidebar />
       <div class="flex flex-col px-[103px]">
         <slot></slot>
