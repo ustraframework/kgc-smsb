@@ -88,12 +88,12 @@ import { ref } from "vue";
 
 const activeTab = ref(3);
 const chart_data = ref([
-  { id: '수도권((강원포함)', name: '수도권((강원포함)', value: 356, x: 180, y: 135 },
-  { id: '충청',name: '충청', value: 102, x: 50, y: 100 },
-  { id: '부산',name: '부산', value: 100, x: 60, y: 200 },
-  { id: '호남',name: '호남', value: 95, x: 110, y: 35 },
-  { id: '대구/울산',name: '대구/울산', value: 92, x: 285, y: 195 },
-  { id: '제주',name: '제주', value: 10, x: 270, y: 55 }
+  { name: '수도권((강원포함)', value: 356, x: 180, y: 135 },
+  { name: '충청', value: 102, x: 50, y: 100 },
+  { name: '부산', value: 100, x: 60, y: 200 },
+  { name: '호남', value: 95, x: 110, y: 35 },
+  { name: '대구/울산', value: 92, x: 285, y: 195 },
+  { name: '제주', value: 10, x: 270, y: 55 }
 ]);
 
 const chartOptions = { width: 320, height: 249 };
