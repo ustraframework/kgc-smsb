@@ -23,9 +23,10 @@
               </span>
             </div>
 
-            <div class="inner__chart">
-              차트영역임다
+            <!-- bubble chart -->
+            <div class="inner__chart" id="chart">
             </div>
+
           </div>
         </div>
 
@@ -85,13 +86,124 @@
   </div>
 </template>
 <script setup lang="ts">
+import * as d3 from "d3";
 import { ref } from "vue";
 
 const activeTab = ref(3);
+const chart_data = ref([
+  { id: '수도권((강원포함)', name: '수도권((강원포함)', value: 356, x: 230, y: 158 },
+  { id: '충청',name: '충청', value: 102, x: 60, y: 120 },
+  { id: '부산',name: '부산', value: 100, x: 80, y: 245 },
+  { id: '호남',name: '호남', value: 95, x: 130, y: 40 },
+  { id: '대구/울산',name: '대구/울산', value: 92, x: 355, y: 240 },
+  { id: '제주',name: '제주', value: 10, x: 340, y: 50 }
+]);
 
+const chartOptions = { width: 396, height: 307 };
+
+onMounted(() => {
+  const _chart = document.querySelector('.inner__chart');
+  _chart.append(renderchart());
+})
+
+const renderchart = () => {
+  // Create the pack layout.
+  const pack = d3.pack()
+    .size([chartOptions.width, chartOptions.height]);
+
+  // Compute the hierarchy from the (flat) data; expose the values
+  // for each node; lastly apply the pack layout.
+  const root = pack(d3.hierarchy({children: chart_data.value})
+    .sum(d => d.value));
+
+  // Create the SVG container.
+  const svg = d3.create("svg")
+    .attr("width", chartOptions.width)
+    .attr("height", chartOptions.height)
+    .attr("viewBox", [0, 0, chartOptions.width, chartOptions.height])
+    .attr("text-anchor", "middle");
+
+  // Place each (leaf) node according to the layout’s x and y values.
+  const node = svg.append("g")
+    .selectAll()
+    .data(root.leaves())
+    .join("g")
+    .attr("transform", d => `translate(${d.data.x},${d.data.y})`);
+
+  // Add a filled circle.
+  node.append("circle")
+    .attr("fill", d => setChartFillColor(d.value))
+    .attr("r", d => setChartRadius(d.value));
+
+  // Add a label.
+  const text = node.append("text")
+    .attr("clip-path", d => `circle(${setChartRadius(d.data.value)})`);
+
+  // Add a Value
+  text.append("tspan")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("fill", 'white')
+    .style("font-weight", '700')
+    .style("font-size", d => setChartFontSize('value', d.data.value))
+    .text(d => d.data.value);
+
+  // Add a Name
+  text.append("tspan")
+    .attr("x", 0)
+    .attr("y", d => setChartFontMargin(d.data.value))
+    .style("font-size", d => setChartFontSize('name', d.data.value))
+    .attr("fill", 'white')
+    .text(d => d.data.name);
+
+  return svg.node();
+}
+
+const setChartFillColor = (value) => {
+  if( value >= 300 ) {
+    return '#D20F27';
+  } else if ( value < 300 && value >= 100) {
+    return '#F46144';
+  } else return '#FF947F';
+}
+
+const setChartRadius = (value) => {
+  if( value >= 300 ) {
+    return 100; // 총 넓이 200
+  } else if ( value < 300 && value >= 100) {
+    return 60; // 총 넓이 120
+  } else return 40; // 총 넓이 80
+}
+
+const setChartFontSize = (type, value) => {
+  if(type === 'value') {
+    if( value >= 300 ) {
+      return '40px';
+    } else if ( value < 300 && value >= 100) {
+      return '30px';
+    } else return '24px';
+  }
+
+  if(type === 'name') {
+    if( value >= 300 ) {
+      return '16px';
+    } else if ( value < 300 && value >= 100) {
+      return '14px';
+    } else return '13px';
+  }
+}
+
+const setChartFontMargin = (value) => {
+  // value, name 사이 여백 값
+  if( value >= 300 ) {
+    return '30px';
+  } else if ( value < 300 && value >= 100) {
+    return '24px';
+  } else return '16px';
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* 소개페이지 공통 css */
 .tabInner__title {
   text-align: center;
@@ -111,7 +223,7 @@ const activeTab = ref(3);
   }
 
   p {
-    color: var(--j-gray500);
+    color: const(--j-gray500);
     margin-top: 8px;
     line-height: 24px;
   }
@@ -126,7 +238,7 @@ const activeTab = ref(3);
   padding: 80px 0;
 
   &.inner__bg {
-    background-color: var(--j-bluegray200);
+    background-color: const(--j-bluegray200);
   }
 
   > .tabInner__item-content {
@@ -134,8 +246,8 @@ const activeTab = ref(3);
     width: 650px;
 
     .tabInner__item-card {
-      background-color: var(--j-white);
-      border: 1px solid  var(--j-gray200);
+      background-color: const(--j-white);
+      border: 1px solid  const(--j-gray200);
       border-radius: 12px;
       padding: 24px;
       flex: 1;
@@ -150,7 +262,7 @@ const activeTab = ref(3);
         margin-top: 24px;
 
         .chip {
-          background-color: var(--j-bluegray300);
+          background-color: const(--j-bluegray300);
           border-radius: 300px;
           text-align: center;
           padding: 8px 0;
@@ -161,9 +273,8 @@ const activeTab = ref(3);
         }
       }
     }
-
     .arrow {
-      color: var(--j-primary02);
+      color: const(--j-primary02);
       font-size: 16px;
       font-weight: 500;
       position: relative;
