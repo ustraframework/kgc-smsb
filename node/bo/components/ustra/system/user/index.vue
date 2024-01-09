@@ -13,8 +13,12 @@
           </UField>
           <UField blank>
             <div class="search-btn">
-              <UButton text="신규" :width="80" :height="34" @click="() => formActions.init(true)" />
-              <UButton text="조회" type="is-search"  @click="() => listActions.load()" />
+              <FunctionAuth functionId="new" notPermitType="disable">
+                <UButton text="신규" :width="80" :height="34" @click="() => formActions.init(true)" />
+              </FunctionAuth>
+              <FunctionAuth functionId="search" notPermitType="disable">
+                <UButton text="조회" type="is-search"  @click="() => listActions.load()" />
+              </FunctionAuth>
             </div>
           </UField>
         </UFieldRow>
@@ -67,13 +71,17 @@
       <UBox class="table-title-wrap">
         <h2 class="table-title"></h2>
         <UButtonBox class="table-buttons">
-          <UButton text="삭제" type="is-outline"
-            v-if="!formActions.isNew.value && authActions.hasApprovalStatus.value"
-            @click="() => formActions.remove()"
-          />
-          <UButton text="저장" type="is-filled" 
-            @click="() => formActions.save()"
-            v-if="formActions.isNew.value || (!formActions.isNew.value && authActions.hasApprovalStatus.value)"/>
+          <FunctionAuth functionId="delete" notPermitType="disable">
+            <UButton text="삭제" type="is-outline"
+              v-if="!formActions.isNew.value && authActions.hasApprovalStatus.value"
+              @click="() => formActions.remove()"
+            />
+          </FunctionAuth>
+          <FunctionAuth functionId="save" notPermitType="disable">
+            <UButton text="저장" type="is-filled" 
+              @click="() => formActions.save()"
+              v-if="formActions.isNew.value || (!formActions.isNew.value && authActions.hasApprovalStatus.value)"/>
+          </FunctionAuth>
         </UButtonBox>
         <ApprovalPopup
             v-model="approvalActions.opened.value"
@@ -260,6 +268,7 @@ import { UCodeComboBox } from '#ustra/nuxt-wijmo/management/components'
 import { UserCriteria, User, AuthGroup, UserApproval, useUstraManagementUser } from '#ustra/nuxt/management'
 import ApprovalPopup from '../../common/approval-popup.vue'
 import toNumber from 'lodash/toNumber'
+import FunctionAuth from '~/components/samples/function-auth/function-auth.vue'
 
 const userService = useUstraUserService()
 const authGroupService = useUstraAuthGroupService()
