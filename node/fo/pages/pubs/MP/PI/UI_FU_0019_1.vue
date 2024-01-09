@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center w-[650px]">
-    <h1 class="text-[30px] font-medium mb-[30px]">소멸 포인트 조회</h1>
+    <h1 class="text-[30px] font-medium mb-[30px]">소멸 예정 포인트</h1>
 
     <div class="w-[650px] bg-[#F4F6FA] p-[24px] rounded-[12px]">
       <div class="flex flex-col justify-center items-center mb-[20px] border-b border-[#E7E7E7] pb-4">
@@ -31,7 +31,9 @@
         <TabPanel header="통합 포인트">
           <div class="text-[15px]">통합 소멸 예정 포인트 내역입니다. (특별 포인트 제외)</div>
 
-          <div class="w-full flex flex-col rounded-[12px] border border-[#E7E7E7] mt-5 px-8 py-2">
+          <!-- 데이터 있을 경우 -->
+          <div v-if="list1?.length > 0" class="w-full flex flex-col rounded-[12px] border border-[#E7E7E7] mt-5 px-8 py-2">
+            <!--  -->
             <div v-for="(item, i) in list1" :key="i" class="flex justify-between py-6" :class="[i !== 0 ? ' border-t border-[#E7E7E7]' : '']">
               <div class="flex flex-col">
                 <span class="text-[18px] font-bold">{{ item.title }}</span>
@@ -45,13 +47,20 @@
               </div>
             </div>
           </div>
+
+          <!-- 데이터 없을 경우 -->
+          <div v-else class="empty">
+            <i ></i>
+            <span>소멸 예정 포인트 내역이 없습니다.</span>
+          </div>
         </TabPanel>
 
         <!-- 특별 포인트 -->
         <TabPanel header="특별 포인트">
           <div class="text-[15px]">특별 포인트 소멸 예정 포인트 내역입니다.</div>
 
-          <div class="w-full flex flex-col rounded-[12px] border border-[#E7E7E7] mt-5 px-8 py-2">
+          <!-- 데이터 있을 경우 -->
+          <div v-if="list2?.length > 0" class="w-full flex flex-col rounded-[12px] border border-[#E7E7E7] mt-5 px-8 py-2">
             <div v-for="(item, i) in list2" :key="i" class="flex justify-between py-6" :class="[i !== 0 ? ' border-t border-[#E7E7E7]' : '']">
               <div class="flex flex-col">
                 <span class="text-[18px] font-bold">{{ item.title }}</span>
@@ -64,6 +73,12 @@
                 </span>
               </div>
             </div>
+          </div>
+
+          <!-- 데이터 없을 경우 -->
+          <div v-else class="empty">
+            <i ></i>
+            <span>소멸 예정 포인트 내역이 없습니다.</span>
           </div>
         </TabPanel>
       </TabView>
@@ -88,11 +103,11 @@ interface ListType {
 }
 
 const list1: ListType[] = [
-  { title: '포인트 소멸', date: '2023-11-30', type: '활동 적립', pointType: 'minus', point: '-1,000' },
-  { title: '포인트 소멸', date: '2023-11-30', type: '구매 사용', pointType: 'minus', point: '-1,000' },
-  { title: '포인트 소멸', date: '2023-11-30', type: '영수증 적립', pointType: 'minus', point: '-1,000' },
-  { title: '포인트 소멸', date: '2023-11-30', type: '특별 포인트', pointType: 'minus', point: '-1,000' },
-  { title: '포인트 소멸', date: '2023-11-30', type: '유효기간 만료로 소멸', pointType: 'minus', point: '-1,000' },
+  // { title: '포인트 소멸', date: '2023-11-30', type: '활동 적립', pointType: 'minus', point: '-1,000' },
+  // { title: '포인트 소멸', date: '2023-11-30', type: '구매 사용', pointType: 'minus', point: '-1,000' },
+  // { title: '포인트 소멸', date: '2023-11-30', type: '영수증 적립', pointType: 'minus', point: '-1,000' },
+  // { title: '포인트 소멸', date: '2023-11-30', type: '특별 포인트', pointType: 'minus', point: '-1,000' },
+  // { title: '포인트 소멸', date: '2023-11-30', type: '유효기간 만료로 소멸', pointType: 'minus', point: '-1,000' },
 ];
 
 const list2: ListType[] = [
@@ -122,5 +137,23 @@ const activeTab = ref(0);
   line-height: 22.5px;
   padding: 15px 0;
   justify-content: center;
+}
+
+.empty {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888888;
+  font-weight: 500;
+  font-size: 16px;
+  
+  i {
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1292_13378)'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23C8D1E2'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20 11C19.1716 11 18.5 11.6716 18.5 12.5V22.5C18.5 23.3284 19.1716 24 20 24C20.8284 24 21.5 23.3284 21.5 22.5V12.5C21.5 11.6716 20.8284 11 20 11ZM20 26C18.8954 26 18 26.8954 18 28C18 29.1046 18.8954 30 20 30C21.1046 30 22 29.1046 22 28C22 26.8954 21.1046 26 20 26Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1292_13378'%3E%3Crect width='40' height='40' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+  }
 }
 </style>
