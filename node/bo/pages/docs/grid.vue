@@ -9,7 +9,30 @@
           <WjFlexGridColumn header="지급방법" binding="col1" width="*" />
           <WjFlexGridColumn header="지급사유" binding="col1" width="*" />
         </WjFlexGrid>
+      </div>
 
+      <div class="column is-half">
+        <h1 class="mb-4">Button Grid</h1>
+        <WjFlexGrid :itemsSource="itemsSourceGrid">
+          <WjFlexGridColumn header="No" binding="col1" width="*" />
+          <WjFlexGridColumn header="발송채널" binding="col1" width="*" />
+          <WjFlexGridColumn header="발송유형" binding="col1" width="*" />
+          <WjFlexGridColumn header="적용 시작일자" binding="col1" width="*" />
+          <WjFlexGridColumn header="적용 종료일자" binding="col1" width="*" />
+          <WjFlexGridColumn header="건별단가(원)" binding="col1" width="*" />
+          <WjFlexGridColumn header="비고" binding="col1" width="*" />
+          <WjFlexGridColumn header="이력보기" binding="col1" width="*" align="center">
+            <WjFlexGridCellTemplate cellType="Cell" >
+              <UButton text="이력보기" />
+            </WjFlexGridCellTemplate>
+          </WjFlexGridColumn>
+        </WjFlexGrid>
+      </div>
+    </div>
+
+    <!-- 2 line -->
+    <div class="columns has-gap mb-12">
+      <div class="column is-half">
         <h1 class="mt-10 mb-4">Grid Pagination</h1>
         <UButton type="primary" text="Search" @click="() => grid.pagination.loadPageData()"></UButton>
         <UButton type="primary" text="Init" @click="() => (grid.pagination.currentPageNo.value = 0)"></UButton>
@@ -22,26 +45,13 @@
           <WjFlexGridColumn binding="url" header="URL" />
           <WjFlexGridColumn binding="httpMethCd" header="Method" />
         </WjFlexGrid>
-
-
+      
         <UPaginationBar
-        v-model="grid.pagination.currentPageNo.value"
-        :pageSize="grid.pagination.pageSize.value"
-        :totalRecords="grid.pagination.totalRecords.value"
-        :showStartEndButtons="true"
-      />
-      </div>
-
-      <!-- search input -->
-      <div class="column is-half">
-        <h1 class="mb-4"></h1>
-      </div>
-    </div>
-
-    <!-- 2 line -->
-    <div class="columns has-gap mb-12">
-      <div class="column is-half">
-        <h1 class="mb-4"></h1>
+          v-model="grid.pagination.currentPageNo.value"
+          :pageSize="grid.pagination.pageSize.value"
+          :totalRecords="grid.pagination.totalRecords.value"
+          :showStartEndButtons="true"
+        />
       </div>
     </div>
 

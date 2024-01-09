@@ -2,7 +2,7 @@
   <v-navigation-drawer :width="250" color="grey-light-3" permanent border="0" :rail="!isOpenSideMenu" rail-width="60" class="ustra-side-menu">
     <div class="profile">
       <UBox direction="row" class="mb-4">
-        <v-avatar size="50"></v-avatar>
+        <!-- <v-avatar size="50"></v-avatar> -->
         <div class="profile-content">
           <p class="profile-personnel">
             <span class="profile-name">{{ user.userNm }}</span>

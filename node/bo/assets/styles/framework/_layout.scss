@@ -699,7 +699,7 @@
           }
 
           li {
-            padding-left: 18px;
+            // padding-left: 18px;
             font-weight: 500;
             color: #151515;
             position: relative;
@@ -719,17 +719,17 @@
               }
             }
 
-            &:before {
-              content: '';
-              position: absolute;
-              top: 50%;
-              left: 0;
-              transform: translateY(-50%);
-              border-radius: 50%;
-              width: 4px;
-              height: 4px;
-              background-color: #cecece;
-            }
+            // &:before {
+            //   content: '';
+            //   position: absolute;
+            //   top: 50%;
+            //   left: 0;
+            //   transform: translateY(-50%);
+            //   border-radius: 50%;
+            //   width: 4px;
+            //   height: 4px;
+            //   background-color: #cecece;
+            // }
             &:not(:last-child) {
               margin-bottom: 14px;
             }

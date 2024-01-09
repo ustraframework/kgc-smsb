@@ -70,7 +70,6 @@
               <WjTab>
                 <a>엑셀업로드</a>
                 <div class="tab-grid">
-                  <UButton text="등록" @click="() => uploadFile()" />
                   <UButton text="샘플 파일" @click="() => createFormData()" />
                   <span class="file-desc">엑셀파일만 가능하며, 파일 형식에 맞춰서 업로드 해주시기 바랍니다.</span>
                   <USingleFileUploader ref="uploader" fileGroupId="menuIcon" v-model:fileId="fileId"  class="mt-3"/>
@@ -102,7 +101,8 @@
       </UItem>
       <UItem class="pop-btn">
         <UButtonBox right top>
-          <UButton text="닫기" type="secondary" :width="80" />
+          <UButton text="닫기" type="is-outline" :width="80" />
+          <UButton text="등록" type="is-filled" />
         </UButtonBox>
       </UItem>
     </UBox>

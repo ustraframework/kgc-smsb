@@ -192,13 +192,42 @@
           <WjTab>
             <a>포인트</a>
             <div class="tab-grid">
+              <UBox class="table-title-wrap">
+                <h2 class="table-title">
+                  <span>포인트 적립/사용 내역</span>
+                </h2>
+              </UBox>
               <WjFlexGrid :itemsSource="itemsSourceGrid">
                 <WjFlexGridColumn header="No" binding="col1" width="*" />
-                <WjFlexGridColumn header="포인트 지급일" binding="col1" width="*" />
+                <WjFlexGridColumn header="승인일자" binding="col1" width="*" />
+                <WjFlexGridColumn header="승인번호" binding="col1" width="*" />
+                <WjFlexGridColumn header="카드번호" binding="col1" width="*" />
                 <WjFlexGridColumn header="포인트 유형" binding="col1" width="*" />
                 <WjFlexGridColumn header="포인트" binding="col1" width="*" />
-                <WjFlexGridColumn header="내용" binding="col1" width="*" />
-                <WjFlexGridColumn header="소멸 예정일" binding="col1" width="*" />
+                <WjFlexGridColumn header="잔여 포인트" binding="col1" width="*" />
+                <WjFlexGridColumn header="사용 포인트" binding="col1" width="*" />
+                <WjFlexGridColumn header="취소 포인트" binding="col1" width="*" />
+                <WjFlexGridColumn header="소멸 포인트" binding="col1" width="*" />
+              </WjFlexGrid>
+
+              <UBox class="table-title-wrap">
+                <h2 class="table-title">
+                  <span>소멸 예정 포인트</span>
+                </h2>
+              </UBox>
+              <WjFlexGrid :itemsSource="itemsSourceGrid">
+                <WjFlexGridColumn header="No" binding="col1" width="*" />
+                <WjFlexGridColumn header="소멸예정월" binding="col1" width="*" />
+                <WjFlexGridColumn header="발생일자" binding="col1" width="*" />
+                <WjFlexGridColumn header="유효기간" binding="col1" width="*" />
+                <WjFlexGridColumn header="소멸예상일자" binding="col1" width="*" />
+                <WjFlexGridColumn header="발생유형" binding="col1" width="*" />
+                <WjFlexGridColumn header="적립포인트" binding="col1" width="*" />
+                <WjFlexGridColumn header="소멸예정포인트" binding="col1" width="*" />
+                <WjFlexGridColumn header="매장명" binding="col1" width="*" />
+                <WjFlexGridColumn header="주문번호/영수증번호" binding="col1" width="*" />
+                <WjFlexGridColumn header="프로모션명" binding="col1" width="*" />
+                <WjFlexGridColumn header="프로모션번호" binding="col1" width="*" />
               </WjFlexGrid>
             </div>
           </WjTab>
@@ -260,45 +289,52 @@
           <WjTab>
             <a>약관동의</a>
             <div class="tab-grid">
+
+              <UBox class="table-title-wrap">
+                <h2 class="table-title">
+                  <span>약관동의 내역</span>
+                </h2>
+              </UBox>
               <WjFlexGrid :itemsSource="itemsSourceGrid">
                 <WjFlexGridColumn header="No" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원명" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원아이디" binding="col1" width="*" />
+                <WjFlexGridColumn header="채널" binding="col1" width="*" />
                 <WjFlexGridColumn header="약관유형" binding="col1" width="*" />
                 <WjFlexGridColumn header="약관명" binding="col1" width="*" />
                 <WjFlexGridColumn header="약관ID" binding="col1" width="*" />
+                <WjFlexGridColumn header="약관버전" binding="col1" width="*" />
+                <WjFlexGridColumn header="필수동의여부" binding="col1" width="*" />
                 <WjFlexGridColumn header="동의일자" binding="col1" width="*" />
-                <WjFlexGridColumn header="동의여부" binding="col1" width="*" />
                 <WjFlexGridColumn header="철회일자" binding="col1" width="*" />
-                <WjFlexGridColumn header="철회사유" binding="col1" width="*" />
+                <WjFlexGridColumn header="변경자" binding="col1" width="*" />
                 <WjFlexGridColumn header="변경일시" binding="col1" width="*" />
               </WjFlexGrid>
-            </div>
-          </WjTab>
 
-          <WjTab>
-            <a>마케팅동의</a>
-            <div class="tab-grid">
+              <UBox class="table-title-wrap">
+                <h2 class="table-title">
+                  <span>마케팅동의 내역</span>
+                </h2>
+              </UBox>
               <WjFlexGrid :itemsSource="itemsSourceGrid">
                 <WjFlexGridColumn header="No" binding="col1" width="*" />
-                <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
                 <WjFlexGridColumn header="마케팅유형" binding="col1" width="*" />
                 <WjFlexGridColumn header="동의여부" binding="col1" width="*" />
-                <WjFlexGridColumn header="동의일자" binding="col1" width="*" />
+                <WjFlexGridColumn header="동의/동의철회 일시" binding="col1" width="*" />
+                <WjFlexGridColumn header="변경자" binding="col1" width="*" />
                 <WjFlexGridColumn header="변경일시" binding="col1" width="*" />
               </WjFlexGrid>
-            </div>
-          </WjTab>
-
-          <WjTab>
-            <a>Push동의</a>
-            <div class="tab-grid">
+              
+              <UBox class="table-title-wrap">
+                <h2 class="table-title">
+                  <span>Push동의 내역</span>
+                </h2>
+              </UBox>
               <WjFlexGrid :itemsSource="itemsSourceGrid">
                 <WjFlexGridColumn header="No" binding="col1" width="*" />
                 <WjFlexGridColumn header="회원번호" binding="col1" width="*" />
                 <WjFlexGridColumn header="회원명" binding="col1" width="*" />
                 <WjFlexGridColumn header="동의여부" binding="col1" width="*" />
-                <WjFlexGridColumn header="동의일시" binding="col1" width="*" />
+                <WjFlexGridColumn header="변경자" binding="col1" width="*" />
+                <WjFlexGridColumn header="변경일시" binding="col1" width="*" />
               </WjFlexGrid>
             </div>
           </WjTab>
