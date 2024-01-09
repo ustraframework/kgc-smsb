@@ -1,5 +1,5 @@
 <template>
-  <header class="header flex-none w-full bg-transparent h-[100px] px-[120px]">
+  <header class="header flex-none w-full h-[100px] px-[120px]">
     <div class="flex justify-between min-w-[1280px] h-full">
       <router-link class="mt-[37px]" to="/">
         <img src="@/assets/images/svg/logo.svg" alt="JUNG KWAN JANG Members" />
@@ -9,12 +9,6 @@
         <router-link class="gnb__link" to="/">소개</router-link>
         <router-link class="gnb__link" to="/">마이페이지</router-link>
         <router-link class="gnb__link" to="/">고객센터</router-link>
-
-        <ul class="gnb__sub-list">
-          <li class="gnb__sub-item">
-            <router-link to="/">서브메뉴</router-link>
-          </li>
-        </ul>
       </nav>
 
       <nav class="sign-nav">
@@ -22,6 +16,24 @@
         <router-link class="gnb__link" to="/">회원가입</router-link>
       </nav>
     </div>
+
+    <!-- <nav class="sub-gnb">
+      <ul class="gnb__sub-list">
+        <li class="gnb__sub-item">
+          <router-link to="/">서브메뉴</router-link>
+        </li>
+      </ul>
+      <ul class="gnb__sub-list">
+        <li class="gnb__sub-item">
+          <router-link to="/">서브메뉴</router-link>
+        </li>
+      </ul>
+      <ul class="gnb__sub-list">
+        <li class="gnb__sub-item">
+          <router-link to="/">서브메뉴</router-link>
+        </li>
+      </ul>
+    </nav> -->
   </header>
 </template>
 
@@ -31,8 +43,10 @@ import { ref } from 'vue';
 
 <style lang="scss" scoped>
 .header {
+  position: relative;
   z-index: 10;
   position: fixed;
+  background-color: #fff;
   transition: 0.2s all;
 
   &.active {
@@ -73,6 +87,25 @@ import { ref } from 'vue';
       margin-left: 8px;
       padding-left: 8px;
     }
+  }
+}
+
+.sub-gnb {
+  min-width: 1280px;
+  position: absolute;
+  width: 100%;
+  top: 100px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .gnb__sub-item {
+    width: 160px;
+    font-weight: 700;
+    font-size: 17px;
+    text-align: center;
+    color: #000;
   }
 }
 </style>
