@@ -5,12 +5,12 @@
         <div ref="visual" class="main__visual-text">
           <span class="z-30 font-bold text-[100px] text-white">EARTH</span>
           <span class="z-10 mt-[-34px] font-semibold text-[80px] text-[#B39281] italic">To</span>
-          <span class="z-30 font-bold text-[100px] text-white" style="top: 67px;">HEALTH</span>
+          <span class="z-30 font-bold text-[100px] text-white top-[67px]">HEALTH</span>
           <img
-            :src="main_image"
+            :src="visualImageSrc"
             alt="배경 이미지"
             class="z-20 main__visual-image"
-            :style="{top: `${image_top}px`}"
+            :style="{top: `${visualImageTop || 0}px`}"
           />
         </div>
         <p class="ext-base text-white mt-[49px]">정관장은 Healthy Life Style Supporter로서건강한 삶의 기준을 제공합니다.</p>
@@ -63,9 +63,9 @@ const visual = ref(null);
 const { y: winScoll } = useScroll(document);
 const { height: visualHeight, y: visualY } = useElementBounding(visual);
 
-const mainImagesType = [top1, top2, top3, top4];
-const main_image = ref(mainImagesType[0]);
-const image_top = ref(null);
+const visualImagesType = [top1, top2, top3, top4];
+const visualImageSrc = ref(visualImagesType[0]);
+const visualImageTop = ref(null);
 const max_top = 160;
 
 const cardList = ref([
@@ -80,43 +80,39 @@ watchThrottled(
   newValue => {
     // visualY 을 3등분 해서 포인트 잡아서 이미지 바꿔줄 거임
     // visualHeight - visualY 뺀 값을 100% 로 계산해서 이동시켜 줄거임
-    // const offsetTop = document.getElementById('test').offsetTop
-
-    // top value : min: 0, max: 160
-    const _top = visualHeight.value - visualY.value - 20;
-
-    // console.log('height', visualHeight.value);
-    // console.log('y', visualY.value);
-    // console.log(offsetTop);
-    // console.log('top: ', _top);
+    const offsetTop = visual.value.offsetTop;
+    const _top = visualHeight.value - visualY.value - offsetTop;
 
     // 이미지 top pixel 변경
-    image_top.value = _top > max_top ? max_top : _top;
+    visualImageTop.value = handleChangeTopImageTop(_top);
 
     // 이미지 src 변경
-    handleChangeImage(_top);
+    visualImageSrc.value = visualImagesType[handleChangeImage(_top)];
   },
-  { throttle: 200 },
+  { throttle: 100 },
 );
 
-const handleChangeImage = (value) => {
-  if (value <= max_top * (1 / 4)) {
-    main_image.value = mainImagesType[0];
-  }
-
-  if (value > max_top * (1/4) && value <= max_top * (2/4)) {
-    main_image.value = mainImagesType[1];
-  }
-
-  if (value > max_top * (2/4) && value <= max_top * (3/4)) {
-    main_image.value = mainImagesType[2];
-  }
-
-  if (value > max_top * (3/4)) {
-    main_image.value = mainImagesType[3];
-  }
+const handleChangeTopImageTop = (value) => {
+  if ( value < 0 ) {
+    return 0;
+  } else if ( value > max_top ) {
+    return max_top;
+  } else return value;
 }
 
+const handleChangeImage = (value) => {
+  let _index = parseInt((value / (max_top / visualImagesType.length)).toFixed());
+
+  if ( _index <= 0 ) {
+    _index = 0;
+  } else if ( _index > visualImagesType.length ) {
+    _index = visualImagesType.length - 1;
+  } else {
+    _index -= 1;
+  }
+
+  return _index;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -174,6 +170,7 @@ const handleChangeImage = (value) => {
 }
 
 .main__visual-text {
+  font-family: 'Montserrat';
   position: relative;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -192,7 +189,7 @@ const handleChangeImage = (value) => {
   width: 280px;
   height: 170px;
   margin-left: -140px;
-  transition: 0.2s all;
+  transition: all 0.1s;
 }
 
 .main__contents {
@@ -316,7 +313,6 @@ const handleChangeImage = (value) => {
   height: 234px;
   background-image: url('@/assets/images/main/card2.png');
 }
-
 // =====================
 
 // == Animation ==
