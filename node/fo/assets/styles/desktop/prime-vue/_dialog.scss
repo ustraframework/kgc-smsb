@@ -1,20 +1,60 @@
 .p-dialog {
   margin: 20px;
   border-radius: 12px;
-}
 
-// header
-.p-dialog-header {
-  height: 70px;
-  padding: 0 30px;
-  border-bottom: 1px solid #e7e7e7;
-  color: #000;
-  background-color: #fff;
+  // header
+  .p-dialog-header {
+    height: 70px;
+    padding: 0 30px;
+    border-bottom: 1px solid #e7e7e7;
+    color: #000;
+    background-color: #fff;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 
-  // header title 존재하지 않을 경우
-  &:not(:has(.p-dialog-title)) {
-    border: none;
-    justify-content: flex-end;
+    // header title 존재하지 않을 경우
+    &:not(:has(.p-dialog-title)) {
+      border: none;
+      justify-content: flex-end;
+    }
+  }
+
+  // footer
+  .p-dialog-footer {
+    background-color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  &.alert {
+    .p-dialog-header {
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+    }
+
+    .p-dialog-footer {
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+    }
+
+    .p-dialog-content {
+      .alert-content-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0 30px;
+        overflow-y: auto;
+      }
+    }
+
+    .p-dialog-footer {
+      .alert-footer-inner {
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+      }
+    }
   }
 }
 
@@ -28,8 +68,8 @@
 }
 
 .p-dialog-header-close {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 
   svg {
     display: none;
@@ -64,9 +104,4 @@
       }
     }
   }
-}
-
-// footer
-.p-dialog-footer {
-  background-color: #fff;
 }
