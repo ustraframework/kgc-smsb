@@ -2,21 +2,47 @@
   <div>
     <UBox class="columns" direction="row" height="1350">
       <!-- 좌측 영역 -->
-      <UItem class="card is-sub" ratio="4" style="height: 570px">
-        <UItem :ratio="1" class="pop-contents preview">
-          <div class="img">
-            <img src="@/assets/images/preview.png" alt="">
+      <!-- 카톡미리보기 
+      <UItem class="card is-sub preview" ratio="4">
+        <div class="img">
+          <img src="@/assets/images/preview.png" alt="">
+        </div>
+        <div class="img_desc">
+          <span>기기에 따라 다르게 보일 수 있습니다.</span>
+        </div>
+        <UItem class="preview-form">
+          <span>수신번호</span>
+          <UTextBox></UTextBox>
+          <UButton text="테스트 발송하기" type="is-filled"></UButton>
+        </UItem>
+      </UItem>-->
+      <!-- // 카톡미리보기 -->
+
+      <!-- 입력 미리보기 -->
+      <UItem class="card is-sub preview write" ratio="4">
+        <div class="preview-text">
+          <div class="title">[광고] 포인트 소멸 안내입니다.</div>
+          <div class="desc">
+            홍길동 회원님,<br>안녕하세요. 회원님께서 보유하신 멤버스 포인트가 소멸될 <br>예정입니다.
+            <br><br>
+            안녕하세요. 회원님께서 보유하신 멤버스 포인트가 소멸될 <br>예정입니다.
+            <br><br>
+            단, 선포인트로 추가된 포인트는 소멸 날짜가 다를 수 있습니다.<br>회원님의 포인트는 정관장 매장에서 결제수단으로 사용하실 수 <br>있습니다. 정관장과 함께 항상 건강하시고 행복한 날 되시기 바랍니<br>다. 감사합니다.
           </div>
-          <div class="img_desc">
-            <span>기기에 따라 다르게 보일 수 있습니다.</span>
+          <div class="byte">
+            <strong>102</strong>/<span>3000</span>byte
           </div>
-          <UItem class="preview-form">
-            <span>수신번호</span>
-            <UTextBox></UTextBox>
-            <UButton text="테스트 등록하기" type="is-filled"></UButton>
-          </UItem>
+        </div>
+        <UItem class="preview-form">
+          <span>수신번호</span>
+          <UTextBox></UTextBox>
+          <UButton text="테스트 발송하기" type="is-filled"></UButton>
         </UItem>
       </UItem>
+      <!-- 입력 미리보기 -->
+
+
+      
       <!-- 우측 영역 -->
       <UItem class="card is-sub" ratio="8">
         <UBox class="table-title-wrap" direction="row">

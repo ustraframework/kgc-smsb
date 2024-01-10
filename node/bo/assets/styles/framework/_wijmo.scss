@@ -2094,12 +2094,43 @@
 }
 
 // preview
-.preview {
-  margin: 0 -20px;
-  padding: 0;
-  width: calc(100% + 40px) !important;
+.card {
+  &.preview {
+    position: relative;
+    width: 500px;
+    height: 570px !important;
+    padding: 0;
+    overflow: hidden;
+    
+  }
+  &.write {
+    height: 785px !important;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      display: inline-block;
+      width: 100px;
+      height: 8px;
+      transform: translateX(-50%);
+      border-radius: 360px;
+      background-color: #E1E1E1;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #E1E1E1;
+    }
+  }
   .img {
-    margin: 0 auto;
+    margin: 10px auto 0;
     text-align: center;
     > img {
       width: 280px;
@@ -2112,18 +2143,56 @@
       color: #8e8e8e;
     }
   }
+  .preview-text {
+    position: relative;
+    margin: 46px 20px 0;
+    height: 639px;
+    padding: 15px 0;
+    border: 1px solid #F1F1F1;
+    border-radius: 11px;
+    box-sizing: border-box;
+
+    .title {
+      padding: 0 20px 18px;
+      color: #000;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid #F1F1F1;
+    }
+    .desc {
+      padding: 30px 20px;
+    }
+    .byte {
+      position: absolute;
+      right: 20px;
+      bottom: 15px;
+      color: #808080;
+      font-size: 15px;
+      font-weight: 400;
+      
+      strong {
+        color: #000;
+        font-weight: 600;
+      }
+    }
+  }
   .preview-form {
+    position: absolute !important;
+    bottom: 0;
     display: flex;
     align-content: center;
     justify-content: center;
     height: auto !important;
-    margin-top: 35px;
-    padding: 6px 0;
-    // background-color: #f1f1f1;
+    margin-top: 20px;
+    padding: 21px 0 27px;
+    border-top: 1px solid #F1F1F1;
+    background-color: #F8F8F8;
     > span {
       display: inline-block;
       padding-right: 10px;
       vertical-align: middle;
+      color: #808080;
+      font-size: 14px;
       line-height: 32px;
     }
     .u-button {
